@@ -1,0 +1,84 @@
+Build a full-stack Next.js 14 App Router web app called MealMate.
+
+This is a personalised Indian meal planning app for 5 health condition tracks: PCOS, Diabetes, Thyroid, Pregnancy, and Kids Meals.
+
+TECH STACK:
+- Next.js 14 with App Router
+- Tailwind CSS for styling
+- Supabase for database and auth (use @supabase/supabase-js)
+- OpenAI API (gpt-4o-mini) for meal plan generation
+- Razorpay for payments
+- Mobile-first design
+
+ENVIRONMENT VARIABLES TO USE:
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY
+OPENAI_API_KEY
+RAZORPAY_KEY_ID
+RAZORPAY_KEY_SECRET
+NEXT_PUBLIC_APP_URL
+
+CREATE THIS FULL FOLDER AND FILE STRUCTURE:
+
+lib/supabase.js — Supabase browser client using NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY. Also export supabaseAdmin using SUPABASE_SERVICE_ROLE_KEY for server-side use.
+
+lib/openai.js — OpenAI client init using OPENAI_API_KEY.
+
+lib/nutrition.js — Export calculateTargets(profile) using Mifflin-St Jeor BMR formula, TDEE with activity multiplier, goal-based calorie adjustment, ICMR 2020 RDAs for calcium/iron/fibre. Export sumMealsNutrition(dishes, dishIds) that sums macros. Export getNutritionStatus(actual, target) returning green/amber/red per nutrient.
+
+lib/rules-engine.js — Export filterDishesForUser(dishes, profile) that filters by diet_type, allergies, health_flags matching active conditions, region preference, and removes disliked dishes. Export mergeConditionRules(conditions) returning the strictest nutrient cap across all active conditions.
+
+data/dishes-seed.json — 10 sample dishes with full schema: id, name, photo_url (use https://via.placeholder.com/300x200), region (array), diet_type, meal_type (array), ingredients (array of {name, grams}), macros ({cal, protein, carbs, fat, fibre, calcium, iron, sodium, sugar}), prep_time_min, health_flags ({pcos_safe, diabetes_safe, thyroid_safe, pregnancy_safe, kids_safe, low_gi, high_calcium, high_fibre, deep_fried, pregnancy_exclude}), benefits_text ({pcos, diabetes, thyroid, pregnancy, kids, general}), watch_out_text ({pcos, diabetes, thyroid, pregnancy, kids, general}), recipe_steps (array of 6 strings). Include these dishes: ragi-dosa, idli-sambar, poha, upma, dal-tadka, rajma-chawal, khichdi, paneer-bhurji, moong-dal-chilla, ragi-roti.
+
+app/layout.jsx — Root layout with Inter font, Tailwind, metadata title 'MealMate'.
+
+app/page.jsx — Simple landing page with headline 'Your personalised Indian meal plan', subheading, and a Get Started button linking to /login.
+
+app/(auth)/login/page.jsx — Email OTP login using Supabase Auth. Email input → Send OTP button → OTP input → Verify button. On success redirect to /onboarding/track if no profile exists, or /dashboard if profile exists. Show loading states and inline error messages.
+
+app/onboarding/track/page.jsx — 6 large cards to pick health track: PCOS (🌸), Diabetes (🩸), Thyroid (🦋), Pregnancy (🤰), Kids (👧), General (🍽️). Each card has emoji, title, short subtitle. Save selection to localStorage as onboarding_data. Navigate to /onboarding/basics.
+
+app/onboarding/basics/page.jsx — Inputs for name, age range (dropdown), gender (tap selector), height cm, weight kg, family size (tap selector 1/2/3-4/5+). Progress bar step 2 of 6. Save to localStorage, navigate to /onboarding/region.
+
+app/onboarding/region/page.jsx — Region picker (North/South/East/West/Northeast/Mix) and diet type picker (Pure Veg/Eggetarian/Non-Veg/Jain/Vegan). If Non-Veg show protein multi-select (Chicken/Mutton/Fish/Egg/Seafood). Progress bar step 3 of 6. Save, navigate to /onboarding/conditions.
+
+app/onboarding/conditions/page.jsx — Read track from localStorage. Show track-specific questions:
+PCOS: insulin resistance (Yes/Not sure/No), cravings frequency, goal (multi-select), medication.
+Diabetes: type, medication, biggest challenge, activity level.
+Thyroid: type, medication timing, main concern (multi-select), doctor-advised avoidances.
+Pregnancy: trimester, complications (multi-select), nausea, cravings.
+Kids: age band, allergies (multi-select), fussy about (multi-select), school tiffin needed.
+General: weight goal, activity level.
+Progress bar step 4 of 6. Save, navigate to /onboarding/favourites.
+
+app/onboarding/favourites/page.jsx — Two sections: 'Tap dishes you love' and 'Tap dishes you dislike'. Show 20 dish cards in a 3-column photo grid loaded from dishes-seed.json. Tapped cards get a coloured overlay with checkmark. Progress bar step 5 of 6. Save favourite and disliked dish IDs to localStorage. Navigate to /onboarding/cooking.
+
+app/onboarding/cooking/page.jsx — Weekday cook time selector, weekend cook time selector, allergies multi-select chips. On 'Generate My Plan' button: (1) save full onboarding data to Supabase profiles table, (2) save dish preferences to user_dish_preferences table, (3) call /api/generate-plan, (4) show animated loading screen with steps: 'Building your plan... Checking favourites... Applying health rules... Done!', (5) navigate to /dashboard. Progress bar step 6 of 6.
+
+app/dashboard/page.jsx — Main home screen. Load active meal plan and user profile from Supabase. Show: greeting with name and date, today's 4 meals (breakfast/lunch/snack/dinner) each as a card with dish name + kcal + prep time, a daily nutrition summary bar (calories progress), a condition-specific tip of the day, bottom navigation bar with Home/Week/Grocery/Profile icons.
+
+app/dashboard/week/page.jsx — Full 7-day scrollable plan. Each day has 4 meal rows. Each row shows dish name, kcal, and 3 buttons: Swap (calls /api/swap-meal), Lock (toggles, saves to Supabase), Remove. Tapping dish name navigates to /dashboard/recipe/[id]. 'Regenerate Week' button at top calls /api/generate-plan respecting locked meals.
+
+app/dashboard/recipe/[id]/page.jsx — Fetch dish by id from Supabase. Show: dish photo, name, region tag, prep time, calorie count, ingredients list, numbered recipe steps, macros table, benefits box (Good for you / Watch out from dish.benefits_text using user's track as key), 3 similar dish alternatives at bottom.
+
+app/dashboard/grocery/page.jsx — Call /api/grocery-list. Show ingredients grouped by category (Grains, Dairy, Vegetables, Pulses, Spices, Other) with quantities scaled by family_size. Checkboxes to tick off items. WhatsApp share button that formats list as text and opens wa.me.
+
+app/subscribe/page.jsx — Paywall with two pricing cards: Monthly ₹499 and Annual ₹2999 (marked Most Popular). Feature checklist. 'Start 7-day free trial' button calls /api/payment/create. Show success state after payment.
+
+app/api/generate-plan/route.js — POST. Get user profile and preferences from Supabase. Load dishes and filter using filterDishesForUser(). Build OpenAI prompt requesting 7-day × 4-meal JSON plan using only the filtered dish pool. Call gpt-4o-mini. Validate response. Save to meal_plans table. Return plan JSON.
+
+app/api/swap-meal/route.js — POST accepting {plan_id, day_index, meal_type, current_dish_id}. Find a replacement dish from filtered pool, same meal_type, not already in plan, not locked. Update plan in Supabase. Log to meal_logs. Return new dish.
+
+app/api/grocery-list/route.js — GET. Sum all ingredients across active weekly plan. Scale by family_size. Group by category. Return grouped list.
+
+app/api/payment/create/route.js — POST accepting {plan_type}. Create Razorpay order. Save to payments table. Return order details.
+
+app/api/payment/verify/route.js — POST accepting razorpay_order_id, razorpay_payment_id, razorpay_signature. Verify HMAC signature. On success update profiles.is_subscribed=true and set subscription_end_date. Return {success: true}.
+
+STYLING:
+- Mobile-first, clean white backgrounds
+- Track accent colours: PCOS rose-400, Diabetes teal-500, Thyroid emerald-400, Pregnancy orange-300, Kids yellow-400, General blue-400
+- Apply the accent colour based on user's primary_track stored in profile
+- Rounded cards, subtle shadows, large tap targets (min 44px)
+- Bottom navigation fixed at bottom on all dashboard pages
