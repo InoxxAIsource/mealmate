@@ -1,22 +1,29 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: MealMate API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: profiles
+    description: User profile operations
+  - name: dishes
+    description: Dish operations
+  - name: meal-plans
+    description: Meal plan operations
+  - name: grocery
+    description: Grocery list operations
+
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +31,204 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /profiles/me:
+    get:
+      operationId: getMyProfile
+      tags: [profiles]
+      summary: Get current user's profile
+      responses:
+        "200":
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+        "404":
+          description: Profile not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    put:
+      operationId: upsertProfile
+      tags: [profiles]
+      summary: Create or update profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpsertProfileBody"
+      responses:
+        "200":
+          description: Updated profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+
+  /dishes:
+    get:
+      operationId: listDishes
+      tags: [dishes]
+      summary: List all dishes
+      responses:
+        "200":
+          description: List of dishes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Dish"
+
+  /dishes/{id}:
+    get:
+      operationId: getDish
+      tags: [dishes]
+      summary: Get dish by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Dish
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dish"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /meal-plans/active:
+    get:
+      operationId: getActiveMealPlan
+      tags: [meal-plans]
+      summary: Get the active 7-day meal plan for the user
+      responses:
+        "200":
+          description: Active meal plan with days
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MealPlanWithDays"
+        "404":
+          description: No active plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /meal-plans/generate:
+    post:
+      operationId: generateMealPlan
+      tags: [meal-plans]
+      summary: Generate a new 7-day meal plan using AI
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerateMealPlanBody"
+      responses:
+        "200":
+          description: Generated meal plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MealPlanWithDays"
+
+  /meal-plans/swap:
+    post:
+      operationId: swapMeal
+      tags: [meal-plans]
+      summary: Swap a single meal in the plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SwapMealBody"
+      responses:
+        "200":
+          description: New dish
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dish"
+
+  /meal-plans/lock:
+    post:
+      operationId: toggleLockMeal
+      tags: [meal-plans]
+      summary: Toggle lock on a meal slot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LockMealBody"
+      responses:
+        "200":
+          description: Updated lock state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LockMealResponse"
+
+  /meal-plans/dashboard:
+    get:
+      operationId: getDashboardSummary
+      tags: [meal-plans]
+      summary: Get today's meals and nutrition summary
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+
+  /grocery-list:
+    get:
+      operationId: getGroceryList
+      tags: [grocery]
+      summary: Get grocery list for current plan
+      responses:
+        "200":
+          description: Grouped grocery list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GroceryList"
+
+  /dish-preferences:
+    put:
+      operationId: updateDishPreferences
+      tags: [profiles]
+      summary: Update favourite and disliked dish preferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DishPreferencesBody"
+      responses:
+        "200":
+          description: Updated preferences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DishPreferences"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +239,425 @@ components:
       required:
         - status
 
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+        clerkUserId:
+          type: string
+        name:
+          type: string
+          nullable: true
+        ageRange:
+          type: string
+          nullable: true
+        gender:
+          type: string
+          nullable: true
+        heightCm:
+          type: number
+          nullable: true
+        weightKg:
+          type: number
+          nullable: true
+        familySize:
+          type: string
+          nullable: true
+        primaryTrack:
+          type: string
+          nullable: true
+          enum: [pcos, diabetes, thyroid, pregnancy, kids, general]
+        region:
+          type: string
+          nullable: true
+        dietType:
+          type: string
+          nullable: true
+        proteinPreferences:
+          type: array
+          nullable: true
+          items:
+            type: string
+        conditionData:
+          type: object
+          nullable: true
+          additionalProperties: true
+        weekdayCookTime:
+          type: string
+          nullable: true
+        weekendCookTime:
+          type: string
+          nullable: true
+        allergies:
+          type: array
+          nullable: true
+          items:
+            type: string
+        onboardingComplete:
+          type: boolean
+        createdAt:
+          type: string
+      required:
+        - id
+        - clerkUserId
+        - onboardingComplete
+        - createdAt
+
+    UpsertProfileBody:
+      type: object
+      properties:
+        name:
+          type: string
+        ageRange:
+          type: string
+        gender:
+          type: string
+        heightCm:
+          type: number
+        weightKg:
+          type: number
+        familySize:
+          type: string
+        primaryTrack:
+          type: string
+          enum: [pcos, diabetes, thyroid, pregnancy, kids, general]
+        region:
+          type: string
+        dietType:
+          type: string
+        proteinPreferences:
+          type: array
+          items:
+            type: string
+        conditionData:
+          type: object
+          additionalProperties: true
+        weekdayCookTime:
+          type: string
+        weekendCookTime:
+          type: string
+        allergies:
+          type: array
+          items:
+            type: string
+        onboardingComplete:
+          type: boolean
+
+    Dish:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        photoUrl:
+          type: string
+        region:
+          type: array
+          items:
+            type: string
+        dietType:
+          type: string
+        mealType:
+          type: array
+          items:
+            type: string
+        ingredients:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ingredient"
+        macros:
+          $ref: "#/components/schemas/Macros"
+        prepTimeMin:
+          type: integer
+        healthFlags:
+          $ref: "#/components/schemas/HealthFlags"
+        benefitsText:
+          type: object
+          additionalProperties:
+            type: string
+        benefitsPcos:
+          type: string
+          nullable: true
+        benefitsDiabetes:
+          type: string
+          nullable: true
+        benefitsThyroid:
+          type: string
+          nullable: true
+        benefitsPregnancy:
+          type: string
+          nullable: true
+        benefitsKids:
+          type: string
+          nullable: true
+      required:
+        - id
+        - name
+        - photoUrl
+        - dietType
+        - prepTimeMin
+        - region
+        - mealType
+        - ingredients
+        - macros
+        - healthFlags
+
+    Ingredient:
+      type: object
+      properties:
+        name:
+          type: string
+        grams:
+          type: number
+      required:
+        - name
+        - grams
+
+    Macros:
+      type: object
+      properties:
+        cal:
+          type: number
+        protein:
+          type: number
+        carbs:
+          type: number
+        fat:
+          type: number
+        fibre:
+          type: number
+        calcium:
+          type: number
+        iron:
+          type: number
+        sodium:
+          type: number
+        sugar:
+          type: number
+      required:
+        - cal
+        - protein
+        - carbs
+        - fat
+        - fibre
+        - calcium
+        - iron
+        - sodium
+        - sugar
+
+    HealthFlags:
+      type: object
+      properties:
+        pcosSafe:
+          type: boolean
+        diabetesSafe:
+          type: boolean
+        thyroidSafe:
+          type: boolean
+        pregnancySafe:
+          type: boolean
+        kidsSafe:
+          type: boolean
+        lowGi:
+          type: boolean
+        highCalcium:
+          type: boolean
+        highFibre:
+          type: boolean
+        deepFried:
+          type: boolean
+        pregnancyExclude:
+          type: boolean
+      required:
+        - pcosSafe
+        - diabetesSafe
+        - thyroidSafe
+        - pregnancySafe
+        - kidsSafe
+        - lowGi
+        - highCalcium
+        - highFibre
+        - deepFried
+        - pregnancyExclude
+
+    MealPlanDay:
+      type: object
+      properties:
+        dayIndex:
+          type: integer
+        breakfast:
+          $ref: "#/components/schemas/Dish"
+        lunch:
+          $ref: "#/components/schemas/Dish"
+        snack:
+          $ref: "#/components/schemas/Dish"
+        dinner:
+          $ref: "#/components/schemas/Dish"
+        lockedSlots:
+          type: array
+          items:
+            type: string
+      required:
+        - dayIndex
+        - lockedSlots
+
+    MealPlanWithDays:
+      type: object
+      properties:
+        id:
+          type: integer
+        days:
+          type: array
+          items:
+            $ref: "#/components/schemas/MealPlanDay"
+        createdAt:
+          type: string
+      required:
+        - id
+        - days
+        - createdAt
+
+    GenerateMealPlanBody:
+      type: object
+      properties:
+        forceRegenerate:
+          type: boolean
+
+    SwapMealBody:
+      type: object
+      properties:
+        planId:
+          type: integer
+        dayIndex:
+          type: integer
+        mealType:
+          type: string
+          enum: [breakfast, lunch, snack, dinner]
+        currentDishId:
+          type: integer
+      required:
+        - planId
+        - dayIndex
+        - mealType
+        - currentDishId
+
+    LockMealBody:
+      type: object
+      properties:
+        planId:
+          type: integer
+        dayIndex:
+          type: integer
+        mealType:
+          type: string
+          enum: [breakfast, lunch, snack, dinner]
+        locked:
+          type: boolean
+      required:
+        - planId
+        - dayIndex
+        - mealType
+        - locked
+
+    LockMealResponse:
+      type: object
+      properties:
+        locked:
+          type: boolean
+      required:
+        - locked
+
+    DashboardSummary:
+      type: object
+      properties:
+        profile:
+          $ref: "#/components/schemas/Profile"
+        todayMeals:
+          $ref: "#/components/schemas/MealPlanDay"
+        totalCalories:
+          type: number
+        targetCalories:
+          type: number
+        tipOfDay:
+          type: string
+      required:
+        - totalCalories
+        - targetCalories
+        - tipOfDay
+
+    GroceryCategory:
+      type: object
+      properties:
+        category:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/GroceryItem"
+      required:
+        - category
+        - items
+
+    GroceryItem:
+      type: object
+      properties:
+        name:
+          type: string
+        totalGrams:
+          type: number
+        checked:
+          type: boolean
+      required:
+        - name
+        - totalGrams
+        - checked
+
+    GroceryList:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: "#/components/schemas/GroceryCategory"
+      required:
+        - categories
+
+    DishPreferencesBody:
+      type: object
+      properties:
+        favouriteDishIds:
+          type: array
+          items:
+            type: integer
+        dislikedDishIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - favouriteDishIds
+        - dislikedDishIds
+
+    DishPreferences:
+      type: object
+      properties:
+        favouriteDishIds:
+          type: array
+          items:
+            type: integer
+        dislikedDishIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - favouriteDishIds
+        - dislikedDishIds
