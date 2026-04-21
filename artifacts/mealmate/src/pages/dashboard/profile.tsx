@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { useGetMyProfile, useUpsertProfile, getGetMyProfileQueryKey } from "@workspace/api-client-react";
+import {
+  useGetMyProfile,
+  useUpsertProfile,
+  getGetMyProfileQueryKey,
+  getGetActiveMealPlanQueryKey,
+  getGetDashboardSummaryQueryKey,
+} from "@workspace/api-client-react";
 import { BottomNav } from "@/components/bottom-nav";
 import { Button } from "@/components/ui/button";
 import { useClerk } from "@clerk/react";
 import { useQueryClient } from "@tanstack/react-query";
+import { useToast } from "@/hooks/use-toast";
 import { LogOut, User, RefreshCw, X, Check, MapPin, Utensils } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -45,6 +52,7 @@ export default function DashboardProfile() {
   const { signOut } = useClerk();
   const { mutateAsync: upsertProfile, isPending } = useUpsertProfile();
 
+  const { toast } = useToast();
   const [openSheet, setOpenSheet] = useState<Sheet>(null);
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [pendingProteins, setPendingProteins] = useState<string[]>([]);
@@ -64,12 +72,26 @@ export default function DashboardProfile() {
 
   const close = () => setOpenSheet(null);
 
+  const handlePlanInvalidatedResponse = async (res: any, label: string) => {
+    await queryClient.invalidateQueries({ queryKey: getGetMyProfileQueryKey() });
+    if (res?.planInvalidated) {
+      await queryClient.invalidateQueries({ queryKey: getGetActiveMealPlanQueryKey() });
+      await queryClient.invalidateQueries({ queryKey: getGetDashboardSummaryQueryKey() });
+      toast({
+        title: `${label} updated`,
+        description: "Your dashboard will show a refresh prompt to generate a new plan.",
+      });
+    } else {
+      toast({ title: "Profile updated" });
+    }
+  };
+
   const handleTrackChange = async (trackId: string) => {
     if (trackId === profile.primaryTrack) { close(); return; }
     setPendingId(trackId);
     try {
-      await upsertProfile({ data: { primaryTrack: trackId as never } });
-      await queryClient.invalidateQueries({ queryKey: getGetMyProfileQueryKey() });
+      const res = await upsertProfile({ data: { primaryTrack: trackId as never } });
+      await handlePlanInvalidatedResponse(res, "Health track");
     } finally { setPendingId(null); close(); }
   };
 
@@ -77,8 +99,8 @@ export default function DashboardProfile() {
     if (regionId === profile.region) { close(); return; }
     setPendingId(regionId);
     try {
-      await upsertProfile({ data: { region: regionId as never } });
-      await queryClient.invalidateQueries({ queryKey: getGetMyProfileQueryKey() });
+      const res = await upsertProfile({ data: { region: regionId as never } });
+      await handlePlanInvalidatedResponse(res, "Region");
     } finally { setPendingId(null); close(); }
   };
 
@@ -92,13 +114,13 @@ export default function DashboardProfile() {
     if (!selectedDiet) return;
     setPendingId(selectedDiet);
     try {
-      await upsertProfile({
+      const res = await upsertProfile({
         data: {
           dietType: selectedDiet as never,
           proteinPreferences: (selectedDiet === "Non-Veg" ? pendingProteins : []) as never,
         },
       });
-      await queryClient.invalidateQueries({ queryKey: getGetMyProfileQueryKey() });
+      await handlePlanInvalidatedResponse(res, "Diet type");
     } finally { setPendingId(null); close(); }
   };
 

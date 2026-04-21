@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { db } from "@workspace/db";
-import { profilesTable, dishPreferencesTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { profilesTable, dishPreferencesTable, mealPlansTable } from "@workspace/db";
+import { eq, and } from "drizzle-orm";
 import { requireAuth } from "../lib/auth-middleware";
 
 const router = Router();
@@ -36,7 +36,20 @@ router.put("/profiles/me", requireAuth, async (req, res) => {
     .limit(1);
 
   let result;
+  let planInvalidated = false;
+
+  // Detect whether plan-invalidating fields are changing
+  const planFields: Array<keyof typeof body> = ["region", "primaryTrack", "dietType", "allergies"];
   if (existing[0]) {
+    const changed = planFields.some((field) => {
+      const incoming = body[field];
+      if (incoming === undefined) return false;
+      const current = existing[0][field as keyof typeof existing[0]];
+      return JSON.stringify(incoming) !== JSON.stringify(current);
+    });
+
+    const now = changed ? new Date() : undefined;
+
     const [updated] = await db
       .update(profilesTable)
       .set({
@@ -57,10 +70,25 @@ router.put("/profiles/me", requireAuth, async (req, res) => {
         allergies: body.allergies ?? existing[0].allergies,
         onboardingComplete:
           body.onboardingComplete ?? existing[0].onboardingComplete,
+        ...(now ? { planInvalidatedAt: now } : {}),
       })
       .where(eq(profilesTable.clerkUserId, clerkUserId))
       .returning();
     result = updated;
+
+    // If plan-invalidating fields changed, deactivate the active plan
+    if (changed) {
+      planInvalidated = true;
+      await db
+        .update(mealPlansTable)
+        .set({ isActive: false })
+        .where(
+          and(
+            eq(mealPlansTable.profileId, existing[0].id),
+            eq(mealPlansTable.isActive, true)
+          )
+        );
+    }
   } else {
     const [created] = await db
       .insert(profilesTable)
@@ -68,10 +96,22 @@ router.put("/profiles/me", requireAuth, async (req, res) => {
       .returning();
     result = created;
   }
+
+  const changedField = body.region ? "region"
+    : body.primaryTrack ? "health track"
+    : body.dietType ? "diet"
+    : "preferences";
+
   res.json({
-    ...result,
-    createdAt: result.createdAt.toISOString(),
-    subscriptionEndDate: result.subscriptionEndDate?.toISOString() ?? null,
+    profile: {
+      ...result,
+      createdAt: result.createdAt.toISOString(),
+      subscriptionEndDate: result.subscriptionEndDate?.toISOString() ?? null,
+    },
+    planInvalidated,
+    message: planInvalidated
+      ? `Your meal plan has been reset to match your new ${changedField} preferences. Generate your new plan from the dashboard.`
+      : "Profile updated",
   });
 });
 

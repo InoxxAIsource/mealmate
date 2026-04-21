@@ -72,23 +72,72 @@ function formatDish(d: DishRow) {
 }
 
 // Region values stored in profile → dish region tags they map to
-const REGION_MAP: Record<string, string[]> = {
-  North:     ["North", "North India", "Punjab", "Kashmir", "Pan India"],
-  South:     ["South", "South India", "Kerala", "Karnataka", "Hyderabad", "Pan India"],
-  West:      ["West", "Maharashtra", "Coastal India", "Pan India"],
-  East:      ["East", "Pan India"],
-  Northeast: ["Northeast", "East", "Pan India"],
-  Mix:       [], // empty = no filter, show all
+// Handles both short ('North') and long ('North India') forms for backward compat
+const REGION_TAGS: Record<string, string[]> = {
+  north:          ["North", "North India", "Punjab", "Rajasthan", "Kashmir", "UP", "Pan India"],
+  south:          ["South", "South India", "Kerala", "Karnataka", "Tamil Nadu", "Andhra", "Telangana", "Hyderabad", "Pan India"],
+  east:           ["East", "East India", "Bengal", "Odisha", "Jharkhand", "Pan India"],
+  west:           ["West", "West India", "Maharashtra", "Gujarat", "Goa", "Coastal India", "Pan India"],
+  northeast:      ["Northeast", "North East", "Northeast India", "Assam", "Manipur", "Meghalaya", "Nagaland", "Pan India"],
 };
 
-function filterDishesByRegion(dishes: DishRow[], region: string | null): DishRow[] {
+const REGION_MAP: Record<string, string[]> = {
+  // Short forms (existing onboarding values)
+  "North":          REGION_TAGS.north,
+  "South":          REGION_TAGS.south,
+  "East":           REGION_TAGS.east,
+  "West":           REGION_TAGS.west,
+  "Northeast":      REGION_TAGS.northeast,
+  // Long forms (new canonical values)
+  "North India":    REGION_TAGS.north,
+  "South India":    REGION_TAGS.south,
+  "East India":     REGION_TAGS.east,
+  "West India":     REGION_TAGS.west,
+  "Northeast India":REGION_TAGS.northeast,
+  // Lowercased / hyphenated variants (safety)
+  "north":          REGION_TAGS.north,
+  "south":          REGION_TAGS.south,
+  "east":           REGION_TAGS.east,
+  "west":           REGION_TAGS.west,
+  "northeast":      REGION_TAGS.northeast,
+  "north-india":    REGION_TAGS.north,
+  "south-india":    REGION_TAGS.south,
+  "east-india":     REGION_TAGS.east,
+  "west-india":     REGION_TAGS.west,
+  "northeast-india":REGION_TAGS.northeast,
+  // No-filter values
+  "Mix":     [],
+  "mix":     [],
+  "General": [],
+  "general": [],
+};
+
+function filterDishesByRegion(dishes: DishRow[], region: string | null | undefined): DishRow[] {
   if (!region) return dishes;
-  const allowed = REGION_MAP[region];
-  // "Mix" or unknown region → return all
+  const regionKey = region.trim();
+  const allowed = REGION_MAP[regionKey];
+  // Mix, General, or unknown region → no filter
   if (!allowed || allowed.length === 0) return dishes;
-  return dishes.filter((d) =>
-    (d.region as string[]).some((r) => allowed.includes(r))
-  );
+
+  const filtered = dishes.filter((d) => {
+    const tags = d.region as string[] | null;
+    if (!tags || tags.length === 0) return true; // untagged dishes always included
+    return tags.some((r) =>
+      allowed.some(
+        (a) =>
+          r.toLowerCase().includes(a.toLowerCase()) ||
+          a.toLowerCase().includes(r.toLowerCase())
+      )
+    );
+  });
+
+  // Safety: if filter is too aggressive (< 15 dishes), fall back to full pool
+  if (filtered.length < 15) {
+    console.warn(`Region filter "${region}" returned only ${filtered.length} dishes — falling back to full pool`);
+    return dishes;
+  }
+
+  return filtered;
 }
 
 function filterDishesByTrack(dishes: DishRow[], track: string | null) {
@@ -263,7 +312,11 @@ router.get("/meal-plans/active", requireAuth, async (req, res) => {
   }
 
   const allDishes = await db.select().from(dishesTable);
-  res.json(await hydratePlan(plan[0], allDishes));
+  const hydratedPlan = await hydratePlan(plan[0], allDishes);
+  const planIsStale = profile[0].planInvalidatedAt
+    ? plan[0].createdAt < profile[0].planInvalidatedAt
+    : false;
+  res.json({ ...hydratedPlan, planIsStale });
 });
 
 router.post("/meal-plans/generate", requireAuth, async (req, res) => {
@@ -498,6 +551,10 @@ router.get("/meal-plans/dashboard", requireAuth, async (req, res) => {
       "Staying hydrated helps digestion — aim for 8 glasses of water spread through the day.",
   };
 
+  const planIsStale = plan[0] && profile[0].planInvalidatedAt
+    ? plan[0].createdAt < profile[0].planInvalidatedAt
+    : false;
+
   res.json({
     profile: {
       ...profile[0],
@@ -508,6 +565,7 @@ router.get("/meal-plans/dashboard", requireAuth, async (req, res) => {
     todayMeals,
     totalCalories,
     targetCalories,
+    planIsStale,
     tipOfDay: tips[profile[0].primaryTrack ?? "general"] ?? tips.general,
   });
 });

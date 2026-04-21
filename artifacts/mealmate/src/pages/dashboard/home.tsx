@@ -11,6 +11,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
 import { NotificationPrompt } from "@/components/notification-prompt";
+import { StalePlanBanner } from "@/components/stale-plan-banner";
 import { Link } from "wouter";
 import { Clock, Flame, ChevronRight, ArrowLeftRight, Loader2 } from "lucide-react";
 
@@ -64,6 +65,15 @@ export default function DashboardHome() {
             {new Date().toLocaleDateString("en-IN", { weekday: "long", month: "short", day: "numeric" })}
           </p>
         </div>
+
+        {/* Stale plan banner — shown when region/track/diet changed */}
+        {(plan as any)?.planIsStale && (
+          <StalePlanBanner
+            region={summary.profile?.region}
+            track={summary.profile?.primaryTrack}
+            planInvalidatedAt={(summary.profile as any)?.planInvalidatedAt}
+          />
+        )}
 
         {/* Calorie bar */}
         <div className="bg-card border border-border shadow-sm rounded-2xl p-4 space-y-3">

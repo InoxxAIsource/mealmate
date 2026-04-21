@@ -31,6 +31,7 @@ export const profilesTable = pgTable("profiles", {
   onboardingComplete: boolean("onboarding_complete").default(false).notNull(),
   isSubscribed: boolean("is_subscribed").default(false).notNull(),
   subscriptionEndDate: timestamp("subscription_end_date"),
+  planInvalidatedAt: timestamp("plan_invalidated_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

@@ -1,0 +1,412 @@
+Fix a critical bug in the MealCoreAI app (formerly 
+MealMate). The repo is a pnpm monorepo:
+- artifacts/mealmate/ — React 19 + Vite frontend
+- artifacts/api-server/ — Express 5 TypeScript backend
+- lib/db/ — Drizzle ORM (profilesTable, dishesTable, 
+  mealPlansTable, dishPreferencesTable)
+
+THE BUG:
+When a user changes their region in the profile page 
+(e.g. from Northeast to North India), the profile 
+updates correctly in the database but the dashboard 
+still shows dishes from the OLD region because the 
+existing active meal plan is not refreshed.
+
+The REGION_MAP in meal-plans.ts works correctly 
+during plan generation. The problem is that after a 
+profile region change, no new plan is generated. 
+The old plan with old regional dishes remains active.
+
+Same bug applies when user changes:
+- Region (Northeast → North India → South India etc.)
+- Primary health track (PCOS → Diabetes etc.)
+- Diet type (Veg → Non-Veg etc.)
+
+══════════════════════════════════════
+FIX 1 — DATABASE: Add regionUpdatedAt field
+══════════════════════════════════════
+
+In lib/db/src/schema/profiles.ts add a new column:
+planInvalidatedAt: timestamp('plan_invalidated_at')
+
+This timestamp records the last time any profile 
+change was made that should trigger a new meal plan. 
+Defaults to null.
+
+Run the Drizzle migration after adding this column:
+pnpm --filter @mealcoreai/db drizzle-kit generate
+pnpm --filter @mealcoreai/db drizzle-kit migrate
+
+══════════════════════════════════════
+FIX 2 — BACKEND: Profile update triggers 
+plan invalidation
+══════════════════════════════════════
+
+In artifacts/api-server/src/routes/profiles.ts 
+update the PUT /profiles/me endpoint:
+
+After a successful profile upsert, check if ANY 
+of these fields changed compared to the current 
+profile value:
+- region
+- primaryTrack  
+- dietType
+- allergies
+
+If ANY of them changed:
+1. Set planInvalidatedAt = new Date() on the 
+   profile record
+2. Find the current active meal plan for this user
+   (where isActive = true)
+3. Set that meal plan's isActive = false 
+   (deactivate it)
+4. Return the response with a new field:
+   planInvalidated: true
+   so the frontend knows to show a refresh prompt
+
+The response shape from PUT /profiles/me should be:
+{
+  profile: { ...updatedProfile },
+  planInvalidated: boolean,
+  message: string  
+}
+
+When planInvalidated is true, set message to:
+'Your meal plan has been reset to match your 
+new [region/track/diet] preferences. Generate 
+your new plan from the dashboard.'
+
+══════════════════════════════════════
+FIX 3 — BACKEND: Dashboard endpoint 
+detects stale plan
+══════════════════════════════════════
+
+In artifacts/api-server/src/routes/meal-plans.ts 
+update the GET /meal-plans/dashboard endpoint:
+
+After fetching the active meal plan, add a 
+staleness check:
+
+const profile = /* existing profile fetch */
+const activePlan = /* existing plan fetch */
+
+// Check if plan was generated before the last 
+// profile-changing update
+const planIsStale = activePlan && 
+  profile.planInvalidatedAt && 
+  new Date(activePlan.createdAt) < 
+  new Date(profile.planInvalidatedAt)
+
+Add planIsStale: boolean to the dashboard 
+response object.
+
+Also update GET /meal-plans/active to include 
+planIsStale in its response using the same logic.
+
+══════════════════════════════════════
+FIX 4 — BACKEND: Fix the REGION_MAP to 
+cover all region values stored in profile
+══════════════════════════════════════
+
+In artifacts/api-server/src/routes/meal-plans.ts 
+update REGION_MAP to handle ALL possible region 
+string values that come from the profile (including 
+what the onboarding saves vs what the profile 
+edit saves — these must match exactly):
+
+const REGION_MAP: Record<string, string[]> = {
+  // Exact strings from onboarding track picker:
+  'North': ['North', 'North India', 'Punjab', 
+    'Rajasthan', 'Kashmir', 'UP', 'Pan India'],
+  'North India': ['North', 'North India', 'Punjab',
+    'Rajasthan', 'Kashmir', 'UP', 'Pan India'],
+  'north': ['North', 'North India', 'Punjab',
+    'Rajasthan', 'Kashmir', 'UP', 'Pan India'],
+  'north-india': ['North', 'North India', 'Punjab',
+    'Rajasthan', 'Kashmir', 'UP', 'Pan India'],
+  
+  'South': ['South', 'South India', 'Kerala',
+    'Karnataka', 'Tamil Nadu', 'Andhra', 
+    'Telangana', 'Hyderabad', 'Pan India'],
+  'South India': ['South', 'South India', 'Kerala',
+    'Karnataka', 'Tamil Nadu', 'Andhra',
+    'Telangana', 'Hyderabad', 'Pan India'],
+  'south': ['South', 'South India', 'Kerala',
+    'Karnataka', 'Tamil Nadu', 'Andhra',
+    'Telangana', 'Hyderabad', 'Pan India'],
+  'south-india': ['South', 'South India', 'Kerala',
+    'Karnataka', 'Tamil Nadu', 'Andhra',
+    'Telangana', 'Hyderabad', 'Pan India'],
+  
+  'East': ['East', 'East India', 'Bengal', 
+    'Odisha', 'Jharkhand', 'Pan India'],
+  'East India': ['East', 'East India', 'Bengal',
+    'Odisha', 'Jharkhand', 'Pan India'],
+  'east': ['East', 'East India', 'Bengal',
+    'Odisha', 'Jharkhand', 'Pan India'],
+  'east-india': ['East', 'East India', 'Bengal',
+    'Odisha', 'Jharkhand', 'Pan India'],
+  
+  'West': ['West', 'West India', 'Maharashtra',
+    'Gujarat', 'Goa', 'Coastal India', 'Pan India'],
+  'West India': ['West', 'West India', 'Maharashtra',
+    'Gujarat', 'Goa', 'Coastal India', 'Pan India'],
+  'west': ['West', 'West India', 'Maharashtra',
+    'Gujarat', 'Goa', 'Coastal India', 'Pan India'],
+  'west-india': ['West', 'West India', 'Maharashtra',
+    'Gujarat', 'Goa', 'Coastal India', 'Pan India'],
+  
+  'Northeast': ['Northeast', 'North East', 
+    'Northeast India', 'Assam', 'Manipur',
+    'Meghalaya', 'Nagaland', 'Pan India'],
+  'Northeast India': ['Northeast', 'North East',
+    'Northeast India', 'Assam', 'Manipur',
+    'Meghalaya', 'Nagaland', 'Pan India'],
+  'northeast': ['Northeast', 'North East',
+    'Northeast India', 'Assam', 'Manipur',
+    'Meghalaya', 'Nagaland', 'Pan India'],
+  'northeast-india': ['Northeast', 'North East',
+    'Northeast India', 'Assam', 'Manipur',
+    'Meghalaya', 'Nagaland', 'Pan India'],
+  
+  'Mix': [],
+  'mix': [],
+  'General': [],
+  'general': [],
+}
+
+Also update filterDishesByRegion() to handle the 
+case where REGION_MAP returns undefined for an 
+unknown region value — fall back to returning all 
+dishes rather than returning empty array:
+
+function filterDishesByRegion(
+  dishes: Dish[], 
+  region: string | null | undefined
+): Dish[] {
+  if (!region) return dishes
+  
+  const regionKey = region.trim()
+  const allowedRegions = REGION_MAP[regionKey]
+  
+  // If region not in map OR Mix/General, 
+  // return all dishes
+  if (!allowedRegions || allowedRegions.length === 0) {
+    return dishes
+  }
+  
+  const filtered = dishes.filter(dish => {
+    if (!dish.region || dish.region.length === 0) {
+      return true // include dishes with no region tag
+    }
+    return dish.region.some(r => 
+      allowedRegions.some(allowed => 
+        r.toLowerCase().includes(allowed.toLowerCase()) ||
+        allowed.toLowerCase().includes(r.toLowerCase())
+      )
+    )
+  })
+  
+  // Safety fallback: if filter is too aggressive 
+  // and returns less than 15 dishes, fall back to 
+  // all dishes to avoid empty plans
+  if (filtered.length < 15) {
+    console.warn(
+      `Region filter for "${region}" returned only 
+      ${filtered.length} dishes. Falling back to 
+      full dish pool.`
+    )
+    return dishes
+  }
+  
+  return filtered
+}
+
+══════════════════════════════════════
+FIX 5 — FRONTEND: Show region-change 
+banner and refresh prompt
+══════════════════════════════════════
+
+In artifacts/mealmate/src/pages/dashboard/ find 
+the main dashboard home page component.
+
+After fetching dashboard data, check the 
+planIsStale field in the response.
+
+If planIsStale is true, show a sticky banner 
+at the TOP of the dashboard (above today's meals), 
+styled with the user's track accent colour:
+
+<StalePlanBanner 
+  region={profile.region}
+  onRegenerate={handleRegenerate}  
+/>
+
+Create artifacts/mealmate/src/components/
+StalePlanBanner.tsx:
+
+Props: { 
+  region: string, 
+  track: string,
+  onRegenerate: () => void,
+  isLoading: boolean 
+}
+
+Renders a dismissible banner:
+┌────────────────────────────────────────────┐
+│ 🔄  Your region changed to [North India]   │
+│ Refresh your plan to see [North Indian]    │
+│ dishes personalised for your [PCOS] track  │
+│                                            │
+│ [Get New Plan]  [Keep Current Plan]        │
+└────────────────────────────────────────────┘
+
+Styling:
+- Background: track accent colour at 10% opacity
+- Border left: 3px solid track accent colour
+- Two buttons: primary 'Get New Plan' calls 
+  onRegenerate, secondary 'Keep Current Plan' 
+  dismisses banner (saves dismissal to 
+  localStorage so it doesn't reappear same session)
+
+The onRegenerate function should:
+1. Call the generate plan API mutation
+2. Invalidate the meal plan queries in React Query 
+   so all dashboard data refreshes
+3. Show a loading state on the banner button
+4. On success: hide banner and show toast 
+   'New [North Indian] plan ready!'
+5. On error: show toast 'Could not generate plan. 
+   Try again.'
+
+══════════════════════════════════════
+FIX 6 — FRONTEND: Profile page — 
+invalidate plan queries after region change
+══════════════════════════════════════
+
+In artifacts/mealmate/src/pages/dashboard/
+profile.tsx find the handleRegionChange function.
+
+After the upsertProfile mutation succeeds, 
+check the response for planInvalidated: true.
+
+If planInvalidated is true:
+1. Call queryClient.invalidateQueries on ALL 
+   meal plan related query keys:
+   - the active meal plan query
+   - the dashboard query
+   - the weekly plan query
+2. Show a toast notification:
+   '✅ Region updated to [new region]. 
+   Your dashboard will show a refresh prompt.'
+3. Do NOT auto-regenerate — let the user choose 
+   via the StalePlanBanner on dashboard
+
+If planInvalidated is false (region was same 
+or non-plan fields changed):
+   Show toast: '✅ Profile updated'
+
+Also apply the same pattern for:
+- handleTrackChange (primary track change)
+- handleDietChange (diet type change)
+
+══════════════════════════════════════
+FIX 7 — FRONTEND: Weekly plan page —
+show region mismatch warning
+══════════════════════════════════════
+
+In the weekly plan page 
+(artifacts/mealmate/src/pages/dashboard/week.tsx 
+or similar):
+
+If planIsStale is true from the active plan 
+response, show a smaller inline warning at top:
+
+'⚠️ This plan was created for [old region]. 
+ Tap Regenerate to get [new region] dishes.'
+
+The existing Regenerate Week button should 
+already work correctly since it calls 
+/meal-plans/generate which uses the current 
+profile region. Just make sure after regeneration 
+the planIsStale flag is cleared — this happens 
+automatically because:
+- New plan createdAt > planInvalidatedAt
+- So the staleness check returns false
+
+══════════════════════════════════════
+FIX 8 — FRONTEND: Onboarding region 
+screen consistency check
+══════════════════════════════════════
+
+In artifacts/mealmate/src/pages/onboarding/
+region.tsx:
+
+Check what string values are being saved to the 
+profile for region. Log the exact string that 
+is sent in the upsertProfile call.
+
+The region values MUST exactly match one of the 
+keys in REGION_MAP on the backend. 
+
+Update the region options to use these exact 
+string values consistently between onboarding 
+and profile edit:
+'North India' | 'South India' | 'East India' | 
+'West India' | 'Northeast India' | 'Mix'
+
+These exact strings must be used in BOTH:
+1. The onboarding region page when saving profile
+2. The profile edit region change handler
+3. The REGION_MAP keys on the backend
+
+This eliminates the case mismatch and hyphen 
+mismatch issues between onboarding and profile 
+edit that caused some regions to not filter 
+correctly.
+
+══════════════════════════════════════
+TESTING CHECKLIST — verify all 8 fixes
+══════════════════════════════════════
+
+After implementing all fixes, manually test:
+
+Test 1 — Region change shows new dishes:
+1. Sign in, complete onboarding with Northeast
+2. Confirm dashboard shows Northeast/Pan India dishes
+3. Go to Profile → change region to North India
+4. Return to Dashboard
+5. EXPECTED: StalePlanBanner appears saying 
+   region changed to North India
+6. Tap 'Get New Plan'
+7. EXPECTED: Plan regenerates with North Indian 
+   dishes (dal makhani, rajma, paratha etc.)
+8. EXPECTED: No Northeast-specific dishes in plan
+
+Test 2 — Track change shows correct dishes:
+1. Change primary track from PCOS to Diabetes
+2. Return to Dashboard  
+3. EXPECTED: StalePlanBanner appears
+4. Tap Get New Plan
+5. EXPECTED: Plan has diabetesSafe=true AND 
+   lowGi=true dishes only
+
+Test 3 — Keep Current Plan dismissal:
+1. Change region, see StalePlanBanner
+2. Tap 'Keep Current Plan'
+3. EXPECTED: Banner dismisses, old plan stays
+4. Refresh page
+5. EXPECTED: Banner does NOT reappear 
+   (localStorage dismissed state persists)
+
+Test 4 — Region filter fallback:
+1. If a region has fewer than 15 matching dishes
+2. EXPECTED: Falls back to full dish pool 
+   (no empty or broken plan)
+
+Test 5 — Consistency between onboarding 
+and profile edit:
+1. Onboard with South India
+2. Edit profile to change to North India
+3. EXPECTED: Both save the same format string 
+   that matches REGION_MAP keys exactly

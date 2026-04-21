@@ -12,7 +12,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
 import { Link } from "wouter";
-import { RefreshCw, Lock, Unlock, ArrowLeftRight, Loader2, Sparkles, Check } from "lucide-react";
+import { RefreshCw, Lock, Unlock, ArrowLeftRight, Loader2, Sparkles, Check, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -291,6 +291,17 @@ export default function DashboardWeek() {
         </div>
 
         <div className="px-4 pt-4 space-y-6">
+          {/* Stale plan inline warning */}
+          {(plan as any).planIsStale && (
+            <div className="flex items-start gap-2.5 bg-amber-50 border border-amber-200 rounded-xl px-3.5 py-3">
+              <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
+              <p className="text-xs text-amber-800 leading-snug">
+                This plan was created before your last preference change.
+                Tap <strong>New Plan</strong> to get updated dishes.
+              </p>
+            </div>
+          )}
+
           {plan.days.map((day) => (
             <div key={day.dayIndex}>
               <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2 px-1">
