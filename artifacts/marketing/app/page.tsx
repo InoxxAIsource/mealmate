@@ -14,6 +14,24 @@ import {
   ArrowRight,
   Star,
   ChevronRight,
+  ClipboardList,
+  Wand2,
+  ChefHat,
+  Activity,
+  Droplets,
+  Zap,
+  Heart,
+  Baby,
+  HeartPulse,
+  UtensilsCrossed,
+  ShieldCheck,
+  Stethoscope,
+  Sunrise,
+  Sun,
+  Apple,
+  Moon,
+  Flame,
+  Clock,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -72,42 +90,54 @@ const softwareAppLd = {
 
 const TRACKS = [
   {
-    emoji: "🌸",
+    icon: <Activity className="h-6 w-6" />,
+    iconColor: "text-rose-500 bg-rose-50",
+    badgeColor: "bg-rose-50 border-rose-200 text-rose-700",
     name: "PCOS",
     benefit: "Hormone-friendly, low-GI Indian meals that reduce insulin resistance",
     href: "/pcos-meal-plan",
     color: "rose",
   },
   {
-    emoji: "💙",
+    icon: <Droplets className="h-6 w-6" />,
+    iconColor: "text-teal-500 bg-teal-50",
+    badgeColor: "bg-teal-50 border-teal-200 text-teal-700",
     name: "Diabetes",
     benefit: "Low-GI, high-fibre meals for stable blood sugar all day",
     href: "/diabetes-meal-plan",
     color: "teal",
   },
   {
-    emoji: "🦋",
+    icon: <Zap className="h-6 w-6" />,
+    iconColor: "text-emerald-500 bg-emerald-50",
+    badgeColor: "bg-emerald-50 border-emerald-200 text-emerald-700",
     name: "Thyroid",
     benefit: "Selenium and iodine-rich Indian food for thyroid support",
     href: "/thyroid-diet-plan",
     color: "emerald",
   },
   {
-    emoji: "🤰",
+    icon: <Heart className="h-6 w-6" />,
+    iconColor: "text-orange-500 bg-orange-50",
+    badgeColor: "bg-orange-50 border-orange-200 text-orange-700",
     name: "Pregnancy",
     benefit: "Trimester-wise nutrition with iron, folate, and calcium",
     href: "/pregnancy-meal-plan",
     color: "orange",
   },
   {
-    emoji: "🧒",
+    icon: <Baby className="h-6 w-6" />,
+    iconColor: "text-yellow-500 bg-yellow-50",
+    badgeColor: "bg-yellow-50 border-yellow-200 text-yellow-700",
     name: "Kids",
     benefit: "Nutrient-dense tiffin and dinner ideas for ages 2–12",
     href: "/kids-meal-plan",
     color: "yellow",
   },
   {
-    emoji: "❤️",
+    icon: <HeartPulse className="h-6 w-6" />,
+    iconColor: "text-purple-500 bg-purple-50",
+    badgeColor: "bg-purple-50 border-purple-200 text-purple-700",
     name: "Cholesterol",
     benefit: "Heart-healthy, low-saturated-fat Indian meals rich in omega-3",
     href: "/cholesterol-diet-plan",
@@ -159,8 +189,7 @@ const TESTIMONIALS = [
     name: "Priya S.",
     location: "Bangalore",
     track: "PCOS",
-    trackEmoji: "🌸",
-    trackColor: "text-rose-600 bg-rose-50",
+    trackColor: "text-rose-600 bg-rose-50 border-rose-200",
     text: "I've had PCOS for 4 years and tried every diet. MealCoreAI finally gave me a plan that makes sense — South Indian food I already love, but properly balanced for my hormones. My cycles are more regular after 3 months.",
     rating: 5,
   },
@@ -168,8 +197,7 @@ const TESTIMONIALS = [
     name: "Ramesh K.",
     location: "Chennai",
     track: "Diabetes",
-    trackEmoji: "💙",
-    trackColor: "text-teal-700 bg-teal-50",
+    trackColor: "text-teal-700 bg-teal-50 border-teal-200",
     text: "My HbA1c dropped from 8.2 to 6.9 in four months. The app generates low-GI South Indian meals that fit my routine exactly. The grocery list saves my wife an hour every Sunday.",
     rating: 5,
   },
@@ -177,8 +205,7 @@ const TESTIMONIALS = [
     name: "Anita M.",
     location: "Mumbai",
     track: "Pregnancy",
-    trackEmoji: "🤰",
-    trackColor: "text-orange-700 bg-orange-50",
+    trackColor: "text-orange-700 bg-orange-50 border-orange-200",
     text: "My gynaecologist was impressed with my haemoglobin levels at week 28. MealCoreAI made sure I got iron and folate every day through food I actually enjoyed. Highly recommend for expecting mothers.",
     rating: 5,
   },
@@ -187,32 +214,36 @@ const TESTIMONIALS = [
 const STEPS = [
   {
     n: "1",
-    icon: "⚡",
+    icon: <ClipboardList className="h-8 w-8 text-orange-500" />,
     title: "Tell us about yourself",
     desc: "A 90-second onboarding covers your health condition, region, diet type, family size, and how much time you have to cook each day.",
   },
   {
     n: "2",
-    icon: "🤖",
+    icon: <Wand2 className="h-8 w-8 text-orange-500" />,
     title: "Get your AI-powered weekly plan",
     desc: "Our GPT-4 powered engine instantly generates a 7-day Indian meal plan — personalised to your health track, preferences, and schedule.",
   },
   {
     n: "3",
-    icon: "✅",
+    icon: <ChefHat className="h-8 w-8 text-orange-500" />,
     title: "Cook with confidence — swap, lock, repeat",
     desc: "Follow your plan, lock meals you love, swap ones you don't. Regenerate each week. Your plan improves the more you use it.",
   },
 ];
 
-const trackColorMap: Record<string, string> = {
-  rose: "bg-rose-50 border-rose-200 text-rose-700",
-  teal: "bg-teal-50 border-teal-200 text-teal-700",
-  emerald: "bg-emerald-50 border-emerald-200 text-emerald-700",
-  orange: "bg-orange-50 border-orange-200 text-orange-700",
-  yellow: "bg-yellow-50 border-yellow-200 text-yellow-700",
-  purple: "bg-purple-50 border-purple-200 text-purple-700",
-};
+const MEAL_TIMES = [
+  { meal: "Breakfast", dish: "Ragi Dosa + Coconut Chutney", cal: "285 kcal", time: "20 min", icon: <Sunrise className="h-5 w-5 text-orange-400" /> },
+  { meal: "Lunch", dish: "Moong Dal + Bajra Roti + Salad", cal: "410 kcal", time: "30 min", icon: <Sun className="h-5 w-5 text-yellow-500" /> },
+  { meal: "Snack", dish: "Walnuts + Amla Juice", cal: "115 kcal", time: "2 min", icon: <Apple className="h-5 w-5 text-green-500" /> },
+  { meal: "Dinner", dish: "Palak Paneer + Jowar Roti", cal: "390 kcal", time: "25 min", icon: <Moon className="h-5 w-5 text-indigo-400" /> },
+];
+
+const SOCIAL_PROOF = [
+  { icon: <UtensilsCrossed className="h-5 w-5 text-orange-400" />, text: "10,000+ meal plans generated" },
+  { icon: <Stethoscope className="h-5 w-5 text-orange-400" />, text: "Reviewed by certified dietitians" },
+  { icon: <ShieldCheck className="h-5 w-5 text-orange-400" />, text: "PCOS · Diabetes · Thyroid · Pregnancy · Kids" },
+];
 
 export default function HomePage() {
   return (
@@ -273,9 +304,9 @@ export default function HomePage() {
                 <Link
                   key={t.name}
                   href={t.href}
-                  className={`track-badge ${trackColorMap[t.color]} hover:opacity-80 transition-opacity`}
+                  className={`track-badge ${t.badgeColor} hover:opacity-80 transition-opacity`}
                 >
-                  {t.emoji} {t.name}
+                  {t.name}
                 </Link>
               ))}
             </div>
@@ -292,19 +323,14 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-6 grid grid-cols-2 gap-3">
-                {[
-                  { meal: "Breakfast", dish: "Ragi Dosa + Coconut Chutney", cal: "285 kcal", time: "20 min", icon: "🌅" },
-                  { meal: "Lunch", dish: "Moong Dal + Bajra Roti + Salad", cal: "410 kcal", time: "30 min", icon: "☀️" },
-                  { meal: "Snack", dish: "Walnuts + Amla Juice", cal: "115 kcal", time: "2 min", icon: "🥜" },
-                  { meal: "Dinner", dish: "Palak Paneer + Jowar Roti", cal: "390 kcal", time: "25 min", icon: "🌙" },
-                ].map(({ meal, dish, cal, time, icon }) => (
+                {MEAL_TIMES.map(({ meal, dish, cal, time, icon }) => (
                   <div key={meal} className="bg-gray-50 rounded-2xl p-4">
-                    <div className="text-xl mb-2">{icon}</div>
+                    <div className="mb-2">{icon}</div>
                     <div className="text-xs font-semibold text-orange-500 uppercase tracking-wide mb-1">{meal}</div>
                     <div className="text-sm font-bold text-gray-800 leading-tight mb-2">{dish}</div>
-                    <div className="flex gap-2 text-xs text-gray-500">
-                      <span>🔥 {cal}</span>
-                      <span>⏱ {time}</span>
+                    <div className="flex items-center gap-3 text-xs text-gray-500">
+                      <span className="flex items-center gap-1"><Flame className="h-3 w-3 text-orange-400" />{cal}</span>
+                      <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{time}</span>
                     </div>
                   </div>
                 ))}
@@ -329,13 +355,9 @@ export default function HomePage() {
       <section className="bg-gray-950 py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center sm:text-left">
-            {[
-              { icon: "🍽️", text: "10,000+ meal plans generated" },
-              { icon: "👩‍⚕️", text: "Reviewed by certified dietitians" },
-              { icon: "🏥", text: "PCOS · Diabetes · Thyroid · Pregnancy · Kids" },
-            ].map(({ icon, text }) => (
+            {SOCIAL_PROOF.map(({ icon, text }) => (
               <div key={text} className="flex items-center gap-3">
-                <span className="text-2xl">{icon}</span>
+                {icon}
                 <span className="text-gray-300 text-sm font-medium">{text}</span>
               </div>
             ))}
@@ -359,7 +381,7 @@ export default function HomePage() {
             <div className="hidden md:block absolute top-10 left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-0.5 bg-gradient-to-r from-orange-200 via-orange-300 to-orange-200" />
             {STEPS.map(({ n, icon, title, desc }) => (
               <div key={n} className="relative text-center">
-                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-orange-50 border-2 border-orange-100 mb-5 text-3xl mx-auto">
+                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-orange-50 border-2 border-orange-100 mb-5 mx-auto">
                   {icon}
                   <span className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-orange-500 text-white text-xs font-black flex items-center justify-center">
                     {n}
@@ -391,7 +413,9 @@ export default function HomePage() {
                 key={t.name}
                 className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
-                <div className="text-4xl mb-4">{t.emoji}</div>
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-4 ${t.iconColor}`}>
+                  {t.icon}
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.name}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed mb-5">{t.benefit}</p>
                 <Link
@@ -445,7 +469,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map(({ name, location, track, trackEmoji, trackColor, text, rating }) => (
+            {TESTIMONIALS.map(({ name, location, track, trackColor, text, rating }) => (
               <div key={name} className="bg-white rounded-2xl p-6 shadow-sm border border-orange-50 flex flex-col">
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: rating }).map((_, i) => (
@@ -462,7 +486,7 @@ export default function HomePage() {
                     <div className="text-xs text-gray-400">{location}</div>
                   </div>
                   <span className={`ml-auto text-xs font-medium px-2.5 py-1 rounded-full border ${trackColor}`}>
-                    {trackEmoji} {track}
+                    {track}
                   </span>
                 </div>
               </div>
@@ -536,35 +560,28 @@ export default function HomePage() {
                 href={`${APP_URL}/sign-up`}
                 className="block text-center py-3 px-6 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-colors"
               >
-                Start Free Trial
+                Start Pro Free for 14 Days
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── FINAL CTA ──────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-950 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-5xl mb-6">🍛</div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-5">
-            Your Health Starts at Your Core
+      {/* ─── FINAL CTA ─────────────────────────────────────────── */}
+      <section className="py-24 bg-gray-950">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
+            Your personalised Indian meal plan is one click away
           </h2>
-          <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
-            Join thousands of Indians taking control of their health — one personalised meal at a time.
+          <p className="text-lg text-gray-400 mb-8">
+            Free to start. No dietitian needed. No credit card required.
           </p>
           <a
             href={`${APP_URL}/sign-up`}
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg transition-colors shadow-xl shadow-orange-900/30"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg transition-colors shadow-lg shadow-orange-900/30"
           >
-            Get My Personalised Meal Plan <ArrowRight className="h-5 w-5" />
+            Get My Free Meal Plan <ArrowRight className="h-5 w-5" />
           </a>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-            {["✓ Free forever", "✓ 8 health tracks", "✓ 500+ Indian dishes", "✓ Daily reminders"].map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
         </div>
       </section>
     </>
