@@ -120,3 +120,63 @@ id = "8mvV5_pkP5ge1jX1-ahm6"
 uri = "file://attached_assets/dishes/beetroot-raita.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "kL22IcbP2nnVbZ1J2N0V-"
+uri = "file://artifacts/mealmate/public/dishes/paneer-fried-rice.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "xPi5RwfBy3YLi5Z0N7Fbb"
+uri = "file://artifacts/mealmate/public/dishes/aloo-paratha.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "lrHGLwIMGFF-Ero4WqxsI"
+uri = "file://artifacts/mealmate/public/dishes/veg-pasta.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "HyfCMqR4btKIveJ72ylJF"
+uri = "file://artifacts/mealmate/public/dishes/corn-cheese-sandwich.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "CCrtmWD7AAjImmKPaluKJ"
+uri = "file://artifacts/mealmate/public/dishes/bread-upma.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Ycj7HM0zQAxgufV_JKqRX"
+uri = "file://artifacts/mealmate/public/dishes/veg-hakka-noodles.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "j8wpZ3RTnMfv5MUfnFE-Y"
+uri = "file://artifacts/mealmate/public/dishes/mini-uttapam.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "SoMyt8YZyrFcuy5oW59gZ"
+uri = "file://artifacts/mealmate/public/dishes/cheese-roti-roll.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "em53cJZePl0GPaXMS9_MG"
+uri = "file://artifacts/mealmate/public/dishes/fruit-custard.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "R54LCSzSvQu2H7WjIWvZg"
+uri = "file://artifacts/mealmate/public/dishes/peanut-butter-toast.png"
+type = "image"
+title = "generated_image"

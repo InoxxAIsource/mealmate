@@ -2,7 +2,7 @@ import { useGetDashboardSummary, getGetDashboardSummaryQueryKey } from "@workspa
 import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
 import { Link } from "wouter";
-import { Clock, Flame } from "lucide-react";
+import { Clock, Flame, ChevronRight } from "lucide-react";
 
 export default function DashboardHome() {
   const { data: summary, isLoading } = useGetDashboardSummary();
@@ -46,6 +46,22 @@ export default function DashboardHome() {
             <span className="text-2xl">💡</span>
             <p className="text-sm text-orange-800 dark:text-orange-200 font-medium leading-snug">{summary.tipOfDay}</p>
           </div>
+        )}
+
+        {summary.profile?.primaryTrack === "kids" && (
+          <Link href="/dashboard/lunchbox">
+            <div className="relative overflow-hidden bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl p-4 flex items-center justify-between shadow-sm active:scale-[0.98] transition-transform">
+              <div className="absolute -top-3 -right-3 w-16 h-16 bg-white/10 rounded-full" />
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">🎒</span>
+                <div>
+                  <p className="text-white font-bold text-sm">Kids Lunch Box Ideas</p>
+                  <p className="text-yellow-100 text-xs">10+ tiffin recipes your child will love</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-white shrink-0" />
+            </div>
+          </Link>
         )}
 
         <div className="space-y-4">

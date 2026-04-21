@@ -16,6 +16,7 @@ import OnboardingCooking from "./pages/onboarding/cooking";
 
 import DashboardHome from "./pages/dashboard/home";
 import DashboardWeek from "./pages/dashboard/week";
+import DashboardLunchBox from "./pages/dashboard/lunchbox";
 import DashboardRecipe from "./pages/dashboard/recipe";
 import DashboardGrocery from "./pages/dashboard/grocery";
 import DashboardProfile from "./pages/dashboard/profile";
@@ -198,6 +199,7 @@ function ClerkProviderWithRoutes() {
 
           <ProtectedRoute path="/dashboard" component={() => <DashboardWrapper component={DashboardHome} />} />
           <ProtectedRoute path="/dashboard/week" component={() => <DashboardWrapper component={DashboardWeek} />} />
+          <ProtectedRoute path="/dashboard/lunchbox" component={() => <DashboardWrapper component={DashboardLunchBox} />} />
           <ProtectedRoute path="/dashboard/recipe/:id" component={() => <DashboardWrapper component={DashboardRecipe} />} />
           <ProtectedRoute path="/dashboard/grocery" component={() => <DashboardWrapper component={DashboardGrocery} />} />
           <ProtectedRoute path="/dashboard/profile" component={() => <DashboardWrapper component={DashboardProfile} />} />
