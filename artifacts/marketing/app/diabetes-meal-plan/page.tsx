@@ -133,6 +133,7 @@ export default function DiabetesPage() {
           { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
           { title: "General Wellness Plan", slug: "#" },
         ]}
+        currentPath="/diabetes-meal-plan"
       />
     </>
   );

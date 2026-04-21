@@ -143,6 +143,7 @@ export default function PCOSPage() {
           { title: "Diabetes Meal Plan", slug: "diabetes-meal-plan" },
           { title: "Cholesterol Diet Plan", slug: "cholesterol-diet-plan" },
         ]}
+        currentPath="/pcos-meal-plan"
       />
     </>
   );

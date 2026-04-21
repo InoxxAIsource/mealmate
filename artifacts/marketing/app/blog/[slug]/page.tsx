@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { blogPosts } from "@/lib/blog-data";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 const BASE = "https://mealcoreai.com";
 
@@ -232,6 +233,12 @@ export default async function BlogPostPage({
             </div>
           </section>
         )}
+
+        {/* Related pages from link graph */}
+        <RelatedLinks
+          currentPath={`/blog/${post.slug}`}
+          heading="Related Resources"
+        />
 
         {/* End CTA */}
         <section className="bg-gradient-to-r from-orange-500 to-orange-400 py-12 px-4 text-center text-white">

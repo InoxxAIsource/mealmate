@@ -9,6 +9,7 @@ import {
   parseSlug,
   getDishes,
 } from "@/lib/seo-data";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 const BASE = "https://mealcoreai.com";
 
@@ -350,6 +351,24 @@ export default async function ProgrammaticPage({
             >
               Start Free — No Credit Card
             </a>
+          </section>
+
+          {/* Parent condition page link */}
+          <section className="bg-orange-50 rounded-2xl p-6 flex items-center justify-between gap-4">
+            <div>
+              <div className="text-xs font-semibold text-orange-500 uppercase tracking-wide mb-1">
+                Back to main guide
+              </div>
+              <Link
+                href={`/${condition.id}-meal-plan`}
+                className="font-bold text-gray-900 hover:text-orange-600 transition-colors"
+              >
+                {conditionLabel} Meal Plan — Complete Indian Guide →
+              </Link>
+              <p className="text-sm text-gray-500 mt-1">
+                Full {conditionLabel.toLowerCase()} diet guide with foods, recipes, and a free personalised plan.
+              </p>
+            </div>
           </section>
 
           {/* Related pages */}

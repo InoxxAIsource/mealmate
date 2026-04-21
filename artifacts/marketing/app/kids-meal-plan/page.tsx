@@ -131,6 +131,7 @@ export default function KidsPage() {
           { title: "General Wellness Plan", slug: "#" },
           { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
         ]}
+        currentPath="/kids-meal-plan"
       />
     </>
   );

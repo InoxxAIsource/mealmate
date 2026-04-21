@@ -132,6 +132,7 @@ export default function CholesterolPage() {
           { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
           { title: "General Wellness Plan", slug: "#" },
         ]}
+        currentPath="/cholesterol-diet-plan"
       />
     </>
   );

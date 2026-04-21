@@ -132,6 +132,7 @@ export default function ThyroidPage() {
           { title: "General Wellness Plan", slug: "#" },
           { title: "Cholesterol Diet Plan", slug: "cholesterol-diet-plan" },
         ]}
+        currentPath="/thyroid-diet-plan"
       />
     </>
   );

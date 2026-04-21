@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight, CheckCircle2, XCircle } from "lucide-react";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 const APP_URL = "https://app.mealcoreai.com";
 
@@ -46,6 +47,7 @@ export interface ConditionPageProps {
   faqs: FAQ[];
   relatedPosts: RelatedLink[];
   relatedPlans: RelatedLink[];
+  currentPath?: string;
 }
 
 const accentMap: Record<string, { badge: string; btn: string; bar: string; border: string }> = {
@@ -122,6 +124,7 @@ export default function ConditionPage({
   faqs,
   relatedPosts,
   relatedPlans,
+  currentPath,
 }: ConditionPageProps) {
   const ac = accentMap[accentColour] ?? accentMap.orange;
 
@@ -279,49 +282,54 @@ export default function ConditionPage({
         </div>
       </section>
 
-      {/* Related links */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {relatedPlans.length > 0 && (
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-5">Related Health Plans</h3>
-                <ul className="space-y-3">
-                  {relatedPlans.map(({ title, slug }) => (
-                    <li key={slug}>
-                      <Link
-                        href={`/${slug}`}
-                        className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium text-sm"
-                      >
-                        <ArrowRight className="h-4 w-4 shrink-0" />
-                        {title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {relatedPosts.length > 0 && (
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-5">Related Articles</h3>
-                <ul className="space-y-3">
-                  {relatedPosts.map(({ title, slug }) => (
-                    <li key={slug}>
-                      <Link
-                        href={`/${slug}`}
-                        className="flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium text-sm"
-                      >
-                        <ArrowRight className="h-4 w-4 shrink-0" />
-                        {title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+      {/* Related links — link graph (rich descriptive anchors) */}
+      {currentPath ? (
+        <RelatedLinks currentPath={currentPath} heading={`More ${condition} Resources`} />
+      ) : (
+        /* Fallback: legacy related section */
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {relatedPlans.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-5">Related Health Plans</h3>
+                  <ul className="space-y-3">
+                    {relatedPlans.map(({ title, slug }) => (
+                      <li key={slug}>
+                        <Link
+                          href={`/${slug}`}
+                          className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium text-sm"
+                        >
+                          <ArrowRight className="h-4 w-4 shrink-0" />
+                          {title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {relatedPosts.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-5">Related Articles</h3>
+                  <ul className="space-y-3">
+                    {relatedPosts.map(({ title, slug }) => (
+                      <li key={slug}>
+                        <Link
+                          href={`/${slug}`}
+                          className="flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium text-sm"
+                        >
+                          <ArrowRight className="h-4 w-4 shrink-0" />
+                          {title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Final CTA */}
       <section className="py-20 bg-gray-950">

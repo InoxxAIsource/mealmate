@@ -132,6 +132,7 @@ export default function PregnancyPage() {
           { title: "General Wellness Plan", slug: "#" },
           { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
         ]}
+        currentPath="/pregnancy-meal-plan"
       />
     </>
   );

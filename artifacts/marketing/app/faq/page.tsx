@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | MealCoreAI",
@@ -184,6 +186,15 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <main className="min-h-screen bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "FAQ" },
+            ]}
+          />
+        </div>
+
         {/* Hero */}
         <section className="bg-gradient-to-br from-orange-50 to-white py-20 px-4 text-center">
           <div className="max-w-3xl mx-auto">
@@ -222,6 +233,8 @@ export default function FAQPage() {
             </div>
           ))}
         </section>
+
+        <RelatedLinks currentPath="/faq" heading="Explore MealCoreAI" />
 
         {/* Still have questions */}
         <section className="bg-orange-50 border-t border-orange-100 py-12 px-4 text-center">
