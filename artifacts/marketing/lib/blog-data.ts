@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
       { anchor: "millet benefits for PCOS", url: "/blog/millet-benefits-pcos" },
       { anchor: "PCOS breakfast ideas", url: "/blog/pcos-breakfast-ideas-indian" },
-      { anchor: "personalised meal planning", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised meal planning", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Understanding PCOS and Its Relationship with Diet</h2>
@@ -100,7 +100,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "diabetes meal plan", url: "/diabetes-meal-plan" },
       { anchor: "low GI Indian foods", url: "/blog/low-gi-indian-foods-list" },
       { anchor: "ragi for diabetes", url: "/blog/ragi-benefits-diabetes" },
-      { anchor: "personalised diabetes plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised diabetes plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Breakfast Matters Most for Diabetics</h2>
@@ -163,7 +163,7 @@ export const blogPosts: BlogPost[] = [
 <p>When you eat matters as much as what you eat. Aim to have breakfast within 1 hour of waking — this prevents the cortisol-driven blood sugar rise that happens when you skip breakfast. Eating at consistent times each day also helps your body regulate insulin secretion more predictably.</p>
 
 <h2>Get Your Personalised Diabetic Breakfast Plan</h2>
-<p>MealCoreAI builds a custom <a href="/diabetes-meal-plan">diabetes meal plan</a> that accounts for your HbA1c levels, food preferences, and regional cuisine. Instead of searching for the "right" breakfast every morning, your plan gives you weekly variety that keeps blood sugar stable. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI builds a custom <a href="/diabetes-meal-plan">diabetes meal plan</a> that accounts for your HbA1c levels, food preferences, and regional cuisine. Instead of searching for the "right" breakfast every morning, your plan gives you weekly variety that keeps blood sugar stable. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -183,7 +183,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "thyroid diet plan", url: "/thyroid-diet-plan" },
       { anchor: "thyroid and weight gain", url: "/blog/thyroid-weight-gain-diet" },
       { anchor: "meal planning guide", url: "/blog/meal-planning-beginners-india" },
-      { anchor: "personalised thyroid plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised thyroid plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>How Diet Affects Your Thyroid</h2>
@@ -230,7 +230,7 @@ export const blogPosts: BlogPost[] = [
 <p>If you take levothyroxine (Thyrox, Eltroxin), follow these rules: Take medication on an empty stomach, 30–60 minutes before breakfast. Avoid calcium supplements, antacids, and high-calcium foods (like a glass of milk) within 4 hours of medication. Coffee also interferes with absorption — wait 30 minutes after taking your tablet before having your morning coffee.</p>
 
 <h2>Build Your Thyroid Meal Plan with MealCoreAI</h2>
-<p>Managing thyroid through diet requires precision — getting enough iodine and selenium while moderating goitrogens. MealCoreAI creates a custom <a href="/thyroid-diet-plan">thyroid diet plan</a> that balances all these requirements while keeping meals delicious and culturally appropriate. <a href="https://app.mealcoreai.com/sign-up">Start your free plan today</a>.</p>
+<p>Managing thyroid through diet requires precision — getting enough iodine and selenium while moderating goitrogens. MealCoreAI creates a custom <a href="/thyroid-diet-plan">thyroid diet plan</a> that balances all these requirements while keeping meals delicious and culturally appropriate. <a href="https://mealcoreai.com/app/sign-up">Start your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -250,7 +250,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "pregnancy meal plan", url: "/pregnancy-meal-plan" },
       { anchor: "iron-rich foods for pregnancy", url: "/blog/iron-rich-foods-pregnancy-india" },
       { anchor: "foods to avoid during pregnancy", url: "/blog/pregnancy-foods-to-avoid" },
-      { anchor: "personalised pregnancy plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised pregnancy plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why First Trimester Nutrition Is Critical</h2>
@@ -288,7 +288,7 @@ export const blogPosts: BlogPost[] = [
 <p>Raw sprouts, unpasteurised dairy (fresh paneer from roadside vendors, raw milk), undercooked eggs, high-mercury fish (shark, swordfish, king mackerel), excessive vitamin A (liver, concentrated supplements), papaya (raw/semi-ripe contains latex that may trigger contractions), and alcohol (completely avoid throughout pregnancy).</p>
 
 <h2>Your Personalised Pregnancy Nutrition Plan</h2>
-<p>Every pregnancy is unique — your weight, health conditions, and food preferences determine what's optimal for you. MealCoreAI builds a trimester-by-trimester <a href="/pregnancy-meal-plan">pregnancy meal plan</a> tailored to your regional cuisine and nutritional needs. <a href="https://app.mealcoreai.com/sign-up">Start your free plan today</a>.</p>
+<p>Every pregnancy is unique — your weight, health conditions, and food preferences determine what's optimal for you. MealCoreAI builds a trimester-by-trimester <a href="/pregnancy-meal-plan">pregnancy meal plan</a> tailored to your regional cuisine and nutritional needs. <a href="https://mealcoreai.com/app/sign-up">Start your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -308,7 +308,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "kids meal plan", url: "/kids-meal-plan" },
       { anchor: "calcium foods for kids", url: "/blog/kids-calcium-foods-india" },
       { anchor: "fussy eater ideas", url: "/blog/kids-fussy-eater-meal-ideas" },
-      { anchor: "personalised kids plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised kids plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Tiffin Nutrition Matters More Than You Think</h2>
@@ -377,7 +377,7 @@ export const blogPosts: BlogPost[] = [
 <p>Prep Sunday evening for the week: boil a batch of eggs, cook a pot of dal, and make a batch of tiffin-friendly rotis. Use insulated tiffin boxes to keep food fresh for 4–5 hours. Always include a fruit and a small water bottle. Involve your children in choosing from a set of healthy options — children eat better what they've chosen themselves.</p>
 
 <h2>Plan Your Child's Weekly Meals with MealCoreAI</h2>
-<p>MealCoreAI creates a personalised <a href="/kids-meal-plan">kids meal plan</a> that covers breakfast, tiffin, and dinner — tailored to your child's age, activity level, and food preferences. <a href="https://app.mealcoreai.com/sign-up">Get your free plan today</a>.</p>
+<p>MealCoreAI creates a personalised <a href="/kids-meal-plan">kids meal plan</a> that covers breakfast, tiffin, and dinner — tailored to your child's age, activity level, and food preferences. <a href="https://mealcoreai.com/app/sign-up">Get your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -397,7 +397,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "PCOS diet plan", url: "/blog/pcos-diet-plan-india" },
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
       { anchor: "low GI Indian foods", url: "/blog/low-gi-indian-foods-list" },
-      { anchor: "personalised PCOS plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised PCOS plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>The Millet Revolution in PCOS Nutrition</h2>
@@ -429,7 +429,7 @@ export const blogPosts: BlogPost[] = [
 <p>Within the first week: Digestive adjustment (some bloating is normal as gut bacteria adapt to higher fibre). By week 2–3: Reduced post-meal sugar cravings and more stable energy throughout the day. By month 1–2: Improved fasting insulin levels, potentially more regular periods, and better weight management. The results depend on overall diet quality — millets work best as part of a comprehensive PCOS diet that also limits refined sugar and processed foods.</p>
 
 <h2>Get Your Millet-Based PCOS Meal Plan</h2>
-<p>MealCoreAI builds daily meal plans centred around millets and other PCOS-friendly foods, tailored to your regional cuisine and taste preferences. Your personalised <a href="/pcos-meal-plan">PCOS meal plan</a> is waiting. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI builds daily meal plans centred around millets and other PCOS-friendly foods, tailored to your regional cuisine and taste preferences. Your personalised <a href="/pcos-meal-plan">PCOS meal plan</a> is waiting. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -449,7 +449,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "diabetes meal plan", url: "/diabetes-meal-plan" },
       { anchor: "diabetic breakfast ideas", url: "/blog/diabetic-indian-breakfast-ideas" },
       { anchor: "low GI Indian foods list", url: "/blog/low-gi-indian-foods-list" },
-      { anchor: "personalised diabetes plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised diabetes plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Ragi: India's Ancient Blood Sugar Regulator</h2>
@@ -479,7 +479,7 @@ export const blogPosts: BlogPost[] = [
 <p>Even ragi can cause blood sugar spikes if consumed incorrectly. Avoid: Ragi preparations with significant sugar or jaggery addition (like ragi ladoos, some commercial ragi drinks). Buying over-processed commercial ragi flour that has lost its bran. Eating very large portions — ragi is healthy but calories still count. Always pair ragi with dal, curd, or vegetables for protein and fat to further reduce the glycaemic response.</p>
 
 <h2>Your Personalised Ragi Meal Plan</h2>
-<p>MealCoreAI builds a custom <a href="/diabetes-meal-plan">diabetes meal plan</a> that incorporates ragi and other diabetes-friendly millets based on your specific regional preferences and taste profile. <a href="https://app.mealcoreai.com/sign-up">Start your free plan today</a>.</p>
+<p>MealCoreAI builds a custom <a href="/diabetes-meal-plan">diabetes meal plan</a> that incorporates ragi and other diabetes-friendly millets based on your specific regional preferences and taste profile. <a href="https://mealcoreai.com/app/sign-up">Start your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -499,7 +499,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "ragi benefits", url: "/blog/ragi-benefits-diabetes" },
       { anchor: "low GI Indian foods", url: "/blog/low-gi-indian-foods-list" },
       { anchor: "meal planning guide", url: "/blog/meal-planning-beginners-india" },
-      { anchor: "personalised weight loss plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised weight loss plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why South Indian Food Is Secretly Ideal for Weight Loss</h2>
@@ -537,7 +537,7 @@ export const blogPosts: BlogPost[] = [
 <p>Two ragi dosas = 220 kcal. One cup sambar = 90 kcal. One cup brown rice = 215 kcal. Two pesarattu = 180 kcal. One cup rasam = 35 kcal. One cup buttermilk (unsweetened) = 60 kcal. A well-planned South Indian diet can comfortably maintain a 400–500 calorie daily deficit for 0.5 kg weekly weight loss — without hunger.</p>
 
 <h2>Start Your Personalised South Indian Diet Plan</h2>
-<p>MealCoreAI creates a customised South Indian meal plan for your weight loss goals, accounting for your caloric needs, food preferences, and lifestyle. <a href="https://app.mealcoreai.com/sign-up">Start your free plan today</a>.</p>
+<p>MealCoreAI creates a customised South Indian meal plan for your weight loss goals, accounting for your caloric needs, food preferences, and lifestyle. <a href="https://mealcoreai.com/app/sign-up">Start your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -602,7 +602,7 @@ export const blogPosts: BlogPost[] = [
 <p>Never skip breakfast — this worsens cortisol spikes. Avoid white bread, biscuits, and packaged cereals (ultra-high GI). Limit sweetened dairy (flavoured yogurt, sweetened lassi). Don't have fruit juice — eat whole fruit instead. Limit chai with more than 1 teaspoon of sugar.</p>
 
 <h2>Your Custom PCOS Breakfast Plan</h2>
-<p>MealCoreAI generates a new weekly breakfast schedule every week, tailored to your PCOS symptoms, preferred cooking time, and taste preferences. Get your personalised <a href="/pcos-meal-plan">PCOS meal plan</a> and wake up knowing exactly what to eat. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI generates a new weekly breakfast schedule every week, tailored to your PCOS symptoms, preferred cooking time, and taste preferences. Get your personalised <a href="/pcos-meal-plan">PCOS meal plan</a> and wake up knowing exactly what to eat. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -622,7 +622,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "pregnancy meal plan", url: "/pregnancy-meal-plan" },
       { anchor: "diabetes meal plan", url: "/diabetes-meal-plan" },
       { anchor: "diabetic breakfast ideas", url: "/blog/diabetic-indian-breakfast-ideas" },
-      { anchor: "personalised GDM plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised GDM plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Understanding Gestational Diabetes</h2>
@@ -660,7 +660,7 @@ export const blogPosts: BlogPost[] = [
 <p>A 15–30 minute walk after each meal reduces post-meal blood sugar by 30–40 mg/dL on average. This is one of the most powerful interventions for GDM — safe, free, and proven. Get clearance from your obstetrician and start walking.</p>
 
 <h2>Get Your Personalised GDM Meal Plan</h2>
-<p>MealCoreAI builds a trimester-specific gestational diabetes <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that keeps blood sugar within target while ensuring complete nutrition for your baby. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI builds a trimester-specific gestational diabetes <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that keeps blood sugar within target while ensuring complete nutrition for your baby. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -680,7 +680,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "thyroid diet guide", url: "/blog/thyroid-foods-avoid-india" },
       { anchor: "thyroid meal plan", url: "/thyroid-diet-plan" },
       { anchor: "South Indian diet for weight loss", url: "/blog/south-indian-diet-weight-loss" },
-      { anchor: "personalised thyroid plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised thyroid plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Thyroid Makes Weight Loss So Difficult</h2>
@@ -721,7 +721,7 @@ export const blogPosts: BlogPost[] = [
 <p>For thyroid patients, strength training (2–3 times weekly) is more effective than cardio alone for weight loss. Building muscle mass increases resting metabolic rate — effectively counteracting the metabolic slowdown caused by hypothyroidism. Start with bodyweight exercises and gradually increase resistance. Yoga also has specific benefits — several poses (shoulder stand, fish pose) are believed to stimulate thyroid circulation, though clinical evidence is limited.</p>
 
 <h2>Get Your Personalised Thyroid Diet Plan</h2>
-<p>MealCoreAI creates a custom <a href="/thyroid-diet-plan">thyroid diet plan</a> that accounts for your metabolism, food preferences, and weight goals. Start seeing results within 4–6 weeks. <a href="https://app.mealcoreai.com/sign-up">Begin your free plan today</a>.</p>
+<p>MealCoreAI creates a custom <a href="/thyroid-diet-plan">thyroid diet plan</a> that accounts for your metabolism, food preferences, and weight goals. Start seeing results within 4–6 weeks. <a href="https://mealcoreai.com/app/sign-up">Begin your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -741,7 +741,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "pregnancy meal plan", url: "/pregnancy-meal-plan" },
       { anchor: "first trimester nutrition", url: "/blog/pregnancy-nutrition-first-trimester" },
       { anchor: "foods to avoid in pregnancy", url: "/blog/pregnancy-foods-to-avoid" },
-      { anchor: "personalised pregnancy plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised pregnancy plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>The Iron Crisis in Indian Pregnancy</h2>
@@ -802,7 +802,7 @@ export const blogPosts: BlogPost[] = [
 <p>Always pair iron-rich foods with vitamin C sources (lemon juice, amla, tomatoes, guava). Avoid drinking tea or coffee within 1 hour of iron-rich meals — tannins reduce absorption by 60%. Cook in iron vessels when possible — a small amount of iron leaches into food. Avoid calcium-rich foods (dairy) at the same meal as iron-rich foods — calcium competes with iron for absorption.</p>
 
 <h2>Get Your Personalised Pregnancy Iron Plan</h2>
-<p>MealCoreAI designs an iron-optimised <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that ensures you meet your daily iron requirements through food, with strategic pairings for maximum absorption. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI designs an iron-optimised <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that ensures you meet your daily iron requirements through food, with strategic pairings for maximum absorption. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -822,7 +822,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "kids meal plan", url: "/kids-meal-plan" },
       { anchor: "healthy tiffin ideas", url: "/blog/kids-healthy-tiffin-ideas" },
       { anchor: "fussy eater solutions", url: "/blog/kids-fussy-eater-meal-ideas" },
-      { anchor: "personalised kids plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised kids plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Calcium Is Critical in Childhood</h2>
@@ -870,7 +870,7 @@ export const blogPosts: BlogPost[] = [
 <p>Vitamin D is required for calcium absorption — ensure adequate sun exposure (15–20 minutes of morning sun daily). Reduce oxalate-containing foods that block absorption when paired with high-calcium foods (spinach is best eaten separately from sesame or dairy). Avoid excessive caffeine and sodium — both increase calcium excretion through urine.</p>
 
 <h2>Plan Your Child's Nutrition with MealCoreAI</h2>
-<p>MealCoreAI creates a personalised <a href="/kids-meal-plan">kids meal plan</a> ensuring adequate calcium, iron, and all essential nutrients for growth. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI creates a personalised <a href="/kids-meal-plan">kids meal plan</a> ensuring adequate calcium, iron, and all essential nutrients for growth. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -947,7 +947,7 @@ export const blogPosts: BlogPost[] = [
 <p>Best low-GI Indian snacks: Sprouted moong (GI 25), roasted chana (GI 28), handful almonds (GI 15), peanuts (GI 14), yogurt (GI 33), chaas/buttermilk (GI 11), apple with peanut butter, and cucumber with hummus.</p>
 
 <h2>Build Your Low-GI Indian Meal Plan</h2>
-<p>MealCoreAI automatically builds meal plans using low-GI foods tailored to your condition — whether <a href="/diabetes-meal-plan">diabetes</a> or <a href="/pcos-meal-plan">PCOS</a>. Your personalised plan is just a click away. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI automatically builds meal plans using low-GI foods tailored to your condition — whether <a href="/diabetes-meal-plan">diabetes</a> or <a href="/pcos-meal-plan">PCOS</a>. Your personalised plan is just a click away. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -967,7 +967,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "low GI foods", url: "/blog/low-gi-indian-foods-list" },
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
       { anchor: "diabetes meal plan", url: "/diabetes-meal-plan" },
-      { anchor: "try MealCoreAI free", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "try MealCoreAI free", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Most People Fail at Healthy Eating (And How Meal Planning Fixes It)</h2>
@@ -1011,7 +1011,7 @@ export const blogPosts: BlogPost[] = [
 <strong>Sunday:</strong> B — Egg omelette, toast. L — Rajma, jeera rice. D — Khichdi.</p>
 
 <h2>Automate Your Meal Planning with MealCoreAI</h2>
-<p>Skip the 30 minutes of Sunday planning. MealCoreAI generates your personalised weekly Indian meal plan in seconds, tailored to your health goals. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>Skip the 30 minutes of Sunday planning. MealCoreAI generates your personalised weekly Indian meal plan in seconds, tailored to your health goals. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -1031,7 +1031,7 @@ export const blogPosts: BlogPost[] = [
       { anchor: "PCOS diet plan", url: "/blog/pcos-diet-plan-india" },
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
       { anchor: "millet benefits for PCOS", url: "/blog/millet-benefits-pcos" },
-      { anchor: "personalised PCOS plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised PCOS plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>The Insulin Resistance–PCOS Connection</h2>
@@ -1064,7 +1064,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
 <p>Several supplements have clinical evidence in insulin-resistant PCOS. Always discuss with your doctor before starting: Myo-inositol (4g daily) — strongest evidence. Berberine (500mg 3x daily) — comparable to metformin in some studies. Magnesium glycinate (400mg daily) — especially if dietary intake is low. Omega-3 (2g EPA+DHA daily) — reduces inflammation and androgen levels.</p>
 
 <h2>Get Your Insulin-Resistant PCOS Diet Plan</h2>
-<p>MealCoreAI creates a personalised <a href="/pcos-meal-plan">PCOS meal plan</a> specifically calibrated for insulin resistance — every meal designed to flatten your blood sugar curve and reduce androgen stimulation. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI creates a personalised <a href="/pcos-meal-plan">PCOS meal plan</a> specifically calibrated for insulin resistance — every meal designed to flatten your blood sugar curve and reduce androgen stimulation. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -1084,7 +1084,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
       { anchor: "pregnancy meal plan", url: "/pregnancy-meal-plan" },
       { anchor: "first trimester nutrition", url: "/blog/pregnancy-nutrition-first-trimester" },
       { anchor: "iron-rich pregnancy foods", url: "/blog/iron-rich-foods-pregnancy-india" },
-      { anchor: "personalised pregnancy plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised pregnancy plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Pregnancy Food Safety Matters</h2>
@@ -1129,7 +1129,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
 <p>Indian pregnancy food traditions are rich and varied — some regional practices are nutritionally excellent, others are based on cultural beliefs that may not have a safety basis. If you're unsure about a specific food or preparation, ask your obstetrician or a registered dietitian. Err on the side of caution during the first trimester when fetal development is most vulnerable.</p>
 
 <h2>Your Safe Pregnancy Meal Plan</h2>
-<p>MealCoreAI builds a trimester-specific <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that automatically excludes unsafe foods while maximising nutrition for you and your baby. <a href="https://app.mealcoreai.com/sign-up">Start your free plan today</a>.</p>
+<p>MealCoreAI builds a trimester-specific <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that automatically excludes unsafe foods while maximising nutrition for you and your baby. <a href="https://mealcoreai.com/app/sign-up">Start your free plan today</a>.</p>
     `.trim(),
   },
   {
@@ -1149,7 +1149,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
       { anchor: "cholesterol diet plan", url: "/cholesterol-diet-plan" },
       { anchor: "low GI Indian foods", url: "/blog/low-gi-indian-foods-list" },
       { anchor: "meal planning guide", url: "/blog/meal-planning-beginners-india" },
-      { anchor: "personalised cholesterol plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised cholesterol plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>The Cholesterol Crisis in India</h2>
@@ -1187,7 +1187,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
 <p>Aim to include 4–5 of these foods daily. A sample daily routine: Start with oats upma (beta-glucan). Snack on almonds and walnuts. Have rajma or black chana at lunch. Add 2 tablespoons of ground flaxseed to dal or curd. Cook with garlic, turmeric, and coriander. Drink 2–3 cups of green tea. Eat guava as an evening snack.</p>
 
 <h2>Get Your Personalised Cholesterol Diet Plan</h2>
-<p>MealCoreAI creates a custom <a href="/cholesterol-diet-plan">cholesterol-lowering meal plan</a> that incorporates the most effective foods for your specific lipid profile and food preferences. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI creates a custom <a href="/cholesterol-diet-plan">cholesterol-lowering meal plan</a> that incorporates the most effective foods for your specific lipid profile and food preferences. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -1207,7 +1207,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
       { anchor: "kids meal plan", url: "/kids-meal-plan" },
       { anchor: "tiffin ideas for kids", url: "/blog/kids-healthy-tiffin-ideas" },
       { anchor: "calcium foods for kids", url: "/blog/kids-calcium-foods-india" },
-      { anchor: "personalised kids plan", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised kids plan", url: "https://mealcoreai.com/app/sign-up" },
     ],
     content: `
 <h2>Why Children Become Fussy Eaters</h2>
@@ -1261,7 +1261,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
 <p>Consult a paediatric nutritionist if: your child is not gaining weight appropriately; they gag or vomit at the sight of certain food textures (may indicate sensory processing issues requiring occupational therapy); they eat fewer than 20 foods overall; or fussiness is causing significant family stress and mealtime battles lasting more than 6 months.</p>
 
 <h2>Plan Your Child's Meals with MealCoreAI</h2>
-<p>MealCoreAI creates a personalised <a href="/kids-meal-plan">kids meal plan</a> that includes alternatives for picky eaters while ensuring nutritional completeness. <a href="https://app.mealcoreai.com/sign-up">Start free today</a>.</p>
+<p>MealCoreAI creates a personalised <a href="/kids-meal-plan">kids meal plan</a> that includes alternatives for picky eaters while ensuring nutritional completeness. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
@@ -1278,7 +1278,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
     featuredImage: "/images/ai-nutrition.jpg",
     relatedSlugs: ["meal-planning-beginners-india", "pcos-diet-plan-india", "low-gi-indian-foods-list"],
     internalLinks: [
-      { anchor: "personalised meal planning", url: "https://app.mealcoreai.com/sign-up" },
+      { anchor: "personalised meal planning", url: "https://mealcoreai.com/app/sign-up" },
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
       { anchor: "diabetes meal plan", url: "/diabetes-meal-plan" },
       { anchor: "how MealCoreAI works", url: "/how-it-works" },
@@ -1318,7 +1318,7 @@ Dinner (7:30pm) — 1 bajra roti + moong dal + sautéed bhindi.</p>
 <p>The future of nutrition is not one-size-fits-all dietary guidelines — it's hyper-personalised, continuously learning, and deeply integrated into daily life. MealCoreAI is building toward this future, one personalised Indian meal plan at a time.</p>
 
 <h2>Start Your AI-Powered Nutrition Journey</h2>
-<p>Experience what personalised AI nutrition feels like. <a href="/how-it-works">See how MealCoreAI works</a> and <a href="https://app.mealcoreai.com/sign-up">start your free personalised plan today</a>. No generic advice — just meals designed for your specific health condition, your regional cuisine, and your taste preferences.</p>
+<p>Experience what personalised AI nutrition feels like. <a href="/how-it-works">See how MealCoreAI works</a> and <a href="https://mealcoreai.com/app/sign-up">start your free personalised plan today</a>. No generic advice — just meals designed for your specific health condition, your regional cuisine, and your taste preferences.</p>
     `.trim(),
   },
 ];

@@ -69,7 +69,7 @@ export default function HowItWorksPage() {
             No dietitian appointment, no generic meal plans.
           </p>
           <a
-            href="https://app.mealcoreai.com/sign-up"
+            href="https://mealcoreai.com/app/sign-up"
             className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-4 rounded-full text-lg transition-colors shadow-lg"
           >
             Try It Free →
@@ -142,7 +142,7 @@ export default function HowItWorksPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://app.mealcoreai.com/sign-up"
+            href="https://mealcoreai.com/app/sign-up"
             className="bg-white text-orange-600 font-bold px-8 py-3.5 rounded-full text-lg hover:bg-orange-50 transition-colors"
           >
             Get Started Free

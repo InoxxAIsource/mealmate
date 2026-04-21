@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-const APP_URL = "https://app.mealcoreai.com";
+const APP_URL = "https://mealcoreai.com/app";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

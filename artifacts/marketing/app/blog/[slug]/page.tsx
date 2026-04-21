@@ -175,7 +175,7 @@ export default async function BlogPostPage({
               region, and food preferences. Free to start.
             </p>
             <a
-              href="https://app.mealcoreai.com/sign-up"
+              href="https://mealcoreai.com/app/sign-up"
               className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold px-6 py-3 rounded-full text-sm transition-colors"
             >
               Get My Personalised Plan →
@@ -248,7 +248,7 @@ export default async function BlogPostPage({
             condition — free to start.
           </p>
           <a
-            href="https://app.mealcoreai.com/sign-up"
+            href="https://mealcoreai.com/app/sign-up"
             className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-8 py-3.5 rounded-full text-lg hover:bg-orange-50 transition-colors"
           >
             Start Free Today

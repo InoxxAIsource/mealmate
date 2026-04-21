@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ChevronDown, ArrowRight, CheckCircle2, XCircle } from "lucide-react";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
-const APP_URL = "https://app.mealcoreai.com";
+const APP_URL = "https://mealcoreai.com/app";
 
 export interface KeyFood {
   name: string;

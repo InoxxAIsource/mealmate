@@ -98,7 +98,7 @@ export default function PricingPage() {
               </div>
 
               <a
-                href="https://app.mealcoreai.com/sign-up"
+                href="https://mealcoreai.com/app/sign-up"
                 className="block w-full text-center border-2 border-orange-600 text-orange-600 hover:bg-orange-50 font-bold py-3 rounded-2xl text-sm transition-colors mb-6"
               >
                 Get Started Free
@@ -131,7 +131,7 @@ export default function PricingPage() {
               </div>
 
               <a
-                href="https://app.mealcoreai.com/sign-up"
+                href="https://mealcoreai.com/app/sign-up"
                 className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-2xl text-sm transition-colors mb-6 shadow-lg"
               >
                 Start Pro — 7 Days Free
@@ -180,7 +180,7 @@ export default function PricingPage() {
             Join thousands of Indian families managing their health with personalised meal plans.
           </p>
           <a
-            href="https://app.mealcoreai.com/sign-up"
+            href="https://mealcoreai.com/app/sign-up"
             className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-8 py-3.5 rounded-full text-lg hover:bg-orange-50 transition-colors"
           >
             Get Started Free →

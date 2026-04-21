@@ -120,7 +120,7 @@ export default function AboutPage() {
           Try MealCoreAI free — no credit card required.
         </p>
         <a
-          href="https://app.mealcoreai.com/sign-up"
+          href="https://mealcoreai.com/app/sign-up"
           className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-8 py-3.5 rounded-full text-lg hover:bg-orange-50 transition-colors"
         >
           Get Started Free →

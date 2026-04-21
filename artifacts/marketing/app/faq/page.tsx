@@ -247,7 +247,7 @@ export default function FAQPage() {
             and we&apos;ll respond within 24 hours.
           </p>
           <a
-            href="https://app.mealcoreai.com/sign-up"
+            href="https://mealcoreai.com/app/sign-up"
             className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-3.5 rounded-full text-lg transition-colors"
           >
             Try MealCoreAI Free

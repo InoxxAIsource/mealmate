@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const APP_URL = "https://app.mealcoreai.com";
+const APP_URL = "https://mealcoreai.com/app";
 
 export default function Footer() {
   const links: Record<string, { label: string; href: string }[]> = {

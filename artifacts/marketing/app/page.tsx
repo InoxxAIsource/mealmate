@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-const APP_URL = "https://app.mealcoreai.com";
+const APP_URL = "https://mealcoreai.com/app";
 
 const organizationLd = {
   "@context": "https://schema.org",
