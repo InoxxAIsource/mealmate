@@ -1,5 +1,12 @@
 import { useState } from "react";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+function resolveUrl(photoUrl: string): string {
+  if (photoUrl.startsWith("/")) return `${BASE}${photoUrl}`;
+  return photoUrl;
+}
+
 const DISH_EMOJIS: Record<string, string> = {
   oats: "🥣",
   upma: "🥣",
@@ -80,7 +87,9 @@ export function DishImage({ photoUrl, name, className = "", emojiSize = "text-4x
   const emoji = getDishEmoji(name);
   const gradient = getGradient(name);
 
-  if (!photoUrl || errored) {
+  const src = photoUrl ? resolveUrl(photoUrl) : null;
+
+  if (!src || errored) {
     return (
       <div className={`flex flex-col items-center justify-center bg-gradient-to-br ${gradient} ${className}`}>
         <span className={emojiSize}>{emoji}</span>
@@ -90,7 +99,7 @@ export function DishImage({ photoUrl, name, className = "", emojiSize = "text-4x
 
   return (
     <img
-      src={photoUrl}
+      src={src}
       alt={name}
       className={`object-cover ${className}`}
       onError={() => setErrored(true)}
