@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
+        <Analytics />
         <Navbar />
         <main>{children}</main>
         <Footer />

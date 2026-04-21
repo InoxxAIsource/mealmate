@@ -1,26 +1,26 @@
 kind = "web"
-previewPath = "/"
-title = "MealCoreAI Marketing"
-version = "1.0.0"
-id = "artifacts/marketing"
-router = "path"
+  previewPath = "/"
+  title = "MealCoreAI Marketing"
+  version = "1.0.0"
+  id = "artifacts/marketing"
+  router = "path"
 
-[[integratedSkills]]
-name = "react-vite"
-version = "1.0.0"
+  [[integratedSkills]]
+  name = "react-vite"
+  version = "1.0.0"
 
-[[services]]
-name = "web"
-paths = [ "/" ]
-localPort = 22813
+  [[services]]
+  name = "web"
+  paths = [ "/" ]
+  localPort = 22813
 
-[services.development]
-run = "pnpm --filter @workspace/marketing run dev"
+  [services.development]
+  run = "pnpm --filter @workspace/marketing run dev"
 
-[services.production]
-build = [ "pnpm", "--filter", "@workspace/marketing", "run", "build" ]
-publicDir = "artifacts/marketing/dist"
-serve = "static"
+  [services.production]
+  build = [ "pnpm", "--filter", "@workspace/marketing", "run", "build" ]
+  run = "pnpm --filter @workspace/marketing run start"
 
-[services.env]
-PORT = "22813"
+  [services.env]
+  PORT = "22813"
+  

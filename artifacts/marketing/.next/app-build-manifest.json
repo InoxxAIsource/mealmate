@@ -1,82 +1,15 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/app/_not-found/page-a6942ab80ede921d.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/css/02c900ec8da98154.css",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/app/layout-841e9851c95fe82a.js"
-    ],
-    "/cholesterol-diet-plan/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/334-17dbdb8eb0185975.js",
-      "static/chunks/app/cholesterol-diet-plan/page-b6d6e4575dd40306.js"
-    ],
-    "/kids-meal-plan/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/334-17dbdb8eb0185975.js",
-      "static/chunks/app/kids-meal-plan/page-67e36dd240952bc4.js"
-    ],
-    "/diabetes-meal-plan/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/334-17dbdb8eb0185975.js",
-      "static/chunks/app/diabetes-meal-plan/page-865c6ca3aeafa848.js"
-    ],
-    "/pcos-meal-plan/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/334-17dbdb8eb0185975.js",
-      "static/chunks/app/pcos-meal-plan/page-73874b2e51892b08.js"
-    ],
-    "/pregnancy-meal-plan/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/334-17dbdb8eb0185975.js",
-      "static/chunks/app/pregnancy-meal-plan/page-f926310ff618c2b8.js"
-    ],
-    "/thyroid-diet-plan/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/334-17dbdb8eb0185975.js",
-      "static/chunks/app/thyroid-diet-plan/page-f7401f7941c2c881.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-66afddb24915422d.js",
-      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
-      "static/chunks/818-f50c76b187734932.js",
-      "static/chunks/main-app-bec785ed40385767.js",
-      "static/chunks/240-4f9806d30521e602.js",
-      "static/chunks/app/page-54d5440e7d3e0581.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ]
   }
 }

@@ -1,0 +1,243 @@
+Inside artifacts/marketing/ continue building the 
+SEO system.
+
+════════════════════════════════
+SITEMAP + ROBOTS
+════════════════════════════════
+
+Create artifacts/marketing/app/robots.txt:
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://mealcoreai.com/sitemap.xml
+
+Create artifacts/marketing/app/sitemap.ts (Next.js 
+dynamic sitemap):
+Include all static pages with priorities:
+/ → 1.0 daily
+/pcos-meal-plan → 0.9 weekly
+/diabetes-meal-plan → 0.9 weekly
+/thyroid-diet-plan → 0.9 weekly
+/pregnancy-meal-plan → 0.9 weekly
+/kids-meal-plan → 0.9 weekly
+/cholesterol-diet-plan → 0.9 weekly
+/how-it-works → 0.8 monthly
+/pricing → 0.8 monthly
+/blog → 0.8 weekly
+/faq → 0.7 monthly
+All /meal-plans/[slug] → 0.7 weekly
+All /blog/[slug] → 0.6 monthly
+
+════════════════════════════════
+PROGRAMMATIC SEO PAGES
+════════════════════════════════
+
+Create artifacts/marketing/app/meal-plans/[slug]/
+page.tsx
+
+Create artifacts/marketing/lib/seo-data.ts with:
+
+export const conditions = [
+  { id: 'pcos', label: 'PCOS', 
+    keywords: ['hormone-friendly','low-GI',
+    'anti-inflammatory','insulin-friendly'] },
+  { id: 'diabetes', label: 'Diabetic',
+    keywords: ['low-GI','blood-sugar-friendly',
+    'millet-based','diabetic-safe'] },
+  { id: 'thyroid', label: 'Thyroid',
+    keywords: ['thyroid-friendly','selenium-rich',
+    'iodine-rich','goitrogen-free'] },
+  { id: 'pregnancy', label: 'Pregnancy',
+    keywords: ['folate-rich','iron-rich',
+    'trimester-safe','pregnancy-safe'] },
+  { id: 'kids', label: 'Kids',
+    keywords: ['child-friendly','nutrient-dense',
+    'school-tiffin','fussy-eater-friendly'] },
+  { id: 'cholesterol', label: 'Low Cholesterol',
+    keywords: ['heart-healthy','low-saturated-fat',
+    'high-fibre','cholesterol-lowering'] },
+  { id: 'weightloss', label: 'Weight Loss',
+    keywords: ['low-calorie','high-fibre',
+    'portion-controlled','metabolism-boosting'] },
+  { id: 'highprotein', label: 'High Protein',
+    keywords: ['protein-rich','muscle-building',
+    'high-protein','post-workout'] }
+]
+
+export const regions = [
+  'north-indian','south-indian','east-indian',
+  'west-indian','bengali','punjabi','gujarati',
+  'tamil','kerala','maharashtrian','andhra',
+  'rajasthani','mediterranean','middle-eastern',
+  'nigerian','filipino','mexican'
+]
+
+export const mealTypes = [
+  'weekly-meal-plan','7-day-meal-plan',
+  'breakfast-ideas','lunch-ideas',
+  'dinner-ideas','snack-ideas'
+]
+
+Generate static params for top 250 combinations 
+using generateStaticParams(). 
+
+Each programmatic page must include:
+- Dynamic metadata: title '[Region] [Condition] 
+  [MealType] | MealCoreAI', unique description
+- H1: exact slug keyword phrase formatted nicely
+  e.g. slug 'pcos-weekly-meal-plan-south-indian' 
+  → H1: 'South Indian PCOS Weekly Meal Plan'
+- 150 word intro paragraph
+- H2: Why [region] food works for [condition]
+- H2: Sample 7-day plan (real table with actual 
+  dish names for that region + condition combo)
+- H2: Key ingredients for [condition] from 
+  [region] cuisine
+- H2: Cooking tips
+- H2: Frequently asked questions (3 FAQs)
+- FAQPage JSON-LD
+- BreadcrumbList JSON-LD: 
+  Home > [Condition] Meal Plan > [Page Title]
+- Breadcrumb component
+- Related pages section (3 links same condition 
+  different region, 2 blog post links)
+- CTA → app.mealcoreai.com/sign-up
+
+════════════════════════════════
+BLOG SYSTEM
+════════════════════════════════
+
+Create artifacts/marketing/app/blog/page.tsx — 
+Blog index with category filter tabs, post cards 
+(title, excerpt, category badge, read time), 
+pagination 12 per page.
+
+Create artifacts/marketing/app/blog/[slug]/
+page.tsx — Individual post with:
+- Article JSON-LD schema
+- BreadcrumbList JSON-LD
+- Table of contents from H2s
+- Author bio box
+- Related posts (3)
+- Social share: WhatsApp, Twitter, Copy link
+- Mid-article and end CTA box
+- Minimum 4 internal links per post
+
+Create artifacts/marketing/lib/blog-data.ts with 
+20 blog posts. Each post: slug, title, metaTitle, 
+metaDescription, category (pcos|diabetes|thyroid|
+pregnancy|kids|cholesterol|nutrition|general), 
+tags, excerpt (160 chars), content (full HTML, 
+min 1200 words), author, publishDate, readTimeMin, 
+featuredImage, relatedSlugs (3), internalLinks 
+(array of {anchor, url}).
+
+Blog posts to include:
+1. 'pcos-diet-plan-india' — The Complete PCOS Diet 
+   Plan for Indian Women
+2. 'diabetic-indian-breakfast-ideas' — 25 Diabetic-
+   Friendly Indian Breakfast Ideas
+3. 'thyroid-foods-avoid-india' — Thyroid Diet Foods 
+   to Avoid and Eat (Indian Guide)
+4. 'pregnancy-nutrition-first-trimester' — First 
+   Trimester Nutrition for Indian Moms
+5. 'kids-healthy-tiffin-ideas' — 30 Healthy Tiffin 
+   Box Ideas for Indian Kids
+6. 'millet-benefits-pcos' — Why Millets Are a Game-
+   Changer for PCOS Management
+7. 'ragi-benefits-diabetes' — Ragi and Diabetes: 
+   How This Grain Stabilises Blood Sugar
+8. 'south-indian-diet-weight-loss' — South Indian 
+   Diet Plan for Weight Loss
+9. 'pcos-breakfast-ideas-indian' — 20 PCOS-Friendly 
+   Indian Breakfast Ideas
+10. 'gestational-diabetes-meal-plan' — Gestational 
+    Diabetes Meal Plan Indian Guide
+11. 'thyroid-weight-gain-diet' — Thyroid and Weight 
+    Gain: Fix It With Diet
+12. 'iron-rich-foods-pregnancy-india' — 30 Iron-Rich 
+    Indian Foods Every Pregnant Woman Needs
+13. 'kids-calcium-foods-india' — Top 20 Calcium-Rich 
+    Foods for Growing Kids
+14. 'low-gi-indian-foods-list' — Low GI Indian Foods: 
+    Complete List for Diabetes and PCOS
+15. 'meal-planning-beginners-india' — Meal Planning 
+    for Beginners: Healthy Indian Meals
+16. 'pcos-insulin-resistance-diet' — Insulin 
+    Resistance and PCOS: The Diet That Works
+17. 'pregnancy-foods-to-avoid' — Foods to Avoid 
+    During Pregnancy: Indian Guide
+18. 'cholesterol-lowering-indian-foods' — 20 Indian 
+    Foods That Naturally Lower Cholesterol
+19. 'kids-fussy-eater-meal-ideas' — Meal Ideas for 
+    Fussy Eaters: Indian Parents Guide
+20. 'ai-meal-planning-personalised-nutrition' — How 
+    AI is Changing Personalised Nutrition Globally
+
+════════════════════════════════
+SUPPORTING PAGES
+════════════════════════════════
+
+Create these pages:
+artifacts/marketing/app/how-it-works/page.tsx
+artifacts/marketing/app/pricing/page.tsx
+artifacts/marketing/app/faq/page.tsx
+artifacts/marketing/app/about/page.tsx
+artifacts/marketing/app/blog/page.tsx
+
+faq/page.tsx — 30 FAQs in 6 categories: 
+General, PCOS, Diabetes, Thyroid, Pregnancy, 
+Kids + Cholesterol, Pricing, Privacy. 
+Full FAQPage JSON-LD for all 30.
+
+pricing/page.tsx — Free vs Pro comparison. 
+Free: 1 plan/week, basic recipes, grocery list, 
+3 swaps/day. Pro ₹499/month or ₹2999/year: 
+unlimited everything, no ads, nutrition tracking, 
+all 8 condition tracks, family profiles. 
+PriceSpecification schema.
+
+════════════════════════════════
+OG IMAGE GENERATOR
+════════════════════════════════
+
+Create artifacts/marketing/app/api/og/route.tsx 
+using Next.js ImageResponse:
+Accept: title, condition, accent (colour hex)
+Generate 1200×630 image:
+- Solid accent colour background (or gradient)
+- MealCoreAI wordmark top left in white
+- Condition emoji large centre-left
+- Title text large white right side
+- Tagline bottom: 'AI Meal Planning for Your Health'
+- mealcoreai.com bottom right
+
+Use this in all page metadata:
+condition pages: /api/og?title=PCOS+Meal+Plan&
+condition=pcos&accent=fb7185
+blog posts: /api/og?title=[encoded title]&
+condition=[category]
+
+════════════════════════════════
+ANALYTICS + PERFORMANCE
+════════════════════════════════
+
+1. Create artifacts/marketing/components/
+   Analytics.tsx — loads GA4 using 
+   NEXT_PUBLIC_GA_ID env variable with 
+   next/script strategy afterInteractive. 
+   Track events: cta_click, blog_read, 
+   plan_page_view.
+
+2. Add to all page metadata: 
+   metadataBase: new URL('https://mealcoreai.com')
+
+3. Add next/image to every image tag with 
+   proper width, height, alt text.
+
+4. Create artifacts/marketing/next.config.js with:
+   compress: true
+   poweredByHeader: false
+   Security headers: X-Frame-Options SAMEORIGIN, 
+   X-Content-Type-Options nosniff,
+   Referrer-Policy strict-origin-when-cross-origin

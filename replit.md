@@ -30,25 +30,36 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealCoreAI** — a 
 ## Artifacts
 
 ### MealCoreAI Marketing (artifacts/marketing)
-- React + Vite marketing/SEO site, preview at `/marketing/`
+- Next.js 14 App Router SEO/marketing site, preview at `/` (root)
 - Package: `@workspace/marketing`, port 22813
-- Pages: Home (single-page with Hero, Features, Health Tracks, How It Works, Testimonials, FAQ, CTA)
-- Components: `Navbar.tsx`, `Footer.tsx`, `CTAButton.tsx`, `TrackBadge.tsx`
-- CTA buttons link to the app via `VITE_APP_URL` env var (defaults to `/mealmate/`)
-- Orange/rose brand palette, Inter font, fully responsive
+- Production: server mode (`next start`), dev mode (`next dev`)
+- Pages: Home `/`, condition pages (`/pcos-meal-plan`, `/diabetes-meal-plan`, etc.), `/how-it-works`, `/pricing`, `/faq`, `/about`, `/blog`, `/blog/[slug]`, `/meal-plans/[slug]` (250 programmatic SEO pages)
+- SEO: dynamic sitemap (`/sitemap.xml`), `robots.txt`, FAQPage/BreadcrumbList/Article JSON-LD schemas on all relevant pages
+- OG Image API: `/api/og?title=...&condition=...&accent=...` using Next.js ImageResponse (edge runtime)
+- Analytics: GA4 via `NEXT_PUBLIC_GA_ID` env var with afterInteractive loading
+- Security headers: X-Frame-Options, X-Content-Type-Options, Referrer-Policy
+- Blog: 20 full blog posts in `lib/blog-data.ts`, blog index + individual post pages with social share
+- Data: `lib/seo-data.ts` (8 conditions, 17 regions, 6 meal types), `lib/blog-data.ts` (20 posts)
 
 ### MealCoreAI (artifacts/mealmate)
-- React + Vite frontend, preview at `/`
-- Routes: `/` (landing), `/sign-in`, `/sign-up`, `/onboarding/*`, `/dashboard/*`
-- API proxy: Vite proxies `/api` → `http://localhost:8080`
-- Env vars: `VITE_CLERK_PUBLISHABLE_KEY`, `VITE_CLERK_PROXY_URL` (optional in dev)
+- React + Vite frontend, preview at `/app/` (BASE_PATH=/app/)
+- Routes: `/dashboard`, `/dashboard/meal-plan`, `/dashboard/grocery`, etc. (all under /app/)
+- API proxy: Vite proxies `/api` → api-server
+- **PWA**: `public/manifest.json` + `public/sw.js` with push notification support
+- **Push notifications**: `src/hooks/use-notifications.ts` + `src/components/notification-prompt.tsx`
+  - NotificationPrompt shown on home dashboard after 3 seconds
+  - iOS install hint for non-standalone iOS browsers
+  - Service worker handles `push` events, `notificationclick` opens/focuses app
+- Env vars: `VITE_CLERK_PUBLISHABLE_KEY`, `VITE_CLERK_PROXY_URL`, `VAPID_PUBLIC_KEY` (in .replit), `VAPID_PRIVATE_KEY` (secret)
 
 ### API Server (artifacts/api-server)
 - Express 5 + Clerk middleware + Drizzle ORM
 - Port 8080, exposed externally at 8080
-- Routes: `/api/healthz`, `/api/profiles/me`, `/api/dishes`, `/api/meal-plans/*`, `/api/grocery-list`, `/api/dish-preferences`
+- Routes: `/api/healthz`, `/api/profiles/me`, `/api/dishes`, `/api/meal-plans/*`, `/api/grocery-list`, `/api/dish-preferences`, `/api/notifications/*`
 - Clerk proxy middleware at `CLERK_PROXY_PATH`
 - OpenAI integration for meal plan generation
+- **Push notification routes**: `/api/notifications/vapid-public-key`, `/api/notifications/subscribe`, `/api/notifications/unsubscribe`, `/api/notifications/test`
+- **Meal reminder scheduler** (`src/scheduler.ts`): sends personalised push notifications at 8:00am, 1:00pm, 7:30pm IST with actual dish names from user's active plan
 
 ## Database Schema (lib/db/src/schema/)
 
