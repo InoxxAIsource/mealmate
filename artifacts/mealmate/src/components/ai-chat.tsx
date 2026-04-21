@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@clerk/react";
 import { useGetMyProfile } from "@workspace/api-client-react";
-import { X, Send, Sparkles, Bot, ChevronDown, ExternalLink } from "lucide-react";
+import { Send, Sparkles, Bot, ChevronDown, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
@@ -23,15 +23,6 @@ const TRACK_GREETINGS: Record<string, string> = {
   general: "Namaste! 🙏 I'm your MealMate AI — your personal Indian health & nutrition guide. Ask me anything about meals, nutrition, home remedies, health issues, or fitness.\n\n💡 You might also ask:\n• How to boost immunity naturally?\n• Easy healthy breakfast ideas?\n• Home remedy for cold & cough",
 };
 
-const QUICK_CHIPS: Record<string, string[]> = {
-  pcos: ["PCOS diet tips", "Hormone balancing foods", "Best breakfast for PCOS", "Is methi good for PCOS?"],
-  diabetes: ["Low glycemic foods", "Best dal for diabetics", "Post-meal sugar spikes", "Karela juice benefits"],
-  thyroid: ["Foods to avoid with thyroid", "Thyroid-friendly sabzi", "Can I eat soya?", "Ashwagandha for thyroid"],
-  pregnancy: ["Iron-rich foods", "Morning sickness remedies", "Safe foods in 1st trimester", "Calcium without dairy"],
-  kids: ["Healthy tiffin ideas", "Protein for kids", "Picky eater tips", "Brain foods for kids"],
-  fitness: ["Pre-workout meal ideas", "High protein vegetarian", "Post-workout recovery", "Daily protein needs"],
-  general: ["Immunity boosting foods", "Healthy breakfast ideas", "Cold & cough remedy", "Weight loss Indian diet"],
-};
 
 // Parse follow-up suggestions from AI response
 function parseFollowUps(text: string): { body: string; followUps: string[] } {
@@ -63,13 +54,8 @@ function FormattedText({ text }: { text: string }) {
       continue;
     }
 
-    // Disclaimer lines
+    // Skip inline disclaimer lines — global disclaimer shown in footer
     if (line.startsWith("⚕️") || line.startsWith("🌿")) {
-      result.push(
-        <div key={i} className="mt-3 px-3 py-2 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs leading-relaxed">
-          {renderInline(line)}
-        </div>
-      );
       i++;
       continue;
     }
@@ -260,7 +246,6 @@ export function AIChat() {
   const { data: profile } = useGetMyProfile();
 
   const track = (profile?.primaryTrack as keyof typeof TRACK_GREETINGS) || "general";
-  const chips = QUICK_CHIPS[track] || QUICK_CHIPS.general;
   const greeting = TRACK_GREETINGS[track] || TRACK_GREETINGS.general;
 
   useEffect(() => {
@@ -376,21 +361,6 @@ export function AIChat() {
                 <ChatMessage key={msg.id} msg={msg} onFollowUp={(q) => sendMessage(q)} />
               ))}
               {loading && <TypingIndicator />}
-
-              {/* Quick chips — only when no user messages yet */}
-              {messages.length <= 1 && !loading && (
-                <div className="mt-2 mb-4">
-                  <p className="text-[10px] text-muted-foreground mb-2 font-semibold uppercase tracking-wide">Quick questions</p>
-                  <div className="flex flex-wrap gap-2">
-                    {chips.map((chip) => (
-                      <button key={chip} onClick={() => sendMessage(chip)}
-                        className="text-xs bg-primary/8 hover:bg-primary/15 text-primary border border-primary/20 rounded-full px-3 py-1.5 transition-colors font-medium">
-                        {chip}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               <div ref={messagesEndRef} />
             </div>
