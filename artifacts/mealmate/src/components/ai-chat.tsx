@@ -39,6 +39,16 @@ function parseFollowUps(text: string): { body: string; followUps: string[] } {
   return { body, followUps };
 }
 
+// Normalize a raw line — strip markdown symbols before rendering
+function normalizeLine(raw: string): string {
+  let line = raw.trim();
+  // Strip leading # heading markers → plain text
+  line = line.replace(/^#{1,6}\s+/, "");
+  // Convert markdown bullets (* / - at line start) → bullet char
+  line = line.replace(/^[\*\-]\s+/, "• ");
+  return line;
+}
+
 // Render formatted message text — no markdown symbols shown
 function FormattedText({ text }: { text: string }) {
   const lines = text.split("\n");
@@ -46,7 +56,7 @@ function FormattedText({ text }: { text: string }) {
   let i = 0;
 
   while (i < lines.length) {
-    const line = lines[i].trim();
+    const line = normalizeLine(lines[i]);
 
     if (!line) {
       result.push(<div key={i} className="h-2" />);
@@ -81,11 +91,11 @@ function FormattedText({ text }: { text: string }) {
       continue;
     }
 
-    // Bullet point
+    // Bullet point (• or converted from * / -)
     if (line.startsWith("•")) {
       const bullets: string[] = [];
-      while (i < lines.length && lines[i].trim().startsWith("•")) {
-        bullets.push(lines[i].trim().replace(/^•\s*/, ""));
+      while (i < lines.length && normalizeLine(lines[i]).startsWith("•")) {
+        bullets.push(normalizeLine(lines[i]).replace(/^•\s*/, ""));
         i++;
       }
       result.push(
@@ -104,8 +114,8 @@ function FormattedText({ text }: { text: string }) {
     // Numbered list
     if (/^\d+\./.test(line)) {
       const items: string[] = [];
-      while (i < lines.length && /^\d+\./.test(lines[i].trim())) {
-        items.push(lines[i].trim().replace(/^\d+\.\s*/, ""));
+      while (i < lines.length && /^\d+\./.test(normalizeLine(lines[i]))) {
+        items.push(normalizeLine(lines[i]).replace(/^\d+\.\s*/, ""));
         i++;
       }
       result.push(
@@ -122,7 +132,7 @@ function FormattedText({ text }: { text: string }) {
     }
 
     // ALL CAPS label (like "BENEFITS:" "WARNING:" "DOSAGE:")
-    if (/^[A-Z][A-Z\s]+:/.test(line)) {
+    if (/^[A-Z][A-Z\s]{2,}:/.test(line)) {
       result.push(
         <p key={i} className="mt-2.5 text-xs font-bold text-primary uppercase tracking-wide">
           {line}
@@ -144,15 +154,21 @@ function FormattedText({ text }: { text: string }) {
   return <div className="space-y-0.5">{result}</div>;
 }
 
-// Render inline: make URLs clickable, strip any leftover markdown
+// Render inline: strip markdown bold/italic, make URLs clickable
 function renderInline(text: string): React.ReactNode {
+  // Strip **bold** and *italic* markers — show clean text
+  let cleaned = text
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/_([^_]+)_/g, "$1");
+
   // Replace URLs with clickable links
   const urlRegex = /https?:\/\/[^\s]+/g;
   const parts: React.ReactNode[] = [];
   let last = 0;
   let match: RegExpExecArray | null;
-  while ((match = urlRegex.exec(text)) !== null) {
-    if (match.index > last) parts.push(text.slice(last, match.index));
+  while ((match = urlRegex.exec(cleaned)) !== null) {
+    if (match.index > last) parts.push(cleaned.slice(last, match.index));
     parts.push(
       <a key={match.index} href={match[0]} target="_blank" rel="noopener noreferrer"
         className="text-primary underline underline-offset-2 break-all">
@@ -161,7 +177,7 @@ function renderInline(text: string): React.ReactNode {
     );
     last = match.index + match[0].length;
   }
-  if (last < text.length) parts.push(text.slice(last));
+  if (last < cleaned.length) parts.push(cleaned.slice(last));
   return parts.length === 1 ? parts[0] : parts;
 }
 
