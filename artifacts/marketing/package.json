@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p ${PORT:-22813}",
+    "dev": "BASE_PATH=/marketing/ next dev -p ${PORT:-22813}",
     "build": "next build",
     "start": "next start -p ${PORT:-22813}",
     "typecheck": "tsc --noEmit"

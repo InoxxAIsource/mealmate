@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
-  basePath: (process.env.BASE_PATH || "/marketing").replace(/\/$/, ""),
+  basePath: process.env.BASE_PATH ? process.env.BASE_PATH.replace(/\/$/, "") : "",
   images: {
     unoptimized: true,
     domains: ["mealcoreai.com"],
