@@ -69,6 +69,26 @@ function formatDish(d: DishRow) {
   };
 }
 
+// Region values stored in profile → dish region tags they map to
+const REGION_MAP: Record<string, string[]> = {
+  North:     ["North", "North India", "Punjab", "Kashmir", "Pan India"],
+  South:     ["South", "South India", "Kerala", "Karnataka", "Hyderabad", "Pan India"],
+  West:      ["West", "Maharashtra", "Coastal India", "Pan India"],
+  East:      ["East", "Pan India"],
+  Northeast: ["Northeast", "East", "Pan India"],
+  Mix:       [], // empty = no filter, show all
+};
+
+function filterDishesByRegion(dishes: DishRow[], region: string | null): DishRow[] {
+  if (!region) return dishes;
+  const allowed = REGION_MAP[region];
+  // "Mix" or unknown region → return all
+  if (!allowed || allowed.length === 0) return dishes;
+  return dishes.filter((d) =>
+    (d.region as string[]).some((r) => allowed.includes(r))
+  );
+}
+
 function filterDishesByTrack(dishes: DishRow[], track: string | null) {
   if (!track) return dishes;
   return dishes.filter((d) => {
@@ -93,7 +113,8 @@ function pickRandom<T>(arr: T[]): T | null {
 
 async function buildPlanDays(
   filteredDishes: DishRow[],
-  existingPlan?: PlanDay[]
+  existingPlan?: PlanDay[],
+  fallbackDishes?: DishRow[]
 ): Promise<PlanDay[]> {
   const mealSlots: MealSlot[] = ["breakfast", "lunch", "snack", "dinner"];
   const days: PlanDay[] = [];
@@ -114,7 +135,11 @@ async function buildPlanDays(
       if (existing?.lockedSlots?.includes(slot) && existing[slotKey]) {
         (day as any)[slotKey] = existing[slotKey];
       } else {
-        const candidates = getDishesByMealType(filteredDishes, slot);
+        let candidates = getDishesByMealType(filteredDishes, slot);
+        // Safety: fall back to track-only pool if region narrows too much
+        if (candidates.length === 0 && fallbackDishes) {
+          candidates = getDishesByMealType(fallbackDishes, slot);
+        }
         const picked = pickRandom(candidates);
         (day as any)[slotKey] = picked?.id ?? null;
       }
@@ -127,7 +152,8 @@ async function buildPlanDays(
 async function generateWithAI(
   filteredDishes: DishRow[],
   profile: typeof profilesTable.$inferSelect,
-  existingPlan?: PlanDay[]
+  existingPlan?: PlanDay[],
+  fallbackDishes?: DishRow[]
 ): Promise<PlanDay[]> {
   const dishSummary = filteredDishes.slice(0, 40).map((d) => ({
     id: d.id,
@@ -180,7 +206,7 @@ Only use dish IDs from the provided list. Each dish must match its mealType. Ret
   } catch (e) {
     // fallback to random
   }
-  return buildPlanDays(filteredDishes, existingPlan);
+  return buildPlanDays(filteredDishes, existingPlan, fallbackDishes);
 }
 
 async function hydratePlan(
@@ -252,7 +278,10 @@ router.post("/meal-plans/generate", requireAuth, async (req, res) => {
   }
 
   const allDishes = await db.select().from(dishesTable);
-  const filtered = filterDishesByTrack(allDishes, profile[0].primaryTrack);
+  const byRegion = filterDishesByRegion(allDishes, profile[0].region);
+  const filtered = filterDishesByTrack(byRegion, profile[0].primaryTrack);
+  // Fallback pool: track-filtered only (no region), used if region yields too few dishes
+  const trackFallback = filterDishesByTrack(allDishes, profile[0].primaryTrack);
 
   // Get existing active plan for locked slots
   const existing = await db
@@ -274,8 +303,8 @@ router.post("/meal-plans/generate", requireAuth, async (req, res) => {
     .set({ isActive: false })
     .where(eq(mealPlansTable.profileId, profile[0].id));
 
-  // Generate new plan
-  const planDays = await generateWithAI(filtered, profile[0], existingPlanData);
+  // Generate new plan (region-filtered dishes; fallback to track-only if region too narrow)
+  const planDays = await generateWithAI(filtered, profile[0], existingPlanData, trackFallback);
 
   const [newPlan] = await db
     .insert(mealPlansTable)
@@ -316,7 +345,8 @@ router.post("/meal-plans/swap", requireAuth, async (req, res) => {
   }
 
   const allDishes = await db.select().from(dishesTable);
-  const filtered = filterDishesByTrack(allDishes, profile[0].primaryTrack);
+  const byRegion = filterDishesByRegion(allDishes, profile[0].region);
+  const filtered = filterDishesByTrack(byRegion, profile[0].primaryTrack);
   const candidates = getDishesByMealType(filtered, mealType as MealSlot).filter(
     (d) => d.id !== currentDishId
   );
