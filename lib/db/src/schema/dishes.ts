@@ -48,6 +48,7 @@ export const dishesTable = pgTable("dishes", {
   benefitsPregnancy: text("benefits_pregnancy"),
   benefitsKids: text("benefits_kids"),
   benefitsGym: text("benefits_gym"),
+  youtubeUrl: text("youtube_url"),
 });
 
 export const insertDishSchema = createInsertSchema(dishesTable).omit({

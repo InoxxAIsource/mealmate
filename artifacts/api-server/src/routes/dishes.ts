@@ -54,6 +54,7 @@ function formatDish(d: typeof dishesTable.$inferSelect) {
     benefitsPregnancy: d.benefitsPregnancy,
     benefitsKids: d.benefitsKids,
     benefitsGym: d.benefitsGym,
+    youtubeUrl: d.youtubeUrl ?? null,
   };
 }
 
