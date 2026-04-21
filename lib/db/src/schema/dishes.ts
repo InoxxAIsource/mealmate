@@ -40,11 +40,14 @@ export const dishesTable = pgTable("dishes", {
   highFibre: boolean("high_fibre").notNull().default(false),
   deepFried: boolean("deep_fried").notNull().default(false),
   pregnancyExclude: boolean("pregnancy_exclude").notNull().default(false),
+  gymSafe: boolean("gym_safe").notNull().default(false),
+  gymCategories: jsonb("gym_categories").$type<string[]>().default([]),
   benefitsPcos: text("benefits_pcos"),
   benefitsDiabetes: text("benefits_diabetes"),
   benefitsThyroid: text("benefits_thyroid"),
   benefitsPregnancy: text("benefits_pregnancy"),
   benefitsKids: text("benefits_kids"),
+  benefitsGym: text("benefits_gym"),
 });
 
 export const insertDishSchema = createInsertSchema(dishesTable).omit({

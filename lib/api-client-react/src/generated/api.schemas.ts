@@ -24,6 +24,7 @@ export const ProfilePrimaryTrack = {
   pregnancy: "pregnancy",
   kids: "kids",
   general: "general",
+  fitness: "fitness",
 } as const;
 
 export type ProfileConditionData = { [key: string]: unknown } | null;
@@ -59,6 +60,7 @@ export const UpsertProfileBodyPrimaryTrack = {
   pregnancy: "pregnancy",
   kids: "kids",
   general: "general",
+  fitness: "fitness",
 } as const;
 
 export type UpsertProfileBodyConditionData = { [key: string]: unknown };
@@ -106,6 +108,8 @@ export interface HealthFlags {
   thyroidSafe: boolean;
   pregnancySafe: boolean;
   kidsSafe: boolean;
+  gymSafe: boolean;
+  gymCategories: string[];
   lowGi: boolean;
   highCalcium: boolean;
   highFibre: boolean;
@@ -130,6 +134,7 @@ export interface Dish {
   benefitsThyroid?: string | null;
   benefitsPregnancy?: string | null;
   benefitsKids?: string | null;
+  benefitsGym?: string | null;
 }
 
 export interface MealPlanDay {

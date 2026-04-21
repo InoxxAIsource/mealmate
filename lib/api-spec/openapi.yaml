@@ -275,7 +275,7 @@ components:
         primaryTrack:
           type: string
           nullable: true
-          enum: [pcos, diabetes, thyroid, pregnancy, kids, general]
+          enum: [pcos, diabetes, thyroid, pregnancy, kids, general, fitness]
         region:
           type: string
           nullable: true
@@ -329,7 +329,7 @@ components:
           type: string
         primaryTrack:
           type: string
-          enum: [pcos, diabetes, thyroid, pregnancy, kids, general]
+          enum: [pcos, diabetes, thyroid, pregnancy, kids, general, fitness]
         region:
           type: string
         dietType:
@@ -400,6 +400,9 @@ components:
         benefitsKids:
           type: string
           nullable: true
+        benefitsGym:
+          type: string
+          nullable: true
       required:
         - id
         - name
@@ -468,6 +471,12 @@ components:
           type: boolean
         kidsSafe:
           type: boolean
+        gymSafe:
+          type: boolean
+        gymCategories:
+          type: array
+          items:
+            type: string
         lowGi:
           type: boolean
         highCalcium:
@@ -484,6 +493,8 @@ components:
         - thyroidSafe
         - pregnancySafe
         - kidsSafe
+        - gymSafe
+        - gymCategories
         - lowGi
         - highCalcium
         - highFibre

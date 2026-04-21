@@ -52,6 +52,8 @@ function formatDish(d: DishRow) {
       thyroidSafe: d.thyroidSafe,
       pregnancySafe: d.pregnancySafe,
       kidsSafe: d.kidsSafe,
+      gymSafe: d.gymSafe,
+      gymCategories: d.gymCategories ?? [],
       lowGi: d.lowGi,
       highCalcium: d.highCalcium,
       highFibre: d.highFibre,
@@ -63,6 +65,7 @@ function formatDish(d: DishRow) {
     benefitsThyroid: d.benefitsThyroid,
     benefitsPregnancy: d.benefitsPregnancy,
     benefitsKids: d.benefitsKids,
+    benefitsGym: d.benefitsGym,
   };
 }
 
@@ -74,6 +77,7 @@ function filterDishesByTrack(dishes: DishRow[], track: string | null) {
     if (track === "thyroid") return d.thyroidSafe;
     if (track === "pregnancy") return d.pregnancySafe && !d.pregnancyExclude;
     if (track === "kids") return d.kidsSafe;
+    if (track === "fitness") return d.gymSafe;
     return true;
   });
 }

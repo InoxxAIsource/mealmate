@@ -32,6 +32,8 @@ function formatDish(d: typeof dishesTable.$inferSelect) {
       thyroidSafe: d.thyroidSafe,
       pregnancySafe: d.pregnancySafe,
       kidsSafe: d.kidsSafe,
+      gymSafe: d.gymSafe,
+      gymCategories: d.gymCategories ?? [],
       lowGi: d.lowGi,
       highCalcium: d.highCalcium,
       highFibre: d.highFibre,
@@ -44,12 +46,14 @@ function formatDish(d: typeof dishesTable.$inferSelect) {
       thyroid: d.benefitsThyroid ?? "",
       pregnancy: d.benefitsPregnancy ?? "",
       kids: d.benefitsKids ?? "",
+      gym: d.benefitsGym ?? "",
     },
     benefitsPcos: d.benefitsPcos,
     benefitsDiabetes: d.benefitsDiabetes,
     benefitsThyroid: d.benefitsThyroid,
     benefitsPregnancy: d.benefitsPregnancy,
     benefitsKids: d.benefitsKids,
+    benefitsGym: d.benefitsGym,
   };
 }
 

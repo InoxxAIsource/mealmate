@@ -64,6 +64,22 @@ export default function DashboardHome() {
           </Link>
         )}
 
+        {summary.profile?.primaryTrack === "fitness" && (
+          <Link href="/dashboard/fitness">
+            <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl p-4 flex items-center justify-between shadow-sm active:scale-[0.98] transition-transform">
+              <div className="absolute -top-3 -right-3 w-16 h-16 bg-white/10 rounded-full" />
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">💪</span>
+                <div>
+                  <p className="text-white font-bold text-sm">Your Gym Nutrition Hub</p>
+                  <p className="text-blue-200 text-xs">Pre/Post workout · Lean · Keto · Gaining</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-white shrink-0" />
+            </div>
+          </Link>
+        )}
+
         <div className="space-y-4">
           <h2 className="text-xl font-bold text-foreground">Today's Plan</h2>
           

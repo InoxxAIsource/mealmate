@@ -27,7 +27,15 @@ export const GetMyProfileResponse = zod.object({
   weightKg: zod.number().nullish(),
   familySize: zod.string().nullish(),
   primaryTrack: zod
-    .enum(["pcos", "diabetes", "thyroid", "pregnancy", "kids", "general"])
+    .enum([
+      "pcos",
+      "diabetes",
+      "thyroid",
+      "pregnancy",
+      "kids",
+      "general",
+      "fitness",
+    ])
     .nullish(),
   region: zod.string().nullish(),
   dietType: zod.string().nullish(),
@@ -51,7 +59,15 @@ export const UpsertProfileBody = zod.object({
   weightKg: zod.number().optional(),
   familySize: zod.string().optional(),
   primaryTrack: zod
-    .enum(["pcos", "diabetes", "thyroid", "pregnancy", "kids", "general"])
+    .enum([
+      "pcos",
+      "diabetes",
+      "thyroid",
+      "pregnancy",
+      "kids",
+      "general",
+      "fitness",
+    ])
     .optional(),
   region: zod.string().optional(),
   dietType: zod.string().optional(),
@@ -73,7 +89,15 @@ export const UpsertProfileResponse = zod.object({
   weightKg: zod.number().nullish(),
   familySize: zod.string().nullish(),
   primaryTrack: zod
-    .enum(["pcos", "diabetes", "thyroid", "pregnancy", "kids", "general"])
+    .enum([
+      "pcos",
+      "diabetes",
+      "thyroid",
+      "pregnancy",
+      "kids",
+      "general",
+      "fitness",
+    ])
     .nullish(),
   region: zod.string().nullish(),
   dietType: zod.string().nullish(),
@@ -120,6 +144,8 @@ export const ListDishesResponseItem = zod.object({
     thyroidSafe: zod.boolean(),
     pregnancySafe: zod.boolean(),
     kidsSafe: zod.boolean(),
+    gymSafe: zod.boolean(),
+    gymCategories: zod.array(zod.string()),
     lowGi: zod.boolean(),
     highCalcium: zod.boolean(),
     highFibre: zod.boolean(),
@@ -132,6 +158,7 @@ export const ListDishesResponseItem = zod.object({
   benefitsThyroid: zod.string().nullish(),
   benefitsPregnancy: zod.string().nullish(),
   benefitsKids: zod.string().nullish(),
+  benefitsGym: zod.string().nullish(),
 });
 export const ListDishesResponse = zod.array(ListDishesResponseItem);
 
@@ -173,6 +200,8 @@ export const GetDishResponse = zod.object({
     thyroidSafe: zod.boolean(),
     pregnancySafe: zod.boolean(),
     kidsSafe: zod.boolean(),
+    gymSafe: zod.boolean(),
+    gymCategories: zod.array(zod.string()),
     lowGi: zod.boolean(),
     highCalcium: zod.boolean(),
     highFibre: zod.boolean(),
@@ -185,6 +214,7 @@ export const GetDishResponse = zod.object({
   benefitsThyroid: zod.string().nullish(),
   benefitsPregnancy: zod.string().nullish(),
   benefitsKids: zod.string().nullish(),
+  benefitsGym: zod.string().nullish(),
 });
 
 /**
@@ -227,6 +257,8 @@ export const GetActiveMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -239,6 +271,7 @@ export const GetActiveMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       lunch: zod
@@ -273,6 +306,8 @@ export const GetActiveMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -285,6 +320,7 @@ export const GetActiveMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       snack: zod
@@ -319,6 +355,8 @@ export const GetActiveMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -331,6 +369,7 @@ export const GetActiveMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       dinner: zod
@@ -365,6 +404,8 @@ export const GetActiveMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -377,6 +418,7 @@ export const GetActiveMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       lockedSlots: zod.array(zod.string()),
@@ -429,6 +471,8 @@ export const GenerateMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -441,6 +485,7 @@ export const GenerateMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       lunch: zod
@@ -475,6 +520,8 @@ export const GenerateMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -487,6 +534,7 @@ export const GenerateMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       snack: zod
@@ -521,6 +569,8 @@ export const GenerateMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -533,6 +583,7 @@ export const GenerateMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       dinner: zod
@@ -567,6 +618,8 @@ export const GenerateMealPlanResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -579,6 +632,7 @@ export const GenerateMealPlanResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       lockedSlots: zod.array(zod.string()),
@@ -628,6 +682,8 @@ export const SwapMealResponse = zod.object({
     thyroidSafe: zod.boolean(),
     pregnancySafe: zod.boolean(),
     kidsSafe: zod.boolean(),
+    gymSafe: zod.boolean(),
+    gymCategories: zod.array(zod.string()),
     lowGi: zod.boolean(),
     highCalcium: zod.boolean(),
     highFibre: zod.boolean(),
@@ -640,6 +696,7 @@ export const SwapMealResponse = zod.object({
   benefitsThyroid: zod.string().nullish(),
   benefitsPregnancy: zod.string().nullish(),
   benefitsKids: zod.string().nullish(),
+  benefitsGym: zod.string().nullish(),
 });
 
 /**
@@ -671,7 +728,15 @@ export const GetDashboardSummaryResponse = zod.object({
       weightKg: zod.number().nullish(),
       familySize: zod.string().nullish(),
       primaryTrack: zod
-        .enum(["pcos", "diabetes", "thyroid", "pregnancy", "kids", "general"])
+        .enum([
+          "pcos",
+          "diabetes",
+          "thyroid",
+          "pregnancy",
+          "kids",
+          "general",
+          "fitness",
+        ])
         .nullish(),
       region: zod.string().nullish(),
       dietType: zod.string().nullish(),
@@ -719,6 +784,8 @@ export const GetDashboardSummaryResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -731,6 +798,7 @@ export const GetDashboardSummaryResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       lunch: zod
@@ -765,6 +833,8 @@ export const GetDashboardSummaryResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -777,6 +847,7 @@ export const GetDashboardSummaryResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       snack: zod
@@ -811,6 +882,8 @@ export const GetDashboardSummaryResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -823,6 +896,7 @@ export const GetDashboardSummaryResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       dinner: zod
@@ -857,6 +931,8 @@ export const GetDashboardSummaryResponse = zod.object({
             thyroidSafe: zod.boolean(),
             pregnancySafe: zod.boolean(),
             kidsSafe: zod.boolean(),
+            gymSafe: zod.boolean(),
+            gymCategories: zod.array(zod.string()),
             lowGi: zod.boolean(),
             highCalcium: zod.boolean(),
             highFibre: zod.boolean(),
@@ -869,6 +945,7 @@ export const GetDashboardSummaryResponse = zod.object({
           benefitsThyroid: zod.string().nullish(),
           benefitsPregnancy: zod.string().nullish(),
           benefitsKids: zod.string().nullish(),
+          benefitsGym: zod.string().nullish(),
         })
         .optional(),
       lockedSlots: zod.array(zod.string()),

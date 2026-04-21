@@ -45,7 +45,7 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a pe
 ## Database Schema (lib/db/src/schema/)
 
 - `profiles` — user profiles with health track, diet preferences, onboarding state
-- `dishes` — 20 seeded Indian dishes with full nutritional data and health flags per track
+- `dishes` — 55 seeded Indian dishes (IDs 1–30 general/kids, 31–55 gym fitness) with full nutritional data, health flags, and gym_categories per track
 - `meal_plans` — weekly meal plans (stored as JSON: 7 days × 4 meals)
 - `dish_preferences` — user-favourite and disliked dish IDs
 
@@ -55,7 +55,8 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a pe
 - **Diabetes** (teal-500): Low-GI + `diabetesSafe` flag
 - **Thyroid** (emerald-400): `thyroidSafe` flag
 - **Pregnancy** (orange-300): `pregnancySafe`, no `pregnancyExclude`
-- **Kids** (yellow-400): `kidsSafe` flag
+- **Kids** (yellow-400): `kidsSafe` flag; shows Lunch Box tab in bottom nav + `/dashboard/lunchbox` page
+- **Fitness/Gym** (blue-to-violet): `gymSafe` flag; 5 gym_categories: `pre_workout`, `post_workout`, `lean`, `keto`, `gaining`; shows Fitness tab in bottom nav + `/dashboard/fitness` page
 - **General** (blue-400): All dishes
 
 ## API Client

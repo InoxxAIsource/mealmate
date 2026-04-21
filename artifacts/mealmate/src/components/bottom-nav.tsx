@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Home, Calendar, ShoppingCart, User, Sandwich } from "lucide-react";
+import { Home, Calendar, ShoppingCart, User, Sandwich, Dumbbell } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGetMyProfile } from "@workspace/api-client-react";
 
@@ -18,12 +18,20 @@ const KIDS_ITEMS = [
   { name: "Profile", href: "/dashboard/profile", icon: User },
 ];
 
+const FITNESS_ITEMS = [
+  { name: "Home", href: "/dashboard", icon: Home },
+  { name: "Week", href: "/dashboard/week", icon: Calendar },
+  { name: "Fitness", href: "/dashboard/fitness", icon: Dumbbell },
+  { name: "Grocery", href: "/dashboard/grocery", icon: ShoppingCart },
+  { name: "Profile", href: "/dashboard/profile", icon: User },
+];
+
 export function BottomNav() {
   const [location] = useLocation();
   const { data: profile } = useGetMyProfile();
 
-  const isKids = profile?.primaryTrack === "kids";
-  const navItems = isKids ? KIDS_ITEMS : BASE_ITEMS;
+  const track = profile?.primaryTrack;
+  const navItems = track === "kids" ? KIDS_ITEMS : track === "fitness" ? FITNESS_ITEMS : BASE_ITEMS;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border pb-safe">

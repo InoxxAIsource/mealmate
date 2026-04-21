@@ -11,6 +11,13 @@ const TRACKS = [
     subtitle: "Everyday balanced meals for the whole family",
   },
   {
+    id: "fitness",
+    name: "Gym & Fitness",
+    emoji: "💪",
+    subtitle: "Lean, keto, gaining & workout nutrition",
+    highlight: true,
+  },
+  {
     id: "kids",
     name: "Cooking for kids",
     emoji: "👧",
