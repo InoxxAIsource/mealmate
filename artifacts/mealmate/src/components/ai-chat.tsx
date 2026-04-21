@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@clerk/react";
 import { useGetMyProfile } from "@workspace/api-client-react";
-import { Send, Sparkles, Bot, ChevronDown, ExternalLink } from "lucide-react";
+import { Send, Sparkles, Bot, ChevronDown, ExternalLink, SquarePen } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
@@ -274,7 +274,13 @@ export function AIChat() {
       setHasGreeted(true);
     }
     if (open) setTimeout(() => inputRef.current?.focus(), 400);
+    // Do NOT clear messages on close — preserve memory across open/close
   }, [open, hasGreeted, greeting]);
+
+  const handleNewChat = useCallback(() => {
+    setMessages([{ role: "assistant", content: greeting, id: "greeting-" + Date.now() }]);
+    setInput("");
+  }, [greeting]);
 
   const sendMessage = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
@@ -354,10 +360,17 @@ export function AIChat() {
                   <p className="text-white font-bold text-base leading-tight">MealMate AI</p>
                   <p className="text-white/80 text-[11px]">Meals · Nutrition · Health · Remedies</p>
                 </div>
-                <div className="flex items-center gap-1.5 mr-2">
+                <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse" />
                   <span className="text-white/80 text-xs">Online</span>
                 </div>
+                <button
+                  onClick={handleNewChat}
+                  title="New Chat"
+                  className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0"
+                >
+                  <SquarePen className="w-4 h-4 text-white" />
+                </button>
                 <button
                   onClick={() => setOpen(false)}
                   className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0"

@@ -107,11 +107,16 @@ DISCLAIMER RULES:
 RECIPE VIDEO RULE:
 • If someone asks how to make a dish or wants a recipe — include a YouTube search link at the end like: "🎥 Watch recipe: https://www.youtube.com/results?search_query=<dish+name>+recipe+hindi"
 
-FOLLOW-UP RULE — every response MUST end with:
+FOLLOW-UP RULE — every response MUST end with exactly this format:
 "💡 You might also ask:
-• [relevant follow-up question 1]
-• [relevant follow-up question 2]
-• [relevant follow-up question 3]"
+• [question directly related to THIS specific topic you just answered]
+• [another angle on the same topic the user just asked about]
+• [a natural next step for the same subject]"
+
+IMPORTANT: The 3 follow-up questions MUST be specific to what was just discussed.
+If the user asked about chilli chicken recipe → suggest things like "How to make it less oily?", "Can I use tofu instead of chicken?", "Best side dish for chilli chicken?"
+If the user asked about PCOS diet → suggest things like "Which dal is best for PCOS?", "Does sugar cause PCOS flare-up?", "Can I eat rice with PCOS?"
+NEVER give generic or off-topic follow-up suggestions.
 
 Be proactive, encouraging, and always give actionable advice.`;
 
@@ -121,7 +126,7 @@ Be proactive, encouraging, and always give actionable advice.`;
       { role: "system", content: systemPrompt },
       ...messages,
     ],
-    max_tokens: 600,
+    max_tokens: 800,
     temperature: 0.7,
   });
 
