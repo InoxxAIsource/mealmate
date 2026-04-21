@@ -42,12 +42,14 @@ export const dishesTable = pgTable("dishes", {
   pregnancyExclude: boolean("pregnancy_exclude").notNull().default(false),
   gymSafe: boolean("gym_safe").notNull().default(false),
   gymCategories: jsonb("gym_categories").$type<string[]>().default([]),
+  cholesterolSafe: boolean("cholesterol_safe").notNull().default(false),
   benefitsPcos: text("benefits_pcos"),
   benefitsDiabetes: text("benefits_diabetes"),
   benefitsThyroid: text("benefits_thyroid"),
   benefitsPregnancy: text("benefits_pregnancy"),
   benefitsKids: text("benefits_kids"),
   benefitsGym: text("benefits_gym"),
+  benefitsCholesterol: text("benefits_cholesterol"),
   youtubeUrl: text("youtube_url"),
 });
 

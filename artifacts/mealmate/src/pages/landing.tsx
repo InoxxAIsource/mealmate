@@ -36,10 +36,10 @@ export default function Landing() {
       <header className="flex items-center gap-2 px-6 pt-8 z-10">
         <img
           src={`${import.meta.env.BASE_URL}logo.svg`}
-          alt="MealMate"
+          alt="MealCoreAI"
           className="w-8 h-8"
         />
-        <span className="text-lg font-bold text-primary tracking-tight">MealMate</span>
+        <span className="text-lg font-bold text-primary tracking-tight">MealCoreAI</span>
       </header>
 
       {/* Hero */}
@@ -57,7 +57,7 @@ export default function Landing() {
           </h1>
 
           <p className="text-muted-foreground text-base leading-relaxed max-w-[320px]">
-            MealMate plans your entire week's Indian meals in seconds — breakfast, lunch, snack, dinner — for your family, your taste, your kitchen.
+            MealCoreAI plans your entire week's Indian meals in seconds — breakfast, lunch, snack, dinner — for your family, your taste, your kitchen.
           </p>
 
           <Link href="/sign-up" className="block mt-7">

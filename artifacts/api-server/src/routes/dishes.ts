@@ -34,6 +34,7 @@ function formatDish(d: typeof dishesTable.$inferSelect) {
       kidsSafe: d.kidsSafe,
       gymSafe: d.gymSafe,
       gymCategories: d.gymCategories ?? [],
+      cholesterolSafe: d.cholesterolSafe,
       lowGi: d.lowGi,
       highCalcium: d.highCalcium,
       highFibre: d.highFibre,
@@ -47,6 +48,7 @@ function formatDish(d: typeof dishesTable.$inferSelect) {
       pregnancy: d.benefitsPregnancy ?? "",
       kids: d.benefitsKids ?? "",
       gym: d.benefitsGym ?? "",
+      cholesterol: d.benefitsCholesterol ?? "",
     },
     benefitsPcos: d.benefitsPcos,
     benefitsDiabetes: d.benefitsDiabetes,
@@ -54,6 +56,7 @@ function formatDish(d: typeof dishesTable.$inferSelect) {
     benefitsPregnancy: d.benefitsPregnancy,
     benefitsKids: d.benefitsKids,
     benefitsGym: d.benefitsGym,
+    benefitsCholesterol: d.benefitsCholesterol,
     youtubeUrl: d.youtubeUrl ?? null,
   };
 }

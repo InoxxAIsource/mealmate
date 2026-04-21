@@ -3,7 +3,7 @@ import { Bell, BellOff, X, Smartphone, Check, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNotifications } from "@/hooks/use-notifications";
 
-const DISMISSED_KEY = "mealmate-notif-dismissed";
+const DISMISSED_KEY = "mealcoreai-notif-dismissed";
 
 export function NotificationPrompt() {
   const { state, requestPermission, sendTestNotification, isIOS } = useNotifications();

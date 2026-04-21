@@ -1,6 +1,6 @@
-// MealMate Service Worker — handles push notifications and PWA caching
+// MealCoreAI Service Worker — handles push notifications and PWA caching
 
-const CACHE_NAME = "mealmate-v1";
+const CACHE_NAME = "mealcoreai-v1";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -13,12 +13,12 @@ self.addEventListener("activate", (event) => {
 // Handle push notifications
 self.addEventListener("push", (event) => {
   let data = {
-    title: "MealMate 🍽️",
+    title: "MealCoreAI 🍽️",
     body: "Time for your next meal!",
     icon: "/logo.svg",
     badge: "/logo.svg",
     url: "/dashboard",
-    tag: "mealmate",
+    tag: "mealcoreai",
   };
 
   try {

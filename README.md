@@ -1,8 +1,8 @@
-# MealMate 🍱
+# MealCoreAI 🍱
 
 > **Aaj kya banau?** — A personalised Indian meal planning app that solves the daily "what should I cook today?" problem.
 
-MealMate generates smart weekly meal plans tailored to your health track, dietary preferences, and regional Indian cuisine. Built as a mobile-first progressive web app.
+MealCoreAI generates smart weekly meal plans tailored to your health track, dietary preferences, and regional Indian cuisine. Built as a mobile-first progressive web app.
 
 ---
 

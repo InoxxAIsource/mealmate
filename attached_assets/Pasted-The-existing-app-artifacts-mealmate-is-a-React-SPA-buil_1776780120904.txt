@@ -1,0 +1,71 @@
+The existing app (artifacts/mealmate) is a React SPA 
+built with Vite. SPAs cannot be crawled by Google for 
+SEO. 
+
+Create a new Next.js 14 marketing and SEO site inside 
+the monorepo at: artifacts/marketing/
+
+This site handles all public SEO pages. The SPA 
+handles the actual app (dashboard, onboarding etc).
+
+SETUP:
+
+1. Create artifacts/marketing/ as a new pnpm workspace 
+   package named @mealcoreai/marketing
+
+2. Initialise Next.js 14 App Router with Tailwind CSS:
+   - Use the same Tailwind config and colour tokens 
+     as artifacts/mealmate for visual consistency
+   - Install: next tailwindcss @tailwindcss/typography
+
+3. Create artifacts/marketing/next.config.js:
+   - output: 'standalone'
+   - images.domains: ['mealcoreai.com', 
+     'via.placeholder.com']
+   - async rewrites() — proxy /api/* requests to the 
+     Express backend URL (process.env.API_URL)
+
+4. Create artifacts/marketing/.env.example:
+   NEXT_PUBLIC_APP_URL=https://mealcoreai.com
+   NEXT_PUBLIC_APP_LINK=https://app.mealcoreai.com
+   API_URL=https://api.mealcoreai.com
+   NEXT_PUBLIC_GA_ID=
+
+5. Add to root package.json scripts:
+   "marketing:dev": "pnpm --filter @mealcoreai/
+     marketing dev"
+   "marketing:build": "pnpm --filter @mealcoreai/
+     marketing build"
+
+SHARED COMPONENTS:
+Create artifacts/marketing/components/shared/:
+
+Navbar.tsx — Top navigation with:
+- MealCoreAI logo left
+- Links: Home, How It Works, Pricing, Blog
+- CTA button: 'Get Started Free' linking to 
+  https://app.mealcoreai.com/sign-up
+- Mobile hamburger menu
+- Transparent on hero, white on scroll
+
+Footer.tsx — Footer with:
+- MealCoreAI logo and tagline: 'Health starts 
+  at your core'
+- Links grouped: Product (How it works, Pricing, 
+  Blog), Conditions (PCOS, Diabetes, Thyroid, 
+  Pregnancy, Kids), Company (About, Contact, Privacy)
+- Social icons: Instagram, Twitter, YouTube
+- Copyright: © 2025 MealCoreAI. All rights reserved.
+- Disclaimer: 'Not medical advice. Consult your 
+  doctor before making dietary changes.'
+
+CTAButton.tsx — Reusable CTA button component. 
+Props: {text, href, variant: primary|secondary, 
+size: sm|md|lg}. Primary: bg-rose-500 (PCOS colour 
+as default brand colour).
+
+TrackBadge.tsx — Coloured badge for each health 
+track. PCOS: rose-400, Diabetes: teal-500, Thyroid: 
+emerald-400, Pregnancy: orange-300, Kids: yellow-400, 
+Fitness: blue-400, Cholesterol: purple-400, 
+General: slate-400.

@@ -14,7 +14,7 @@ if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
 }
 
 webpush.setVapidDetails(
-  "mailto:mealmate@replit.app",
+  "mailto:mealcoreai@replit.app",
   VAPID_PUBLIC_KEY,
   VAPID_PRIVATE_KEY
 );
@@ -97,7 +97,7 @@ router.post("/notifications/test", requireAuth, async (req, res) => {
     .where(eq(pushSubscriptionsTable.profileId, profile[0].id));
 
   const payload = JSON.stringify({
-    title: "MealMate 🍽️",
+    title: "MealCoreAI 🍽️",
     body: "Notifications are working! You'll get daily meal reminders.",
     icon: "/logo.svg",
     url: "/dashboard",

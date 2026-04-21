@@ -1,0 +1,57 @@
+This project is being rebranded from MealMate to MealCoreAI.
+
+The repository structure is a pnpm monorepo with:
+- artifacts/mealmate/ — React 19 + Vite frontend (SPA)
+- artifacts/api-server/ — Express 5 TypeScript backend
+- lib/db/ — Drizzle ORM schema (profiles, dishes, 
+  meal-plans, dish-preferences, push-subscriptions)
+
+Please do the following rebrand across the entire codebase:
+
+1. Replace every instance of 'MealMate', 'mealmate', 
+   'Meal Mate' with 'MealCoreAI', 'mealcoreai', 
+   'MealCore AI' respectively — in all .ts, .tsx, 
+   .json, .html, .md files
+
+2. Update artifacts/mealmate/index.html:
+   - title: 'MealCoreAI — Personalised Meal Plans for 
+     Your Health'
+   - meta description: 'MealCoreAI uses AI to build 
+     personalised meal plans for PCOS, Diabetes, 
+     Thyroid, Pregnancy, and Kids. Know what to cook 
+     every day.'
+   - Add Open Graph tags: og:title, og:description, 
+     og:image (/og-default.jpg), og:url 
+     (https://mealcoreai.com)
+   - Add Twitter card meta tags
+   - Add canonical link: https://app.mealcoreai.com
+
+3. Update the app name in:
+   - package.json (root and all workspace packages)
+   - artifacts/mealmate/package.json name field
+   - Any README.md files
+   - Any manifest.json or PWA config files
+
+4. The primary domain will be mealcoreai.com
+   The app will live at app.mealcoreai.com
+   The marketing/SEO site will live at mealcoreai.com
+
+5. Update Clerk dashboard app name to MealCoreAI 
+   (add a comment in the auth config file noting this 
+   needs to be updated in the Clerk dashboard)
+
+6. Add a new health track to the existing 7 tracks — 
+   the tracks are now: PCOS, Diabetes, Thyroid, 
+   Pregnancy, Kids, Fitness, General, Cholesterol.
+   Add 'Cholesterol' wherever health tracks are 
+   referenced in the frontend and backend.
+
+   In lib/db/src/schema/dishes.ts add:
+   - cholesterolSafe boolean column
+   - benefitsCholesterol text column
+   
+   In lib/db/src/schema/profiles.ts ensure 
+   conditionData JSONB handles cholesterol track.
+   
+   Run: pnpm --filter @mealcoreai/db drizzle-kit 
+   generate to create the migration.

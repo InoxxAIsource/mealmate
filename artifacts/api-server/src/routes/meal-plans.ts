@@ -54,6 +54,7 @@ function formatDish(d: DishRow) {
       kidsSafe: d.kidsSafe,
       gymSafe: d.gymSafe,
       gymCategories: d.gymCategories ?? [],
+      cholesterolSafe: d.cholesterolSafe,
       lowGi: d.lowGi,
       highCalcium: d.highCalcium,
       highFibre: d.highFibre,
@@ -66,6 +67,7 @@ function formatDish(d: DishRow) {
     benefitsPregnancy: d.benefitsPregnancy,
     benefitsKids: d.benefitsKids,
     benefitsGym: d.benefitsGym,
+    benefitsCholesterol: d.benefitsCholesterol,
   };
 }
 
@@ -98,6 +100,7 @@ function filterDishesByTrack(dishes: DishRow[], track: string | null) {
     if (track === "pregnancy") return d.pregnancySafe && !d.pregnancyExclude;
     if (track === "kids") return d.kidsSafe;
     if (track === "fitness") return d.gymSafe;
+    if (track === "cholesterol") return d.cholesterolSafe && !d.deepFried;
     return true;
   });
 }
@@ -490,6 +493,7 @@ router.get("/meal-plans/dashboard", requireAuth, async (req, res) => {
     pregnancy:
       "Iron absorption improves with Vitamin C — have a small glass of amla juice with your iron-rich meals.",
     kids: "Make mealtimes fun — let kids help wash vegetables or choose between two healthy options.",
+    cholesterol: "Swap saturated fats for healthy ones — mustard oil, walnuts, and flaxseeds support heart-healthy cholesterol levels.",
     general:
       "Staying hydrated helps digestion — aim for 8 glasses of water spread through the day.",
   };

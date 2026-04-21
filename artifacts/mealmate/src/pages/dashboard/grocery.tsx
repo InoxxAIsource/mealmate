@@ -20,7 +20,7 @@ export default function DashboardGrocery() {
   const handleShare = () => {
     if (!groceryData) return;
     
-    let text = "*MealMate Grocery List*\n\n";
+    let text = "*MealCoreAI Grocery List*\n\n";
     groceryData.categories.forEach(cat => {
       if (cat.items.length === 0) return;
       text += `*${cat.category}*\n`;

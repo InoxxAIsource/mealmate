@@ -8,13 +8,14 @@ import { LogOut, User, RefreshCw, X, Check, MapPin, Utensils } from "lucide-reac
 import { motion, AnimatePresence } from "framer-motion";
 
 const ALL_TRACKS = [
-  { id: "general",   name: "Just our family",  emoji: "🏠", subtitle: "Everyday balanced meals",          color: "bg-blue-100 text-blue-700 border-blue-200" },
-  { id: "fitness",   name: "Gym & Fitness",     emoji: "💪", subtitle: "Lean, keto, gaining & workout",    color: "bg-violet-100 text-violet-700 border-violet-200" },
-  { id: "kids",      name: "Cooking for kids",  emoji: "👧", subtitle: "Kid-friendly, nutritious & fun",   color: "bg-yellow-100 text-yellow-800 border-yellow-200" },
-  { id: "pregnancy", name: "Pregnancy",         emoji: "🤰", subtitle: "Nourishing meals for mum & baby",  color: "bg-orange-100 text-orange-700 border-orange-200" },
-  { id: "pcos",      name: "PCOS",              emoji: "🌸", subtitle: "Hormone-balancing, low-GI food",   color: "bg-rose-100 text-rose-700 border-rose-200" },
-  { id: "diabetes",  name: "Diabetes",          emoji: "🩺", subtitle: "Low-sugar, blood-sugar friendly",  color: "bg-teal-100 text-teal-700 border-teal-200" },
-  { id: "thyroid",   name: "Thyroid",           emoji: "🦋", subtitle: "Thyroid-supportive, metabolism",   color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+  { id: "general",      name: "Just our family",   emoji: "🏠", subtitle: "Everyday balanced meals",          color: "bg-blue-100 text-blue-700 border-blue-200" },
+  { id: "fitness",      name: "Gym & Fitness",      emoji: "💪", subtitle: "Lean, keto, gaining & workout",    color: "bg-violet-100 text-violet-700 border-violet-200" },
+  { id: "kids",         name: "Cooking for kids",   emoji: "👧", subtitle: "Kid-friendly, nutritious & fun",   color: "bg-yellow-100 text-yellow-800 border-yellow-200" },
+  { id: "pregnancy",    name: "Pregnancy",          emoji: "🤰", subtitle: "Nourishing meals for mum & baby",  color: "bg-orange-100 text-orange-700 border-orange-200" },
+  { id: "pcos",         name: "PCOS",               emoji: "🌸", subtitle: "Hormone-balancing, low-GI food",   color: "bg-rose-100 text-rose-700 border-rose-200" },
+  { id: "diabetes",     name: "Diabetes",           emoji: "🩺", subtitle: "Low-sugar, blood-sugar friendly",  color: "bg-teal-100 text-teal-700 border-teal-200" },
+  { id: "thyroid",      name: "Thyroid",            emoji: "🦋", subtitle: "Thyroid-supportive, metabolism",   color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+  { id: "cholesterol",  name: "Cholesterol",        emoji: "❤️", subtitle: "Heart-healthy, low saturated fat", color: "bg-red-100 text-red-700 border-red-200" },
 ];
 
 const REGIONS = [

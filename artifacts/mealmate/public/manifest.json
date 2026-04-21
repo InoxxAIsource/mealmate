@@ -1,7 +1,7 @@
 {
-  "name": "MealMate — Aaj Kya Banau?",
-  "short_name": "MealMate",
-  "description": "Personalised Indian meal plans for your health track",
+  "name": "MealCoreAI — Personalised Meal Plans",
+  "short_name": "MealCoreAI",
+  "description": "MealCoreAI uses AI to build personalised meal plans for PCOS, Diabetes, Thyroid, Pregnancy, and Kids.",
   "start_url": "/dashboard",
   "scope": "/",
   "display": "standalone",

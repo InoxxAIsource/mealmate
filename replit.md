@@ -2,7 +2,7 @@
 
 ## Overview
 
-pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a personalised Indian meal planning web app for 5 health condition tracks.
+pnpm workspace monorepo using TypeScript. Primary product: **MealCoreAI** — a personalised Indian meal planning web app for 8 health condition tracks (PCOS, Diabetes, Thyroid, Pregnancy, Kids, Fitness, General, Cholesterol).
 
 ## Stack
 
@@ -29,7 +29,7 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a pe
 
 ## Artifacts
 
-### MealMate (artifacts/mealmate)
+### MealCoreAI (artifacts/mealmate)
 - React + Vite frontend, preview at `/`
 - Routes: `/` (landing), `/sign-in`, `/sign-up`, `/onboarding/*`, `/dashboard/*`
 - API proxy: Vite proxies `/api` → `http://localhost:8080`
@@ -45,7 +45,7 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a pe
 ## Database Schema (lib/db/src/schema/)
 
 - `profiles` — user profiles with health track, diet preferences, onboarding state
-- `dishes` — 55 seeded Indian dishes (IDs 1–30 general/kids, 31–55 gym fitness) with full nutritional data, health flags, and gym_categories per track
+- `dishes` — 155 seeded Indian dishes (20 per region, covering all 8 tracks) with nutritional data, health flags, gym_categories, cholesterolSafe, and YouTube links
 - `meal_plans` — weekly meal plans (stored as JSON: 7 days × 4 meals)
 - `dish_preferences` — user-favourite and disliked dish IDs
 
@@ -57,6 +57,7 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a pe
 - **Pregnancy** (orange-300): `pregnancySafe`, no `pregnancyExclude`
 - **Kids** (yellow-400): `kidsSafe` flag; shows Lunch Box tab in bottom nav + `/dashboard/lunchbox` page
 - **Fitness/Gym** (blue-to-violet): `gymSafe` flag; 5 gym_categories: `pre_workout`, `post_workout`, `lean`, `keto`, `gaining`; shows Fitness tab in bottom nav + `/dashboard/fitness` page
+- **Cholesterol** (red-400): `cholesterolSafe` flag + no `deepFried`
 - **General** (blue-400): All dishes
 
 ## API Client
@@ -69,7 +70,7 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealMate** — a pe
 
 | Package | Path | Role |
 |---------|------|------|
-| `@workspace/mealmate` | `artifacts/mealmate` | Frontend React app |
+| `@workspace/mealmate` | `artifacts/mealmate` | Frontend React app (MealCoreAI) |
 | `@workspace/api-server` | `artifacts/api-server` | Backend Express API |
 | `@workspace/db` | `lib/db` | Drizzle schema + migrations |
 | `@workspace/api-spec` | `lib/api-spec` | OpenAPI spec + Orval codegen |

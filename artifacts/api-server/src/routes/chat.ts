@@ -14,6 +14,7 @@ const TRACK_LABELS: Record<string, string> = {
   kids: "Children's nutrition & lunchbox planning",
   fitness: "Fitness, gym & muscle building",
   general: "General healthy eating",
+  cholesterol: "Cholesterol & heart health management",
 };
 
 router.post("/chat", requireAuth, async (req, res) => {
@@ -71,7 +72,7 @@ router.post("/chat", requireAuth, async (req, res) => {
   const region = profile?.region || "North India";
   const allergies = profile?.allergies?.length ? `Allergies: ${profile.allergies.join(", ")}.` : "No known allergies.";
 
-  const systemPrompt = `You are MealMate AI — a warm, expert Indian health & nutrition assistant for ${userName}. You have deep knowledge equivalent to a registered dietitian and Ayurvedic health practitioner.
+  const systemPrompt = `You are MealCoreAI — a warm, expert Indian health & nutrition assistant for ${userName}. You have deep knowledge equivalent to a registered dietitian and Ayurvedic health practitioner.
 
 User Profile:
 • Health focus: ${trackLabel}
@@ -82,7 +83,7 @@ User Profile:
 
 Your expertise:
 • Indian meal planning, recipes, calories, macros, micronutrients
-• Medical nutrition therapy: PCOS, diabetes, thyroid, pregnancy, postpartum
+• Medical nutrition therapy: PCOS, diabetes, thyroid, pregnancy, postpartum, cholesterol & heart health
 • Fitness & gym: protein targets, pre/post workout meals, muscle building
 • Allergy management: safe substitutions, cross-contamination
 • Indian home remedies: haldi doodh, kadha, ajwain water, methi seeds, jeera water, giloy, ashwagandha, etc.

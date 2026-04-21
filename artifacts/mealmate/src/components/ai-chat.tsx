@@ -14,13 +14,14 @@ interface Message {
 }
 
 const TRACK_GREETINGS: Record<string, string> = {
-  pcos: "Namaste! 🌸 I'm your MealMate AI — your personal health & nutrition guide. I can help with PCOS-friendly meals, hormone-balancing foods, home remedies, and managing symptoms through diet.\n\n💡 You might also ask:\n• What foods help balance PCOS hormones?\n• Is methi good for PCOS?\n• Best breakfast for PCOS",
-  diabetes: "Namaste! 💚 I'm your MealMate AI. Ask me about blood sugar-friendly meals, glycemic index, diabetic Indian recipes, and home remedies for sugar management.\n\n💡 You might also ask:\n• Which dal is best for diabetics?\n• How to reduce post-meal sugar spikes?\n• Is karela juice effective?",
-  thyroid: "Namaste! 🦋 I'm your MealMate AI. I can guide you on thyroid-supportive foods, what to avoid, selenium-rich Indian foods, and Ayurvedic remedies for thyroid health.\n\n💡 You might also ask:\n• Foods to avoid with hypothyroid?\n• Can I eat soya with thyroid?\n• How does ashwagandha help thyroid?",
-  pregnancy: "Namaste! 👶 I'm your MealMate AI. I specialise in pregnancy nutrition — iron & folate-rich meals, safe Indian foods, morning sickness remedies, and postpartum recovery diets.\n\n💡 You might also ask:\n• Iron-rich vegetarian foods for pregnancy?\n• Safe home remedies for morning sickness?\n• Calcium foods without dairy",
-  kids: "Namaste! 🌈 I'm your MealMate AI. I specialise in children's nutrition — healthy lunchbox ideas, picky eater solutions, brain foods, and fun nutritious recipes your kids will love!\n\n💡 You might also ask:\n• Healthy tiffin ideas for school?\n• How to add protein for kids?\n• Brain-boosting foods for children",
-  fitness: "Namaste! 💪 I'm your MealMate AI. I can help with pre/post workout meals, protein targets, muscle-building Indian diet plans, creatine & supplement guidance. Let's crush your goals!\n\n💡 You might also ask:\n• Best pre-workout Indian meal?\n• High protein vegetarian diet plan?\n• How much protein do I need daily?",
-  general: "Namaste! 🙏 I'm your MealMate AI — your personal Indian health & nutrition guide. Ask me anything about meals, nutrition, home remedies, health issues, or fitness.\n\n💡 You might also ask:\n• How to boost immunity naturally?\n• Easy healthy breakfast ideas?\n• Home remedy for cold & cough",
+  pcos: "Namaste! 🌸 I'm your MealCoreAI — your personal health & nutrition guide. I can help with PCOS-friendly meals, hormone-balancing foods, home remedies, and managing symptoms through diet.\n\n💡 You might also ask:\n• What foods help balance PCOS hormones?\n• Is methi good for PCOS?\n• Best breakfast for PCOS",
+  diabetes: "Namaste! 💚 I'm your MealCoreAI. Ask me about blood sugar-friendly meals, glycemic index, diabetic Indian recipes, and home remedies for sugar management.\n\n💡 You might also ask:\n• Which dal is best for diabetics?\n• How to reduce post-meal sugar spikes?\n• Is karela juice effective?",
+  thyroid: "Namaste! 🦋 I'm your MealCoreAI. I can guide you on thyroid-supportive foods, what to avoid, selenium-rich Indian foods, and Ayurvedic remedies for thyroid health.\n\n💡 You might also ask:\n• Foods to avoid with hypothyroid?\n• Can I eat soya with thyroid?\n• How does ashwagandha help thyroid?",
+  pregnancy: "Namaste! 👶 I'm your MealCoreAI. I specialise in pregnancy nutrition — iron & folate-rich meals, safe Indian foods, morning sickness remedies, and postpartum recovery diets.\n\n💡 You might also ask:\n• Iron-rich vegetarian foods for pregnancy?\n• Safe home remedies for morning sickness?\n• Calcium foods without dairy",
+  kids: "Namaste! 🌈 I'm your MealCoreAI. I specialise in children's nutrition — healthy lunchbox ideas, picky eater solutions, brain foods, and fun nutritious recipes your kids will love!\n\n💡 You might also ask:\n• Healthy tiffin ideas for school?\n• How to add protein for kids?\n• Brain-boosting foods for children",
+  fitness: "Namaste! 💪 I'm your MealCoreAI. I can help with pre/post workout meals, protein targets, muscle-building Indian diet plans, creatine & supplement guidance. Let's crush your goals!\n\n💡 You might also ask:\n• Best pre-workout Indian meal?\n• High protein vegetarian diet plan?\n• How much protein do I need daily?",
+  cholesterol: "Namaste! ❤️ I'm your MealCoreAI. I can guide you on heart-healthy Indian meals, foods to lower LDL naturally, and managing cholesterol through diet without giving up your favourite dishes.\n\n💡 You might also ask:\n• Which oils are best for cholesterol?\n• Indian foods that lower LDL naturally?\n• Can I eat ghee with high cholesterol?",
+  general: "Namaste! 🙏 I'm your MealCoreAI — your personal Indian health & nutrition guide. Ask me anything about meals, nutrition, home remedies, health issues, or fitness.\n\n💡 You might also ask:\n• How to boost immunity naturally?\n• Easy healthy breakfast ideas?\n• Home remedy for cold & cough",
 };
 
 
@@ -357,7 +358,7 @@ export function AIChat() {
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-bold text-base leading-tight">MealMate AI</p>
+                  <p className="text-white font-bold text-base leading-tight">MealCoreAI</p>
                   <p className="text-white/80 text-[11px]">Meals · Nutrition · Health · Remedies</p>
                 </div>
                 <div className="flex items-center gap-1.5">
