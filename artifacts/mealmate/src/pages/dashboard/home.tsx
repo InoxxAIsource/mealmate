@@ -1,46 +1,86 @@
-import { useGetDashboardSummary, getGetDashboardSummaryQueryKey } from "@workspace/api-client-react";
+import { useState } from "react";
+import {
+  useGetDashboardSummary,
+  useGetActiveMealPlan,
+  useSwapMeal,
+  getGetActiveMealPlanQueryKey,
+  getGetDashboardSummaryQueryKey,
+  type SwapMealBodyMealType,
+} from "@workspace/api-client-react";
+import { useQueryClient } from "@tanstack/react-query";
 import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
 import { Link } from "wouter";
-import { Clock, Flame, ChevronRight } from "lucide-react";
+import { Clock, Flame, ChevronRight, ArrowLeftRight, Loader2 } from "lucide-react";
 
 export default function DashboardHome() {
+  const queryClient = useQueryClient();
   const { data: summary, isLoading } = useGetDashboardSummary();
+  const { data: plan } = useGetActiveMealPlan();
+  const swapMeal = useSwapMeal();
+  const [swapping, setSwapping] = useState<string | null>(null);
 
   if (isLoading || !summary) {
-    return <div className="min-h-[100dvh] flex items-center justify-center"><div className="animate-spin h-8 w-8 border-b-2 border-primary rounded-full"></div></div>;
+    return (
+      <div className="min-h-[100dvh] flex items-center justify-center">
+        <div className="animate-spin h-8 w-8 border-b-2 border-primary rounded-full" />
+      </div>
+    );
   }
 
   const meals = [
-    { type: "Breakfast", dish: summary.todayMeals?.breakfast },
-    { type: "Lunch", dish: summary.todayMeals?.lunch },
-    { type: "Snack", dish: summary.todayMeals?.snack },
-    { type: "Dinner", dish: summary.todayMeals?.dinner },
+    { type: "breakfast" as SwapMealBodyMealType, label: "Breakfast", dish: summary.todayMeals?.breakfast },
+    { type: "lunch"     as SwapMealBodyMealType, label: "Lunch",     dish: summary.todayMeals?.lunch },
+    { type: "snack"     as SwapMealBodyMealType, label: "Snack",     dish: summary.todayMeals?.snack },
+    { type: "dinner"    as SwapMealBodyMealType, label: "Dinner",    dish: summary.todayMeals?.dinner },
   ];
+
+  const handleSwap = async (mealType: SwapMealBodyMealType, currentDishId: number) => {
+    if (!plan) return;
+    setSwapping(mealType);
+    try {
+      await swapMeal.mutateAsync({ data: { planId: plan.id, dayIndex: 0, mealType, currentDishId } });
+      await queryClient.invalidateQueries({ queryKey: getGetActiveMealPlanQueryKey() });
+      await queryClient.invalidateQueries({ queryKey: getGetDashboardSummaryQueryKey() });
+    } finally {
+      setSwapping(null);
+    }
+  };
 
   return (
     <div className="min-h-[100dvh] bg-background max-w-md mx-auto pb-20">
       <div className="p-6 space-y-6">
+
+        {/* Greeting */}
         <div className="space-y-1">
-          <h1 className="text-2xl font-bold text-foreground">Hi, {summary.profile?.name?.split(" ")[0] || "there"} 👋</h1>
-          <p className="text-muted-foreground text-sm">{new Date().toLocaleDateString('en-IN', { weekday: 'long', month: 'short', day: 'numeric' })}</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            Hi, {summary.profile?.name?.split(" ")[0] || "there"} 👋
+          </h1>
+          <p className="text-muted-foreground text-sm">
+            {new Date().toLocaleDateString("en-IN", { weekday: "long", month: "short", day: "numeric" })}
+          </p>
         </div>
 
+        {/* Calorie bar */}
         <div className="bg-card border border-border shadow-sm rounded-2xl p-4 space-y-3">
           <div className="flex justify-between items-end">
             <div>
               <p className="text-sm font-medium text-muted-foreground">Daily Calories</p>
-              <p className="text-2xl font-bold text-primary">{Math.round(summary.totalCalories)} <span className="text-sm font-normal text-muted-foreground">/ {summary.targetCalories} kcal</span></p>
+              <p className="text-2xl font-bold text-primary">
+                {Math.round(summary.totalCalories)}{" "}
+                <span className="text-sm font-normal text-muted-foreground">/ {summary.targetCalories} kcal</span>
+              </p>
             </div>
           </div>
           <div className="h-2.5 w-full bg-secondary rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-primary rounded-full" 
+            <div
+              className="h-full bg-primary rounded-full transition-all duration-700"
               style={{ width: `${Math.min(100, (summary.totalCalories / summary.targetCalories) * 100)}%` }}
             />
           </div>
         </div>
 
+        {/* Tip */}
         {summary.tipOfDay && (
           <div className="bg-orange-50 border border-orange-100 dark:bg-orange-950/20 dark:border-orange-900/30 rounded-2xl p-4 flex gap-3 items-start">
             <span className="text-2xl">💡</span>
@@ -48,6 +88,7 @@ export default function DashboardHome() {
           </div>
         )}
 
+        {/* Track promo banners */}
         {summary.profile?.primaryTrack === "kids" && (
           <Link href="/dashboard/lunchbox">
             <div className="relative overflow-hidden bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl p-4 flex items-center justify-between shadow-sm active:scale-[0.98] transition-transform">
@@ -80,37 +121,87 @@ export default function DashboardHome() {
           </Link>
         )}
 
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold text-foreground">Today's Plan</h2>
-          
-          <div className="space-y-3">
-            {meals.map((meal) => meal.dish ? (
-              <Link 
-                key={meal.type} 
-                href={`/dashboard/recipe/${meal.dish.id}`}
-                className="flex items-center gap-4 bg-card border border-border shadow-sm rounded-2xl p-3 active:scale-[0.98] transition-transform"
-              >
-                <div className="w-20 h-20 rounded-xl overflow-hidden bg-muted shrink-0 relative">
-                  <DishImage
-                    photoUrl={meal.dish.photoUrl}
-                    name={meal.dish.name}
-                    className="w-full h-full"
-                    emojiSize="text-3xl"
-                  />
-                </div>
-                <div className="flex-1 min-w-0 py-1">
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider">{meal.type}</p>
-                  <h3 className="font-medium text-foreground text-sm leading-tight mt-0.5 line-clamp-2">{meal.dish.name}</h3>
-                  <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {meal.dish.prepTimeMin}m</span>
-                    <span className="flex items-center gap-1"><Flame className="w-3.5 h-3.5" /> {meal.dish.macros?.cal}</span>
-                  </div>
-                </div>
-              </Link>
-            ) : null)}
+        {/* Today's Plan */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-foreground">Today's Plan</h2>
+            <Link href="/dashboard/week" className="text-xs text-primary font-semibold">
+              Full week →
+            </Link>
           </div>
+
+          <div className="space-y-2.5">
+            {meals.map((meal) =>
+              meal.dish ? (
+                <div
+                  key={meal.type}
+                  className={`flex items-center gap-3 bg-card border border-border shadow-sm rounded-2xl overflow-hidden transition-opacity ${
+                    swapping === meal.type ? "opacity-60" : "opacity-100"
+                  }`}
+                >
+                  {/* Dish image — taps to recipe */}
+                  <Link
+                    href={`/dashboard/recipe/${meal.dish.id}`}
+                    className="w-20 h-20 shrink-0 relative"
+                  >
+                    {swapping === meal.type ? (
+                      <div className="w-full h-full flex items-center justify-center bg-muted">
+                        <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+                      </div>
+                    ) : (
+                      <DishImage
+                        photoUrl={meal.dish.photoUrl}
+                        name={meal.dish.name}
+                        className="w-full h-full"
+                        emojiSize="text-3xl"
+                      />
+                    )}
+                  </Link>
+
+                  {/* Dish info — taps to recipe */}
+                  <Link
+                    href={`/dashboard/recipe/${meal.dish.id}`}
+                    className="flex-1 min-w-0 py-2"
+                  >
+                    <p className="text-[10px] font-bold text-primary uppercase tracking-wider">{meal.label}</p>
+                    <h3 className="font-semibold text-foreground text-sm leading-tight mt-0.5 line-clamp-2">{meal.dish.name}</h3>
+                    <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {meal.dish.prepTimeMin}m</span>
+                      <span className="flex items-center gap-1"><Flame className="w-3.5 h-3.5" /> {meal.dish.macros?.cal}</span>
+                    </div>
+                  </Link>
+
+                  {/* Swap button */}
+                  <button
+                    onClick={() => handleSwap(meal.type, meal.dish!.id)}
+                    disabled={!!swapping}
+                    className="shrink-0 mr-3 flex flex-col items-center gap-1 p-2 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 active:scale-95 transition-all disabled:opacity-40"
+                    title={`Swap ${meal.label}`}
+                  >
+                    {swapping === meal.type ? (
+                      <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                    ) : (
+                      <ArrowLeftRight className="w-5 h-5" />
+                    )}
+                    <span className="text-[9px] font-semibold">Swap</span>
+                  </button>
+                </div>
+              ) : null
+            )}
+          </div>
+
+          {meals.every((m) => !m.dish) && (
+            <div className="text-center py-8 text-muted-foreground text-sm">
+              <p className="text-4xl mb-3">🍽️</p>
+              <p>No plan yet — go to Week tab to generate your plan.</p>
+              <Link href="/dashboard/week" className="mt-3 inline-block text-primary font-semibold text-sm">
+                Generate Plan →
+              </Link>
+            </div>
+          )}
         </div>
       </div>
+
       <BottomNav />
     </div>
   );
