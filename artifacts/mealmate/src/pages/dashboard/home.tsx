@@ -1,5 +1,6 @@
 import { useGetDashboardSummary, getGetDashboardSummaryQueryKey } from "@workspace/api-client-react";
 import { BottomNav } from "@/components/bottom-nav";
+import { DishImage } from "@/components/dish-image";
 import { Link } from "wouter";
 import { Clock, Flame } from "lucide-react";
 
@@ -58,11 +59,12 @@ export default function DashboardHome() {
                 className="flex items-center gap-4 bg-card border border-border shadow-sm rounded-2xl p-3 active:scale-[0.98] transition-transform"
               >
                 <div className="w-20 h-20 rounded-xl overflow-hidden bg-muted shrink-0 relative">
-                  {meal.dish.photoUrl ? (
-                    <img src={meal.dish.photoUrl} alt={meal.dish.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-2xl bg-secondary">🍲</div>
-                  )}
+                  <DishImage
+                    photoUrl={meal.dish.photoUrl}
+                    name={meal.dish.name}
+                    className="w-full h-full"
+                    emojiSize="text-3xl"
+                  />
                 </div>
                 <div className="flex-1 min-w-0 py-1">
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider">{meal.type}</p>

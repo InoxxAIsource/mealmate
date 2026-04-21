@@ -1,5 +1,6 @@
 import { useGetDish, useGetMyProfile } from "@workspace/api-client-react";
 import { BottomNav } from "@/components/bottom-nav";
+import { DishImage } from "@/components/dish-image";
 import { useRoute, Link } from "wouter";
 import { ChevronLeft, Clock, Flame, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,11 +42,12 @@ export default function DashboardRecipe() {
       </div>
 
       <div className="w-full h-64 bg-muted relative">
-        {dish.photoUrl ? (
-          <img src={dish.photoUrl} alt={dish.name} className="w-full h-full object-cover" />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-5xl bg-secondary">🍲</div>
-        )}
+        <DishImage
+          photoUrl={dish.photoUrl}
+          name={dish.name}
+          className="w-full h-full"
+          emojiSize="text-7xl"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
       </div>
 

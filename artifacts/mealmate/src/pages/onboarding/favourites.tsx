@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useListDishes } from "@workspace/api-client-react";
+import { DishImage } from "@/components/dish-image";
 
 export default function OnboardingFavourites() {
   const [, setLocation] = useLocation();
@@ -61,7 +62,7 @@ export default function OnboardingFavourites() {
                     isFav ? "border-green-500" : isDis ? "border-red-500 opacity-60" : "border-transparent"
                   }`}
                 >
-                  <img src={dish.photoUrl || "https://placehold.co/400?text=Dish"} alt={dish.name} className="absolute inset-0 w-full h-full object-cover" />
+                  <DishImage photoUrl={dish.photoUrl} name={dish.name} className="absolute inset-0 w-full h-full" emojiSize="text-4xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-3 w-full">
                     <p className="text-white font-medium leading-tight text-sm line-clamp-2">{dish.name}</p>
