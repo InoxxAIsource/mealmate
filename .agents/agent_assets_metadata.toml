@@ -1,0 +1,122 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "cQcgKXr11nJP0vwa7gPMc"
+uri = "file://attached_assets/dishes/oats-upma.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "IYyAvzxUJPuPDXzvnrEB3"
+uri = "file://attached_assets/dishes/moong-dal-cheela.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "MvE9VyB7wj74F2_AogdNd"
+uri = "file://attached_assets/dishes/dal-khichdi.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "2d2LCjRsbhBzZaXTv8z9R"
+uri = "file://attached_assets/dishes/palak-paneer.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "1ZMzKgmKgGMJEsdfgvZV9"
+uri = "file://attached_assets/dishes/rajma-chawal.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "4M96qilvXobAD0FmxhOqL"
+uri = "file://attached_assets/dishes/veg-idli-sambar.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "cFPwQFjmTbsBt0khEipQF"
+uri = "file://attached_assets/dishes/chicken-curry-roti.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "v76P493mh2EU0_j4UL-TS"
+uri = "file://attached_assets/dishes/masoor-dal-chapati.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "ThqdtuCY3IDRyFLlqio8v"
+uri = "file://attached_assets/dishes/banana-oat-smoothie.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "KkWGCxGByeLCTZOKl5g5Y"
+uri = "file://attached_assets/dishes/sabudana-khichdi.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "oMb7QB0cx_TTIFc1nOdbR"
+uri = "file://attached_assets/dishes/egg-bhurji-toast.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Vn1R7bPYA0TZ7kG9O8IeH"
+uri = "file://attached_assets/dishes/methi-thepla.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "XriNvC0g3FZz1WNtrm6XZ"
+uri = "file://attached_assets/dishes/chana-masala.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Ol4mJsz_HhW-_I2QXU2uR"
+uri = "file://attached_assets/dishes/curd-rice.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "PCsHIJVReSAfn3ZZdobGo"
+uri = "file://attached_assets/dishes/sprouts-salad.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "-nfQ__3ZoHYFhK-lpuamo"
+uri = "file://attached_assets/dishes/fish-curry-rice.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "53XCtf8CDlu2UQAFwtOB9"
+uri = "file://attached_assets/dishes/makhana-kheer.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "HgzvyZC19AHFJS1shfAlS"
+uri = "file://attached_assets/dishes/poha.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "UroqdlWiXQXToZnf6xUul"
+uri = "file://attached_assets/dishes/veggie-dosa.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "8mvV5_pkP5ge1jX1-ahm6"
+uri = "file://attached_assets/dishes/beetroot-raita.png"
+type = "image"
+title = "generated_image"
