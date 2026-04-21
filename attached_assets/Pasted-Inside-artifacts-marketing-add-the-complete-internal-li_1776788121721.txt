@@ -1,0 +1,168 @@
+Inside artifacts/marketing/ add the complete 
+internal linking system.
+
+Create artifacts/marketing/lib/internal-links.ts:
+
+Define a link graph mapping every page to its 
+most relevant related pages. Use this exact 
+structure based on the MealCoreAI content:
+
+export const linkGraph: Record<string, 
+  Array<{title: string, url: string, 
+  anchor: string}>> = {
+  
+  '/': [
+    { title: 'PCOS Meal Plan', 
+      url: '/pcos-meal-plan',
+      anchor: 'Personalised PCOS meal plans' },
+    { title: 'Diabetic Meal Plan',
+      url: '/diabetes-meal-plan', 
+      anchor: 'Low-GI Indian meal plans for 
+      diabetes' },
+    { title: 'Pregnancy Nutrition',
+      url: '/pregnancy-meal-plan',
+      anchor: 'Trimester-wise pregnancy meal 
+      plans' },
+    { title: 'How It Works',
+      url: '/how-it-works',
+      anchor: 'How MealCoreAI builds your plan' },
+    { title: 'Blog',
+      url: '/blog',
+      anchor: 'Nutrition guides and meal plan 
+      articles' }
+  ],
+
+  '/pcos-meal-plan': [
+    { url: '/meal-plans/pcos-weekly-meal-plan-
+      south-indian',
+      anchor: 'South Indian PCOS weekly meal plan'},
+    { url: '/meal-plans/pcos-breakfast-ideas-
+      north-indian',
+      anchor: 'North Indian PCOS breakfast ideas'},
+    { url: '/meal-plans/pcos-7-day-meal-plan-
+      gujarati',
+      anchor: 'Gujarati 7-day PCOS meal plan' },
+    { url: '/blog/pcos-diet-plan-india',
+      anchor: 'Complete PCOS diet guide for 
+      Indian women' },
+    { url: '/blog/millet-benefits-pcos',
+      anchor: 'Why millets help with PCOS' },
+    { url: '/diabetes-meal-plan',
+      anchor: 'Diabetic meal plans' }
+  ],
+
+  '/diabetes-meal-plan': [
+    { url: '/meal-plans/diabetes-weekly-meal-plan-
+      south-indian',
+      anchor: 'South Indian diabetic weekly 
+      meal plan' },
+    { url: '/meal-plans/diabetes-breakfast-ideas-
+      north-indian',
+      anchor: 'North Indian diabetic breakfast 
+      ideas' },
+    { url: '/blog/diabetic-indian-breakfast-ideas',
+      anchor: '25 diabetic-friendly Indian 
+      breakfast ideas' },
+    { url: '/blog/ragi-benefits-diabetes',
+      anchor: 'How ragi helps control blood sugar'},
+    { url: '/blog/low-gi-indian-foods-list',
+      anchor: 'Complete low-GI Indian foods list'},
+    { url: '/cholesterol-diet-plan',
+      anchor: 'Cholesterol-friendly meal plans' }
+  ],
+
+  '/thyroid-diet-plan': [
+    { url: '/meal-plans/thyroid-weekly-meal-plan-
+      north-indian',
+      anchor: 'North Indian thyroid weekly 
+      meal plan' },
+    { url: '/blog/thyroid-foods-avoid-india',
+      anchor: 'Foods to avoid with thyroid' },
+    { url: '/blog/thyroid-weight-gain-diet',
+      anchor: 'Managing thyroid weight gain 
+      with diet' },
+    { url: '/pcos-meal-plan',
+      anchor: 'PCOS meal plans' }
+  ],
+
+  '/pregnancy-meal-plan': [
+    { url: '/meal-plans/pregnancy-7-day-meal-plan-
+      north-indian',
+      anchor: 'North Indian pregnancy 7-day 
+      meal plan' },
+    { url: '/blog/pregnancy-nutrition-
+      first-trimester',
+      anchor: 'First trimester nutrition guide' },
+    { url: '/blog/iron-rich-foods-pregnancy-india',
+      anchor: '30 iron-rich Indian foods for 
+      pregnancy' },
+    { url: '/blog/pregnancy-foods-to-avoid',
+      anchor: 'Foods to avoid during pregnancy' },
+    { url: '/kids-meal-plan',
+      anchor: 'Kids meal plans for after birth' }
+  ],
+
+  '/kids-meal-plan': [
+    { url: '/meal-plans/kids-lunch-ideas-
+      north-indian',
+      anchor: 'North Indian kids lunch ideas' },
+    { url: '/blog/kids-healthy-tiffin-ideas',
+      anchor: '30 healthy tiffin box ideas' },
+    { url: '/blog/kids-calcium-foods-india',
+      anchor: 'Calcium-rich foods for growing 
+      kids' },
+    { url: '/blog/kids-fussy-eater-meal-ideas',
+      anchor: 'Meal ideas for fussy eaters' },
+    { url: '/pregnancy-meal-plan',
+      anchor: 'Pregnancy nutrition plans' }
+  ],
+
+  '/cholesterol-diet-plan': [
+    { url: '/meal-plans/cholesterol-weekly-
+      meal-plan-south-indian',
+      anchor: 'South Indian cholesterol-friendly 
+      meal plan' },
+    { url: '/blog/cholesterol-lowering-indian-
+      foods',
+      anchor: '20 Indian foods that lower 
+      cholesterol' },
+    { url: '/diabetes-meal-plan',
+      anchor: 'Diabetic meal plans' }
+  ]
+}
+
+Create artifacts/marketing/components/seo/
+RelatedLinks.tsx:
+Props: { currentPath: string }
+Looks up linkGraph[currentPath] and renders as 
+a styled 'Related Pages' grid of cards.
+Each card: title, descriptive anchor text, arrow →
+Never use generic anchor text like 'click here' 
+or 'read more'.
+Add to bottom of every condition page, 
+programmatic page, and blog post.
+
+Create artifacts/marketing/components/seo/
+Breadcrumbs.tsx:
+Props: { items: Array<{label, href}> }
+Renders breadcrumb trail with JSON-LD 
+BreadcrumbList schema.
+Format: Home > [Section] > [Page]
+Each crumb is a link except the last.
+Add to all condition pages, programmatic pages, 
+blog posts, FAQ, About.
+
+INTERNAL LINK RULES — apply to every page:
+1. Every page links to at least 4 other pages 
+   with descriptive keyword-rich anchor text
+2. No page is more than 3 clicks from homepage
+3. Every blog post links to its parent condition 
+   page (e.g. PCOS blog post → /pcos-meal-plan)
+4. Every programmatic page links to its parent 
+   condition page
+5. Every page ends with a CTA linking to 
+   app.mealcoreai.com/sign-up with 
+   condition-specific anchor text
+6. Condition pages cross-link to each other 
+   where medically related (PCOS ↔ Diabetes, 
+   Pregnancy ↔ Kids, Thyroid ↔ Cholesterol)
