@@ -116,9 +116,9 @@ export default function DashboardProfile() {
       <motion.div
         initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 28, stiffness: 300 }}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-background rounded-t-3xl max-w-md mx-auto shadow-2xl"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-background rounded-t-3xl max-w-md mx-auto shadow-2xl max-h-[82vh] flex flex-col"
       >
-        <div className="p-5 pb-safe">{children}</div>
+        <div className="p-5 overflow-y-auto flex-1 pb-24">{children}</div>
       </motion.div>
     </>
   );
@@ -239,7 +239,7 @@ export default function DashboardProfile() {
         {openSheet === "track" && (
           <Sheet>
             <SheetHeader title="Change Health Track" subtitle="Your meal plan will update automatically" />
-            <div className="grid grid-cols-2 gap-2.5 pb-safe">
+            <div className="grid grid-cols-2 gap-2.5">
               {ALL_TRACKS.map((track) => {
                 const isActive  = track.id === profile.primaryTrack;
                 const isLoading = pendingId === track.id;
@@ -271,7 +271,7 @@ export default function DashboardProfile() {
         {openSheet === "region" && (
           <Sheet>
             <SheetHeader title="Change Region" subtitle="We'll serve dishes from your cuisine" />
-            <div className="grid grid-cols-3 gap-2.5 pb-safe">
+            <div className="grid grid-cols-3 gap-2.5">
               {REGIONS.map((r) => {
                 const isActive  = r.id === profile.region;
                 const isLoading = pendingId === r.id;
