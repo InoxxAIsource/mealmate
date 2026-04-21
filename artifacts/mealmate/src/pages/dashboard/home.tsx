@@ -15,12 +15,12 @@ import { Clock, Flame, ChevronRight, ArrowLeftRight, Loader2 } from "lucide-reac
 
 export default function DashboardHome() {
   const queryClient = useQueryClient();
-  const { data: summary, isLoading } = useGetDashboardSummary();
-  const { data: plan } = useGetActiveMealPlan();
+  const { data: summary, isLoading: summaryLoading } = useGetDashboardSummary();
+  const { data: plan, isLoading: planLoading } = useGetActiveMealPlan();
   const swapMeal = useSwapMeal();
   const [swapping, setSwapping] = useState<string | null>(null);
 
-  if (isLoading || !summary) {
+  if (summaryLoading || planLoading || !summary) {
     return (
       <div className="min-h-[100dvh] flex items-center justify-center">
         <div className="animate-spin h-8 w-8 border-b-2 border-primary rounded-full" />
@@ -28,11 +28,14 @@ export default function DashboardHome() {
     );
   }
 
+  // Today's meals come from the active plan (day 0) so they update live after a swap.
+  // The summary is only used for calories total, tip, and profile metadata.
+  const today = plan?.days?.[0];
   const meals = [
-    { type: "breakfast" as SwapMealBodyMealType, label: "Breakfast", dish: summary.todayMeals?.breakfast },
-    { type: "lunch"     as SwapMealBodyMealType, label: "Lunch",     dish: summary.todayMeals?.lunch },
-    { type: "snack"     as SwapMealBodyMealType, label: "Snack",     dish: summary.todayMeals?.snack },
-    { type: "dinner"    as SwapMealBodyMealType, label: "Dinner",    dish: summary.todayMeals?.dinner },
+    { type: "breakfast" as SwapMealBodyMealType, label: "Breakfast", dish: today?.breakfast ?? null },
+    { type: "lunch"     as SwapMealBodyMealType, label: "Lunch",     dish: today?.lunch     ?? null },
+    { type: "snack"     as SwapMealBodyMealType, label: "Snack",     dish: today?.snack     ?? null },
+    { type: "dinner"    as SwapMealBodyMealType, label: "Dinner",    dish: today?.dinner    ?? null },
   ];
 
   const handleSwap = async (mealType: SwapMealBodyMealType, currentDishId: number) => {
