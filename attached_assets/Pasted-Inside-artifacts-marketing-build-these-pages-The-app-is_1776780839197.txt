@@ -1,0 +1,180 @@
+Inside artifacts/marketing/ build these pages. 
+The app is MealCoreAI at mealcoreai.com. 
+The actual SPA app is at app.mealcoreai.com.
+
+════════════════════════════════
+HOMEPAGE: artifacts/marketing/app/page.tsx
+════════════════════════════════
+
+Metadata:
+- title: 'MealCoreAI — AI Meal Planning for PCOS, 
+  Diabetes, Thyroid, Pregnancy & Kids'
+- description: 'MealCoreAI builds your personalised 
+  weekly meal plan based on your health condition, 
+  region, and food preferences. Know what to cook 
+  every day — free to start.'
+- OG image: /api/og?page=home
+- canonical: https://mealcoreai.com
+
+JSON-LD schemas to include:
+- Organization: name MealCoreAI, url mealcoreai.com, 
+  logo /logo.png, sameAs social profiles
+- WebSite with SearchAction
+- SoftwareApplication: applicationCategory 
+  HealthApplication, operatingSystem iOS Android Web, 
+  offers Free and paid pricing
+
+Page sections (all with proper H1/H2/H3 tags):
+
+HERO SECTION:
+- H1: 'Never Ask What to Cook Again'
+- Subheading: 'MealCoreAI builds your personalised 
+  weekly meal plan for PCOS, Diabetes, Thyroid, 
+  Pregnancy, or your Kids — based on your region, 
+  health conditions, and favourite foods.'
+- Two CTAs: 'Get My Free Meal Plan' (primary, → 
+  app.mealcoreai.com/sign-up) and 'See How It Works' 
+  (secondary, → /how-it-works)
+- 5 track badges displayed as chips below CTA
+
+SOCIAL PROOF BAR:
+- '10,000+ meal plans generated'
+- 'Reviewed by certified dietitians'
+- 'PCOS · Diabetes · Thyroid · Pregnancy · Kids'
+
+HOW IT WORKS (H2):
+3 steps with icons and short descriptions:
+1. Tell us about yourself (90 second onboarding)
+2. Get your AI-powered weekly plan
+3. Cook with confidence — swap, lock, repeat
+
+HEALTH TRACKS SECTION (H2: 'Built for Your 
+Specific Health Condition'):
+6 condition cards in a grid. Each card: track emoji, 
+track name, one-line benefit, 'See [Track] Plans' 
+link to the condition page. Cards: PCOS, Diabetes, 
+Thyroid, Pregnancy, Kids, Cholesterol.
+
+FEATURES SECTION (H2: 'Everything You Need to 
+Eat Well Every Day'):
+6 feature cards: 
+- Weekly meal plan (AI-generated, personalised)
+- Daily notifications (meal reminders at the right time)
+- Grocery list (auto-generated, WhatsApp shareable)
+- Nutrition tracking (calories, protein, calcium daily)
+- Regional cuisine (50+ Indian and global cuisines)
+- Swap and lock (edit any meal, keep your favourites)
+
+TESTIMONIALS (H2: 'Real People, Real Results'):
+3 testimonials. Write realistic ones for:
+- Priya, 32, Bangalore — PCOS track
+- Ramesh, 55, Chennai — Diabetes track
+- Anita, 28, Mumbai — Pregnancy track
+Each: quote (2-3 sentences, specific result), 
+name, city, track badge.
+
+PRICING PREVIEW:
+Free tier vs Pro (₹499/month or ₹2999/year).
+CTA: 'Start Free — No Credit Card Needed'
+
+FINAL CTA SECTION:
+H2: 'Your Health Starts at Your Core'
+One CTA button: 'Get My Personalised Meal Plan'
+
+════════════════════════════════
+CONDITION PAGES (create all 6):
+════════════════════════════════
+
+artifacts/marketing/app/pcos-meal-plan/page.tsx
+artifacts/marketing/app/diabetes-meal-plan/page.tsx
+artifacts/marketing/app/thyroid-diet-plan/page.tsx
+artifacts/marketing/app/pregnancy-meal-plan/page.tsx
+artifacts/marketing/app/kids-meal-plan/page.tsx
+artifacts/marketing/app/cholesterol-diet-plan/page.tsx
+
+Each page uses a shared ConditionPage component with 
+props for the specific condition data.
+
+Create artifacts/marketing/components/ConditionPage.tsx 
+that accepts:
+{
+  condition: string,
+  emoji: string,
+  accentColour: string,
+  metaTitle: string,
+  metaDescription: string,
+  h1: string,
+  intro: string (150 words),
+  keyFoods: Array<{name, benefit}> (8 items),
+  foodsToLimit: Array<{name, reason}> (6 items),
+  samplePlan: Array<{day, breakfast, lunch, snack, 
+    dinner}> (3 days),
+  faqs: Array<{q, a}> (5 items, min 80 words each),
+  relatedPosts: Array<{title, slug}> (3 items),
+  relatedPlans: Array<{title, slug}> (3 programmatic 
+    page slugs)
+}
+
+Pass this data for each condition:
+
+PCOS:
+- metaTitle: 'PCOS Meal Plan India — Hormone-Friendly 
+  Indian Meals | MealCoreAI'
+- h1: 'PCOS Meal Plan: Hormone-Friendly Indian Food 
+  That Works'
+- keyFoods: ragi, bajra, moong dal, flaxseeds, 
+  walnuts, methi, cinnamon, berries, palak, amla
+- samplePlan: 3 days of actual South + North Indian 
+  PCOS-safe dishes
+
+DIABETES:
+- metaTitle: 'Diabetic Meal Plan India — Low-GI 
+  Personalised Indian Plans | MealCoreAI'
+- h1: 'Diabetic Meal Plan: Low-GI Indian Food for 
+  Stable Blood Sugar'
+- keyFoods: ragi, jowar, bajra, karela, methi seeds, 
+  cinnamon, brown rice, moong dal, amla, jamun
+
+THYROID:
+- metaTitle: 'Thyroid Diet Plan India — Personalised 
+  Indian Meal Plans | MealCoreAI'
+- h1: 'Thyroid Diet Plan: Indian Foods That Support 
+  Thyroid Function'
+- keyFoods: Brazil nuts, sunflower seeds, fish, 
+  mushrooms, dairy, eggs, legumes, iodised salt 
+  dishes, zinc-rich foods, selenium-rich dals
+
+PREGNANCY:
+- metaTitle: 'Pregnancy Meal Plan India — Trimester-
+  wise Indian Nutrition | MealCoreAI'
+- h1: 'Pregnancy Meal Plan: Trimester-wise Indian 
+  Nutrition Guide'
+- keyFoods: spinach, ragi, dates, rajma, curd, 
+  paneer, til, moringa, drumstick, sweet potato
+
+KIDS:
+- metaTitle: 'Kids Meal Plan India — Healthy Indian 
+  Tiffin and Dinner Ideas | MealCoreAI'
+- h1: 'Kids Meal Plan: Healthy Indian Tiffin and 
+  Dinner Ideas'
+- keyFoods: ragi, curd, paneer, dal, eggs, banana, 
+  sweet potato, peanuts, sprouts, seasonal vegetables
+
+CHOLESTEROL:
+- metaTitle: 'Cholesterol Diet Plan India — Heart-
+  Healthy Indian Meal Plans | MealCoreAI'
+- h1: 'Cholesterol Diet Plan: Heart-Healthy Indian 
+  Food That Tastes Good'
+- keyFoods: oats, flaxseeds, walnuts, garlic, 
+  turmeric, fish (omega-3), moong dal, methi, 
+  amla, olive oil
+
+Each condition page includes:
+- MedicalWebPage JSON-LD schema
+- FAQPage JSON-LD schema  
+- BreadcrumbList JSON-LD schema
+- Breadcrumb component at top
+- InternalLinks component at bottom linking to 3 
+  related programmatic SEO pages and 2 blog posts
+- CTA: 'Get My [Condition] Plan Free' → 
+  app.mealcoreai.com/sign-up
