@@ -17,7 +17,7 @@ self.addEventListener("push", (event) => {
     body: "Time for your next meal!",
     icon: "/logo.svg",
     badge: "/logo.svg",
-    url: "/dashboard",
+    url: "/app/dashboard",
     tag: "mealcoreai",
   };
 
@@ -50,7 +50,7 @@ self.addEventListener("notificationclick", (event) => {
 
   if (event.action === "dismiss") return;
 
-  const urlToOpen = event.notification.data?.url || "/dashboard";
+  const urlToOpen = event.notification.data?.url || "/app/dashboard";
 
   event.waitUntil(
     clients
