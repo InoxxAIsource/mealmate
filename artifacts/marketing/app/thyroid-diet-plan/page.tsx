@@ -1,0 +1,138 @@
+import type { Metadata } from "next";
+import ConditionPage from "@/components/ConditionPage";
+
+export const metadata: Metadata = {
+  title: "Thyroid Diet Plan India — Personalised Indian Meal Plans | MealCoreAI",
+  description:
+    "Personalised Indian diet plan for hypothyroidism and hyperthyroidism. Selenium, iodine, and zinc-rich Indian meals for thyroid support. Free to start.",
+  alternates: { canonical: "https://mealcoreai.com/thyroid-diet-plan" },
+  openGraph: {
+    title: "Thyroid Diet Plan India — Personalised Indian Meal Plans | MealCoreAI",
+    description: "Selenium and iodine-rich Indian meals for thyroid support. Personalised by AI.",
+    url: "https://mealcoreai.com/thyroid-diet-plan",
+    images: [{ url: "/api/og?page=thyroid-diet-plan" }],
+  },
+};
+
+const medicalWebPageLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  name: "Thyroid Diet Plan India",
+  description: "Guide to Indian meal planning for hypothyroidism and hyperthyroidism.",
+  url: "https://mealcoreai.com/thyroid-diet-plan",
+  about: { "@type": "MedicalCondition", name: "Thyroid Disorder" },
+};
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What foods help thyroid function in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Foods that support thyroid function include selenium-rich options like Brazil nuts, sunflower seeds, and eggs; iodine-rich foods like iodised salt, dairy, and seafood; zinc-rich dals and pumpkin seeds; and anti-inflammatory spices like turmeric. For hypothyroidism, eating these nutrients consistently is more important than avoiding goitrogens.",
+      },
+    },
+  ],
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mealcoreai.com" },
+    { "@type": "ListItem", position: 2, name: "Thyroid Diet Plan", item: "https://mealcoreai.com/thyroid-diet-plan" },
+  ],
+};
+
+export default function ThyroidPage() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <ConditionPage
+        condition="Thyroid"
+        emoji="🦋"
+        accentColour="emerald"
+        h1="Thyroid Diet Plan: Indian Foods That Support Thyroid Function"
+        intro="The thyroid gland depends on specific micronutrients — selenium, iodine, zinc, and iron — to produce hormones effectively. Many Indians with thyroid disorders unknowingly eat diets deficient in these critical nutrients. The good news is that Indian cuisine, eaten the right way, can provide all of them. Selenium from sunflower seeds and eggs, iodine from iodised salt and dairy, and zinc from dals and pumpkin seeds are all accessible and affordable in Indian kitchens. The most common dietary concern — avoiding goitrogens (foods that can interfere with thyroid function, like raw cauliflower or unfermented soy) — is often overstated. Cooking neutralises most goitrogenic compounds. MealCoreAI's thyroid track prioritises nutrient sufficiency over unnecessary restriction, creating Indian meal plans that nourish the thyroid rather than just avoiding foods."
+        keyFoods={[
+          { name: "Brazil Nuts", benefit: "Just 2 Brazil nuts provide the entire daily requirement of selenium, the most important thyroid-protective mineral." },
+          { name: "Sunflower Seeds", benefit: "Excellent Indian-accessible source of selenium and vitamin E that protects thyroid cells from oxidative damage." },
+          { name: "Eggs", benefit: "Complete source of iodine, selenium, and zinc — the three minerals most critical for thyroid hormone synthesis." },
+          { name: "Dairy (Milk & Curd)", benefit: "One of India's best iodine sources. Also provides calcium and vitamin D that thyroid patients commonly lack." },
+          { name: "Moong & Masoor Dal", benefit: "Zinc-rich legumes that support thyroid hormone conversion from T4 to the active T3 form." },
+          { name: "Iodised Salt", benefit: "The simplest way to ensure adequate iodine. Critical — switching to rock salt or sea salt can worsen deficiency." },
+          { name: "Mushrooms", benefit: "Good source of selenium and vitamin D, commonly deficient in Indian thyroid patients." },
+          { name: "Pumpkin Seeds", benefit: "Rich in zinc and iron — pumpkin seeds are one of the best plant-based thyroid-supportive snacks." },
+        ]}
+        foodsToLimit={[
+          { name: "Raw Cruciferous Vegetables", reason: "Raw cabbage, cauliflower, and broccoli contain goitrogens that can interfere with iodine absorption when eaten in very large raw quantities. Cooking eliminates most of this concern." },
+          { name: "Unfermented Soy Products", reason: "Large amounts of soy can interfere with thyroid hormone absorption — especially important to note if taking levothyroxine." },
+          { name: "Excess Coffee", reason: "High caffeine intake may interfere with thyroid medication absorption. Take medication 60 minutes before coffee." },
+          { name: "Gluten (if Hashimoto's)", reason: "For Hashimoto's thyroiditis specifically, a gluten-free trial may reduce antibody levels in some patients." },
+          { name: "Highly Processed Foods", reason: "Processed foods high in fluoride and chlorine (from additives) may compete with iodine absorption." },
+          { name: "Excess Millet (if Hypothyroid)", reason: "Large quantities of millets like jowar can have mild goitrogenic effects in iodine-deficient individuals when eaten as the sole grain." },
+        ]}
+        samplePlan={[
+          {
+            day: "Day 1",
+            breakfast: "Egg bhurji (2 eggs) + multigrain toast + 1 glass milk",
+            lunch: "Moong dal + jowar roti + sabzi + curd with pumpkin seeds",
+            snack: "2 Brazil nuts + sunflower seed trail mix",
+            dinner: "Grilled fish / paneer tikka + palak sabzi + brown rice",
+          },
+          {
+            day: "Day 2",
+            breakfast: "Vegetable oats upma with mushrooms + 1 boiled egg",
+            lunch: "Masoor dal + wheat roti + mixed vegetable sabzi",
+            snack: "Curd with flaxseeds + seasonal fruit",
+            dinner: "Egg curry / rajma + rice (small portion) + salad",
+          },
+          {
+            day: "Day 3",
+            breakfast: "Ragi dosa + sambar + coconut chutney + 1 glass milk",
+            lunch: "Chana dal + bajra roti + lauki sabzi + curd",
+            snack: "Roasted pumpkin seeds + 1 amla",
+            dinner: "Chicken / tofu curry + sautéed vegetables + quinoa",
+          },
+        ]}
+        faqs={[
+          {
+            q: "What foods are good for hypothyroidism in India?",
+            a: "For hypothyroidism, the most important dietary change is ensuring sufficient selenium, iodine, and zinc intake. In Indian meals, this means including eggs regularly (iodine + selenium), using only iodised salt (not rock salt or pink salt), eating dairy daily (milk or curd), including moong and masoor dal regularly (zinc), and adding a small handful of sunflower or pumpkin seeds to daily meals. Anti-inflammatory spices like turmeric and ginger support thyroid health by reducing systemic inflammation that worsens hypothyroid symptoms. Vitamin D deficiency is extremely common in Indian hypothyroid patients — regular sun exposure and dairy consumption helps, but supplementation is often needed.",
+          },
+          {
+            q: "Should hypothyroid patients avoid cabbage and cauliflower?",
+            a: "This is one of the most common thyroid diet myths in India. Raw cabbage and cauliflower contain goitrogens that can theoretically interfere with iodine uptake, but cooking destroys approximately 95% of goitrogenic compounds. This means a sabzi or stir-fry of these vegetables poses virtually no thyroid risk. The concern applies mainly to people who eat very large amounts of raw cruciferous vegetables daily while also being iodine deficient — an uncommon scenario for most Indians. If you are eating normal portions of cooked sabzis that include these vegetables, there is no need to avoid them. Focus your energy on ensuring adequate iodine from iodised salt and dairy instead.",
+          },
+          {
+            q: "Does diet affect TSH levels?",
+            a: "Diet alone does not directly control TSH levels in the same way medication does, but nutritional deficiencies significantly worsen thyroid function and can raise TSH. Selenium deficiency impairs the conversion of T4 to active T3 — the form your cells actually use. Iodine deficiency directly reduces thyroid hormone production. Zinc deficiency impairs hormone synthesis. Iron deficiency anaemia reduces thyroid hormone production efficiency. Addressing these deficiencies through food can measurably improve thyroid function markers over 3-6 months and may allow medication doses to be optimised. However, dietary changes should always complement — never replace — prescribed thyroid medication.",
+          },
+          {
+            q: "Can I eat rice if I have thyroid issues?",
+            a: "Yes, rice is generally safe for thyroid patients. Thyroid disorders are not primarily about glycaemic control the way diabetes is, so the type of grain matters less than ensuring you get sufficient thyroid-supporting micronutrients. The more important consideration is that people with hypothyroidism often have a slower metabolism and may gain weight easily, making portion control of all refined carbs including white rice sensible. Choosing brown rice over white adds fibre and more micronutrients. If you have hypothyroid-associated diabetes or insulin resistance, then following the diabetic guidelines for rice applies. Otherwise, 1-2 cups of cooked rice per meal within an overall balanced diet is perfectly acceptable.",
+          },
+          {
+            q: "What Indian breakfast is best for thyroid patients?",
+            a: "The best thyroid breakfasts in India combine thyroid-supporting micronutrients with satisfying nutrition. Egg-based breakfasts are ideal — egg bhurji or boiled eggs provide iodine, selenium, and zinc in one shot. Ragi or oats-based upma or porridge with milk provides calcium and energy. Including a glass of milk at breakfast gives consistent iodine intake. For vegetarians, a breakfast of idli-sambar with curd on the side provides protein and iodine. Adding sunflower seeds or pumpkin seeds to any breakfast significantly boosts selenium and zinc. The most important thyroid breakfast habit is taking your levothyroxine or thyroid medication first thing in the morning, at least 30-60 minutes before eating or drinking anything except water.",
+          },
+        ]}
+        relatedPosts={[
+          { title: "Selenium Foods for Thyroid Health in India", slug: "blog/selenium-thyroid-india" },
+          { title: "Hypothyroidism and Weight Gain: The Diet Fix", slug: "blog/hypothyroidism-weight-diet" },
+          { title: "The Truth About Goitrogenic Foods", slug: "blog/goitrogens-thyroid-myth" },
+        ]}
+        relatedPlans={[
+          { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
+          { title: "General Wellness Plan", slug: "#" },
+          { title: "Cholesterol Diet Plan", slug: "cholesterol-diet-plan" },
+        ]}
+      />
+    </>
+  );
+}
