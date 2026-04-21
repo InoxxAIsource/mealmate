@@ -6,12 +6,12 @@ import { requireAuth } from "../lib/auth-middleware";
 
 const router = Router();
 
-const VAPID_PUBLIC_KEY =
-  process.env.VAPID_PUBLIC_KEY ||
-  "BEGaxuOwvaZzP23cNynscWJtLZqcX1OAPrgZT0MlFQ5jYPnezN0mNBi0WjalgD3lQYOkX7jwzhQPVvuE5Ityj1k";
-const VAPID_PRIVATE_KEY =
-  process.env.VAPID_PRIVATE_KEY ||
-  "-8XzTZUMfCq2n-Iz3bWwlHKUod6CA8m6FDJKL16-NJI";
+const VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY;
+const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
+
+if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
+  throw new Error("VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY must be set in environment variables");
+}
 
 webpush.setVapidDetails(
   "mailto:mealmate@replit.app",
