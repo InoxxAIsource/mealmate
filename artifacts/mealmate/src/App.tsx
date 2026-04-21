@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ClerkProvider, SignIn, SignUp, Show, useClerk } from "@clerk/react";
+import { AIChat } from "@/components/ai-chat";
 import { Switch, Route, useLocation, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClientProvider, useQueryClient } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -152,10 +153,11 @@ function AuthGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function DashboardWrapper({ component: Component }: any) {
+function DashboardWrapper({ component: Component, showAI = false }: any) {
   return (
     <AuthGate>
       <Component />
+      {showAI && <AIChat />}
     </AuthGate>
   );
 }
@@ -198,13 +200,13 @@ function ClerkProviderWithRoutes() {
           <ProtectedRoute path="/onboarding/favourites" component={() => <DashboardWrapper component={OnboardingFavourites} />} />
           <ProtectedRoute path="/onboarding/cooking" component={() => <DashboardWrapper component={OnboardingCooking} />} />
 
-          <ProtectedRoute path="/dashboard" component={() => <DashboardWrapper component={DashboardHome} />} />
-          <ProtectedRoute path="/dashboard/week" component={() => <DashboardWrapper component={DashboardWeek} />} />
-          <ProtectedRoute path="/dashboard/lunchbox" component={() => <DashboardWrapper component={DashboardLunchBox} />} />
-          <ProtectedRoute path="/dashboard/fitness" component={() => <DashboardWrapper component={DashboardFitness} />} />
-          <ProtectedRoute path="/dashboard/recipe/:id" component={() => <DashboardWrapper component={DashboardRecipe} />} />
-          <ProtectedRoute path="/dashboard/grocery" component={() => <DashboardWrapper component={DashboardGrocery} />} />
-          <ProtectedRoute path="/dashboard/profile" component={() => <DashboardWrapper component={DashboardProfile} />} />
+          <ProtectedRoute path="/dashboard" component={() => <DashboardWrapper component={DashboardHome} showAI />} />
+          <ProtectedRoute path="/dashboard/week" component={() => <DashboardWrapper component={DashboardWeek} showAI />} />
+          <ProtectedRoute path="/dashboard/lunchbox" component={() => <DashboardWrapper component={DashboardLunchBox} showAI />} />
+          <ProtectedRoute path="/dashboard/fitness" component={() => <DashboardWrapper component={DashboardFitness} showAI />} />
+          <ProtectedRoute path="/dashboard/recipe/:id" component={() => <DashboardWrapper component={DashboardRecipe} showAI />} />
+          <ProtectedRoute path="/dashboard/grocery" component={() => <DashboardWrapper component={DashboardGrocery} showAI />} />
+          <ProtectedRoute path="/dashboard/profile" component={() => <DashboardWrapper component={DashboardProfile} showAI />} />
 
           <Route component={NotFound} />
         </Switch>
