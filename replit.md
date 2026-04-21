@@ -29,6 +29,14 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealCoreAI** — a 
 
 ## Artifacts
 
+### MealCoreAI Marketing (artifacts/marketing)
+- React + Vite marketing/SEO site, preview at `/marketing/`
+- Package: `@workspace/marketing`, port 22813
+- Pages: Home (single-page with Hero, Features, Health Tracks, How It Works, Testimonials, FAQ, CTA)
+- Components: `Navbar.tsx`, `Footer.tsx`, `CTAButton.tsx`, `TrackBadge.tsx`
+- CTA buttons link to the app via `VITE_APP_URL` env var (defaults to `/mealmate/`)
+- Orange/rose brand palette, Inter font, fully responsive
+
 ### MealCoreAI (artifacts/mealmate)
 - React + Vite frontend, preview at `/`
 - Routes: `/` (landing), `/sign-in`, `/sign-up`, `/onboarding/*`, `/dashboard/*`
@@ -70,6 +78,7 @@ pnpm workspace monorepo using TypeScript. Primary product: **MealCoreAI** — a 
 
 | Package | Path | Role |
 |---------|------|------|
+| `@workspace/marketing` | `artifacts/marketing` | Marketing/SEO landing page |
 | `@workspace/mealmate` | `artifacts/mealmate` | Frontend React app (MealCoreAI) |
 | `@workspace/api-server` | `artifacts/api-server` | Backend Express API |
 | `@workspace/db` | `lib/db` | Drizzle schema + migrations |
