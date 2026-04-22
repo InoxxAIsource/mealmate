@@ -493,15 +493,15 @@ router.get("/meal-plans/dashboard", requireAuth, async (req, res) => {
   const allDishes = await db.select().from(dishesTable);
   const dishMap = new Map(allDishes.map((d) => [d.id, d]));
 
-  const today = new Date().getDay(); // 0 = Sunday, etc.
-  const todayIndex = (today + 6) % 7; // adjust to Mon=0
+  const todayDayIndex = (new Date().getDay() + 6) % 7; // Mon=0, Tue=1, ..., Sun=6
 
   let todayMeals = null;
   let totalCalories = 0;
 
   if (plan[0]) {
     const planData = plan[0].planData as PlanDay[];
-    const todayData = planData[todayIndex] ?? planData[0];
+    // Use .find() so we correctly match by dayIndex field, not array position
+    const todayData = planData.find((d) => d.dayIndex === todayDayIndex) ?? planData[0];
 
     const breakfastDish = todayData?.breakfastId
       ? dishMap.get(todayData.breakfastId)

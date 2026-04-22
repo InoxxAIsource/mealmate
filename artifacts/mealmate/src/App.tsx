@@ -4,6 +4,7 @@ import { AIChat } from "@/components/ai-chat";
 import { Switch, Route, useLocation, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClientProvider, useQueryClient } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
+import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { queryClient } from "@/lib/queryClient";
 
@@ -221,6 +222,7 @@ function App() {
       <TooltipProvider>
         <ClerkProviderWithRoutes />
         <Toaster />
+        <SonnerToaster position="top-center" richColors />
       </TooltipProvider>
     </WouterRouter>
   );

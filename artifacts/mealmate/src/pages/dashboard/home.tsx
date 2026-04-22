@@ -8,6 +8,7 @@ import {
   type SwapMealBodyMealType,
 } from "@workspace/api-client-react";
 import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
 import { NotificationPrompt } from "@/components/notification-prompt";
@@ -30,9 +31,10 @@ export default function DashboardHome() {
     );
   }
 
-  // Today's meals come from the active plan (day 0) so they update live after a swap.
-  // The summary is only used for calories total, tip, and profile metadata.
-  const today = plan?.days?.[0];
+  // Today's index: Mon=0, Tue=1, ..., Sun=6 — matches the plan's dayIndex scheme
+  const todayDayIndex = (new Date().getDay() + 6) % 7;
+  // Find today's day in the plan; fall back to day 0 if plan doesn't cover today yet
+  const today = plan?.days?.find((d) => d.dayIndex === todayDayIndex) ?? plan?.days?.[0];
   const meals = [
     { type: "breakfast" as SwapMealBodyMealType, label: "Breakfast", dish: today?.breakfast ?? null },
     { type: "lunch"     as SwapMealBodyMealType, label: "Lunch",     dish: today?.lunch     ?? null },
@@ -41,12 +43,16 @@ export default function DashboardHome() {
   ];
 
   const handleSwap = async (mealType: SwapMealBodyMealType, currentDishId: number) => {
-    if (!plan) return;
+    if (!plan || !today) return;
     setSwapping(mealType);
     try {
-      await swapMeal.mutateAsync({ data: { planId: plan.id, dayIndex: 0, mealType, currentDishId } });
+      await swapMeal.mutateAsync({
+        data: { planId: plan.id, dayIndex: today.dayIndex, mealType, currentDishId },
+      });
       await queryClient.invalidateQueries({ queryKey: getGetActiveMealPlanQueryKey() });
       await queryClient.invalidateQueries({ queryKey: getGetDashboardSummaryQueryKey() });
+    } catch {
+      toast.error("Couldn't swap meal. Please try again.");
     } finally {
       setSwapping(null);
     }

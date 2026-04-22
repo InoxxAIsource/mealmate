@@ -8,6 +8,7 @@ import {
   type SwapMealBodyMealType,
   type LockMealBodyMealType,
 } from "@workspace/api-client-react";
+import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
@@ -25,10 +26,16 @@ const GENERATE_STEPS = [
 ];
 
 function getDayLabel(dayIndex: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() + dayIndex);
-  if (dayIndex === 0) return "Today";
-  if (dayIndex === 1) return "Tomorrow";
+  // dayIndex 0 = Monday, 1 = Tuesday, ..., 6 = Sunday (matches plan's dayIndex scheme)
+  const today = new Date();
+  const todayDayIndex = (today.getDay() + 6) % 7; // Mon=0, ..., Sun=6
+  if (dayIndex === todayDayIndex) return "Today";
+  if (dayIndex === todayDayIndex + 1) return "Tomorrow";
+  // Calculate the actual calendar date for this dayIndex
+  const weekStart = new Date(today);
+  weekStart.setDate(today.getDate() - todayDayIndex); // rewind to Monday
+  const date = new Date(weekStart);
+  date.setDate(weekStart.getDate() + dayIndex);
   return date.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "short" });
 }
 
@@ -191,6 +198,8 @@ export default function DashboardWeek() {
     try {
       await swapMeal.mutateAsync({ data: { planId: plan!.id, dayIndex, mealType, currentDishId } });
       await invalidate();
+    } catch {
+      toast.error("Couldn't swap meal. Please try again.");
     } finally {
       setSwapping(null);
     }

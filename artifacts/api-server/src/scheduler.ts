@@ -59,8 +59,9 @@ async function sendMealReminders(mealKey: keyof PlanDay, label: string, emoji: s
       let dishName = label; // fallback
       if (plan?.planData) {
         const days = plan.planData as PlanDay[];
-        // today = day 0 of plan
-        const today = days[0];
+        // Find today's day: Mon=0, Tue=1, ..., Sun=6
+        const todayDayIndex = (new Date().getDay() + 6) % 7;
+        const today = days.find((d) => d.dayIndex === todayDayIndex) ?? days[0];
         const dishId = today?.[mealKey] as number | undefined;
         if (dishId) {
           const dish = dishMap.get(dishId);
