@@ -3,11 +3,11 @@ import Link from "next/link";
 import { blogPosts } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
-  title: "Health & Nutrition Blog for Indian Families | MealCoreAI",
+  title: "Health & Nutrition Blog for Indian Families",
   description:
     "Expert articles on PCOS, diabetes, thyroid, pregnancy nutrition, and kids' meals for Indian families. Evidence-based advice in Indian food context.",
   openGraph: {
-    title: "Health & Nutrition Blog | MealCoreAI",
+    title: "Health & Nutrition Blog for Indian Families",
     images: [{ url: "https://mealcoreai.com/api/og?title=Nutrition+Blog&condition=general&accent=16a34a", width: 1200, height: 630 }],
   },
 };

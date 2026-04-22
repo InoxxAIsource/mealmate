@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Diabetic Meal Plan India — Low-GI Personalised Indian Plans | MealCoreAI",
+  title: "Diabetic Meal Plan India — Low-GI Indian Plans",
   description:
     "Personalised Indian diabetic meal plan with low-GI foods for stable blood sugar. Includes sample plan, key foods, and AI-generated weekly menus. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/diabetes-meal-plan" },
   openGraph: {
-    title: "Diabetic Meal Plan India — Low-GI Indian Plans | MealCoreAI",
+    title: "Diabetic Meal Plan India — Low-GI Indian Plans",
     description: "Low-GI Indian meal plans for Type 2 Diabetes. Stable blood sugar, delicious food.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
-    images: [{ url: "/api/og?page=diabetes-meal-plan" }],
+    images: [{ url: "/api/og?page=diabetes-meal-plan", width: 1200, height: 630 }],
   },
 };
 

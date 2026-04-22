@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How MealCoreAI Works | AI Meal Planning for Indian Health Conditions",
+  title: "How It Works — AI Indian Meal Planning",
   description:
     "See how MealCoreAI builds your personalised Indian meal plan in 3 simple steps. AI-powered, condition-specific, and culturally authentic.",
 };

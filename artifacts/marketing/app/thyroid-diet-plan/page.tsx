@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Thyroid Diet Plan India — Personalised Indian Meal Plans | MealCoreAI",
+  title: "Thyroid Diet Plan India — Indian Meals for Thyroid Support",
   description:
     "Personalised Indian diet plan for hypothyroidism and hyperthyroidism. Selenium, iodine, and zinc-rich Indian meals for thyroid support. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/thyroid-diet-plan" },
   openGraph: {
-    title: "Thyroid Diet Plan India — Personalised Indian Meal Plans | MealCoreAI",
+    title: "Thyroid Diet Plan India — Indian Meals for Thyroid Support",
     description: "Selenium and iodine-rich Indian meals for thyroid support. Personalised by AI.",
     url: "https://mealcoreai.com/thyroid-diet-plan",
-    images: [{ url: "/api/og?page=thyroid-diet-plan" }],
+    images: [{ url: "/api/og?page=thyroid-diet-plan", width: 1200, height: 630 }],
   },
 };
 

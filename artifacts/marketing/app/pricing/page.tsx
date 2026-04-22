@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pricing — Free & Pro Plans | MealCoreAI",
+  title: "Pricing — Free & Pro Plans",
   description:
     "MealCoreAI is free to start. Pro plan at ₹499/month unlocks unlimited meal plans, nutrition tracking, family profiles, and all 8 health condition tracks.",
 };

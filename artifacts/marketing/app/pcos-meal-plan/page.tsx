@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "PCOS Meal Plan India — Hormone-Friendly Indian Meals | MealCoreAI",
+  title: "PCOS Meal Plan India — Hormone-Friendly Indian Meals",
   description:
     "Personalised PCOS meal plan with hormone-friendly Indian food. Low-GI meals, anti-inflammatory spices, and easy recipes for PCOS management. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/pcos-meal-plan" },
   openGraph: {
-    title: "PCOS Meal Plan India — Hormone-Friendly Indian Meals | MealCoreAI",
+    title: "PCOS Meal Plan India — Hormone-Friendly Indian Meals",
     description:
       "Get your personalised PCOS meal plan — low-GI Indian food that balances hormones naturally.",
     url: "https://mealcoreai.com/pcos-meal-plan",
-    images: [{ url: "/api/og?page=pcos-meal-plan" }],
+    images: [{ url: "/api/og?page=pcos-meal-plan", width: 1200, height: 630 }],
   },
 };
 

@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = {
-  title: "About MealCoreAI | AI Meal Planning for Indian Health",
+  title: "About — AI Meal Planning for Indian Health",
   description:
     "MealCoreAI was built to make personalised, condition-specific nutrition accessible to every Indian family — not just those who can afford a nutritionist.",
 };

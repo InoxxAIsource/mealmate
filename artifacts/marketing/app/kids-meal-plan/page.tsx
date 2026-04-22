@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Kids Meal Plan India — Healthy Indian Tiffin and Dinner Ideas | MealCoreAI",
+  title: "Kids Meal Plan India — Healthy Indian Tiffin & Dinner Ideas",
   description:
     "Healthy Indian meal plan for kids aged 2-12. Nutrient-dense tiffin, lunch, and dinner ideas. Age-appropriate portions. AI-personalised. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/kids-meal-plan" },
   openGraph: {
-    title: "Kids Meal Plan India — Healthy Indian Tiffin & Dinner Ideas | MealCoreAI",
+    title: "Kids Meal Plan India — Healthy Indian Tiffin & Dinner Ideas",
     description: "Healthy, delicious Indian tiffin and dinner ideas for kids. AI-personalised.",
     url: "https://mealcoreai.com/kids-meal-plan",
-    images: [{ url: "/api/og?page=kids-meal-plan" }],
+    images: [{ url: "/api/og?page=kids-meal-plan", width: 1200, height: 630 }],
   },
 };
 

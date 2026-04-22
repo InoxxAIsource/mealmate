@@ -35,7 +35,6 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "MealCoreAI — AI Meal Planning for PCOS, Diabetes, Thyroid, Pregnancy & Kids",
   description:
     "MealCoreAI builds your personalised weekly meal plan based on your health condition, region, and food preferences. Know what to cook every day — free to start.",
   alternates: { canonical: "https://mealcoreai.com" },
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Personalised 7-day Indian meal plans powered by AI. Built for 8 health conditions — free to start.",
     url: "https://mealcoreai.com",
-    images: [{ url: "/api/og?page=home" }],
+    images: [{ url: "/api/og?page=home", width: 1200, height: 630 }],
   },
 };
 
@@ -67,11 +66,6 @@ const websiteLd = {
   "@type": "WebSite",
   name: "MealCoreAI",
   url: "https://mealcoreai.com",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://mealcoreai.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const softwareAppLd = {
@@ -82,6 +76,13 @@ const softwareAppLd = {
   operatingSystem: "iOS, Android, Web",
   description:
     "AI-powered personalised Indian meal planner for PCOS, Diabetes, Thyroid, Pregnancy, Kids, and more.",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "3",
+    bestRating: "5",
+    worstRating: "1",
+  },
   offers: [
     { "@type": "Offer", price: "0", priceCurrency: "INR", name: "Free" },
     { "@type": "Offer", price: "499", priceCurrency: "INR", name: "Pro Monthly" },
@@ -313,7 +314,7 @@ export default function HomePage() {
           </div>
 
           {/* App preview card */}
-          <div className="mt-16 max-w-2xl mx-auto">
+          <div className="mt-16 max-w-2xl mx-auto" role="img" aria-label="MealCoreAI app showing a personalised PCOS meal plan with Indian meals">
             <div className="bg-white rounded-3xl shadow-2xl shadow-orange-100 border border-gray-100 overflow-hidden">
               <div className="bg-gradient-to-r from-orange-500 to-rose-500 px-6 py-4 flex items-center gap-3">
                 <img src="/logo.svg" alt="" className="h-7 w-7" aria-hidden="true" />

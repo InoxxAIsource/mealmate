@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Cholesterol Diet Plan India — Heart-Healthy Indian Meal Plans | MealCoreAI",
+  title: "Cholesterol Diet Plan — Heart-Healthy Indian Meals",
   description:
     "Personalised heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich, low saturated fat meals from Indian cuisine. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/cholesterol-diet-plan" },
   openGraph: {
-    title: "Cholesterol Diet Plan India — Heart-Healthy Indian Meal Plans | MealCoreAI",
+    title: "Cholesterol Diet Plan — Heart-Healthy Indian Meals",
     description: "Lower LDL cholesterol with heart-healthy Indian food. Personalised meal plans.",
     url: "https://mealcoreai.com/cholesterol-diet-plan",
-    images: [{ url: "/api/og?page=cholesterol-diet-plan" }],
+    images: [{ url: "/api/og?page=cholesterol-diet-plan", width: 1200, height: 630 }],
   },
 };
 

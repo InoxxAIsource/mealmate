@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | MealCoreAI",
+  title: "Frequently Asked Questions",
   description:
     "Answers to all your questions about MealCoreAI — how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
 };
