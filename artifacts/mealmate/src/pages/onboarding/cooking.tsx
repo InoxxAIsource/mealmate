@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { useUpsertProfile, useGenerateMealPlan } from "@workspace/api-client-react";
+import { useUpsertProfile, useGenerateMealPlan, getGetMyProfileQueryKey } from "@workspace/api-client-react";
 
 export default function OnboardingCooking() {
   const [, setLocation] = useLocation();
+  const queryClient = useQueryClient();
   const upsertProfile = useUpsertProfile();
   const generatePlan = useGenerateMealPlan();
   const [isGenerating, setIsGenerating] = useState(false);
@@ -53,7 +55,8 @@ export default function OnboardingCooking() {
       };
 
       await upsertProfile.mutateAsync({ data: payload });
-      // Skip preferences update for now if hook is missing or do it if available
+      // Invalidate profile cache so bottom-nav reads the correct track immediately
+      await queryClient.invalidateQueries({ queryKey: getGetMyProfileQueryKey() });
       await generatePlan.mutateAsync({ data: { forceRegenerate: true } });
       
       setLocation("/dashboard");

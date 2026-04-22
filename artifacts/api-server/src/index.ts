@@ -16,6 +16,7 @@ async function runMigrations() {
       );
       CREATE INDEX IF NOT EXISTS push_subscriptions_profile_id_idx
         ON push_subscriptions(profile_id);
+      ALTER TABLE profiles ADD COLUMN IF NOT EXISTS plan_invalidated_at TIMESTAMP;
     `);
     logger.info("Startup migrations completed");
   } catch (err) {
