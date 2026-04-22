@@ -27,12 +27,17 @@ const ALL_TRACKS = [
 ];
 
 const REGIONS = [
-  { id: "North",     label: "North",     emoji: "🏔️" },
-  { id: "South",     label: "South",     emoji: "🌴" },
-  { id: "East",      label: "East",      emoji: "🌊" },
-  { id: "West",      label: "West",      emoji: "🏜️" },
-  { id: "Northeast", label: "Northeast", emoji: "🌿" },
-  { id: "Mix",       label: "Mix",       emoji: "🍱" },
+  { id: "North",       label: "North",       emoji: "🏔️" },
+  { id: "South",       label: "South",       emoji: "🌴" },
+  { id: "East",        label: "East",        emoji: "🌊" },
+  { id: "West",        label: "West",        emoji: "🏜️" },
+  { id: "Northeast",   label: "Northeast",   emoji: "🌿" },
+  { id: "Maharashtra", label: "Maharashtra", emoji: "🍊" },
+  { id: "Punjab",      label: "Punjab",      emoji: "🌾" },
+  { id: "Gujarat",     label: "Gujarat",     emoji: "🧆" },
+  { id: "Kerala",      label: "Kerala",      emoji: "🥥" },
+  { id: "Bengal",      label: "Bengal",      emoji: "🐟" },
+  { id: "Mix",         label: "Mix",         emoji: "🍱" },
 ];
 
 const DIETS = [

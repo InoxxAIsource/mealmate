@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-const REGIONS = ["North", "South", "East", "West", "Northeast", "Mix"];
+const REGIONS = ["North", "South", "East", "West", "Northeast", "Maharashtra", "Punjab", "Gujarat", "Kerala", "Bengal", "Mix"];
 const DIETS = ["Pure Veg", "Eggetarian", "Non-Veg", "Jain", "Vegan"];
 const PROTEINS = ["Chicken", "Mutton", "Fish", "Egg", "Seafood"];
 

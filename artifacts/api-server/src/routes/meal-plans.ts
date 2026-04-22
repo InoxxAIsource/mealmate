@@ -105,6 +105,17 @@ const REGION_MAP: Record<string, string[]> = {
   "east-india":     REGION_TAGS.east,
   "west-india":     REGION_TAGS.west,
   "northeast-india":REGION_TAGS.northeast,
+  // State-level options
+  "Maharashtra":      ["Maharashtra", "West", "West India", "Coastal India", "Pan India"],
+  "maharashtra":     ["Maharashtra", "West", "West India", "Coastal India", "Pan India"],
+  "Gujarat":         ["Gujarat", "West", "West India", "Pan India"],
+  "gujarat":         ["Gujarat", "West", "West India", "Pan India"],
+  "Punjab":          ["Punjab", "North", "North India", "Pan India"],
+  "punjab":          ["Punjab", "North", "North India", "Pan India"],
+  "Kerala":          ["Kerala", "South", "South India", "Coastal India", "Pan India"],
+  "kerala":          ["Kerala", "South", "South India", "Coastal India", "Pan India"],
+  "Bengal":          ["Bengal", "East", "East India", "Pan India"],
+  "bengal":          ["Bengal", "East", "East India", "Pan India"],
   // No-filter values
   "Mix":     [],
   "mix":     [],
@@ -238,7 +249,7 @@ Return ONLY valid JSON, no markdown, no explanation.`;
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-5-mini",
+      model: "gpt-4o-mini",
       max_completion_tokens: 2000,
       messages: [{ role: "user", content: prompt }],
     });
