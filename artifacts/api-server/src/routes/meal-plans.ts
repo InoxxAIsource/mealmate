@@ -123,11 +123,7 @@ function filterDishesByRegion(dishes: DishRow[], region: string | null | undefin
     const tags = d.region as string[] | null;
     if (!tags || tags.length === 0) return true; // untagged dishes always included
     return tags.some((r) =>
-      allowed.some(
-        (a) =>
-          r.toLowerCase().includes(a.toLowerCase()) ||
-          a.toLowerCase().includes(r.toLowerCase())
-      )
+      allowed.some((a) => r.toLowerCase() === a.toLowerCase())
     );
   });
 
@@ -207,26 +203,35 @@ async function generateWithAI(
   existingPlan?: PlanDay[],
   fallbackDishes?: DishRow[]
 ): Promise<PlanDay[]> {
-  const dishSummary = filteredDishes.slice(0, 40).map((d) => ({
+  // Shuffle before slicing so the AI sees a representative sample, not DB-insertion order
+  const shuffled = [...filteredDishes].sort(() => Math.random() - 0.5);
+  const dishSummary = shuffled.slice(0, 60).map((d) => ({
     id: d.id,
     name: d.name,
+    region: d.region,
     mealType: d.mealType,
     cal: d.cal,
   }));
 
-  const prompt = `You are a nutrition expert. Create a 7-day Indian meal plan for someone with the following profile:
+  const prompt = `You are a nutrition expert specializing in Indian regional cuisine. Create a 7-day Indian meal plan for someone with the following profile:
 - Health track: ${profile.primaryTrack || "general"}
 - Diet type: ${profile.dietType || "vegetarian"}
-- Region: ${profile.region || "North"}
+- Region preference: ${profile.region || "North"} — IMPORTANT: Strongly prefer dishes whose region tag matches or includes "${profile.region || "North"}" or "Pan India". Avoid dishes from unrelated regions.
 - Allergies: ${(profile.allergies as string[])?.join(", ") || "none"}
 
-Use ONLY dishes from this list (use dish IDs):
+Use ONLY dishes from this list (use dish IDs exactly as given):
 ${JSON.stringify(dishSummary, null, 2)}
 
-Return a JSON array with exactly 7 objects, one per day (dayIndex 0-6). Each must have:
+Rules:
+1. Each dish ID must appear in the list above — do not invent IDs.
+2. Each dish must match its mealType (breakfast/lunch/snack/dinner).
+3. Prefer dishes whose region matches the user's region preference.
+4. Vary dishes across the 7 days — avoid repeating the same dish more than twice.
+
+Return a JSON array with exactly 7 objects (dayIndex 0-6):
 { "dayIndex": number, "breakfastId": number, "lunchId": number, "snackId": number, "dinnerId": number, "lockedSlots": [] }
 
-Only use dish IDs from the provided list. Each dish must match its mealType. Return ONLY valid JSON, no markdown.`;
+Return ONLY valid JSON, no markdown, no explanation.`;
 
   try {
     const response = await openai.chat.completions.create({
