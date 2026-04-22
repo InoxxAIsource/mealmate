@@ -9,15 +9,15 @@ const router = Router();
 const VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY;
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
 
-if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
-  throw new Error("VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY must be set in environment variables");
+if (VAPID_PUBLIC_KEY && VAPID_PRIVATE_KEY) {
+  webpush.setVapidDetails(
+    "mailto:support@mealcoreai.com",
+    VAPID_PUBLIC_KEY,
+    VAPID_PRIVATE_KEY
+  );
+} else {
+  console.warn("[notifications] VAPID keys not configured — push notifications disabled");
 }
-
-webpush.setVapidDetails(
-  "mailto:mealcoreai@replit.app",
-  VAPID_PUBLIC_KEY,
-  VAPID_PRIVATE_KEY
-);
 
 export { VAPID_PUBLIC_KEY, webpush };
 

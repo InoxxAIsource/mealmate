@@ -146,6 +146,7 @@ function filterDishesByTrack(dishes: DishRow[], track: string | null) {
     if (track === "kids") return d.kidsSafe;
     if (track === "fitness") return d.gymSafe;
     if (track === "cholesterol") return d.cholesterolSafe && !d.deepFried;
+    if (track === "vrat") return d.vratSafe;
     return true;
   });
 }
@@ -213,9 +214,10 @@ async function generateWithAI(
     cal: d.cal,
   }));
 
+  const isVrat = profile.primaryTrack === "vrat";
   const prompt = `You are a nutrition expert specializing in Indian regional cuisine. Create a 7-day Indian meal plan for someone with the following profile:
-- Health track: ${profile.primaryTrack || "general"}
-- Diet type: ${profile.dietType || "vegetarian"}
+- Health track: ${profile.primaryTrack || "general"}${isVrat ? " (Hindu fasting/Vrat — use ONLY vrat-safe dishes; NO onion, garlic, regular wheat, rice, or non-veg items)" : ""}
+- Diet type: ${isVrat ? "Pure Veg (Vrat/Sattvik — no onion, no garlic)" : profile.dietType || "vegetarian"}
 - Region preference: ${profile.region || "North"} — IMPORTANT: Strongly prefer dishes whose region tag matches or includes "${profile.region || "North"}" or "Pan India". Avoid dishes from unrelated regions.
 - Allergies: ${(profile.allergies as string[])?.join(", ") || "none"}
 
@@ -227,6 +229,7 @@ Rules:
 2. Each dish must match its mealType (breakfast/lunch/snack/dinner).
 3. Prefer dishes whose region matches the user's region preference.
 4. Vary dishes across the 7 days — avoid repeating the same dish more than twice.
+${isVrat ? "5. VRAT PLAN: All selected dishes must be vrat-safe. Balance snacks, mains, and drinks across the day." : ""}
 
 Return a JSON array with exactly 7 objects (dayIndex 0-6):
 { "dayIndex": number, "breakfastId": number, "lunchId": number, "snackId": number, "dinnerId": number, "lockedSlots": [] }

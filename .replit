@@ -42,4 +42,4 @@ channel = "stable-25_05"
 [userenv]
 
 [userenv.shared]
-VAPID_PUBLIC_KEY = "BFlDDrZo4COnTvElZdgrPHPua7ElnZRH87cICRLHJP4pE6bdwGxJIyZ_ztNGof8bS-J6gME2W_YWm828hETqUAU"
+VAPID_PUBLIC_KEY = "BJWm8K3_EzPAGBd8a_d3-bQld38m-uV2mqyrHrEK29gIVrsZF-aucybT_2omU_WCrdauJ8Gu3biu0w2MOH6FZ7s"

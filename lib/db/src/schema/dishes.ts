@@ -50,6 +50,8 @@ export const dishesTable = pgTable("dishes", {
   benefitsKids: text("benefits_kids"),
   benefitsGym: text("benefits_gym"),
   benefitsCholesterol: text("benefits_cholesterol"),
+  vratSafe: boolean("vrat_safe").notNull().default(false),
+  benefitsVrat: text("benefits_vrat"),
   youtubeUrl: text("youtube_url"),
 });
 

@@ -23,6 +23,7 @@ const ALL_TRACKS = [
   { id: "diabetes",     name: "Diabetes",           emoji: "🩺", subtitle: "Low-sugar, blood-sugar friendly",  color: "bg-teal-100 text-teal-700 border-teal-200" },
   { id: "thyroid",      name: "Thyroid",            emoji: "🦋", subtitle: "Thyroid-supportive, metabolism",   color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
   { id: "cholesterol",  name: "Cholesterol",        emoji: "❤️", subtitle: "Heart-healthy, low saturated fat", color: "bg-red-100 text-red-700 border-red-200" },
+  { id: "vrat",         name: "Hindu Vrat",         emoji: "🪔", subtitle: "Fasting-friendly, sattvik food",   color: "bg-amber-100 text-amber-800 border-amber-200" },
 ];
 
 const REGIONS = [
