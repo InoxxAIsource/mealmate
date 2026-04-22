@@ -1,0 +1,365 @@
+You are a senior full-stack developer and SEO engineer working on MealCoreAI (mealcoreai.com) — 
+a Next.js-based AI meal planning SaaS for Indian health conditions (PCOS, Diabetes, Thyroid, 
+Pregnancy, Kids, Cholesterol). A full technical SEO and UX audit has been completed. Your job 
+is to implement every fix below precisely, without breaking existing functionality.
+
+The site uses Next.js (App Router assumed). Apply all changes idiomatically using Next.js 
+metadata API, generateMetadata(), structured data components, and proper TypeScript where 
+applicable.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 1 — DUPLICATE BRAND NAME IN PAGE TITLES (CRITICAL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: Sub-page titles render as:
+  "PCOS Meal Plan India — Hormone-Friendly Indian Meals | MealCoreAI | MealCoreAI"
+  "Health & Nutrition Blog for Indian Families | MealCoreAI | MealCoreAI"
+The brand name appears twice. This is caused by the root layout metadata template 
+conflicting with page-level titles that already include the brand name.
+
+FIX:
+In your root layout.tsx, set the metadata title template like this:
+
+  export const metadata: Metadata = {
+    title: {
+      default: 'MealCoreAI — AI Meal Planning for PCOS, Diabetes, Thyroid, Pregnancy & Kids',
+      template: '%s | MealCoreAI',
+    },
+    ...
+  }
+
+Then in every page.tsx that currently includes "| MealCoreAI" or "MealCoreAI" at the end 
+of its title string, REMOVE the brand suffix. The template will append it automatically.
+
+Example — change this:
+  title: 'PCOS Meal Plan India — Hormone-Friendly Indian Meals | MealCoreAI'
+To this:
+  title: 'PCOS Meal Plan India — Hormone-Friendly Indian Meals'
+
+Apply this fix to ALL pages: /pcos-meal-plan, /diabetes-meal-plan, /thyroid-diet-plan, 
+/pregnancy-meal-plan, /kids-meal-plan, /cholesterol-diet-plan, /blog, /about, /faq, 
+/pricing, /how-it-works, and all /blog/[slug] pages.
+
+Also audit title lengths — ideal is under 60 characters. If any title exceeds 60 chars 
+after removing the brand suffix, shorten it to under 60 characters while keeping the 
+primary keyword at the start.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 2 — FOOTER SOCIAL LINKS (HIGH PRIORITY)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: All three social links in the footer use href="#" and are non-functional.
+
+FIX:
+Replace the placeholder social links with the correct URLs. Based on the Organization 
+schema already on the site, use:
+
+  Twitter/X:   https://twitter.com/MealCoreAI
+  Instagram:   https://www.instagram.com/mealcoreai
+
+For the third icon (likely YouTube or LinkedIn), either:
+  a) Set the correct URL if the profile exists, OR
+  b) Remove that icon entirely — do not link to "#"
+
+Each social link must have:
+  - rel="noopener noreferrer"
+  - target="_blank"
+  - aria-label="Follow MealCoreAI on [Platform]"
+  - The correct SVG or icon for each platform
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 3 — MISSING IMAGE ALT TEXT (ACCESSIBILITY + SEO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: 1 of 3 images on the homepage is missing an alt attribute. This fails WCAG 2.1 
+Level A (criterion 1.1.1) and reduces SEO image signals.
+
+FIX:
+Audit every <Image> or <img> tag across the entire codebase. Any image that is:
+  - Decorative: add alt=""
+  - Informational: add a descriptive alt that includes a keyword where natural
+  - The logo: ensure alt="MealCoreAI" is present (already correct in nav, verify footer)
+
+For the homepage specifically, the meal plan UI mockup image should have:
+  alt="MealCoreAI app showing a personalised PCOS meal plan with Indian meals"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 4 — SITEMAP: ACCURATE LASTMOD DATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: Every URL in sitemap.xml has the identical lastmod timestamp 
+(2026-04-22T07:14:12.816Z) — the sitemap is clearly auto-generated with a static 
+timestamp rather than real last-modified dates. Search engines may deprioritise 
+these signals over time.
+
+FIX:
+If using next-sitemap or a custom sitemap route, update the generation logic to:
+  1. For static pages (about, pricing, faq): use the actual last time the file was 
+     modified (can be hardcoded per-page and updated on change)
+  2. For blog posts /blog/[slug]: use the post's actual publishedAt or updatedAt 
+     field from your CMS/data source
+  3. For condition pages (/pcos-meal-plan etc.): use the file's git last-modified 
+     date or a manually maintained date
+
+Also ensure the sitemap is submitted to Google Search Console at:
+  https://search.google.com/search-console/sitemaps?resource_id=sc-domain%3Amealcoreai.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 5 — FAQ SCHEMA ON CONDITION PAGES (HIGH SEO VALUE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: No FAQ structured data exists on condition pages or the homepage. FAQ schema 
+can generate rich results (expandable Q&A in Google SERPs) which dramatically improve 
+click-through rates for health queries.
+
+FIX:
+Create a reusable FAQSchema component:
+
+  interface FAQItem {
+    question: string;
+    answer: string;
+  }
+
+  export function FAQSchema({ faqs }: { faqs: FAQItem[] }) {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    };
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    );
+  }
+
+Add this component to each condition page with 4–6 real FAQs. Example for PCOS:
+  Q: "What foods should I avoid with PCOS?"
+  Q: "Is rice bad for PCOS?"
+  Q: "What is a good Indian breakfast for PCOS?"
+  Q: "How many calories should a PCOS meal plan have?"
+  Q: "Can I eat roti with PCOS?"
+
+Also add a visible FAQ section to the page UI (accordion component) that matches — 
+the schema and the visible content must be consistent. Hidden FAQ content will be 
+ignored or penalised by Google.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 6 — AUTHOR BIO PAGES & EEAT SIGNALS (CRITICAL FOR HEALTH SITE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: Blog posts attribute content to "Dr. Priya Sharma" and "Nutritionist Anitha 
+Reddy" but there are no author profile pages, credentials, or external verification 
+links. Google's EEAT guidelines for health content require demonstrable expertise and 
+authoritativeness. Without this, the site may be classified as low-quality for health 
+queries regardless of content quality.
+
+FIX:
+1. Create an /authors directory with individual author pages at /authors/[slug]
+   Each page must include:
+   - Full name and professional photo
+   - Credentials (e.g., "MSc Nutrition, Registered Dietitian - RD Reg. No. XXXX")
+   - Brief professional biography (100–150 words)
+   - Link to external verification: Indian Dietetic Association profile, LinkedIn, 
+     or published papers if available
+   - List of articles authored on the site (linked)
+
+2. Create an Author schema for each author page:
+   {
+     "@context": "https://schema.org",
+     "@type": "Person",
+     "name": "Dr. Priya Sharma",
+     "jobTitle": "Registered Dietitian",
+     "description": "...",
+     "url": "https://mealcoreai.com/authors/dr-priya-sharma",
+     "sameAs": ["https://linkedin.com/in/..."]
+   }
+
+3. On every /blog/[slug] page, update the Article schema to include:
+   "author": {
+     "@type": "Person",
+     "name": "Dr. Priya Sharma",
+     "url": "https://mealcoreai.com/authors/dr-priya-sharma"
+   }
+   Also add: "medicalAudience", "reviewedBy" fields where relevant.
+
+4. Add a visible "Reviewed by [Author]" byline with a link to their author page 
+   at the top and bottom of every blog post and condition landing page.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 7 — TESTIMONIALS: ADD CREDIBILITY SIGNALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: The three testimonials (Priya S., Ramesh K., Anita M.) have no photos, no 
+star ratings, and no third-party review source links. They currently read as 
+AI-generated placeholder copy, which reduces conversion.
+
+FIX:
+1. Add a 5-star rating display (★★★★★) above or below each testimonial quote
+2. Add profile avatars — even initials in a styled circle (P, R, A) with distinct 
+   colors improves perceived authenticity vs. no image
+3. Add a Review schema to the homepage for each testimonial:
+   {
+     "@type": "Review",
+     "@context": "https://schema.org",
+     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+     "author": { "@type": "Person", "name": "Priya S." },
+     "reviewBody": "..."
+   }
+4. Add an AggregateRating to the SoftwareApplication schema already on the page:
+   "aggregateRating": {
+     "@type": "AggregateRating",
+     "ratingValue": "4.9",
+     "reviewCount": "47"  ← use only real numbers you can verify
+   }
+5. If/when App Store or Play Store listings exist, add a "Read more reviews" link 
+   pointing to those external review sources.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 8 — VERIFY SEARCHACTION SCHEMA ENDPOINT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: The WebSite schema includes a SearchAction pointing to:
+  https://mealcoreai.com/search?q={search_term_string}
+If this URL does not return valid search results, Google will ignore the schema and 
+it may eventually trigger a rich result warning in GSC.
+
+FIX:
+Option A (preferred): Build a working /search page that accepts ?q= and returns 
+  relevant filtered results from blog posts and condition pages.
+Option B: If no search functionality exists or is planned, REMOVE the potentialAction 
+  from the WebSite schema entirely to avoid false signals.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 9 — ACCESSIBILITY: REACH SCORE 100
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: Accessibility score is 96/100 — excellent but not perfect. The 4-point gap 
+is likely caused by one or more of: missing form labels, insufficient color contrast 
+on small text, or missing ARIA roles on interactive components.
+
+FIX:
+Run a full Lighthouse accessibility audit and address every flagged item. Common 
+fixes for this score level:
+  - Ensure all interactive elements (buttons, links) have discernible text or 
+    aria-label attributes, especially icon-only buttons like the mobile menu toggle
+  - Verify color contrast ratio is ≥4.5:1 for all body text and ≥3:1 for large text
+  - Add aria-expanded to any accordion/toggle components
+  - Ensure the mobile hamburger menu button has aria-label="Toggle navigation menu"
+  - Add skip-to-main-content link as the first focusable element in the DOM
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 10 — DEDICATED /PRICING PAGE + NAVIGATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: /pricing exists in the sitemap but the page appears to be a redirect or 
+anchor to the homepage pricing section. The nav "Pricing" link goes to /#pricing 
+(anchor), not a standalone page. This means:
+  - Google indexes the homepage for pricing queries, not a dedicated page
+  - No opportunity to rank for "MealCoreAI pricing" or "Indian meal plan app pricing"
+  - Users sharing a pricing link get sent to the homepage scroll position
+
+FIX:
+1. Create a proper standalone /pricing/page.tsx with:
+   - Its own <title> tag: "MealCoreAI Pricing — Free & Pro Plans"
+   - Its own meta description
+   - The full pricing table (Free vs Pro comparison)
+   - A PriceSpecification or Offer schema
+   - FAQs specific to pricing (billing, cancellation, free trial)
+2. Update the nav "Pricing" link from /#pricing to /pricing
+3. Keep /#pricing as a fallback anchor on the homepage for in-page navigation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 11 — OPEN GRAPH IMAGE VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: og:image is served from /api/og?page=home — a dynamic endpoint. Verify it 
+returns an image with:
+  - Dimensions: exactly 1200×630px
+  - Content-Type: image/png or image/jpeg
+  - No redirect chains
+  - Loads in under 2 seconds (critical for WhatsApp/Telegram link previews)
+
+FIX:
+Test each og:image endpoint using https://www.opengraph.xyz and fix any issues.
+Ensure each major page has a unique og:image parameter:
+  /api/og?page=home
+  /api/og?page=pcos
+  /api/og?page=diabetes
+  /api/og?page=blog
+  etc.
+
+Add og:image:width and og:image:height meta tags explicitly:
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FIX 12 — INTERNAL LINKING: ADD BREADCRUMB SCHEMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM: Condition pages and blog posts show visible breadcrumbs (e.g., 
+"Home / PCOS Meal Plan") but there is no BreadcrumbList schema to signal this 
+hierarchy to Google.
+
+FIX:
+Create a reusable Breadcrumb schema component:
+
+  export function BreadcrumbSchema({ items }: { items: {name:string, url:string}[] }) {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": items.map((item, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": item.name,
+        "item": item.url
+      }))
+    };
+    return <script type="application/ld+json" 
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  }
+
+Add to every condition page, blog post, and policy page. Example for PCOS page:
+  items={[
+    { name: "Home", url: "https://mealcoreai.com" },
+    { name: "PCOS Meal Plan", url: "https://mealcoreai.com/pcos-meal-plan" }
+  ]}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUALITY ASSURANCE CHECKLIST — RUN AFTER ALL FIXES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After implementing all fixes, validate the following before deploying:
+
+□ Run: npx next build — zero errors, zero warnings
+□ Test all page titles in browser tab and <title> tag — no duplicates
+□ Test: https://search.google.com/test/rich-results for homepage, PCOS page, 
+  and one blog post — all schemas must pass
+□ Test: https://www.opengraph.xyz for homepage and 3 sub-pages
+□ Confirm: https://mealcoreai.com/sitemap.xml returns valid XML with accurate dates
+□ Confirm: https://mealcoreai.com/robots.txt still shows Allow:/ Disallow:/api/
+□ Run Lighthouse on mobile and desktop — Performance ≥97, Accessibility 100, 
+  Best Practices 100, SEO 100
+□ Manually verify all footer social links open correct external profiles
+□ Verify /search?q=pcos returns results (or schema removed if not)
+□ Submit updated sitemap in Google Search Console
+□ Use GSC URL Inspection to request indexing of: /, /pcos-meal-plan, 
+  /diabetes-meal-plan, /thyroid-diet-plan, /pregnancy-meal-plan, 
+  /kids-meal-plan, /cholesterol-diet-plan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRIORITY ORDER FOR IMPLEMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+P0 (Today):     Fix 1 (duplicate titles), Fix 2 (social links), Fix 3 (alt text)
+P1 (This week): Fix 5 (FAQ schema), Fix 8 (SearchAction), Fix 12 (breadcrumb schema)
+P2 (Week 2):    Fix 6 (author pages + EEAT), Fix 7 (testimonials), Fix 9 (accessibility)
+P3 (Week 3–4):  Fix 4 (sitemap lastmod), Fix 10 (pricing page), Fix 11 (OG images)
