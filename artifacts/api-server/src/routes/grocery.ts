@@ -114,6 +114,31 @@ const CATEGORY_MAP: Record<string, string> = {
   asafoetida: "Spices & Oil",
   jaggery: "Spices & Oil",
   "baking soda": "Spices & Oil",
+  kokum: "Spices & Oil",
+  "goda masala": "Spices & Oil",
+  "malvani masala": "Spices & Oil",
+  "kolhapuri masala": "Spices & Oil",
+  "saoji masala": "Spices & Oil",
+  "biryani masala": "Spices & Oil",
+  mint: "Spices & Oil",
+  saffron: "Spices & Oil",
+  // Grains & Flours (Maharashtra)
+  sabudana: "Grains",
+  "nachni flour": "Grains",
+  "rice flour": "Grains",
+  "jowar flour": "Grains",
+  "bajra flour": "Grains",
+  "wheat flour": "Grains",
+  // Pulses (Maharashtra)
+  "moth beans": "Pulses",
+  "white peas": "Pulses",
+  "black chickpeas": "Pulses",
+  // Vegetables (Maharashtra)
+  "colocasia leaves": "Vegetables",
+  "cucumber": "Vegetables",
+  // Protein (Maharashtra coastal)
+  crab: "Protein",
+  bombil: "Protein",
 };
 
 function categorize(ingredientName: string): string {
