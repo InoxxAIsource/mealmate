@@ -6,7 +6,7 @@ import {
   mealPlansTable,
   dishPreferencesTable,
 } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
+import { eq, and, desc, ne } from "drizzle-orm";
 import { requireAuth } from "../lib/auth-middleware";
 import { openai } from "../lib/openai-client";
 
@@ -311,7 +311,7 @@ router.get("/meal-plans/active", requireAuth, async (req, res) => {
         eq(mealPlansTable.isActive, true)
       )
     )
-    .orderBy(mealPlansTable.createdAt)
+    .orderBy(desc(mealPlansTable.createdAt))
     .limit(1);
 
   if (!plan[0]) {
@@ -378,6 +378,19 @@ router.post("/meal-plans/generate", requireAuth, async (req, res) => {
       planData: planDays,
     })
     .returning();
+
+  // Second deactivation pass: ensures any concurrent generation doesn't leave
+  // multiple active plans (race condition guard)
+  await db
+    .update(mealPlansTable)
+    .set({ isActive: false })
+    .where(
+      and(
+        eq(mealPlansTable.profileId, profile[0].id),
+        eq(mealPlansTable.isActive, true),
+        ne(mealPlansTable.id, newPlan.id)
+      )
+    );
 
   res.json(await hydratePlan(newPlan, allDishes));
 });

@@ -17,7 +17,24 @@ async function runMigrations() {
       CREATE INDEX IF NOT EXISTS push_subscriptions_profile_id_idx
         ON push_subscriptions(profile_id);
       ALTER TABLE profiles ADD COLUMN IF NOT EXISTS plan_invalidated_at TIMESTAMP;
+      ALTER TABLE dishes ADD COLUMN IF NOT EXISTS vrat_safe BOOLEAN NOT NULL DEFAULT false;
+      ALTER TABLE dishes ADD COLUMN IF NOT EXISTS benefits_vrat TEXT;
     `);
+
+    // Deduplicate active plans: for each profile with multiple active plans,
+    // keep only the most recently created one
+    await pool.query(`
+      UPDATE meal_plans
+      SET is_active = false
+      WHERE is_active = true
+        AND id NOT IN (
+          SELECT DISTINCT ON (profile_id) id
+          FROM meal_plans
+          WHERE is_active = true
+          ORDER BY profile_id, created_at DESC
+        )
+    `);
+
     logger.info("Startup migrations completed");
   } catch (err) {
     logger.error({ err }, "Startup migration failed");

@@ -25,6 +25,7 @@ import DashboardGrocery from "./pages/dashboard/grocery";
 import DashboardProfile from "./pages/dashboard/profile";
 import NotFound from "./pages/not-found";
 import { useGetMyProfile } from "@workspace/api-client-react";
+import type { ApiError } from "@workspace/api-client-react";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const clerkProxyUrl = import.meta.env.VITE_CLERK_PROXY_URL;
@@ -129,8 +130,8 @@ function ProtectedRoute({ component: Component, ...rest }: any) {
 }
 
 function AuthGate({ children }: { children: React.ReactNode }) {
-  const { data: profile, isLoading, isError } = useGetMyProfile({
-    query: { retry: false },
+  const { data: profile, isLoading, isError, error } = useGetMyProfile({
+    query: { retry: 1 },
   });
   const [location] = useLocation();
 
@@ -140,8 +141,33 @@ function AuthGate({ children }: { children: React.ReactNode }) {
     </div>;
   }
 
-  const isComplete = profile?.onboardingComplete;
   const isOnboardingRoute = location.startsWith("/onboarding");
+
+  // A non-404 error means the server/network failed — NOT that the profile is missing.
+  // Don't send the user back through onboarding; show a retry screen instead.
+  if (isError) {
+    const status = (error as ApiError)?.status;
+    if (status !== 404) {
+      return (
+        <div className="min-h-[100dvh] flex flex-col items-center justify-center bg-background gap-4 px-6 text-center">
+          <span className="text-5xl">🔌</span>
+          <h2 className="text-lg font-bold text-foreground">Couldn't reach the server</h2>
+          <p className="text-sm text-muted-foreground max-w-xs">
+            There was a problem loading your profile. Please check your connection and try again.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-2 px-6 py-3 bg-primary text-white rounded-xl font-semibold text-sm active:scale-95 transition-transform"
+          >
+            Retry
+          </button>
+        </div>
+      );
+    }
+    // 404 → new user, no profile yet → fall through to onboarding redirect below
+  }
+
+  const isComplete = profile?.onboardingComplete;
 
   if (!isComplete && !isOnboardingRoute) {
     return <Redirect to="/onboarding/track" />;
