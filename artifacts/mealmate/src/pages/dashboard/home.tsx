@@ -19,7 +19,10 @@ import { Clock, Flame, ChevronRight, ArrowLeftRight, Loader2 } from "lucide-reac
 export default function DashboardHome() {
   const queryClient = useQueryClient();
   const { data: summary, isLoading: summaryLoading } = useGetDashboardSummary();
-  const { data: plan, isLoading: planLoading } = useGetActiveMealPlan();
+  // Include error so we never show stale swap buttons when the plan has been deactivated
+  const { data: planData, isLoading: planLoading, error: planError } = useGetActiveMealPlan();
+  // Treat a plan as absent if the query errored (e.g. 404 after profile change deactivated it)
+  const plan = planError ? undefined : planData;
   const swapMeal = useSwapMeal();
   const [swapping, setSwapping] = useState<string | null>(null);
 
@@ -51,8 +54,16 @@ export default function DashboardHome() {
       });
       await queryClient.invalidateQueries({ queryKey: getGetActiveMealPlanQueryKey() });
       await queryClient.invalidateQueries({ queryKey: getGetDashboardSummaryQueryKey() });
-    } catch {
-      toast.error("Couldn't swap meal. Please try again.");
+    } catch (err: any) {
+      const status = err?.status ?? err?.response?.status;
+      if (status === 404) {
+        // Plan was deactivated (e.g. after a profile change) — clear the stale cache
+        queryClient.removeQueries({ queryKey: getGetActiveMealPlanQueryKey() });
+        await queryClient.invalidateQueries({ queryKey: getGetDashboardSummaryQueryKey() });
+        toast.error("Your plan was reset after a profile change. Go to the Week tab to generate a new one.");
+      } else {
+        toast.error("Couldn't swap meal. Please try again.");
+      }
     } finally {
       setSwapping(null);
     }

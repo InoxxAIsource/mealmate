@@ -397,24 +397,48 @@ router.post("/meal-plans/swap", requireAuth, async (req, res) => {
   const plan = await db
     .select()
     .from(mealPlansTable)
-    .where(eq(mealPlansTable.id, planId))
+    .where(and(eq(mealPlansTable.id, planId), eq(mealPlansTable.isActive, true)))
     .limit(1);
 
   if (!plan[0]) {
-    res.status(404).json({ error: "Plan not found" });
+    res.status(404).json({ error: "Plan not found or no longer active. Please generate a new plan." });
     return;
   }
 
   const allDishes = await db.select().from(dishesTable);
   const byRegion = filterDishesByRegion(allDishes, profile[0].region);
   const filtered = filterDishesByTrack(byRegion, profile[0].primaryTrack);
-  const candidates = getDishesByMealType(filtered, mealType as MealSlot).filter(
+
+  // Progressive fallback: relax constraints until we find a candidate
+  let candidates = getDishesByMealType(filtered, mealType as MealSlot).filter(
     (d) => d.id !== currentDishId
   );
 
+  // Fallback 1: drop region filter, keep track
+  if (candidates.length === 0) {
+    const trackOnly = filterDishesByTrack(allDishes, profile[0].primaryTrack);
+    candidates = getDishesByMealType(trackOnly, mealType as MealSlot).filter(
+      (d) => d.id !== currentDishId
+    );
+    if (candidates.length > 0) console.info(`[swap] Region fallback used for mealType=${mealType}`);
+  }
+
+  // Fallback 2: any dish of that meal type (no region or track filter)
+  if (candidates.length === 0) {
+    candidates = getDishesByMealType(allDishes, mealType as MealSlot).filter(
+      (d) => d.id !== currentDishId
+    );
+    if (candidates.length > 0) console.info(`[swap] Full fallback used for mealType=${mealType}`);
+  }
+
+  // Fallback 3: include the current dish as last resort (prevents hard failure)
+  if (candidates.length === 0) {
+    candidates = getDishesByMealType(allDishes, mealType as MealSlot);
+  }
+
   const newDish = pickRandom(candidates);
   if (!newDish) {
-    res.status(400).json({ error: "No suitable replacement dish found" });
+    res.status(400).json({ error: "No dishes available for this meal type." });
     return;
   }
 

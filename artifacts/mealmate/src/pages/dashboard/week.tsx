@@ -170,7 +170,9 @@ function PlanReadySheet({ onDismiss }: { onDismiss: () => void }) {
 
 export default function DashboardWeek() {
   const queryClient = useQueryClient();
-  const { data: plan, isLoading } = useGetActiveMealPlan();
+  // Capture error so we don't use stale plan data after profile change deactivates the plan
+  const { data: planData, isLoading, error: planError } = useGetActiveMealPlan();
+  const plan = planError ? undefined : planData;
   const swapMeal = useSwapMeal();
   const toggleLock = useToggleLockMeal();
   const generatePlan = useGenerateMealPlan();
@@ -198,8 +200,15 @@ export default function DashboardWeek() {
     try {
       await swapMeal.mutateAsync({ data: { planId: plan!.id, dayIndex, mealType, currentDishId } });
       await invalidate();
-    } catch {
-      toast.error("Couldn't swap meal. Please try again.");
+    } catch (err: any) {
+      const status = err?.status ?? err?.response?.status;
+      if (status === 404) {
+        // Plan was deactivated after a profile change — remove stale cache and refresh
+        queryClient.removeQueries({ queryKey: getGetActiveMealPlanQueryKey() });
+        toast.error("Your plan was reset after a profile change. Generate a new one below.");
+      } else {
+        toast.error("Couldn't swap meal. Please try again.");
+      }
     } finally {
       setSwapping(null);
     }
