@@ -1,0 +1,182 @@
+You are a senior SaaS conversion copywriter and UX strategist.
+
+Your task is to completely rewrite the homepage content for my product: MealCoreAI.
+
+## PRODUCT CONTEXT
+
+MealCoreAI is an AI-powered health diet platform that creates personalized Indian meal plans based on specific health conditions like PCOS, diabetes, thyroid, weight loss, and pregnancy.
+
+It includes:
+
+* AI meal planning
+* AI diet assistant (chat)
+* Daily guidance
+* Grocery lists
+* Progress tracking
+
+## GOAL
+
+Rewrite the homepage to maximize:
+
+* Conversion rate (free → paid)
+* User activation (starting plan generation)
+* Perceived value (health outcome, not features)
+
+## TARGET USER
+
+* Indian users (18–45)
+* People struggling with PCOS, diabetes, thyroid, weight issues
+* Not looking for recipes — looking for RESULTS
+
+---
+
+## CRITICAL RULES (DO NOT IGNORE)
+
+1. DO NOT position this as a “meal planner app”
+2. ALWAYS focus on outcomes:
+
+   * control blood sugar
+   * reduce PCOS symptoms
+   * lose weight
+3. Use emotional + logical triggers
+4. Make user feel urgency and trust
+5. Avoid generic AI buzzwords
+6. Keep language simple, direct, and benefit-driven
+
+---
+
+## STRUCTURE TO FOLLOW
+
+### 1. HERO SECTION
+
+* Headline focused on outcome (NOT features)
+* Subheadline explaining how it works in 1 line
+* Strong CTA (action-driven)
+* Social proof line (users/results)
+
+---
+
+### 2. PROBLEM SECTION
+
+* Describe user frustration:
+
+  * confusion about diet
+  * conflicting advice
+  * no consistency
+* Make it relatable and emotional
+
+---
+
+### 3. SOLUTION SECTION
+
+* Explain how the app solves it
+* Show transformation (before → after)
+
+---
+
+### 4. HOW IT WORKS (3 STEPS)
+
+Each step must include:
+
+* action
+* benefit/outcome
+
+---
+
+### 5. CONDITION-BASED SECTION
+
+Highlight:
+
+* PCOS
+* Diabetes
+* Thyroid
+* Weight loss
+
+For each:
+
+* one clear benefit/outcome
+
+---
+
+### 6. FEATURES → BENEFITS SECTION
+
+Convert features into real-life benefits:
+
+* meal plans → save time + better health
+* AI chat → instant answers
+* grocery list → convenience
+* tracking → visible progress
+
+---
+
+### 7. SOCIAL PROOF
+
+* Testimonials rewritten to highlight results
+* Use measurable outcomes (e.g. sugar levels, weight, symptoms)
+
+---
+
+### 8. PRICING SECTION (IMPORTANT)
+
+Structure:
+
+* Free → limited (tease value)
+* ₹199 → starter
+* ₹499 → core
+* ₹999 → premium
+
+Each tier must:
+
+* highlight upgrade reason
+* show value clearly
+
+---
+
+### 9. FINAL CTA SECTION
+
+* Strong emotional close
+* Encourage immediate action
+
+---
+
+## TONE
+
+* Confident
+* Clear
+* Supportive (not hypey)
+* Health-focused, trustworthy
+
+---
+
+## OUTPUT FORMAT
+
+Return clean structured content like:
+
+[HERO]
+Headline:
+Subheadline:
+CTA:
+
+[PROBLEM]
+...
+
+[HOW IT WORKS]
+Step 1:
+Step 2:
+Step 3:
+
+etc.
+
+---
+
+## EXTRA OPTIMIZATION
+
+Add:
+
+* urgency triggers (limited plan access, instant start)
+* microcopy near CTAs
+* trust signals (dietitian-reviewed, real users)
+
+---
+
+Now rewrite the full homepage with HIGH conversion focus.
