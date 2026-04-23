@@ -40,12 +40,12 @@ import {
 
 export const metadata: Metadata = {
   description:
-    "MealCoreAI builds personalised Indian meal plans for PCOS, Diabetes, Thyroid, and weight loss — so you know exactly what to eat every day to improve your health.",
+    "Control PCOS, Diabetes & Thyroid with a daily AI diet plan that adapts to your body — personalised Indian meals, no generic diet charts. Free to start.",
   alternates: { canonical: "https://mealcoreai.com" },
   openGraph: {
-    title: "MealCoreAI — Personalised Indian Meal Plans for PCOS, Diabetes & Thyroid",
+    title: "MealCoreAI — Control PCOS, Diabetes & Thyroid With Your Diet",
     description:
-      "Stop guessing what to eat. Get a 7-day Indian meal plan built around your health condition — free to start.",
+      "Unlike one-time diet charts, MealCoreAI gives you a daily Indian meal plan that adapts to your condition, routine, and what you actually eat. Free to start.",
     url: "https://mealcoreai.com",
     images: [{ url: "/api/og?page=home", width: 1200, height: 630 }],
   },
@@ -873,7 +873,7 @@ export default function HomePage() {
             href={`${APP_URL}/sign-up`}
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg transition-colors shadow-lg shadow-orange-900/30"
           >
-            Get My Free Meal Plan <ArrowRight className="h-5 w-5" />
+            Fix My Diet in 2 Minutes <ArrowRight className="h-5 w-5" />
           </a>
 
           <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
