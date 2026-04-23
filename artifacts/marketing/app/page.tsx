@@ -368,24 +368,27 @@ export default function HomePage() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold uppercase tracking-wide mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold uppercase tracking-wide mb-6">
               <Sparkles className="h-3.5 w-3.5" />
-              Trusted by 12,000+ Indian families · Dietitian-reviewed
+              Trusted by 12,000+ Indian families &bull; Dietitian-reviewed
             </div>
 
+            <p className="text-sm text-gray-500 italic mb-6">
+              Still following the same diet chart for weeks? Your body isn&rsquo;t static &mdash; your diet shouldn&rsquo;t be either.
+            </p>
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight mb-6">
-              Manage Your PCOS, Diabetes, or Thyroid —{" "}
-              <span className="text-orange-500">Starting With Tonight's Dinner</span>
+              Control PCOS, Diabetes &amp; Thyroid &mdash;{" "}
+              <span className="text-orange-500">Starting With Tonight&rsquo;s Dinner</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-4 max-w-2xl mx-auto">
-              Your doctor told you to eat right. MealCoreAI tells you{" "}
-              <strong className="text-gray-800">exactly what</strong> to cook — a personalised 7-day Indian meal plan
-              built around your condition, your region, and your kitchen.
+              Unlike one-time diet charts or expensive consultations, get a{" "}
+              <strong className="text-gray-800">daily AI diet plan</strong> that adapts to your body, your routine, and what you actually eat.
             </p>
 
-            <p className="text-sm text-gray-500 mb-10">
-              No generic diet charts. No expensive dietitian. Just food that works for your body — every single day.
+            <p className="text-sm font-medium text-orange-600 mb-10">
+              Start today &mdash; see real changes in your energy, cravings, and symptoms within weeks.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
@@ -393,7 +396,7 @@ export default function HomePage() {
                 href={`${APP_URL}/sign-up`}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-base transition-colors shadow-lg shadow-orange-200"
               >
-                Get My Free Health Plan <ArrowRight className="h-4 w-4" />
+                Fix My Diet in 2 Minutes <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 href="/how-it-works"
@@ -404,7 +407,7 @@ export default function HomePage() {
             </div>
 
             <p className="text-xs text-gray-400 mb-10">
-              Free to start — no credit card required · Ready in 90 seconds
+              Free to start &bull; No credit card &bull; Your plan is ready in 90 seconds
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-2">
