@@ -186,7 +186,7 @@ const FEATURES = [
   {
     icon: <Bell className="h-6 w-6" />,
     title: "Personalised reminders — with your dish name",
-    desc: "Get a push notification at 8 AM saying "Today's breakfast: Ragi Dosa" — not a generic 'time to eat' alert. Never miss a meal again.",
+    desc: "Get a push notification at 8 AM saying \u201cToday\u2019s breakfast: Ragi Dosa\u201d \u2014 not a generic \u2018time to eat\u2019 alert. Never miss a meal again.",
     color: "text-rose-500 bg-rose-50",
   },
   {
