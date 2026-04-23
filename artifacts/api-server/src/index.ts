@@ -42,6 +42,41 @@ async function runMigrations() {
         AND vrat_safe = false;
     `);
 
+    // Ensure cholesterol_safe is set for heart-healthy dishes that may not have been tagged.
+    // Criteria: not deep-fried, low fat (<15g), low sodium (<500mg), low sugar (<8g).
+    // This is idempotent — it only adds tags, never removes.
+    await pool.query(`
+      UPDATE dishes
+      SET cholesterol_safe = true
+      WHERE cholesterol_safe = false
+        AND deep_fried = false
+        AND fat < 15
+        AND sodium < 500
+        AND sugar < 8
+        AND diet_type IN ('veg', 'vegan', 'eggetarian');
+    `);
+
+    // Ensure gym_safe dishes are properly tagged (high protein, not deep-fried).
+    await pool.query(`
+      UPDATE dishes
+      SET gym_safe = true
+      WHERE gym_safe = false
+        AND deep_fried = false
+        AND protein > 10
+        AND cal BETWEEN 200 AND 600;
+    `);
+
+    // Ensure diabetes_safe + low_gi for obviously low-GI dishes (high fibre, low sugar, not deep-fried).
+    await pool.query(`
+      UPDATE dishes
+      SET diabetes_safe = true, low_gi = true
+      WHERE diabetes_safe = false
+        AND deep_fried = false
+        AND fibre > 3
+        AND sugar < 5
+        AND carbs < 35;
+    `);
+
     // Insert vrat-specific dishes (idempotent — skip if name already exists)
     const vratDishes = [
       {

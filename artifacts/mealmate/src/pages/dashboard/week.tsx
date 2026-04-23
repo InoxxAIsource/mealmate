@@ -238,7 +238,12 @@ export default function DashboardWeek() {
     );
   }
 
-  if (!plan) {
+  // Detect if we have a plan object but it has no meals at all (all slots null)
+  const planHasNoMeals = plan && plan.days.every(
+    (d) => !d.breakfast && !d.lunch && !d.snack && !d.dinner
+  );
+
+  if (!plan || planHasNoMeals) {
     return (
       <>
         <AnimatePresence>
@@ -247,10 +252,14 @@ export default function DashboardWeek() {
 
         <div className="min-h-[100dvh] flex flex-col items-center justify-center gap-6 p-8 max-w-md mx-auto text-center">
           <div className="space-y-2">
-            <p className="text-5xl">🍽️</p>
-            <h2 className="text-xl font-bold text-foreground">No meal plan yet</h2>
+            <p className="text-5xl">{planHasNoMeals ? "⚠️" : "🍽️"}</p>
+            <h2 className="text-xl font-bold text-foreground">
+              {planHasNoMeals ? "Plan couldn't load dishes" : "No meal plan yet"}
+            </h2>
             <p className="text-muted-foreground text-sm">
-              Let our AI build you a personalised week of Indian meals based on your health track.
+              {planHasNoMeals
+                ? "Your plan was generated but the dishes couldn't be matched. Tap below to generate a fresh one."
+                : "Let our AI build you a personalised week of Indian meals based on your health track."}
             </p>
           </div>
 
@@ -272,7 +281,7 @@ export default function DashboardWeek() {
             ) : (
               <Sparkles className="w-4 h-4 mr-2" />
             )}
-            Generate My Plan
+            {planHasNoMeals ? "Regenerate Plan" : "Generate My Plan"}
           </Button>
         </div>
       </>

@@ -138,8 +138,8 @@ function filterDishesByRegion(dishes: DishRow[], region: string | null | undefin
     );
   });
 
-  // Safety: if filter is too aggressive (< 15 dishes), fall back to full pool
-  if (filtered.length < 15) {
+  // Safety: if filter is too aggressive (< 20 dishes), fall back to full pool
+  if (filtered.length < 20) {
     console.warn(`Region filter "${region}" returned only ${filtered.length} dishes — falling back to full pool`);
     return dishes;
   }
@@ -174,7 +174,8 @@ function pickRandom<T>(arr: T[]): T | null {
 async function buildPlanDays(
   filteredDishes: DishRow[],
   existingPlan?: PlanDay[],
-  fallbackDishes?: DishRow[]
+  fallbackDishes?: DishRow[],
+  allDishes?: DishRow[]
 ): Promise<PlanDay[]> {
   const mealSlots: MealSlot[] = ["breakfast", "lunch", "snack", "dinner"];
   const days: PlanDay[] = [];
@@ -195,13 +196,24 @@ async function buildPlanDays(
       if (existing?.lockedSlots?.includes(slot) && existing[slotKey]) {
         (day as any)[slotKey] = existing[slotKey];
       } else {
+        // Level 1: region + track filtered pool
         let candidates = getDishesByMealType(filteredDishes, slot);
-        // Safety: fall back to track-only pool if region narrows too much
+        // Level 2: track-only pool (drop region constraint)
         if (candidates.length === 0 && fallbackDishes) {
           candidates = getDishesByMealType(fallbackDishes, slot);
         }
+        // Level 3: ultimate fallback — any dish of this meal type from the entire DB
+        if (candidates.length === 0 && allDishes) {
+          candidates = getDishesByMealType(allDishes, slot);
+          if (candidates.length > 0) {
+            console.warn(`[buildPlanDays] Ultimate fallback used for slot=${slot} day=${i}`);
+          }
+        }
         const picked = pickRandom(candidates);
         (day as any)[slotKey] = picked?.id ?? null;
+        if (!picked) {
+          console.error(`[buildPlanDays] No dish found for slot=${slot} day=${i} — this should never happen`);
+        }
       }
     }
     days.push(day);
@@ -213,39 +225,81 @@ async function generateWithAI(
   filteredDishes: DishRow[],
   profile: typeof profilesTable.$inferSelect,
   existingPlan?: PlanDay[],
-  fallbackDishes?: DishRow[]
+  fallbackDishes?: DishRow[],
+  allDishes?: DishRow[]
 ): Promise<PlanDay[]> {
-  // Shuffle before slicing so the AI sees a representative sample, not DB-insertion order
-  const shuffled = [...filteredDishes].sort(() => Math.random() - 0.5);
-  const dishSummary = shuffled.slice(0, 60).map((d) => ({
+  const mealSlots: MealSlot[] = ["breakfast", "lunch", "snack", "dinner"];
+
+  // Build a stratified sample: pick dishes evenly across meal types to guarantee coverage
+  const bySlot: Record<MealSlot, DishRow[]> = {
+    breakfast: getDishesByMealType(filteredDishes, "breakfast"),
+    lunch: getDishesByMealType(filteredDishes, "lunch"),
+    snack: getDishesByMealType(filteredDishes, "snack"),
+    dinner: getDishesByMealType(filteredDishes, "dinner"),
+  };
+
+  // If any slot is empty in filteredDishes, top it up from fallback then from allDishes
+  const poolForSlot = (slot: MealSlot): DishRow[] => {
+    if (bySlot[slot].length > 0) return bySlot[slot];
+    const fb = fallbackDishes ? getDishesByMealType(fallbackDishes, slot) : [];
+    if (fb.length > 0) return fb;
+    return allDishes ? getDishesByMealType(allDishes, slot) : [];
+  };
+
+  // Pick up to 14 per slot (2 per day), shuffle each, merge into a deduped list
+  const seen = new Set<number>();
+  const sampleDishes: DishRow[] = [];
+  for (const slot of mealSlots) {
+    const pool = [...poolForSlot(slot)].sort(() => Math.random() - 0.5).slice(0, 14);
+    for (const d of pool) {
+      if (!seen.has(d.id)) { seen.add(d.id); sampleDishes.push(d); }
+    }
+  }
+  // Also shuffle in some extra from filteredDishes if pool is large enough
+  for (const d of [...filteredDishes].sort(() => Math.random() - 0.5).slice(0, 20)) {
+    if (!seen.has(d.id)) { seen.add(d.id); sampleDishes.push(d); }
+  }
+
+  const dishSummary = sampleDishes.map((d) => ({
     id: d.id,
     name: d.name,
-    region: d.region,
     mealType: d.mealType,
     cal: d.cal,
   }));
 
+  // Build a valid-ID map for quick lookup and post-generation validation
+  const dishById = new Map(sampleDishes.map((d) => [d.id, d]));
+  // Also include allDishes in the validation map (needed for locked-slot repair)
+  if (allDishes) {
+    for (const d of allDishes) {
+      if (!dishById.has(d.id)) dishById.set(d.id, d);
+    }
+  }
+
   const isVrat = profile.primaryTrack === "vrat";
-  const prompt = `You are a nutrition expert specializing in Indian regional cuisine. Create a 7-day Indian meal plan for someone with the following profile:
-- Health track: ${profile.primaryTrack || "general"}${isVrat ? " (Hindu fasting/Vrat — use ONLY vrat-safe dishes; NO onion, garlic, regular wheat, rice, or non-veg items)" : ""}
-- Diet type: ${isVrat ? "Pure Veg (Vrat/Sattvik — no onion, no garlic)" : profile.dietType || "vegetarian"}
-- Region preference: ${profile.region || "North"} — IMPORTANT: Strongly prefer dishes whose region tag matches or includes "${profile.region || "North"}" or "Pan India". Avoid dishes from unrelated regions.
+  const prompt = `You are a nutrition expert specializing in Indian regional cuisine. Create a 7-day Indian meal plan.
+
+Profile:
+- Health track: ${profile.primaryTrack || "general"}${isVrat ? " (Vrat/Hindu fasting — only vrat-safe dishes)" : ""}
+- Diet type: ${profile.dietType || "vegetarian"}
+- Region: ${profile.region || "North India"}
 - Allergies: ${(profile.allergies as string[])?.join(", ") || "none"}
 
-Use ONLY dishes from this list (use dish IDs exactly as given):
-${JSON.stringify(dishSummary, null, 2)}
+Available dishes (ONLY use IDs from this list — do NOT invent new IDs):
+${JSON.stringify(dishSummary)}
 
 Rules:
-1. Each dish ID must appear in the list above — do not invent IDs.
-2. Each dish must match its mealType (breakfast/lunch/snack/dinner).
-3. Prefer dishes whose region matches the user's region preference.
-4. Vary dishes across the 7 days — avoid repeating the same dish more than twice.
-${isVrat ? "5. VRAT PLAN: All selected dishes must be vrat-safe. Balance snacks, mains, and drinks across the day." : ""}
+1. Use ONLY the dish IDs listed above — never invent IDs.
+2. breakfastId must come from a dish whose mealType includes "breakfast".
+3. lunchId must come from a dish whose mealType includes "lunch".
+4. snackId must come from a dish whose mealType includes "snack".
+5. dinnerId must come from a dish whose mealType includes "dinner".
+6. Vary dishes — avoid repeating the same dish more than twice across the 7 days.
 
-Return a JSON array with exactly 7 objects (dayIndex 0-6):
-{ "dayIndex": number, "breakfastId": number, "lunchId": number, "snackId": number, "dinnerId": number, "lockedSlots": [] }
+Return a JSON array with exactly 7 objects (dayIndex 0–6):
+[{"dayIndex":0,"breakfastId":number,"lunchId":number,"snackId":number,"dinnerId":number,"lockedSlots":[]},...]
 
-Return ONLY valid JSON, no markdown, no explanation.`;
+Return ONLY the JSON array, no markdown or explanation.`;
 
   try {
     const response = await openai.chat.completions.create({
@@ -258,6 +312,26 @@ Return ONLY valid JSON, no markdown, no explanation.`;
     const jsonMatch = content.match(/\[[\s\S]*\]/);
     if (jsonMatch) {
       const parsed = JSON.parse(jsonMatch[0]) as PlanDay[];
+
+      // --- Post-generation validation: fix any hallucinated or wrong-meal-type IDs ---
+      const repairSlot = (slot: MealSlot, dishId: number | null): number | null => {
+        if (!dishId) return null;
+        const dish = dishById.get(dishId);
+        // Valid if dish exists AND it includes this meal type
+        if (dish && (dish.mealType as string[]).includes(slot)) return dishId;
+        // Invalid — pick a random valid one from the pool
+        console.warn(`[generateWithAI] Invalid ${slot}Id=${dishId} — repairing`);
+        const pool = poolForSlot(slot);
+        return pickRandom(pool)?.id ?? null;
+      };
+
+      for (const day of parsed) {
+        day.breakfastId = repairSlot("breakfast", day.breakfastId);
+        day.lunchId = repairSlot("lunch", day.lunchId);
+        day.snackId = repairSlot("snack", day.snackId);
+        day.dinnerId = repairSlot("dinner", day.dinnerId);
+      }
+
       // Apply locked slots from existing plan
       if (existingPlan) {
         for (let i = 0; i < 7; i++) {
@@ -272,12 +346,26 @@ Return ONLY valid JSON, no markdown, no explanation.`;
           }
         }
       }
-      return parsed;
+
+      // Ensure exactly 7 days with sequential dayIndex
+      if (parsed.length === 7) {
+        return parsed;
+      }
     }
   } catch (e) {
-    // fallback to random
+    console.error("[generateWithAI] AI generation failed, using random fallback:", e);
   }
-  return buildPlanDays(filteredDishes, existingPlan, fallbackDishes);
+  return buildPlanDays(filteredDishes, existingPlan, fallbackDishes, allDishes);
+}
+
+function safeFormatDish(dishMap: Map<number, DishRow>, id: number | null): ReturnType<typeof formatDish> | null {
+  if (!id) return null;
+  const dish = dishMap.get(id);
+  if (!dish) {
+    console.warn(`[hydratePlan] Dish ID ${id} not found in dishes table — skipping`);
+    return null;
+  }
+  return formatDish(dish);
 }
 
 async function hydratePlan(
@@ -288,10 +376,10 @@ async function hydratePlan(
   const days = (plan.planData as PlanDay[]).map((day) => ({
     dayIndex: day.dayIndex,
     lockedSlots: day.lockedSlots,
-    breakfast: day.breakfastId ? formatDish(dishMap.get(day.breakfastId)!) : null,
-    lunch: day.lunchId ? formatDish(dishMap.get(day.lunchId)!) : null,
-    snack: day.snackId ? formatDish(dishMap.get(day.snackId)!) : null,
-    dinner: day.dinnerId ? formatDish(dishMap.get(day.dinnerId)!) : null,
+    breakfast: safeFormatDish(dishMap, day.breakfastId),
+    lunch: safeFormatDish(dishMap, day.lunchId),
+    snack: safeFormatDish(dishMap, day.snackId),
+    dinner: safeFormatDish(dishMap, day.dinnerId),
   }));
   return {
     id: plan.id,
@@ -378,8 +466,8 @@ router.post("/meal-plans/generate", requireAuth, async (req, res) => {
     .set({ isActive: false })
     .where(eq(mealPlansTable.profileId, profile[0].id));
 
-  // Generate new plan (region-filtered dishes; fallback to track-only if region too narrow)
-  const planDays = await generateWithAI(filtered, profile[0], existingPlanData, trackFallback);
+  // Generate new plan (region-filtered dishes; fallback to track-only, then all dishes)
+  const planDays = await generateWithAI(filtered, profile[0], existingPlanData, trackFallback, allDishes);
 
   const [newPlan] = await db
     .insert(mealPlansTable)
