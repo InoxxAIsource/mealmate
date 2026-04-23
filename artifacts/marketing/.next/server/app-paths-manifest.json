@@ -1,5 +1,20 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/about/page": "app/about/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/cholesterol-diet-plan/page": "app/cholesterol-diet-plan/page.js",
+  "/diabetes-meal-plan/page": "app/diabetes-meal-plan/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/kids-meal-plan/page": "app/kids-meal-plan/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js",
+  "/pregnancy-meal-plan/page": "app/pregnancy-meal-plan/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/thyroid-diet-plan/page": "app/thyroid-diet-plan/page.js",
+  "/how-it-works/page": "app/how-it-works/page.js",
   "/page": "app/page.js",
-  "/pricing/page": "app/pricing/page.js"
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/meal-plans/[slug]/page": "app/meal-plans/[slug]/page.js",
+  "/api/og/route": "app/api/og/route.js"
 }

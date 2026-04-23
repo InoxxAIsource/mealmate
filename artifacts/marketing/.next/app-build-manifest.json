@@ -1,25 +1,137 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/app/_not-found/page-cf1bf20b60cafcc5.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/css/ef3d25d1e99a8b71.css",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/layout-57809263d92885bc.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/about/page-3718fbe13c336439.js"
+    ],
+    "/cholesterol-diet-plan/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/334-aa91d05d88c27e05.js",
+      "static/chunks/app/cholesterol-diet-plan/page-b6d6e4575dd40306.js"
+    ],
+    "/diabetes-meal-plan/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/334-aa91d05d88c27e05.js",
+      "static/chunks/app/diabetes-meal-plan/page-865c6ca3aeafa848.js"
+    ],
+    "/blog/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/blog/page-365a2aaf09c6aec0.js"
+    ],
+    "/kids-meal-plan/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/334-aa91d05d88c27e05.js",
+      "static/chunks/app/kids-meal-plan/page-67e36dd240952bc4.js"
+    ],
+    "/faq/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/faq/page-41394f485d369b1e.js"
+    ],
+    "/pcos-meal-plan/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/334-aa91d05d88c27e05.js",
+      "static/chunks/app/pcos-meal-plan/page-73874b2e51892b08.js"
+    ],
+    "/pregnancy-meal-plan/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/334-aa91d05d88c27e05.js",
+      "static/chunks/app/pregnancy-meal-plan/page-f926310ff618c2b8.js"
     ],
     "/pricing/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pricing/page.js"
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/app/pricing/page-4e1fee935040b3f6.js"
     ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+    "/thyroid-diet-plan/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/334-aa91d05d88c27e05.js",
+      "static/chunks/app/thyroid-diet-plan/page-f7401f7941c2c881.js"
+    ],
+    "/how-it-works/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/how-it-works/page-b30bc8adb88fea00.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/page-fbf477021a38f98e.js"
+    ],
+    "/blog/[slug]/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/blog/[slug]/page-7ad93128cbeeec2a.js"
+    ],
+    "/meal-plans/[slug]/page": [
+      "static/chunks/webpack-6f0969a21daf2d4c.js",
+      "static/chunks/c56ac22f-7b88a9c2049e8506.js",
+      "static/chunks/818-fb09e79658655de6.js",
+      "static/chunks/main-app-bec785ed40385767.js",
+      "static/chunks/240-f493c6db0ca10e4b.js",
+      "static/chunks/app/meal-plans/[slug]/page-b21ac5f122968ec6.js"
     ]
   }
 }
