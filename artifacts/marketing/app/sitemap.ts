@@ -36,9 +36,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (programmaticSlugs.length >= 250) break;
   }
 
+  const PROGRAMMATIC_DATE = new Date("2026-04-22");
   const programmaticPages: MetadataRoute.Sitemap = programmaticSlugs.map((slug) => ({
     url: `${BASE}/meal-plans/${slug}`,
-    lastModified: new Date(),
+    lastModified: PROGRAMMATIC_DATE,
     changeFrequency: "weekly",
     priority: 0.7,
   }));
