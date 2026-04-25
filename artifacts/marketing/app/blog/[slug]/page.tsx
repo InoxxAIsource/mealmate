@@ -22,6 +22,8 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   kids: "👶", cholesterol: "❤️", nutrition: "🥗", general: "🍱",
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
 }
@@ -35,11 +37,15 @@ export async function generateMetadata({
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Not Found" };
 
+  const canonical = `${BASE}/blog/${slug}`;
+
   return {
     title: post.metaTitle,
     description: post.metaDescription,
+    alternates: { canonical },
     openGraph: {
       title: post.metaTitle,
+      url: canonical,
       images: [
         {
           url: `${BASE}/api/og?title=${encodeURIComponent(post.title)}&condition=${post.category}`,
