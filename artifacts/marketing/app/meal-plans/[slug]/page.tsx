@@ -13,6 +13,8 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 const BASE = "https://mealcoreai.com";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = [];
   outer: for (const c of conditions) {
@@ -39,11 +41,15 @@ export async function generateMetadata({
   const regionLabel = region?.label || "Indian";
   const title = `${regionLabel} ${condition.label} ${mealType.label}`;
 
+  const canonical = `${BASE}/meal-plans/${slug}`;
+
   return {
     title: `${title} | MealCoreAI`,
     description: `Get a personalised ${regionLabel} ${condition.label} ${mealType.label} tailored to your health needs. AI-generated, culturally authentic, and nutritionally optimised.`,
+    alternates: { canonical },
     openGraph: {
       title,
+      url: canonical,
       images: [
         {
           url: `${BASE}/api/og?title=${encodeURIComponent(title)}&condition=${condition.id}&accent=${condition.accent}`,
