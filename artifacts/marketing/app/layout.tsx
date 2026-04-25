@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | MealCoreAI",
   },
   description:
-    "MealCoreAI builds your personalised weekly meal plan based on your health condition, region, and food preferences. Know what to cook every day — free to start.",
+    "Control PCOS, Diabetes & Thyroid with a personalised daily Indian diet plan — built around your body, routine, and food preferences. Free to start in 90 seconds.",
   openGraph: {
     siteName: "MealCoreAI",
     type: "website",
