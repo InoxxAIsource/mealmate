@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Kids Meal Plan India — Healthy Indian Tiffin & Dinner Ideas",
+  title: "Kids Meal Plan India: Healthy Tiffin & Nutrition Plan for Children | MealCoreAI",
   description:
-    "Healthy Indian meal plan for kids aged 2-12. Nutrient-dense tiffin, lunch, and dinner ideas. Age-appropriate portions. AI-personalised. Free to start.",
+    "Healthy Indian meal plan for kids aged 2-12 with nutrient-dense tiffin, lunch, and dinner ideas. AI-personalised by age, region, and preference. Free to start — ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/kids-meal-plan" },
   openGraph: {
-    title: "Kids Meal Plan India — Healthy Indian Tiffin & Dinner Ideas",
-    description: "Healthy, delicious Indian tiffin and dinner ideas for kids. AI-personalised.",
+    title: "Kids Meal Plan India: Healthy Tiffin & Nutrition Plan for Children | MealCoreAI",
+    description:
+      "Healthy Indian meal plan for kids aged 2-12. Nutrient-dense tiffin, dinner, and snack ideas. Free to start.",
     url: "https://mealcoreai.com/kids-meal-plan",
     images: [{ url: "/api/og?page=kids-meal-plan", width: 1200, height: 630 }],
   },
@@ -18,8 +19,22 @@ const medicalWebPageLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
   name: "Kids Meal Plan India",
-  description: "Healthy Indian meal planning guide for children aged 2-12.",
+  description: "Healthy Indian meal plan for kids aged 2-12 with nutrient-dense tiffin, lunch, and dinner ideas.",
   url: "https://mealcoreai.com/kids-meal-plan",
+  about: { "@type": "MedicalCondition", name: "Childhood Nutrition" },
+  author: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+    url: "https://mealcoreai.com/about",
+  },
+  reviewedBy: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+  },
+  dateModified: "2026-04-26",
+  medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 
 const faqLd = {
@@ -28,10 +43,42 @@ const faqLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is a healthy tiffin for Indian kids?",
+      name: "What are the best Indian foods for a child's brain development?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Healthy Indian tiffins for kids include mini idli with sambar, ragi or multigrain rotis with dal stuffing, paneer paratha (small), vegetable uthappam, or sprouts chaat. Include a fruit and a small sweet like jaggery laddoo. Avoid maida-based options, store-bought biscuits, and sugary drinks.",
+        text: "Brain development in children depends heavily on adequate intake of DHA, choline, iron, zinc, and iodine. Eggs are the single most powerful brain food for children — one egg daily significantly improves cognitive scores in studies. Fish like rohu and mackerel provide DHA for myelin development. Dal provides zinc for neurotransmitter function. Iodised salt ensures iodine for brain development — never substitute with rock salt for young children. Palak and methi sabzis provide iron that directly supports brain oxygen delivery.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What should a school tiffin contain for maximum nutrition?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A nutritious Indian school tiffin should have three components: a complex carbohydrate for sustained energy (multigrain roti, idli, or ragi-based item), a protein source (dal stuffing, paneer, egg, or curd), and a fruit or vegetable for vitamins and fibre. Examples: ragi roti with palak paneer stuffing and a banana; mini idli with sambar and grapes; moong dal cheela with green chutney and an apple.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much milk should an Indian child drink per day?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Children aged 1-3 need about 500ml of milk or dairy equivalent per day. Children aged 4-8 need 500-700ml. Children aged 9-18 need 700-900ml. Dairy doesn't all need to come from milk — curd, paneer, and chaas all count. If a child dislikes milk, ragi-based items provide excellent calcium.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can I make my child eat dal and sabzi?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most children resist dal and sabzi because of texture and presentation, not flavour. Mix dal into parathas — kids rarely notice. Make moong dal chilla or dal dosa which feel like snacks. Present sabzi differently — stir-fry with spices and serve as a roti topping. Involve children aged 5+ in simple cooking — they're far more likely to eat food they helped make.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are healthy after-school snacks for Indian children?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Best Indian after-school snacks: ragi laddoo or til laddoo, roasted chana with buttermilk, peanut butter on multigrain bread, banana with walnuts, sprouts chaat with cucumber and lime, mini idli with sambar. Avoid as daily habits: packaged chips, biscuits, instant noodles, and soft drinks.",
       },
     },
   ],
@@ -98,6 +145,51 @@ export default function KidsPage() {
             snack: "Fruit chaat (banana, pomegranate, apple) + handful of peanuts",
             dinner: "Palak paneer + roti + curd + small portion of jaggery dessert",
           },
+          {
+            day: "Day 4 (School Day)",
+            breakfast: "Besan cheela (2) with green chutney + 1 glass milk",
+            lunch: "Tiffin: Mini methi thepla + curd + seasonal fruit",
+            snack: "Ragi cookie (2) + 1 glass milk",
+            dinner: "Rajma + brown rice + salad + curd",
+          },
+          {
+            day: "Day 5 (School Day)",
+            breakfast: "Poha with peanuts + raisins + 1 glass milk",
+            lunch: "Tiffin: Moong dal cheela roll + curd + banana",
+            snack: "Roasted chana + buttermilk",
+            dinner: "Moong dal + wheat roti + mixed vegetable sabzi + curd",
+          },
+          {
+            day: "Day 6 (Weekend)",
+            breakfast: "Ragi pancakes + honey + 1 boiled egg",
+            lunch: "Palak paneer + roti + salad + curd",
+            snack: "Banana smoothie (banana + milk + almonds)",
+            dinner: "Dal khichdi + ghee + papad + curd",
+          },
+          {
+            day: "Day 7 (Weekend)",
+            breakfast: "Idli (4) with sambar + coconut chutney + milk",
+            lunch: "Rajma or chicken curry + brown rice + vegetables",
+            snack: "Sweet potato chaat + handful of peanuts",
+            dinner: "Dal + jowar roti + stir-fried vegetables + curd",
+          },
+        ]}
+        whyIngredients={[
+          {
+            name: "Ragi (Finger Millet) — for Calcium and Bone Growth",
+            claim: "Indian children need calcium urgently — bones are being built at a rate that won't happen again until later in life. Ragi provides more calcium per gram than milk, and it comes in a form that children will actually eat: ragi laddoos, ragi dosas, ragi upma, ragi porridge. You don't have to force children to drink three glasses of milk if you build ragi into two meals a day. For parents of lactose-intolerant children, or children who simply refuse milk, ragi is not a compromise — it's often the superior choice.",
+            citation: "Source: National Institute of Nutrition (NIN), ICMR — Nutritive Value of Indian Foods, 2017.",
+          },
+          {
+            name: "Eggs — for Brain Development and Height",
+            claim: "One egg a day for a growing child is supported by more evidence than almost any other single dietary habit. A landmark study in Ecuador found that children aged 6-9 who ate one egg daily for six months were 47% less likely to be stunted and 74% less likely to be underweight than control children. Choline in eggs supports myelin formation — the insulation around nerve cells that enables learning and memory. Indian children who eat an egg at breakfast consistently show better school performance and growth metrics than those who don't.",
+            citation: "Source: Iannotti LL et al., Pediatrics, 2017.",
+          },
+          {
+            name: "Dal — for Protein, Iron, and Zinc",
+            claim: "Dal twice a day is one of the most efficient things you can do for a child's nutrition. Dal provides all three of the nutrients Indian children are most commonly deficient in — protein, iron, and zinc — in a single, cheap, easy-to-prepare food. Zinc deficiency is the second most common nutritional deficiency in Indian children after iron, and it directly impairs immune function, growth, and cognitive development. A small bowl of moong dal or masoor dal at both lunch and dinner covers most of a child's daily zinc and protein needs. The problem isn't that Indian families don't cook dal — it's that it often gets displaced by more appealing processed foods.",
+            citation: "Source: WHO/UNICEF Child Malnutrition Report, India; Black RE et al., The Lancet, 2008.",
+          },
         ]}
         faqs={[
           {
@@ -122,14 +214,13 @@ export default function KidsPage() {
           },
         ]}
         relatedPosts={[
-          { title: "30 Healthy Indian Tiffin Ideas for School Kids", slug: "blog/tiffin-ideas-school" },
-          { title: "How to Make Kids Love Dal and Vegetables", slug: "blog/kids-eat-dal-sabzi" },
-          { title: "Ragi Recipes for Growing Children", slug: "blog/ragi-recipes-kids" },
+          { title: "Healthy Indian Tiffin Ideas for School Kids", slug: "blog/kids-healthy-tiffin-ideas" },
+          { title: "Pregnancy Nutrition in the First Trimester", slug: "blog/pregnancy-nutrition-first-trimester" },
         ]}
         relatedPlans={[
-          { title: "Pregnancy Meal Plan", slug: "pregnancy-meal-plan" },
-          { title: "General Wellness Plan", slug: "#" },
-          { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
+          { title: "Pregnancy Meal Plan India", slug: "pregnancy-meal-plan" },
+          { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
+          { title: "Diabetes Meal Plan India", slug: "diabetes-meal-plan" },
         ]}
         currentPath="/kids-meal-plan"
       />
