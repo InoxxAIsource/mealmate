@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Pregnancy Meal Plan India — Trimester-wise Indian Nutrition",
+  title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart | MealCoreAI",
   description:
-    "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich Indian meals. Safe food list included. Free to start.",
+    "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start — ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/pregnancy-meal-plan" },
   openGraph: {
-    title: "Pregnancy Meal Plan India — Trimester-wise Indian Nutrition",
-    description: "Trimester-wise Indian pregnancy nutrition. Safe, delicious, and personalised.",
+    title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart | MealCoreAI",
+    description:
+      "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start.",
     url: "https://mealcoreai.com/pregnancy-meal-plan",
     images: [{ url: "/api/og?page=pregnancy-meal-plan", width: 1200, height: 630 }],
   },
@@ -18,9 +19,22 @@ const medicalWebPageLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
   name: "Pregnancy Meal Plan India",
-  description: "Trimester-wise Indian meal planning guide for healthy pregnancy nutrition.",
+  description: "Personalised Indian pregnancy meal plan with trimester-specific nutrition for iron, folate, calcium, and DHA.",
   url: "https://mealcoreai.com/pregnancy-meal-plan",
   about: { "@type": "MedicalCondition", name: "Pregnancy" },
+  author: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+    url: "https://mealcoreai.com/about",
+  },
+  reviewedBy: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+  },
+  dateModified: "2026-04-26",
+  medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 
 const faqLd = {
@@ -29,10 +43,42 @@ const faqLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What should an Indian pregnant woman eat daily?",
+      name: "What should an Indian pregnant woman eat every day?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "An Indian pregnant woman should eat dal daily for protein and folate, a green leafy vegetable (spinach or methi) for iron, dairy (milk or curd) for calcium, ragi or sesame for calcium, and a seasonal fruit for vitamins. Include ghee in moderation for fat-soluble vitamins. Avoid papaya, raw sprouts, and excessive caffeine.",
+        text: "An Indian pregnant woman's daily diet should include at least one serving of dal or legumes for folate and protein, one green leafy vegetable for iron and folate, two servings of dairy for calcium, a seasonal fruit for vitamins, and a source of healthy fat. Ragi should replace some wheat rotis for superior calcium content. Sesame seeds (til) sprinkled on food provide extraordinary calcium.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How should my diet change each trimester in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "First trimester: focus on folate (spinach, rajma, dal), vitamin B12, and managing nausea with small frequent meals. Second trimester: increase iron intake dramatically — include dark leafy vegetables, dates, and ragi daily, paired with vitamin C for better absorption. Third trimester: increase calorie intake by 300-400 kcal, prioritise calcium for fetal bone mineralisation, include DHA-rich foods, and eat smaller more frequent meals.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which Indian foods are highest in folate for pregnancy?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The best Indian folate sources are rajma and all kidney beans, chana and Bengal gram, masoor dal, fresh spinach and methi, drumstick leaves (moringa), broccoli, and fresh citrus fruits. Most doctors recommend a folic acid supplement (400-800mcg daily) before conception and through the first trimester because dietary folate absorption varies.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can an Indian pregnant woman increase haemoglobin naturally?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "To increase haemoglobin naturally: eat palak or methi daily, include dates and raisins as snacks, eat ragi-based foods, include drumstick in dal weekly, soak rajma and chana overnight, always pair iron-rich foods with vitamin C sources like lemon or amla, and avoid tea or coffee within one hour of meals. If haemoglobin is below 10, supplementation is usually medically necessary.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which Indian foods should be completely avoided during pregnancy?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Avoid during pregnancy: raw or unripe papaya, raw sprouts, street food with untreated water, unpasteurised dairy, raw or undercooked eggs and meat, high-mercury fish (shark, king mackerel), excessive liver, and more than 1-2 cups of chai or coffee daily. Alcohol has no safe level during pregnancy and should be completely avoided.",
       },
     },
   ],
@@ -99,6 +145,51 @@ export default function PregnancyPage() {
             snack: "Fruit chaat (banana + pomegranate) + a handful of pumpkin seeds",
             dinner: "Grilled fish / tofu + palak dal + roti",
           },
+          {
+            day: "Day 4 (First Trimester)",
+            breakfast: "Poha with peanuts + raisins + 1 glass milk (no tea)",
+            lunch: "Dal tadka + ragi roti + methi sabzi + curd",
+            snack: "Banana + 2 dates + a handful of almonds",
+            dinner: "Palak khichdi + kadhi + pomegranate seeds",
+          },
+          {
+            day: "Day 5 (Second Trimester)",
+            breakfast: "Idli (3) with sambar + coconut chutney + 1 glass milk",
+            lunch: "Rajma + brown rice + mixed vegetable sabzi + curd",
+            snack: "Sweet potato chaat + 1 glass buttermilk",
+            dinner: "Paneer bhurji + multigrain roti + salad",
+          },
+          {
+            day: "Day 6 (Third Trimester)",
+            breakfast: "Ragi idli with sambar + 1 glass warm milk",
+            lunch: "Palak rice + moong dal + curd + salad",
+            snack: "Til laddoo (1) + dates (3) + glass of milk",
+            dinner: "Fish curry / soya chunks + jowar roti + lauki sabzi",
+          },
+          {
+            day: "Day 7 (Third Trimester)",
+            breakfast: "Oats porridge with chia seeds + dried fruits + milk",
+            lunch: "Dal + wheat roti + drumstick leaves sabzi + curd",
+            snack: "Amla chutney + multigrain crackers + walnuts",
+            dinner: "Egg curry (2 eggs) / paneer + bajra roti + cucumber salad",
+          },
+        ]}
+        whyIngredients={[
+          {
+            name: "Ragi (Finger Millet) — for Calcium",
+            claim: "Ragi has more calcium per gram than milk. That's not marketing — it's nutritional fact. 100g of ragi contains around 344mg of calcium compared to 125mg in 100ml of milk. For Indian women who are lactose intolerant or find it hard to drink the volume of milk recommended during pregnancy, ragi is a genuinely practical solution. Ragi dosas, ragi roti, ragi porridge, ragi idli — the ways to eat it are almost endless. Starting a ragi habit in the second trimester is one of the most impactful dietary choices a pregnant Indian woman can make.",
+            citation: "Source: Nutritive Value of Indian Foods, National Institute of Nutrition (NIN), ICMR, 2017.",
+          },
+          {
+            name: "Palak (Spinach) — for Folate and Iron",
+            claim: "Folate from food matters more in the first 28 days of pregnancy than almost any other nutrient — often before a woman even knows she is pregnant. Spinach is India's most accessible, affordable folate source. A regular serving of palak sabzi provides around 60mcg of folate. Paired with tomatoes or amla (for vitamin C which boosts iron absorption), a daily palak habit addresses two of the biggest pregnancy nutrition gaps simultaneously: folate deficiency and iron deficiency anaemia.",
+            citation: "Source: Czeizel AE, Dudás I, New England Journal of Medicine, 1992; NIN India, 2017.",
+          },
+          {
+            name: "Dates (Khajoor) — for Iron and Labour",
+            claim: "Dates are a traditional pregnancy food in Indian and Middle Eastern cultures, and there's now clinical research supporting the practice. A study found that women who consumed 6 dates daily in the last 4 weeks of pregnancy had significantly shorter first stage of labour and higher cervical dilation on admission. Beyond labour benefits, dates are one of the most iron-dense sweet foods available — two or three dates a day provide meaningful iron alongside natural sugars that won't spike blood sugar the way refined sweets do.",
+            citation: "Source: Al-Kuran O et al., Journal of Obstetrics and Gynaecology, 2011.",
+          },
         ]}
         faqs={[
           {
@@ -123,14 +214,13 @@ export default function PregnancyPage() {
           },
         ]}
         relatedPosts={[
-          { title: "Iron-Rich Indian Foods for Pregnancy Anaemia", slug: "blog/iron-foods-pregnancy" },
-          { title: "Folate in Indian Food: A Complete Guide", slug: "blog/folate-indian-food-pregnancy" },
-          { title: "First Trimester Nausea: Indian Remedies That Work", slug: "blog/morning-sickness-indian" },
+          { title: "Pregnancy Nutrition in the First Trimester", slug: "blog/pregnancy-nutrition-first-trimester" },
+          { title: "Healthy Indian Tiffin Ideas for Kids", slug: "blog/kids-healthy-tiffin-ideas" },
         ]}
         relatedPlans={[
-          { title: "Kids Meal Plan", slug: "kids-meal-plan" },
-          { title: "General Wellness Plan", slug: "#" },
-          { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
+          { title: "Kids Meal Plan India", slug: "kids-meal-plan" },
+          { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
+          { title: "Diabetes Meal Plan India", slug: "diabetes-meal-plan" },
         ]}
         currentPath="/pregnancy-meal-plan"
       />
