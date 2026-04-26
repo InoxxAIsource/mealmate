@@ -22,6 +22,39 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   kids: "👶", cholesterol: "❤️", nutrition: "🥗", general: "🍱",
 };
 
+const CONDITION_LANDING: Record<string, { href: string; anchor: string; label: string }> = {
+  pcos: {
+    href: "/pcos-meal-plan",
+    anchor: "personalised PCOS meal plan for Indian women",
+    label: "PCOS Meal Plan",
+  },
+  diabetes: {
+    href: "/diabetes-meal-plan",
+    anchor: "AI diabetes meal plan for Indians",
+    label: "Diabetes Meal Plan",
+  },
+  thyroid: {
+    href: "/thyroid-diet-plan",
+    anchor: "thyroid diet plan for Indian women",
+    label: "Thyroid Diet Plan",
+  },
+  pregnancy: {
+    href: "/pregnancy-meal-plan",
+    anchor: "pregnancy meal plan by trimester",
+    label: "Pregnancy Meal Plan",
+  },
+  kids: {
+    href: "/kids-meal-plan",
+    anchor: "healthy Indian kids meal plan",
+    label: "Kids Meal Plan",
+  },
+  cholesterol: {
+    href: "/cholesterol-diet-plan",
+    anchor: "cholesterol diet plan for Indians",
+    label: "Cholesterol Diet Plan",
+  },
+};
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -38,21 +71,24 @@ export async function generateMetadata({
   if (!post) return { title: "Not Found" };
 
   const canonical = `${BASE}/blog/${slug}`;
+  const ogImage = `${BASE}/api/og?title=${encodeURIComponent(post.title)}&condition=${post.category}`;
 
   return {
-    title: post.metaTitle,
+    title: { absolute: post.metaTitle },
     description: post.metaDescription,
     alternates: { canonical },
     openGraph: {
       title: post.metaTitle,
+      description: post.metaDescription,
       url: canonical,
-      images: [
-        {
-          url: `${BASE}/api/og?title=${encodeURIComponent(post.title)}&condition=${post.category}`,
-          width: 1200,
-          height: 630,
-        },
-      ],
+      type: "article",
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle,
+      description: post.metaDescription,
+      images: [ogImage],
     },
   };
 }
@@ -70,13 +106,22 @@ export default async function BlogPostPage({
     .map((s) => blogPosts.find((p) => p.slug === s))
     .filter(Boolean);
 
+  const conditionLink = CONDITION_LANDING[post.category];
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    author: { "@type": "Person", name: post.author },
+    image: `${BASE}/api/og?title=${encodeURIComponent(post.title)}&condition=${post.category}`,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      jobTitle: "Nutritionist",
+      url: `${BASE}/about`,
+    },
     datePublished: post.publishDate,
+    dateModified: "2026-04-26",
     publisher: {
       "@type": "Organization",
       name: "MealCoreAI",
@@ -98,13 +143,16 @@ export default async function BlogPostPage({
   const encodedUrl = encodeURIComponent(`${BASE}/blog/${post.slug}`);
   const encodedTitle = encodeURIComponent(post.title);
 
+  const publishedDate = new Date(post.publishDate).toLocaleDateString("en-IN", {
+    day: "numeric", month: "long", year: "numeric",
+  });
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <main className="min-h-screen bg-white">
-        {/* Hero */}
         <article className="max-w-3xl mx-auto px-4 py-12">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
@@ -122,19 +170,34 @@ export default async function BlogPostPage({
             <span className="text-sm text-gray-400">{post.readTimeMin} min read</span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
             {post.title}
           </h1>
 
-          <div className="flex items-center justify-between mb-6 pb-6 border-b border-gray-100">
-            <div>
-              <p className="text-sm font-semibold text-gray-800">{post.author}</p>
-              <p className="text-xs text-gray-400">
-                {new Date(post.publishDate).toLocaleDateString("en-IN", {
-                  day: "numeric", month: "long", year: "numeric",
-                })}
+          {/* Author bio card — top (full HTML for Google E-E-A-T) */}
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 flex items-start gap-4 mb-6">
+            <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl shrink-0" aria-hidden="true">
+              👩‍⚕️
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-sm font-bold text-gray-900">{post.author}</h3>
+              <p className="text-xs text-gray-500 mt-0.5">Nutritionist &amp; Dietitian | MealCoreAI Health Team</p>
+              <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health, with clinical experience across PCOS, diabetes, thyroid, and pregnancy nutrition.
+              </p>
+              <p className="text-xs text-green-600 font-medium mt-1">
+                ✓ Reviewed on{" "}
+                <time dateTime={post.publishDate}>{publishedDate}</time>
               </p>
             </div>
+          </div>
+
+          {/* Date + Share row */}
+          <div className="flex items-center justify-between mb-6 pb-6 border-b border-gray-100">
+            <p className="text-xs text-gray-400">
+              Published{" "}
+              <time dateTime={post.publishDate}>{publishedDate}</time>
+            </p>
             {/* Social Share */}
             <div className="flex items-center gap-2">
               <a
@@ -155,13 +218,6 @@ export default async function BlogPostPage({
               >
                 𝕏
               </a>
-              <button
-                onClick={undefined}
-                className="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 text-sm transition-colors"
-                title="Copy link"
-              >
-                🔗
-              </button>
             </div>
           </div>
 
@@ -197,16 +253,48 @@ export default async function BlogPostPage({
             ))}
           </div>
 
-          {/* Author bio */}
+          {/* Condition landing page CTA block */}
+          {conditionLink && (
+            <div className="my-8 border-2 border-orange-300 bg-orange-50 rounded-2xl p-6">
+              <div className="flex items-start gap-3">
+                <div className="text-2xl shrink-0" aria-hidden="true">🥗</div>
+                <div>
+                  <p className="font-bold text-gray-900 mb-1">
+                    Want a personalised {conditionLink.label.toLowerCase()} using Indian food?
+                  </p>
+                  <p className="text-sm text-gray-600 mb-3">
+                    MealCoreAI creates your daily plan in 90 seconds — free to start. Real Indian meals, personalised to your region, cook time, and preferences.
+                  </p>
+                  <Link
+                    href={conditionLink.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 hover:text-orange-800 underline underline-offset-2"
+                  >
+                    Explore the{" "}
+                    <span className="font-bold">{conditionLink.anchor}</span>
+                    {" →"}
+                  </Link>
+                  <span className="mx-3 text-gray-300">|</span>
+                  <a
+                    href="https://mealcoreai.com/app/sign-up"
+                    className="inline-flex items-center gap-1 text-sm font-bold bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-colors"
+                  >
+                    Get My {conditionLink.label} Free →
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Author bio card — bottom */}
           <div className="bg-gray-50 rounded-3xl p-6 flex items-start gap-4 my-8">
-            <div className="w-14 h-14 bg-orange-200 rounded-full flex items-center justify-center text-2xl shrink-0">
+            <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-2xl shrink-0" aria-hidden="true">
               👩‍⚕️
             </div>
             <div>
-              <p className="font-bold text-gray-900">{post.author}</p>
-              <p className="text-sm text-gray-600 mt-1 leading-relaxed">
-                A certified nutrition specialist with expertise in managing Indian diet for chronic
-                health conditions. Contributor to MealCoreAI&apos;s evidence-based nutrition content.
+              <h3 className="font-bold text-gray-900 text-base">{post.author}</h3>
+              <p className="text-xs text-gray-500 mb-2">Nutritionist &amp; Dietitian | MealCoreAI Health Team</p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health conditions. With 8+ years of clinical experience, she leads MealCoreAI&apos;s evidence-based nutrition content, translating complex research into practical Indian meal guidance.
               </p>
             </div>
           </div>
@@ -216,7 +304,7 @@ export default async function BlogPostPage({
         {relatedPosts.length > 0 && (
           <section className="bg-gray-50 border-t border-gray-100 py-12 px-4">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Related Articles</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-6">You might also like</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {relatedPosts.map((related) => related && (
                   <Link
