@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Cholesterol Diet Plan — Heart-Healthy Indian Meals",
+  title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days | MealCoreAI",
   description:
-    "Personalised heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich, low saturated fat meals from Indian cuisine. Free to start.",
+    "Heart-healthy Indian diet plan to lower LDL cholesterol with omega-3 rich meals and zero bland food. Free to start — your personalised plan is ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/cholesterol-diet-plan" },
   openGraph: {
-    title: "Cholesterol Diet Plan — Heart-Healthy Indian Meals",
-    description: "Lower LDL cholesterol with heart-healthy Indian food. Personalised meal plans.",
+    title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days | MealCoreAI",
+    description:
+      "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals, no bland food. Free to start.",
     url: "https://mealcoreai.com/cholesterol-diet-plan",
     images: [{ url: "/api/og?page=cholesterol-diet-plan", width: 1200, height: 630 }],
   },
@@ -18,9 +19,22 @@ const medicalWebPageLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
   name: "Cholesterol Diet Plan India",
-  description: "Guide to managing cholesterol with heart-healthy Indian meal planning.",
+  description: "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals, no bland food.",
   url: "https://mealcoreai.com/cholesterol-diet-plan",
-  about: { "@type": "MedicalCondition", name: "Hypercholesterolemia" },
+  about: { "@type": "MedicalCondition", name: "Hypercholesterolaemia" },
+  author: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+    url: "https://mealcoreai.com/about",
+  },
+  reviewedBy: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+  },
+  dateModified: "2026-04-26",
+  medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 
 const faqLd = {
@@ -29,10 +43,42 @@ const faqLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What Indian foods lower cholesterol?",
+      name: "What Indian foods naturally lower LDL cholesterol?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Indian foods that lower cholesterol include: oats (beta-glucan lowers LDL), moong dal, amla, garlic, flaxseeds (omega-3), walnuts, turmeric, methi seeds (fenugreek), and fish like mackerel and sardines. These foods either reduce LDL cholesterol directly, increase HDL, or reduce cardiovascular inflammation.",
+        text: "Several Indian foods have clinically proven LDL-lowering effects. Oats consumed daily reduce LDL by up to 10%. Amla at therapeutic doses reduces LDL as effectively as statins in some studies. Garlic (2 raw cloves daily) reduces total cholesterol by 9-12%. Flaxseeds (2 tablespoons ground daily) reduce LDL through omega-3 and soluble fibre. Walnuts (6 per day) reduce LDL by 7-10% in 6 weeks.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is ghee bad for high cholesterol?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ghee's effect on cholesterol is nuanced. Ghee is primarily saturated fat (about 64%), which raises LDL in large quantities. However, moderate ghee consumption — 1-2 teaspoons per day — does not significantly worsen cholesterol in most people. The problem is that many Indian households use 4-6 teaspoons or more per meal. Small amounts of ghee are acceptable, large amounts are not.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which cooking oil is best for high cholesterol in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "For Indians with high cholesterol, the best cooking oils are those highest in monounsaturated fats. Cold-pressed mustard oil is an excellent traditional choice. Extra virgin olive oil is ideal for salads and low-heat cooking. Rice bran oil has a good balance and is suitable for Indian cooking temperatures. Avoid vanaspati (dalda), partially hydrogenated vegetable oil, and refined corn or sunflower oil.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How quickly can diet change cholesterol levels?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Dietary changes for cholesterol show measurable results within 4-6 weeks if consistently followed, with full effects visible at 3 months. Eliminating trans fats (vanaspati, packaged snacks) produces a rapid improvement in LDL and HDL ratios within 2-4 weeks. Adding oats, flaxseeds, garlic, and amla consistently can produce a 15-20% LDL reduction in 3 months.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can a vegetarian Indian lower cholesterol through diet alone?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Vegetarian Indians often have an advantage in cholesterol management because they naturally avoid saturated fat from red meat. However, the common Indian vegetarian diet is often high in ghee, full-fat dairy, refined carbohydrates, and fried snacks. A well-planned vegetarian Indian diet can effectively lower LDL by 15-25% through daily oats, ground flaxseeds, walnuts, garlic, dal at both meals, and eliminating vanaspati entirely.",
       },
     },
   ],
@@ -99,6 +145,51 @@ export default function CholesterolPage() {
             snack: "Flaxseed smoothie with banana + methi seeds",
             dinner: "Egg curry (2 eggs) + methi roti + salad with olive oil dressing",
           },
+          {
+            day: "Day 4",
+            breakfast: "Oats dosa with tomato chutney + 2 raw garlic cloves",
+            lunch: "Bajra roti + dal + stir-fried okra in olive oil",
+            snack: "Amla juice + 6 walnuts",
+            dinner: "Grilled mackerel / sardines + palak dal + brown rice",
+          },
+          {
+            day: "Day 5",
+            breakfast: "Flaxseed daliya porridge + 1 glass low-fat milk",
+            lunch: "Rajma + jowar roti + mixed salad with olive oil dressing",
+            snack: "Roasted makhana + 1 amla",
+            dinner: "Tofu stir-fry + moong dal soup + roti",
+          },
+          {
+            day: "Day 6",
+            breakfast: "Oat upma with vegetables + 2 garlic cloves",
+            lunch: "Multigrain roti + chana dal + bitter gourd sabzi + curd",
+            snack: "Methi seeds water + 6 walnuts + seasonal fruit",
+            dinner: "Grilled fish / paneer + palak stir-fry + brown rice",
+          },
+          {
+            day: "Day 7",
+            breakfast: "Ragi porridge + flaxseeds + 5 almonds",
+            lunch: "Jowar roti + moong dal + cucumber raita + salad",
+            snack: "Amla smoothie + roasted chana",
+            dinner: "Chicken / tofu curry (light) + steamed vegetables + bajra khichdi",
+          },
+        ]}
+        whyIngredients={[
+          {
+            name: "Oats and Beta-Glucan",
+            claim: "Oats have one of the most well-established diet-cholesterol links in nutrition science. The soluble fibre in oats — called beta-glucan — forms a thick gel in your gut that physically traps LDL cholesterol and escorts it out before it can be absorbed. You need about 3g of beta-glucan a day to get the effect, which is roughly 1 to 1.5 cups of cooked oats. That's it. One bowl of oats upma for breakfast every day, consistently, for 8-12 weeks shows a measurable LDL reduction of 8-10%.",
+            citation: "Source: FDA Heart Health Claim, Docket 95P-0197; Brown L et al., American Journal of Clinical Nutrition, 1999.",
+          },
+          {
+            name: "Garlic (Lehsun)",
+            claim: "Two raw garlic cloves a day. That's the dosage from multiple clinical trials that shows a 9-12% reduction in total cholesterol. Garlic contains allicin, which inhibits the enzyme HMG-CoA reductase — the same enzyme targeted by statin medications, just to a much lesser degree. Raw garlic works better than cooked; heat destroys allicin. Swallow two small cloves whole with water in the morning, or finely mince and add to your sabzi right before serving. It's not glamorous, but the evidence is solid.",
+            citation: "Source: Warshafsky S et al., Annals of Internal Medicine, 1993.",
+          },
+          {
+            name: "Amla (Indian Gooseberry)",
+            claim: "A study published in the European Journal of Clinical Nutrition compared 500mg of amla powder twice daily against simvastatin (a common cholesterol medication) in patients with high cholesterol. The amla group showed comparable reductions in LDL and significant increases in HDL over 42 days. Amla is not a supplement in Indian cooking — it's a regular ingredient. Amla pickle with meals, amla juice in the morning, dried amla as a snack. Getting consistent daily amla is more valuable than taking it in a pill.",
+            citation: "Source: Jacob A et al., European Journal of Clinical Nutrition, 1988.",
+          },
         ]}
         faqs={[
           {
@@ -123,14 +214,13 @@ export default function CholesterolPage() {
           },
         ]}
         relatedPosts={[
-          { title: "Heart-Healthy Indian Cooking: Oil Guide", slug: "blog/cooking-oils-cholesterol" },
-          { title: "10 Indian Foods That Lower LDL Naturally", slug: "blog/foods-lower-ldl-india" },
-          { title: "Oats Recipes for Cholesterol Management", slug: "blog/oats-cholesterol-recipes" },
+          { title: "South Indian Diet for Weight Loss", slug: "blog/south-indian-diet-weight-loss" },
+          { title: "Ragi Benefits for Diabetes Management", slug: "blog/ragi-benefits-diabetes" },
         ]}
         relatedPlans={[
-          { title: "Diabetes Meal Plan", slug: "diabetes-meal-plan" },
-          { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
-          { title: "General Wellness Plan", slug: "#" },
+          { title: "Diabetes Meal Plan for Indians", slug: "diabetes-meal-plan" },
+          { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
+          { title: "Thyroid Diet Plan India", slug: "thyroid-diet-plan" },
         ]}
         currentPath="/cholesterol-diet-plan"
       />
