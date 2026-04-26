@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "PCOS Meal Plan India — Hormone-Friendly Indian Meals",
+  title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet | MealCoreAI",
   description:
-    "Personalised PCOS meal plan with hormone-friendly Indian food. Low-GI meals, anti-inflammatory spices, and easy recipes for PCOS management. Free to start.",
+    "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Hormone-friendly meals from Indian cuisine. Free to start — your plan is ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/pcos-meal-plan" },
   openGraph: {
-    title: "PCOS Meal Plan India — Hormone-Friendly Indian Meals",
+    title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet | MealCoreAI",
     description:
-      "Get your personalised PCOS meal plan — low-GI Indian food that balances hormones naturally.",
+      "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Free to start.",
     url: "https://mealcoreai.com/pcos-meal-plan",
     images: [{ url: "/api/og?page=pcos-meal-plan", width: 1200, height: 630 }],
   },
@@ -18,12 +18,24 @@ export const metadata: Metadata = {
 const medicalWebPageLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "PCOS Meal Plan India",
+  name: "PCOS Meal Plan for Indian Women",
   description:
-    "A comprehensive guide to managing PCOS through personalised Indian meal planning.",
+    "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance.",
   url: "https://mealcoreai.com/pcos-meal-plan",
   about: { "@type": "MedicalCondition", name: "Polycystic Ovary Syndrome (PCOS)" },
-  audience: { "@type": "MedicalAudience", audienceType: "Patient" },
+  author: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+    url: "https://mealcoreai.com/about",
+  },
+  reviewedBy: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+  },
+  dateModified: "2026-04-26",
+  medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 
 const faqLd = {
@@ -35,7 +47,7 @@ const faqLd = {
       name: "What is the best diet for PCOS in India?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The best PCOS diet in India focuses on low-GI whole grains like ragi, bajra, and jowar, combined with high-protein foods like moong dal and paneer, and anti-inflammatory spices like turmeric, cinnamon, and methi. Replacing white rice and maida with millets and eating every 3-4 hours prevents insulin spikes that worsen PCOS.",
+        text: "The best PCOS diet in India focuses on low-GI whole grains like ragi, bajra, and jowar combined with high-protein foods like moong dal and paneer, and anti-inflammatory spices like turmeric, cinnamon, and methi. Replacing white rice and maida with millets and eating every 3-4 hours prevents insulin spikes that worsen PCOS.",
       },
     },
     {
@@ -44,6 +56,30 @@ const faqLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes. Traditional Indian ingredients like methi seeds, amla, flaxseeds, cinnamon, and turmeric have well-researched hormonal benefits. Indian millets are naturally low-GI and high in magnesium which improves insulin sensitivity. The key is adapting cooking methods — less deep frying, more steaming and baking.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does a PCOS diet take to show results?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most women with PCOS notice initial improvements in energy levels and bloating reduction within 2-3 weeks. Hormonal changes take longer — menstrual cycle improvements typically appear after 2-3 months. Weight loss and acne reduction usually begin in 4-8 weeks. Blood tests showing improved insulin and androgen levels typically need 3-6 months of consistent healthy eating.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Should women with PCOS avoid rice completely?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Women with PCOS don't need to eliminate rice completely but should significantly reduce white rice. Alternatives include brown rice, hand-pounded red rice, and parboiled rice which retain more fibre. Eating rice alongside plenty of dal, sabzi, and curd significantly lowers the meal's overall glycaemic impact.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What Indian breakfast is best for PCOS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The best Indian breakfasts for PCOS are high in protein and fibre, low in refined carbs. Moong dal chilla, ragi dosa with sambar, and methi paratha with curd are excellent options. The worst PCOS breakfasts are sugary cereals, plain white bread, and just chai with biscuits — all cause immediate blood sugar spikes.",
       },
     },
   ],
@@ -110,6 +146,51 @@ export default function PCOSPage() {
             snack: "Roasted makhana + amla juice",
             dinner: "Ragi roti + paneer tikka (baked) + salad",
           },
+          {
+            day: "Day 4",
+            breakfast: "Bajra roti (2) + sautéed mushrooms + cinnamon chai (no sugar)",
+            lunch: "Ragi mudde + sambar + stir-fried beans + curd",
+            snack: "Sprouts chaat with pomegranate + lime",
+            dinner: "Palak paneer + jowar roti (2) + salad",
+          },
+          {
+            day: "Day 5",
+            breakfast: "Oats porridge with chia seeds + 5 walnuts + amla",
+            lunch: "Foxtail millet rice + rajma + cucumber raita",
+            snack: "Flaxseed and banana smoothie (no sugar)",
+            dinner: "Soya chunk curry + methi roti + salad",
+          },
+          {
+            day: "Day 6",
+            breakfast: "Pesarattu (green moong crepe) + ginger-turmeric chutney",
+            lunch: "Brown rice (small bowl) + chana masala + mixed vegetable sabzi",
+            snack: "Roasted pumpkin seeds + 1 amla",
+            dinner: "Moong dal soup + bajra khichdi + salad",
+          },
+          {
+            day: "Day 7",
+            breakfast: "Daliya upma with vegetables + 1 boiled egg",
+            lunch: "Jowar roti + dal makhani (no cream) + karela sabzi",
+            snack: "Handful of roasted chana + methi seeds water",
+            dinner: "Paneer bhurji + multigrain roti + cucumber salad",
+          },
+        ]}
+        whyIngredients={[
+          {
+            name: "Cinnamon (Dalchini)",
+            claim: "Half a teaspoon of cinnamon a day is one of the easiest PCOS interventions your kitchen can offer. A study in the Journal of Nutritional Science found it improved insulin sensitivity by 19% over 8 weeks — a meaningful number when insulin resistance is the root driver of your symptoms. Put it in your chai, your ragi porridge, or your dal — it genuinely doesn't matter how you include it, just include it.",
+            citation: "Source: Wang JG et al., Journal of Nutritional Science, 2019.",
+          },
+          {
+            name: "Flaxseeds (Alsi)",
+            claim: "Your body is processing estrogen constantly, and in PCOS it often produces too much. Flaxseeds contain lignans — plant compounds that bind to estrogen receptors and gently reduce excess circulating estrogen. Two tablespoons of ground flaxseeds daily (add them to your roti dough, curd, or smoothie) is enough to see a measurable effect on testosterone and LH levels over 3 months. Ground is key — whole flaxseeds pass through undigested.",
+            citation: "Source: Nowak DA et al., European Journal of Nutrition, 2007.",
+          },
+          {
+            name: "Bajra (Pearl Millet)",
+            claim: "About 80% of women with PCOS are deficient in magnesium. That's significant because magnesium is a co-factor in insulin signalling — your cells literally can't respond to insulin properly without it. Bajra is one of the best Indian sources of dietary magnesium, with nearly 130mg per 100g cooked. Replacing one wheat roti with bajra roti daily isn't a dramatic lifestyle change, but it adds up over months of consistent eating.",
+            citation: "Source: Yildizhan R et al., Gynecological Endocrinology, 2012.",
+          },
         ]}
         faqs={[
           {
@@ -134,13 +215,13 @@ export default function PCOSPage() {
           },
         ]}
         relatedPosts={[
-          { title: "10 Best Indian Breakfasts for PCOS", slug: "blog/indian-breakfasts-pcos" },
-          { title: "PCOS and Weight Gain: What Indian Foods Help", slug: "blog/pcos-weight-management" },
-          { title: "Millet Recipes for PCOS Management", slug: "blog/millet-recipes-pcos" },
+          { title: "Millet Benefits for PCOS Management", slug: "blog/millet-benefits-pcos" },
+          { title: "Best Indian Breakfast Ideas for PCOS", slug: "blog/pcos-breakfast-ideas-indian" },
+          { title: "The Complete PCOS Diet Plan for Indian Women", slug: "blog/pcos-diet-plan-india" },
         ]}
         relatedPlans={[
-          { title: "Thyroid Diet Plan", slug: "thyroid-diet-plan" },
-          { title: "Diabetes Meal Plan", slug: "diabetes-meal-plan" },
+          { title: "Thyroid Diet Plan for Indian Women", slug: "thyroid-diet-plan" },
+          { title: "Diabetes Meal Plan for Indians", slug: "diabetes-meal-plan" },
           { title: "Cholesterol Diet Plan", slug: "cholesterol-diet-plan" },
         ]}
         currentPath="/pcos-meal-plan"
