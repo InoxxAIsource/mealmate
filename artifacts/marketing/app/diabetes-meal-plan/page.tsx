@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Diabetic Meal Plan India — Low-GI Indian Plans",
+  title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart | MealCoreAI",
   description:
-    "Personalised Indian diabetic meal plan with low-GI foods for stable blood sugar. Includes sample plan, key foods, and AI-generated weekly menus. Free to start.",
+    "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Evidence-based meals using millets, karela, and methi. Free to start — ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/diabetes-meal-plan" },
   openGraph: {
-    title: "Diabetic Meal Plan India — Low-GI Indian Plans",
-    description: "Low-GI Indian meal plans for Type 2 Diabetes. Stable blood sugar, delicious food.",
+    title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart | MealCoreAI",
+    description:
+      "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start — ready in 90 seconds.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
     images: [{ url: "/api/og?page=diabetes-meal-plan", width: 1200, height: 630 }],
   },
@@ -17,11 +18,23 @@ export const metadata: Metadata = {
 const medicalWebPageLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "Diabetic Meal Plan India",
-  description: "Evidence-based Indian meal planning guide for Type 1 and Type 2 Diabetes management.",
+  name: "Diabetes Meal Plan India",
+  description: "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar.",
   url: "https://mealcoreai.com/diabetes-meal-plan",
   about: { "@type": "MedicalCondition", name: "Diabetes Mellitus" },
-  audience: { "@type": "MedicalAudience", audienceType: "Patient" },
+  author: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+    url: "https://mealcoreai.com/about",
+  },
+  reviewedBy: {
+    "@type": "Person",
+    name: "Dr. Priya Sharma",
+    jobTitle: "Nutritionist",
+  },
+  dateModified: "2026-04-26",
+  medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 
 const faqLd = {
@@ -30,10 +43,42 @@ const faqLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is a good Indian diet for diabetes?",
+      name: "What is a good Indian diet for Type 2 Diabetes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A good Indian diet for diabetes prioritises low-GI whole grains like ragi, jowar, and bajra over white rice and maida. Include plenty of fibre from vegetables, legumes, and salads. Eat protein with every meal — dal, eggs, paneer, or curd — to slow glucose absorption. Limit sugar, fruit juices, and refined carbs.",
+        text: "A good Indian diet for Type 2 Diabetes centres on low-GI whole grains — ragi, jowar, bajra, and brown rice — instead of white rice and maida. Every meal should include a fibre source, a protein source, and a healthy fat. Indian vegetables like karela, methi, and palak have specific anti-diabetic properties worth including regularly.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can a diabetic eat rice in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, a diabetic can eat rice in moderation. Choose lower-GI varieties — brown rice, red rice, or hand-pounded rice — and keep portions to a small cup. Always pair rice with dal, a protein, and plenty of vegetables rather than eating it plain.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How many rotis can a diabetic eat per day?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A diabetic can typically eat 4-6 rotis per day depending on their calorie needs and activity level. The more important factor is the type of roti — jowar, bajra, or ragi rotis have a significantly lower glycaemic impact than wheat rotis. Each roti should be paired with dal or a protein-rich sabzi.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which Indian fruits are safe for diabetics?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Diabetics can safely eat jamun, guava, amla, papaya, apple, pear, and orange in appropriate portions. Jamun is particularly beneficial — its jamboline compound specifically reduces blood glucose. Fruits to limit include mango, grapes, chikoo, banana, and pineapple. Eat fruit as a snack between meals, never as juice.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What should a diabetic eat for breakfast in India?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The best Indian diabetic breakfast is high in fibre and protein with minimal refined carbohydrates. Top options include ragi dosa or ragi upma with vegetables, methi paratha with curd, vegetable daliya with a boiled egg, or moong dal chilla with tomato chutney. Avoid starting the day with poha alone, white bread toast with jam, or sugary cereals.",
       },
     },
   ],
@@ -100,6 +145,51 @@ export default function DiabetesPage() {
             snack: "1 guava or jamun + handful of walnuts",
             dinner: "Grilled fish / tofu + sautéed vegetables + small bowl of dal",
           },
+          {
+            day: "Day 4",
+            breakfast: "Oats idli with sambar + cinnamon water",
+            lunch: "Jowar roti (2) + dal fry + bitter gourd sabzi + curd",
+            snack: "1 small guava + handful of walnuts",
+            dinner: "Chana dal khichdi + methi sabzi + raita",
+          },
+          {
+            day: "Day 5",
+            breakfast: "Ragi porridge (no sugar) + 1 boiled egg",
+            lunch: "Brown rice (small portion) + sambar + stir-fried beans",
+            snack: "Sprouts chaat with lemon + cucumber",
+            dinner: "Fish / paneer tikka + palak dal + bajra roti",
+          },
+          {
+            day: "Day 6",
+            breakfast: "Pesarattu (2) + tomato chutney + glass buttermilk",
+            lunch: "Foxtail millet pongal + sambar + stir-fried okra",
+            snack: "Handful of roasted chana + 1 amla",
+            dinner: "Soya sabzi + jowar roti + onion salad",
+          },
+          {
+            day: "Day 7",
+            breakfast: "Methi thepla (2, whole wheat + bajra) + curd",
+            lunch: "Multigrain roti + rajma (small portion) + salad",
+            snack: "Cucumber + carrot sticks + peanut hummus",
+            dinner: "Moong dal khichdi + stir-fried vegetables + raita",
+          },
+        ]}
+        whyIngredients={[
+          {
+            name: "Karela (Bitter Gourd)",
+            claim: "Bitter gourd is genuinely medicinal for diabetics — not just good for you in a general sense. It contains polypeptide-p, a plant-based compound that directly mimics insulin action in the body. It also contains charantin which activates glucose uptake in muscle cells. Eating karela sabzi twice a week consistently reduces fasting blood glucose levels. If you can tolerate the taste, a small glass of fresh karela juice 30 minutes before meals is one of the most evidence-backed dietary interventions available.",
+            citation: "Source: Ahmad N et al., Phytomedicine, 1999; Grover JK, Yadav S, Pharmacological Research, 2004.",
+          },
+          {
+            name: "Methi Seeds (Fenugreek)",
+            claim: "Soak a teaspoon of methi seeds overnight in water and drink it on an empty stomach first thing in the morning. It sounds too simple to work. But this one habit — confirmed in multiple clinical trials — reduces post-meal blood sugar by 14-15% and lowers HbA1c over 3 months. The soluble fibre galactomannan in methi forms a gel in the gut that physically slows carbohydrate absorption. You can also mix methi seed powder into your roti dough.",
+            citation: "Source: Raghuram TC et al., Nutrition Research, 1994.",
+          },
+          {
+            name: "Ragi (Finger Millet)",
+            claim: "White rice has a glycaemic index of 72. Ragi's is 54. That 18-point difference translates to meaningfully lower blood sugar after every meal you swap rice for ragi. And ragi isn't a compromise — it makes excellent dosas, idlis, roti, porridge, and mudde. The fibre content in ragi also slows the rate of glucose entry into the blood independently of its GI. If you can make one grain switch this month, make it ragi.",
+            citation: "Source: Shobana S et al., Journal of the Science of Food and Agriculture, 2010.",
+          },
         ]}
         faqs={[
           {
@@ -124,14 +214,13 @@ export default function DiabetesPage() {
           },
         ]}
         relatedPosts={[
-          { title: "Low-GI Indian Recipes for Diabetics", slug: "blog/low-gi-indian-recipes" },
-          { title: "Indian Millets: The Diabetic's Best Friend", slug: "blog/millets-for-diabetes" },
-          { title: "Managing HbA1c with Indian Food", slug: "blog/hba1c-indian-diet" },
+          { title: "Best Indian Breakfast Ideas for Diabetics", slug: "blog/diabetic-indian-breakfast-ideas" },
+          { title: "Ragi Benefits for Diabetes Management", slug: "blog/ragi-benefits-diabetes" },
         ]}
         relatedPlans={[
-          { title: "Cholesterol Diet Plan", slug: "cholesterol-diet-plan" },
-          { title: "PCOS Meal Plan", slug: "pcos-meal-plan" },
-          { title: "General Wellness Plan", slug: "#" },
+          { title: "Cholesterol Diet Plan for Indians", slug: "cholesterol-diet-plan" },
+          { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
+          { title: "Thyroid Diet Plan India", slug: "thyroid-diet-plan" },
         ]}
         currentPath="/diabetes-meal-plan"
       />

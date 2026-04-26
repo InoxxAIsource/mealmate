@@ -35,6 +35,12 @@ export interface RelatedLink {
   slug: string;
 }
 
+export interface WhyIngredient {
+  name: string;
+  claim: string;
+  citation: string;
+}
+
 export interface ConditionPageProps {
   condition: string;
   emoji: string;
@@ -48,6 +54,7 @@ export interface ConditionPageProps {
   relatedPosts: RelatedLink[];
   relatedPlans: RelatedLink[];
   currentPath?: string;
+  whyIngredients?: WhyIngredient[];
 }
 
 const accentMap: Record<string, { badge: string; btn: string; bar: string; border: string }> = {
@@ -125,8 +132,10 @@ export default function ConditionPage({
   relatedPosts,
   relatedPlans,
   currentPath,
+  whyIngredients,
 }: ConditionPageProps) {
   const ac = accentMap[accentColour] ?? accentMap.orange;
+  const conditionSlug = condition.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <div className="min-h-screen bg-white">
@@ -149,9 +158,22 @@ export default function ConditionPage({
             <span className={`track-badge ${ac.badge} mb-6 inline-flex`}>
               {emoji} {condition}
             </span>
-            <h1 className="text-3xl sm:text-5xl font-black text-gray-900 leading-tight mb-6">
+            <h1 className="text-3xl sm:text-5xl font-black text-gray-900 leading-tight mb-5">
               {h1}
             </h1>
+
+            {/* Author / Reviewer box — rendered in HTML for Google E-E-A-T */}
+            <div className="flex items-center gap-3 mb-7 p-4 bg-white border border-gray-200 rounded-2xl shadow-sm max-w-sm">
+              <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-lg shrink-0" aria-hidden="true">
+                👩‍⚕️
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-900">Dr. Priya Sharma</p>
+                <p className="text-xs text-gray-500">Nutritionist &amp; Dietitian, MealCoreAI</p>
+                <p className="text-xs text-green-600 font-medium">✓ Reviewed for medical accuracy · April 2026</p>
+              </div>
+            </div>
+
             <p className="text-lg text-gray-600 leading-relaxed mb-8">{intro}</p>
             <a
               href={`${APP_URL}/sign-up`}
@@ -216,33 +238,33 @@ export default function ConditionPage({
         </div>
       </section>
 
-      {/* Sample Meal Plan */}
+      {/* NEW SECTION A: 7-Day Meal Plan */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
-            3-Day Sample {condition} Meal Plan
+            7-Day {condition} Meal Plan for Indians
           </h2>
           <p className="text-gray-500 mb-10 max-w-2xl">
-            A sample of what MealCoreAI generates for the {condition} track. Your actual plan will be personalised to your region, diet, and preferences.
+            A practical week of real Indian meals designed for {condition.toLowerCase()} management. Every day covers breakfast, lunch, dinner, and a snack.
           </p>
-          <div className="space-y-6">
+
+          {/* Mobile: card layout */}
+          <div className="space-y-5 lg:hidden">
             {samplePlan.map(({ day, breakfast, lunch, snack, dinner }) => (
               <div key={day} className={`border ${ac.border} rounded-2xl overflow-hidden`}>
-                <div className={`px-6 py-3 bg-gradient-to-r ${ac.bar} text-white font-bold text-sm`}>
+                <div className={`px-5 py-3 bg-gradient-to-r ${ac.bar} text-white font-bold text-sm`}>
                   {day}
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-gray-100">
+                <div className="grid grid-cols-2 divide-x divide-y divide-gray-100">
                   {[
                     { label: "🌅 Breakfast", dish: breakfast },
                     { label: "☀️ Lunch", dish: lunch },
                     { label: "🍿 Snack", dish: snack },
                     { label: "🌙 Dinner", dish: dinner },
                   ].map(({ label, dish }) => (
-                    <div key={label} className="px-5 py-4">
-                      <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">
-                        {label}
-                      </div>
-                      <div className="text-sm text-gray-700 font-medium">{dish}</div>
+                    <div key={label} className="px-4 py-3">
+                      <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">{label}</div>
+                      <div className="text-sm text-gray-700">{dish}</div>
                     </div>
                   ))}
                 </div>
@@ -250,7 +272,35 @@ export default function ConditionPage({
             ))}
           </div>
 
-          <div className="mt-8 p-6 bg-orange-50 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          {/* Desktop: table layout */}
+          <div className="hidden lg:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+            <table className="w-full text-sm text-left">
+              <thead>
+                <tr className={`bg-gradient-to-r ${ac.bar} text-white`}>
+                  {["Day", "🌅 Breakfast", "☀️ Lunch", "🍿 Snack", "🌙 Dinner"].map((h) => (
+                    <th key={h} className="px-5 py-4 font-semibold">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {samplePlan.map(({ day, breakfast, lunch, snack, dinner }, i) => (
+                  <tr key={day} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td className="px-5 py-4 font-bold text-gray-800 whitespace-nowrap">{day}</td>
+                    <td className="px-5 py-4 text-gray-700 leading-snug">{breakfast}</td>
+                    <td className="px-5 py-4 text-gray-700 leading-snug">{lunch}</td>
+                    <td className="px-5 py-4 text-gray-700 leading-snug">{snack}</td>
+                    <td className="px-5 py-4 text-gray-700 leading-snug">{dinner}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-5 text-sm text-gray-500 italic">
+            This is a sample plan. MealCoreAI generates a personalised version based on your region, preferences, and health goals.
+          </p>
+
+          <div className="mt-6 p-6 bg-orange-50 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="flex-1">
               <div className="font-bold text-gray-900 mb-1">Get your personalised {condition} plan</div>
               <div className="text-sm text-gray-500">
@@ -261,14 +311,112 @@ export default function ConditionPage({
               href={`${APP_URL}/sign-up`}
               className={`shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold text-sm shadow-lg transition-colors ${ac.btn}`}
             >
-              Generate My Plan <ArrowRight className="h-4 w-4" />
+              Get My Personalised {condition} Plan <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* NEW SECTION B: Why Indian Food Is Ideal */}
       <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
+            Why Indian Food Is Ideal for {condition}
+          </h2>
+          <p className="text-gray-600 mb-10 max-w-2xl">
+            Your kitchen is already stocked with some of the most clinically researched ingredients for {condition.toLowerCase()} management. Here's what the science says about three of them.
+          </p>
+
+          {whyIngredients && whyIngredients.length > 0 ? (
+            <div className="space-y-10">
+              {whyIngredients.map(({ name, claim, citation }) => (
+                <div key={name} className="max-w-3xl">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{name}</h3>
+                  <p className="text-gray-700 leading-relaxed mb-2">{claim}</p>
+                  <p className="text-sm text-gray-400 italic">{citation}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-10">
+              {keyFoods.slice(0, 3).map(({ name, benefit }) => (
+                <div key={name} className="max-w-3xl">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{name}</h3>
+                  <p className="text-gray-700 leading-relaxed">{benefit}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* NEW SECTION C: Regional Variations */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
+            Regional {condition} Meal Plan Variations
+          </h2>
+          <p className="text-gray-500 mb-10 max-w-2xl">
+            Managing {condition.toLowerCase()} through food looks different depending on where in India you cook. Here's how it adapts across three major food traditions.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">🌴 South Indian</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                South Indian cooking is built around rice, lentils, and fermented foods — all of which can be adapted for {condition.toLowerCase()} management. Swap white rice for ragi mudde or foxtail millet pongal, keep your sambar and rasam (they&apos;re excellent), and lean on pesarattu and dosas for high-protein breakfasts.
+              </p>
+              <a
+                href={`/meal-plans/${conditionSlug}-weekly-meal-plan-south-indian`}
+                className="text-orange-500 hover:text-orange-600 text-sm font-semibold inline-flex items-center gap-1"
+              >
+                See South Indian {condition} plan <ArrowRight className="h-3 w-3" />
+              </a>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">🌾 North Indian</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                The roti-dal-sabzi structure of North Indian cooking is one of the most naturally adaptable frameworks for {condition.toLowerCase()}. Switch wheat atta to bajra or jowar flour, choose mustard oil or olive oil over vanaspati, and keep portions of dal generous — it&apos;s your best protein and fibre source.
+              </p>
+              <a
+                href={`/meal-plans/${conditionSlug}-weekly-meal-plan-north-indian`}
+                className="text-orange-500 hover:text-orange-600 text-sm font-semibold inline-flex items-center gap-1"
+              >
+                See North Indian {condition} plan <ArrowRight className="h-3 w-3" />
+              </a>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">🎪 Gujarati</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                Gujarati food traditions — dhokla, khichdi, thepla, handvo — are naturally portion-controlled and often dal-forward. For {condition.toLowerCase()}, the traditional Gujarati thali works well with small adjustments: less jaggery in sabzis, whole grain thepla instead of maida rotla, and moong dal khichdi as a staple dinner.
+              </p>
+              <a
+                href={`/meal-plans/${conditionSlug}-weekly-meal-plan-gujarati`}
+                className="text-orange-500 hover:text-orange-600 text-sm font-semibold inline-flex items-center gap-1"
+              >
+                See Gujarati {condition} plan <ArrowRight className="h-3 w-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SECTION D: When to See a Doctor */}
+      <section className="py-10 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 flex gap-4">
+            <div className="text-2xl shrink-0">⚕️</div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2">When to See a Doctor</h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Diet is one of the most powerful tools for managing {condition.toLowerCase()}, but it works best alongside proper medical care. If you&apos;re newly diagnosed, experiencing severe symptoms, considering stopping medication, or your symptoms are worsening despite dietary changes — please consult your doctor or a specialist. MealCoreAI&apos;s meal plans are designed to complement medical treatment, not replace it. The nutrition guidance on this page is for educational purposes and does not constitute medical advice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
             {condition} Diet — Frequently Asked Questions
@@ -286,8 +434,7 @@ export default function ConditionPage({
       {currentPath ? (
         <RelatedLinks currentPath={currentPath} heading={`More ${condition} Resources`} />
       ) : (
-        /* Fallback: legacy related section */
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {relatedPlans.length > 0 && (

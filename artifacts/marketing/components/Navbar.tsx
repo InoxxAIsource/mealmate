@@ -20,6 +20,7 @@ export default function Navbar() {
     { label: "Features", href: "/#features" },
     { label: "Health Tracks", href: "/#tracks" },
     { label: "How It Works", href: "/how-it-works" },
+    { label: "Blog", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
   ];
 
