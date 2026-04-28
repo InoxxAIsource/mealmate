@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart | MealCoreAI",
+  title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart",
   description:
     "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start — ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/pregnancy-meal-plan" },
   openGraph: {
-    title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart | MealCoreAI",
+    title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart",
     description:
       "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start.",
     url: "https://mealcoreai.com/pregnancy-meal-plan",
