@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@MealCoreAI",
   },
+  alternates: {
+    canonical: "https://mealcoreai.com",
+    languages: {
+      "en-IN": "https://mealcoreai.com",
+      en: "https://mealcoreai.com",
+    },
+  },
   robots: {
     index: true,
     follow: true,
