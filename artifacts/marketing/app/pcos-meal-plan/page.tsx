@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet | MealCoreAI",
+  title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet",
   description:
     "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Hormone-friendly meals from Indian cuisine. Free to start — your plan is ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/pcos-meal-plan" },
   openGraph: {
-    title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet | MealCoreAI",
+    title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet",
     description:
       "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Free to start.",
     url: "https://mealcoreai.com/pcos-meal-plan",
