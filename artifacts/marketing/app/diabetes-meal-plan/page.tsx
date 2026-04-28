@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart | MealCoreAI",
+  title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
   description:
     "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Evidence-based meals using millets, karela, and methi. Free to start — ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/diabetes-meal-plan" },
   openGraph: {
-    title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart | MealCoreAI",
+    title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
     description:
       "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start — ready in 90 seconds.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
