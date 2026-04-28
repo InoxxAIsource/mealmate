@@ -15,13 +15,36 @@ const BASE = "https://mealcoreai.com";
 
 export const dynamicParams = false;
 
+const PRIORITY_SLUGS = [
+  "pcos-weekly-meal-plan-south-indian",
+  "pcos-weekly-meal-plan-bengali",
+  "pcos-weekly-meal-plan-punjabi",
+  "pcos-weekly-meal-plan-maharashtrian",
+  "diabetes-7-day-meal-plan-south-indian",
+  "diabetes-7-day-meal-plan-punjabi",
+  "diabetes-7-day-meal-plan-bengali",
+  "thyroid-diet-plan-south-indian",
+  "thyroid-diet-plan-north-indian",
+  "weight-loss-meal-plan-south-indian",
+  "weight-loss-meal-plan-north-indian",
+  "pregnancy-meal-plan-south-indian",
+  "pregnancy-meal-plan-north-indian",
+  "kids-meal-plan-south-indian",
+  "kids-meal-plan-north-indian",
+];
+
 export async function generateStaticParams() {
-  const slugs: { slug: string }[] = [];
+  const slugs: { slug: string }[] = PRIORITY_SLUGS.map((slug) => ({ slug }));
+  const seen = new Set(PRIORITY_SLUGS);
   outer: for (const c of conditions) {
     for (const m of mealTypes) {
       for (const r of regions) {
-        if (slugs.length >= 250) break outer;
-        slugs.push({ slug: buildSlug(c.id, m.id, r.id) });
+        if (slugs.length >= 265) break outer;
+        const slug = buildSlug(c.id, m.id, r.id);
+        if (!seen.has(slug)) {
+          seen.add(slug);
+          slugs.push({ slug });
+        }
       }
     }
   }
@@ -44,7 +67,7 @@ export async function generateMetadata({
   const canonical = `${BASE}/meal-plans/${slug}`;
 
   return {
-    title: `${title} | MealCoreAI`,
+    title,
     description: `Get a personalised ${regionLabel} ${condition.label} ${mealType.label} tailored to your health needs. AI-generated, culturally authentic, and nutritionally optimised.`,
     alternates: { canonical },
     openGraph: {
