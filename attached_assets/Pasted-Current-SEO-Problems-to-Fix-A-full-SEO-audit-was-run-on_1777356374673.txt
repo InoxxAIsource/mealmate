@@ -1,0 +1,410 @@
+Current SEO Problems to Fix
+A full SEO audit was run on 28 April 2026. Google Search Console shows only 8 of 289 pages are indexed. The tasks below fix all identified issues in priority order. Work through them top to bottom.
+
+TASK 1 — Fix duplicate brand in page title template
+Problem: Multiple pages show "| MealCoreAI | MealCoreAI" in the title tag (PCOS page, Pricing page confirmed). The layout template is appending the brand and individual pages are also adding it manually.
+Fix in app/layout.tsx:
+tsxexport const metadata: Metadata = {
+  title: {
+    template: '%s | MealCoreAI',
+    default: 'MealCoreAI — AI Meal Planning for PCOS, Diabetes, Thyroid, Pregnancy & Kids',
+  },
+  // keep all other existing metadata fields unchanged
+}
+Then find every page file (e.g. app/pcos-meal-plan/page.tsx, app/pricing/page.tsx, etc.) that exports metadata with a title ending in | MealCoreAI and strip the brand suffix. The template handles it automatically.
+Example — before:
+tsxexport const metadata = {
+  title: 'PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet | MealCoreAI',
+}
+After:
+tsxexport const metadata = {
+  title: 'PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet',
+}
+Apply this fix to ALL page files that have | MealCoreAI in their title string.
+
+TASK 2 — Fix broken internal link: /meal-plans/weight-loss → 404
+Problem: The homepage navigation links to /meal-plans/weight-loss but this page returns a 404. This is a broken link on the homepage — harmful for crawl budget and user trust.
+Option A (Preferred) — Create the page:
+Create app/meal-plans/weight-loss/page.tsx as a proper condition landing page for weight loss meal plans. Model it on the existing /pcos-meal-plan page structure. Minimum 1500 words, include:
+
+MedicalWebPage schema
+FAQPage schema (minimum 4 Q&As about weight loss Indian diet)
+BreadcrumbList schema
+Proper title, meta description, H1, H2s
+
+Option B (Quick fix) — Add a redirect in next.config.js:
+jsasync redirects() {
+  return [
+    {
+      source: '/meal-plans/weight-loss',
+      destination: '/meal-plans/weight-loss-meal-plan', // or closest existing URL
+      permanent: true,
+    },
+  ]
+},
+If Option A is done, Option B is not needed.
+
+TASK 3 — Add www redirect in next.config.js
+Problem: www.mealcoreai.com has no redirect (DNS CNAME has been added in Cloudflare separately). The Next.js app needs to also redirect www to non-www.
+Add to next.config.js:
+jsasync redirects() {
+  return [
+    {
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www.mealcoreai.com' }],
+      destination: 'https://mealcoreai.com/:path*',
+      permanent: true,
+    },
+  ]
+},
+
+TASK 4 — Dynamic sitemap that includes all blog posts and pages
+Problem: The current sitemap.xml only contains 13 static URLs. All 25+ blog posts and long-tail meal plan pages are missing. Google Search Console shows 275 pages "discovered but not indexed" — this is partly because they're absent from the sitemap.
+Delete the existing static public/sitemap.xml file.
+Create app/sitemap.ts:
+tsimport { MetadataRoute } from 'next'
+
+// Replace this function with however your blog posts are stored
+// (CMS API call, filesystem read, database query, etc.)
+async function getAllBlogSlugs(): Promise<{ slug: string; updatedAt: string }[]> {
+  // Example if posts are in a local data file or CMS:
+  // const posts = await fetch('your-cms-api/posts').then(r => r.json())
+  // return posts.map(p => ({ slug: p.slug, updatedAt: p.updatedAt }))
+  
+  // Temporary hardcoded list — replace with dynamic fetch:
+  return [
+    { slug: 'pcos-diet-plan-india', updatedAt: '2026-04-22' },
+    { slug: 'diabetic-indian-breakfast-ideas', updatedAt: '2026-04-20' },
+    { slug: 'thyroid-foods-avoid-india', updatedAt: '2026-04-18' },
+    { slug: 'pregnancy-nutrition-first-trimester', updatedAt: '2026-04-18' },
+    { slug: 'kids-healthy-tiffin-ideas', updatedAt: '2026-04-16' },
+    { slug: 'millet-benefits-pcos', updatedAt: '2026-04-15' },
+    { slug: 'ragi-benefits-diabetes', updatedAt: '2026-04-14' },
+    { slug: 'south-indian-diet-weight-loss', updatedAt: '2026-04-13' },
+    { slug: 'pcos-breakfast-ideas-indian', updatedAt: '2026-04-12' },
+    { slug: 'gestational-diabetes-meal-plan', updatedAt: '2026-04-10' },
+    // Add ALL remaining blog slugs here
+  ]
+}
+
+async function getAllMealPlanSlugs(): Promise<{ slug: string; updatedAt: string }[]> {
+  return [
+    { slug: 'pcos-weekly-meal-plan-north-indian', updatedAt: '2026-04-22' },
+    { slug: 'diabetes-7-day-meal-plan-gujarati', updatedAt: '2026-04-20' },
+    // Add all /meal-plans/* slugs here
+  ]
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const blogPosts = await getAllBlogSlugs()
+  const mealPlans = await getAllMealPlanSlugs()
+
+  const staticPages: MetadataRoute.Sitemap = [
+    {
+      url: 'https://mealcoreai.com',
+      lastModified: new Date('2026-04-22'),
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    {
+      url: 'https://mealcoreai.com/pcos-meal-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/diabetes-meal-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/thyroid-diet-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/pregnancy-meal-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/kids-meal-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/cholesterol-diet-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/meal-plans/weight-loss-meal-plan',
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://mealcoreai.com/how-it-works',
+      lastModified: new Date('2026-04-10'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://mealcoreai.com/pricing',
+      lastModified: new Date('2026-04-15'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://mealcoreai.com/blog',
+      lastModified: new Date('2026-04-22'),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://mealcoreai.com/faq',
+      lastModified: new Date('2026-04-10'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://mealcoreai.com/about',
+      lastModified: new Date('2026-04-10'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+  ]
+
+  const blogUrls: MetadataRoute.Sitemap = blogPosts.map(post => ({
+    url: `https://mealcoreai.com/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  const mealPlanUrls: MetadataRoute.Sitemap = mealPlans.map(plan => ({
+    url: `https://mealcoreai.com/meal-plans/${plan.slug}`,
+    lastModified: new Date(plan.updatedAt),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...blogUrls, ...mealPlanUrls]
+}
+After deploying, verify it works by visiting https://mealcoreai.com/sitemap.xml and confirming all blog posts appear.
+
+TASK 5 — Add hreflang for India geo-targeting
+Problem: Google Search Console shows India (the target market) delivers 0 clicks while the US gets more impressions. The site has no geo-targeting signals.
+In app/layout.tsx, add inside the <head> section:
+tsxexport const metadata: Metadata = {
+  // ... existing metadata ...
+  alternates: {
+    canonical: 'https://mealcoreai.com',
+    languages: {
+      'en-IN': 'https://mealcoreai.com',
+      'en': 'https://mealcoreai.com',
+    },
+  },
+}
+For individual pages, add the same alternates with the page-specific URL. Example for the PCOS page:
+tsxalternates: {
+  canonical: 'https://mealcoreai.com/pcos-meal-plan',
+  languages: {
+    'en-IN': 'https://mealcoreai.com/pcos-meal-plan',
+    'en': 'https://mealcoreai.com/pcos-meal-plan',
+  },
+},
+
+TASK 6 — Fix duplicate logo alt text
+Problem: The logo <img> renders twice in the HTML — once with alt="MealCoreAI" (correct) and once with alt="" (empty — likely in mobile nav or footer).
+Find every <img src="/logo.svg" or <Image src="/logo.svg" in the codebase and ensure ALL instances have alt="MealCoreAI". There should be zero instances of alt="" on the logo.
+
+TASK 7 — Add /faq to main navigation
+Problem: The FAQ page exists (/faq returns HTTP 200) and is in the sitemap, but is not linked from the main navigation or footer. This hides a page that supports featured snippets and YMYL trust.
+In your nav component, add FAQ to the desktop navigation links:
+tsx<a href="/faq">FAQ</a>
+In your footer, add FAQ to the appropriate column (Company or Product column).
+
+TASK 8 — Add WebSite SearchAction schema to homepage
+Problem: The WebSite schema on the homepage is minimal — it's missing the SearchAction which enables Google's Sitelinks search box in branded search results.
+In app/page.tsx, find the existing WebSite JSON-LD script and update it:
+tsxconst websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'MealCoreAI',
+  url: 'https://mealcoreai.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://mealcoreai.com/blog?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+TASK 9 — Add og:site_name and og:locale to homepage
+Problem: The homepage OG tags are missing og:site_name and og:locale. These are present on other pages but not the homepage.
+In app/page.tsx metadata:
+tsxexport const metadata: Metadata = {
+  // ... existing fields ...
+  openGraph: {
+    // ... existing og fields ...
+    siteName: 'MealCoreAI',
+    locale: 'en_IN',
+    type: 'website',
+  },
+}
+
+TASK 10 — Add Content-Security-Policy header (report-only mode first)
+Problem: No CSP header exists. For a YMYL health site, this is both a security and trust concern.
+In next.config.js, add to the headers section. Start with Report-Only mode to avoid breaking anything:
+jsasync headers() {
+  return [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'Content-Security-Policy-Report-Only',
+          value: [
+            "default-src 'self'",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com *.googletagmanager.com",
+            "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
+            "font-src 'self' fonts.gstatic.com",
+            "img-src 'self' data: https:",
+            "connect-src 'self' *.googleapis.com *.google-analytics.com",
+            "frame-ancestors 'none'",
+          ].join('; '),
+        },
+      ],
+    },
+  ]
+},
+After 1–2 weeks with no violations reported, switch the key from Content-Security-Policy-Report-Only to Content-Security-Policy.
+
+TASK 11 — Create public/llms.txt
+Problem: No AI crawler guidance file exists. This reduces citability in ChatGPT, Perplexity, Gemini, and Google AI Overviews.
+Create public/llms.txt (plain text, no formatting):
+# MealCoreAI
+> AI-powered personalised Indian meal planning for PCOS, Diabetes, Thyroid, Pregnancy, Kids, and Weight Loss.
+
+## About
+MealCoreAI generates daily personalised Indian meal plans adapted to the user's specific health condition, routine, and food preferences. Plans are ready in 90 seconds. Free to start.
+
+## Key pages (allowed for AI citation)
+- https://mealcoreai.com/pcos-meal-plan
+- https://mealcoreai.com/diabetes-meal-plan
+- https://mealcoreai.com/thyroid-diet-plan
+- https://mealcoreai.com/pregnancy-meal-plan
+- https://mealcoreai.com/cholesterol-diet-plan
+- https://mealcoreai.com/kids-meal-plan
+- https://mealcoreai.com/blog
+
+## Excluded (do not index or cite)
+- https://mealcoreai.com/app/
+- https://mealcoreai.com/api/
+- https://mealcoreai.com/privacy
+- https://mealcoreai.com/terms
+
+TASK 12 — Add Article schema to blog post layout
+Problem: Individual blog posts have Article + BreadcrumbList schema. Verify this is present on ALL posts. If your blog post layout (app/blog/[slug]/page.tsx) does not already generate Article schema dynamically from post data, add it.
+In your blog post page component, add this JSON-LD block. Replace the field values with actual post data from your CMS/data source:
+tsxconst articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  description: post.excerpt,
+  image: post.coverImage || 'https://mealcoreai.com/api/og?page=blog',
+  author: {
+    '@type': 'Person',
+    name: post.author?.name || 'MealCoreAI Team',
+    url: post.author?.slug 
+      ? `https://mealcoreai.com/author/${post.author.slug}` 
+      : 'https://mealcoreai.com/about',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'MealCoreAI',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://mealcoreai.com/logo.png',
+    },
+  },
+  datePublished: post.publishedAt,
+  dateModified: post.updatedAt || post.publishedAt,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://mealcoreai.com/blog/${post.slug}`,
+  },
+}
+
+// Add BreadcrumbList too if not already present
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mealcoreai.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://mealcoreai.com/blog' },
+    { '@type': 'ListItem', position: 3, name: post.title, item: `https://mealcoreai.com/blog/${post.slug}` },
+  ],
+}
+Render both as <script type="application/ld+json"> tags in the page.
+
+TASK 13 — Add FAQPage schema to remaining condition pages
+Status check: /pcos-meal-plan and /cholesterol-diet-plan already have FAQPage schema ✅
+Add FAQPage schema to these pages if not already present:
+
+/diabetes-meal-plan
+/thyroid-diet-plan
+/pregnancy-meal-plan
+/kids-meal-plan
+
+Each FAQ section needs minimum 4 questions. Model the schema on the existing PCOS page implementation. Questions should match what's already visible on the page — do not add invisible FAQ content.
+
+TASK 14 — Build long-tail regional meal plan pages
+Why: /meal-plans/diabetes-7-day-meal-plan-gujarati is ranking at position 8.5 — the best position on the entire site. This hyper-specific regional pattern has almost zero competition.
+Build these pages under /meal-plans/[slug]:
+/meal-plans/pcos-weekly-meal-plan-south-indian
+/meal-plans/pcos-weekly-meal-plan-bengali
+/meal-plans/pcos-weekly-meal-plan-punjabi
+/meal-plans/pcos-weekly-meal-plan-maharashtrian
+/meal-plans/diabetes-7-day-meal-plan-south-indian
+/meal-plans/diabetes-7-day-meal-plan-punjabi
+/meal-plans/diabetes-7-day-meal-plan-bengali
+/meal-plans/thyroid-diet-plan-south-indian
+/meal-plans/thyroid-diet-plan-north-indian
+/meal-plans/weight-loss-meal-plan-south-indian
+/meal-plans/weight-loss-meal-plan-north-indian
+/meal-plans/pregnancy-meal-plan-south-indian
+/meal-plans/pregnancy-meal-plan-north-indian
+/meal-plans/kids-meal-plan-south-indian
+/meal-plans/kids-meal-plan-north-indian
+Each page needs:
+
+Minimum 1,500 words of unique, region-specific content
+H1 with condition + region + "meal plan" pattern
+MedicalWebPage schema
+FAQPage schema (4+ questions)
+BreadcrumbList schema
+Canonical URL
+Added to the dynamic sitemap (Task 4)
+
+
+Verification Checklist
+After deploying all tasks, verify the following:
+
+ https://www.mealcoreai.com → redirects to https://mealcoreai.com (no DNS error)
+ https://mealcoreai.com/meal-plans/weight-loss → no 404 (either page exists or redirect works)
+ https://mealcoreai.com/sitemap.xml → contains all blog post URLs
+ View source on /pcos-meal-plan → title does NOT contain "MealCoreAI" twice
+ View source on /pricing → title does NOT contain "MealCoreAI" twice
+ https://mealcoreai.com/llms.txt → returns plain text content
+ All <img src="/logo.svg"> instances have alt="MealCoreAI"
+ FAQ link visible in main navigation
+ Response headers include Content-Security-Policy-Report-Only
+ Run https://search.google.com/test/rich-results on the PCOS page → all schemas pass

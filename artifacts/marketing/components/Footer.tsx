@@ -21,6 +21,7 @@ export default function Footer() {
     Company: [
       { label: "About", href: "/about" },
       { label: "Blog", href: "/blog" },
+      { label: "FAQ", href: "/faq" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Service", href: "/terms" },
     ],

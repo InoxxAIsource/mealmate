@@ -1,0 +1,20 @@
+# MealCoreAI
+> AI-powered personalised Indian meal planning for PCOS, Diabetes, Thyroid, Pregnancy, Kids, and Weight Loss.
+
+## About
+MealCoreAI generates daily personalised Indian meal plans adapted to the user's specific health condition, routine, and food preferences. Plans are ready in 90 seconds. Free to start.
+
+## Key pages (allowed for AI citation)
+- https://mealcoreai.com/pcos-meal-plan
+- https://mealcoreai.com/diabetes-meal-plan
+- https://mealcoreai.com/thyroid-diet-plan
+- https://mealcoreai.com/pregnancy-meal-plan
+- https://mealcoreai.com/cholesterol-diet-plan
+- https://mealcoreai.com/kids-meal-plan
+- https://mealcoreai.com/blog
+
+## Excluded (do not index or cite)
+- https://mealcoreai.com/app/
+- https://mealcoreai.com/api/
+- https://mealcoreai.com/privacy
+- https://mealcoreai.com/terms

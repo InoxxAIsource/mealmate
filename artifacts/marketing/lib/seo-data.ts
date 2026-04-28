@@ -48,7 +48,7 @@ export const conditions = [
     description: "Heart-healthy Indian meal plans to naturally lower LDL cholesterol.",
   },
   {
-    id: "weightloss",
+    id: "weight-loss",
     label: "Weight Loss",
     keywords: ["low-calorie", "high-fibre", "portion-controlled", "metabolism-boosting"],
     emoji: "⚖️",
@@ -88,6 +88,8 @@ export const regions = [
 export const mealTypes = [
   { id: "weekly-meal-plan", label: "Weekly Meal Plan" },
   { id: "7-day-meal-plan", label: "7-Day Meal Plan" },
+  { id: "meal-plan", label: "Meal Plan" },
+  { id: "diet-plan", label: "Diet Plan" },
   { id: "breakfast-ideas", label: "Breakfast Ideas" },
   { id: "lunch-ideas", label: "Lunch Ideas" },
   { id: "dinner-ideas", label: "Dinner Ideas" },

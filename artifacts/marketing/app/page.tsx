@@ -70,6 +70,14 @@ const websiteLd = {
   "@type": "WebSite",
   name: "MealCoreAI",
   url: "https://mealcoreai.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://mealcoreai.com/blog?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const softwareAppLd = {

@@ -23,17 +23,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/cholesterol-diet-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
   ];
 
-  // Top 250 programmatic pages
-  const programmaticSlugs: string[] = [];
+  const prioritySlugs = [
+    "pcos-weekly-meal-plan-south-indian",
+    "pcos-weekly-meal-plan-bengali",
+    "pcos-weekly-meal-plan-punjabi",
+    "pcos-weekly-meal-plan-maharashtrian",
+    "diabetes-7-day-meal-plan-south-indian",
+    "diabetes-7-day-meal-plan-punjabi",
+    "diabetes-7-day-meal-plan-bengali",
+    "thyroid-diet-plan-south-indian",
+    "thyroid-diet-plan-north-indian",
+    "weight-loss-meal-plan-south-indian",
+    "weight-loss-meal-plan-north-indian",
+    "pregnancy-meal-plan-south-indian",
+    "pregnancy-meal-plan-north-indian",
+    "kids-meal-plan-south-indian",
+    "kids-meal-plan-north-indian",
+  ];
+
+  const seen = new Set(prioritySlugs);
+  const programmaticSlugs: string[] = [...prioritySlugs];
   for (const condition of conditions) {
     for (const mealType of mealTypes) {
       for (const region of regions) {
-        if (programmaticSlugs.length >= 250) break;
-        programmaticSlugs.push(buildSlug(condition.id, mealType.id, region.id));
+        if (programmaticSlugs.length >= 265) break;
+        const slug = buildSlug(condition.id, mealType.id, region.id);
+        if (!seen.has(slug)) {
+          seen.add(slug);
+          programmaticSlugs.push(slug);
+        }
       }
-      if (programmaticSlugs.length >= 250) break;
+      if (programmaticSlugs.length >= 265) break;
     }
-    if (programmaticSlugs.length >= 250) break;
+    if (programmaticSlugs.length >= 265) break;
   }
 
   const PROGRAMMATIC_DATE = new Date("2026-04-22");
