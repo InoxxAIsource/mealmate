@@ -16,6 +16,7 @@ const BASE = "https://mealcoreai.com";
 export const dynamicParams = false;
 
 const PRIORITY_SLUGS = [
+  // SEO audit Task 14 — high-value regional pages
   "pcos-weekly-meal-plan-south-indian",
   "pcos-weekly-meal-plan-bengali",
   "pcos-weekly-meal-plan-punjabi",
@@ -31,6 +32,21 @@ const PRIORITY_SLUGS = [
   "pregnancy-meal-plan-north-indian",
   "kids-meal-plan-south-indian",
   "kids-meal-plan-north-indian",
+  // Broken internal links from condition pages — urgent fix
+  "cholesterol-weekly-meal-plan-south-indian",
+  "cholesterol-weekly-meal-plan-north-indian",
+  "cholesterol-weekly-meal-plan-gujarati",
+  "thyroid-weekly-meal-plan-south-indian",
+  "thyroid-weekly-meal-plan-north-indian",
+  "thyroid-weekly-meal-plan-gujarati",
+  "kids-weekly-meal-plan-south-indian",
+  "kids-weekly-meal-plan-north-indian",
+  "kids-weekly-meal-plan-gujarati",
+  "kids-lunch-ideas-north-indian",
+  "pregnancy-weekly-meal-plan-south-indian",
+  "pregnancy-weekly-meal-plan-north-indian",
+  "pregnancy-weekly-meal-plan-gujarati",
+  "pregnancy-7-day-meal-plan-north-indian",
 ];
 
 export async function generateStaticParams() {
