@@ -40,10 +40,10 @@ import {
 
 export const metadata: Metadata = {
   description:
-    "Control PCOS, Diabetes & Thyroid with a daily AI diet plan that adapts to your body — personalised Indian meals, no generic diet charts. Free to start.",
+    "Control PCOS, Diabetes & Thyroid with a daily AI diet plan that adapts to your body. Personalised Indian meals, no generic diet charts. Free to start.",
   alternates: { canonical: "https://mealcoreai.com" },
   openGraph: {
-    title: "MealCoreAI — Control PCOS, Diabetes & Thyroid With Your Diet",
+    title: "MealCoreAI: Control PCOS, Diabetes & Thyroid With Your Diet",
     description:
       "Unlike one-time diet charts, MealCoreAI gives you a daily Indian meal plan that adapts to your condition, routine, and what you actually eat. Free to start.",
     url: "https://mealcoreai.com",
@@ -88,7 +88,7 @@ const softwareAppLd = {
   operatingSystem: "iOS, Android, Web",
   image: "https://mealcoreai.com/opengraph.jpg",
   description:
-    "Personalised Indian meal plans for PCOS, Diabetes, Thyroid, Pregnancy, and weight loss — powered by AI.",
+    "Personalised Indian meal plans for PCOS, Diabetes, Thyroid, Pregnancy, and weight loss, powered by AI.",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
@@ -101,7 +101,7 @@ const softwareAppLd = {
       "@type": "Review",
       author: { "@type": "Person", name: "Priya S." },
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody: "I've had PCOS for 4 years and tried every diet. MealCoreAI finally gave me a plan that makes sense — South Indian food I already love, balanced for my hormones. My periods are more regular after 3 months.",
+      reviewBody: "I've had PCOS for 4 years and tried every diet. MealCoreAI finally gave me a plan that makes sense. South Indian food I already love, balanced for my hormones. My periods are more regular after 3 months.",
     },
     {
       "@type": "Review",
@@ -131,7 +131,7 @@ const TRACKS = [
     badgeColor: "bg-rose-50 border-rose-200 text-rose-700",
     name: "PCOS",
     outcome: "Regular cycles in 8–12 weeks",
-    benefit: "Low-GI, hormone-balancing Indian meals that lower insulin resistance and reduce inflammation — without giving up your regional cuisine.",
+    benefit: "Low-GI, hormone-balancing Indian meals that lower insulin resistance and reduce inflammation, without giving up your regional cuisine.",
     href: "/pcos-meal-plan",
     color: "rose",
   },
@@ -141,7 +141,7 @@ const TRACKS = [
     badgeColor: "bg-teal-50 border-teal-200 text-teal-700",
     name: "Diabetes",
     outcome: "Stable blood sugar all day",
-    benefit: "High-fibre, low-GI Indian meals that keep your blood sugar steady — so you can reduce medicine dependency over time.",
+    benefit: "High-fibre, low-GI Indian meals that keep your blood sugar steady, so you can reduce medicine dependency over time.",
     href: "/diabetes-meal-plan",
     color: "teal",
   },
@@ -151,7 +151,7 @@ const TRACKS = [
     badgeColor: "bg-emerald-50 border-emerald-200 text-emerald-700",
     name: "Thyroid",
     outcome: "More energy, less fatigue",
-    benefit: "Selenium, iodine, and zinc-rich Indian foods that support thyroid function — avoiding goitrogens at the right times.",
+    benefit: "Selenium, iodine, and zinc-rich Indian foods that support thyroid function, avoiding goitrogens at the right times.",
     href: "/thyroid-diet-plan",
     color: "emerald",
   },
@@ -161,7 +161,7 @@ const TRACKS = [
     badgeColor: "bg-orange-50 border-orange-200 text-orange-700",
     name: "Weight Loss",
     outcome: "Lose 3–5 kg per month",
-    benefit: "Calorie-controlled Indian meals with high satiety — you eat full portions of food you love while consistently losing weight.",
+    benefit: "Calorie-controlled Indian meals with high satiety. You eat full portions of food you love, while consistently losing weight.",
     href: "/meal-plans/weight-loss",
     color: "orange",
   },
@@ -171,7 +171,7 @@ const TRACKS = [
     badgeColor: "bg-yellow-50 border-yellow-200 text-yellow-700",
     name: "Pregnancy",
     outcome: "Better haemoglobin & baby weight",
-    benefit: "Trimester-specific iron, folate, and calcium from Indian food — so your doctor is impressed at every check-up.",
+    benefit: "Trimester-specific iron, folate, and calcium from Indian food, so your doctor is impressed at every check-up.",
     href: "/pregnancy-meal-plan",
     color: "yellow",
   },
@@ -181,7 +181,7 @@ const TRACKS = [
     badgeColor: "bg-purple-50 border-purple-200 text-purple-700",
     name: "Cholesterol",
     outcome: "Lower LDL in 60 days",
-    benefit: "Heart-healthy, low-saturated-fat Indian meals rich in omega-3 and soluble fibre — designed to improve your lipid profile.",
+    benefit: "Heart-healthy, low-saturated-fat Indian meals rich in omega-3 and soluble fibre, designed to improve your lipid profile.",
     href: "/cholesterol-diet-plan",
     color: "purple",
   },
@@ -191,30 +191,30 @@ const FEATURES = [
   {
     icon: <Sparkles className="h-6 w-6" />,
     title: "Your 7-day plan, ready in 90 seconds",
-    desc: "Stop spending weekends planning meals. Answer a few questions about your health and preferences — get a full week of breakfast, lunch, snack, and dinner instantly.",
+    desc: "Stop spending weekends planning meals. Answer a few questions about your health and preferences. Get a full week of breakfast, lunch, snack, and dinner instantly.",
     color: "text-orange-500 bg-orange-50",
   },
   {
     icon: <MessageSquare className="h-6 w-6" />,
     title: "Ask anything, get a real answer",
-    desc: "Not sure if methi is safe for your thyroid? Wondering if poha is okay for diabetes? Ask your AI diet assistant — answers in seconds, not appointments.",
+    desc: "Not sure if methi is safe for your thyroid? Wondering if poha is okay for diabetes? Ask your AI diet assistant. Answers in seconds, not appointments.",
     color: "text-blue-500 bg-blue-50",
   },
   {
     icon: <ShoppingCart className="h-6 w-6" />,
     title: "Never forget an ingredient again",
-    desc: "One tap turns your weekly plan into a grocery list with exact quantities. Share it on WhatsApp — no more double-trips to the sabzi mandi.",
+    desc: "One tap turns your weekly plan into a grocery list with exact quantities. Share it on WhatsApp. No more double-trips to the sabzi mandi.",
     color: "text-emerald-500 bg-emerald-50",
   },
   {
     icon: <BarChart3 className="h-6 w-6" />,
-    title: "See your progress — no manual entry",
+    title: "See your progress, no manual entry",
     desc: "Track calories, protein, calcium, and fibre for every meal automatically. Watch your daily nutrition score improve week over week.",
     color: "text-violet-500 bg-violet-50",
   },
   {
     icon: <Bell className="h-6 w-6" />,
-    title: "Personalised reminders — with your dish name",
+    title: "Personalised reminders with your dish name",
     desc: "Get a push notification at 8 AM saying \u201cToday\u2019s breakfast: Ragi Dosa\u201d \u2014 not a generic \u2018time to eat\u2019 alert. Never miss a meal again.",
     color: "text-rose-500 bg-rose-50",
   },
@@ -233,7 +233,7 @@ const TESTIMONIALS = [
     track: "PCOS",
     trackColor: "text-rose-600 bg-rose-50 border-rose-200",
     result: "Cycles regular after 3 months",
-    text: "I've had PCOS for 4 years and tried every diet. MealCoreAI finally gave me a plan that makes sense — South Indian food I already love, balanced for my hormones. My periods are more regular after 3 months, and my dermatologist noticed my skin improving too.",
+    text: "I've had PCOS for 4 years and tried every diet. MealCoreAI finally gave me a plan that makes sense. South Indian food I already love, balanced for my hormones. My periods are more regular after 3 months, and my dermatologist noticed my skin improving too.",
     rating: 5,
   },
   {
@@ -242,7 +242,7 @@ const TESTIMONIALS = [
     track: "Diabetes",
     trackColor: "text-teal-700 bg-teal-50 border-teal-200",
     result: "HbA1c: 8.2 → 6.9 in 4 months",
-    text: "My HbA1c dropped from 8.2 to 6.9 in four months. The app generates low-GI South Indian meals that fit my routine — idli with sambar, but the right portions. My doctor reduced my medication last visit. The grocery list saves my wife an hour every Sunday.",
+    text: "My HbA1c dropped from 8.2 to 6.9 in four months. The app generates low-GI South Indian meals that fit my routine: idli with sambar, but the right portions. My doctor reduced my medication last visit. The grocery list saves my wife an hour every Sunday.",
     rating: 5,
   },
   {
@@ -251,7 +251,7 @@ const TESTIMONIALS = [
     track: "Pregnancy",
     trackColor: "text-orange-700 bg-orange-50 border-orange-200",
     result: "Haemoglobin 11.2 → 12.8 g/dL",
-    text: "My gynaecologist was impressed with my haemoglobin at week 28 — it went from 11.2 to 12.8 g/dL without any extra supplements. MealCoreAI made sure I got iron and folate every day through food I actually enjoyed. I recommend this to every pregnant woman I know.",
+    text: "My gynaecologist was impressed with my haemoglobin at week 28. It went from 11.2 to 12.8 g/dL without any extra supplements. MealCoreAI made sure I got iron and folate every day through food I actually enjoyed. I recommend this to every pregnant woman I know.",
     rating: 5,
   },
 ];
@@ -262,21 +262,21 @@ const STEPS = [
     icon: <ClipboardList className="h-8 w-8 text-orange-500" />,
     title: "Tell us your health condition",
     outcome: "Takes 90 seconds",
-    desc: "Answer a short questionnaire — your condition (PCOS, Diabetes, Thyroid, etc.), your region, diet type, family size, and how much time you have to cook.",
+    desc: "Answer a short questionnaire: your condition (PCOS, Diabetes, Thyroid, etc.), your region, diet type, family size, and how much time you have to cook.",
   },
   {
     n: "2",
     icon: <Wand2 className="h-8 w-8 text-orange-500" />,
     title: "Get your personalised 7-day plan",
-    outcome: "Instant — no waiting",
-    desc: "Your plan is built specifically for your health condition and regional cuisine. Every meal — breakfast, lunch, snack, dinner — is nutritionally balanced for your body.",
+    outcome: "Instant, no waiting",
+    desc: "Your plan is built specifically for your health condition and regional cuisine. Every meal (breakfast, lunch, snack, dinner) is nutritionally balanced for your body.",
   },
   {
     n: "3",
     icon: <ChefHat className="h-8 w-8 text-orange-500" />,
     title: "Cook, track, and improve every week",
     outcome: "See results in weeks, not months",
-    desc: "Follow your plan, swap meals you don't like, lock the ones you love. Get a fresh plan every week — your results compound over time.",
+    desc: "Follow your plan, swap meals you don't like, lock the ones you love. Get a fresh plan every week. Your results compound over time.",
   },
 ];
 
@@ -298,7 +298,7 @@ const PRICING_TIERS = [
     name: "Free",
     price: "₹0",
     period: "forever",
-    tagline: "Start here — no card needed",
+    tagline: "Start here, no card needed",
     highlight: false,
     cta: "Get Started Free",
     ctaStyle: "border-2 border-orange-500 text-orange-600 hover:bg-orange-50",
@@ -336,11 +336,11 @@ const PRICING_TIERS = [
     name: "Core",
     price: "₹499",
     period: "/month",
-    tagline: "Most popular — best value",
+    tagline: "Most popular, best value",
     highlight: true,
-    cta: "Start Core — 7 Days Free",
+    cta: "Start Core: 7 Days Free",
     ctaStyle: "bg-orange-500 hover:bg-orange-600 text-white",
-    upgradeReason: "Unlimited everything — the plan that actually gets results",
+    upgradeReason: "Unlimited everything, the plan that gets results",
     features: [
       "Everything in Starter",
       "All 8 health condition tracks",
@@ -358,7 +358,7 @@ const PRICING_TIERS = [
     period: "/month",
     tagline: "For the whole family",
     highlight: false,
-    cta: "Start Premium — 7 Days Free",
+    cta: "Start Premium: 7 Days Free",
     ctaStyle: "bg-gray-950 hover:bg-gray-800 text-white",
     upgradeReason: "Manage health for your entire family in one place",
     features: [
@@ -403,11 +403,11 @@ export default function HomePage() {
             </div>
 
             <p className="text-sm text-gray-500 italic mb-6">
-              Still following the same diet chart for weeks? Your body isn&rsquo;t static &mdash; your diet shouldn&rsquo;t be either.
+              Still following the same diet chart for weeks? Your body isn&rsquo;t static, and your diet shouldn&rsquo;t be either.
             </p>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight mb-6">
-              Control PCOS, Diabetes &amp; Thyroid &mdash;{" "}
+              Control PCOS, Diabetes &amp; Thyroid{" "}
               <span className="text-orange-500">Starting With Tonight&rsquo;s Dinner</span>
             </h1>
 
@@ -417,7 +417,7 @@ export default function HomePage() {
             </p>
 
             <p className="text-sm font-medium text-orange-600 mb-10">
-              Start today &mdash; see real changes in your energy, cravings, and symptoms within weeks.
+              Start today and see real changes in your energy, cravings, and symptoms within weeks.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
@@ -459,7 +459,7 @@ export default function HomePage() {
                 <img src="/logo.svg" alt="" className="h-7 w-7" aria-hidden="true" />
                 <div>
                   <div className="text-white font-bold text-sm">MealCoreAI</div>
-                  <div className="text-orange-100 text-xs">Today's plan — PCOS · South Indian</div>
+                  <div className="text-orange-100 text-xs">Today's plan: PCOS · South Indian</div>
                 </div>
                 <div className="ml-auto bg-white/20 text-white text-xs px-2.5 py-1 rounded-full font-medium">
                   Day 3 of 7
@@ -517,7 +517,7 @@ export default function HomePage() {
               But No One Agrees on What That Means.
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              You've gotten advice from every direction — and still don't know what to cook tonight.
+              You've gotten advice from every direction, and you still don't know what to cook tonight.
             </p>
           </div>
 
@@ -526,7 +526,7 @@ export default function HomePage() {
               {
                 icon: <AlertTriangle className="h-5 w-5 text-red-400" />,
                 bg: "bg-red-50 border-red-100",
-                text: "Your doctor said 'low sugar, low oil' — but gave you no actual meal plan to follow.",
+                text: "Your doctor said 'low sugar, low oil', but gave you no actual meal plan to follow.",
               },
               {
                 icon: <AlertTriangle className="h-5 w-5 text-red-400" />,
@@ -536,17 +536,17 @@ export default function HomePage() {
               {
                 icon: <AlertTriangle className="h-5 w-5 text-red-400" />,
                 bg: "bg-red-50 border-red-100",
-                text: "Instagram influencers recommend keto and intermittent fasting — neither designed for Indian food or your lifestyle.",
+                text: "Instagram influencers recommend keto and intermittent fasting, neither designed for Indian food or your lifestyle.",
               },
               {
                 icon: <AlertTriangle className="h-5 w-5 text-red-400" />,
                 bg: "bg-red-50 border-red-100",
-                text: "A dietitian costs ₹3,000 for a single visit — and the chart they give you doesn't account for your region or budget.",
+                text: "A dietitian costs ₹3,000 for a single visit, and the chart they give you doesn't account for your region or budget.",
               },
               {
                 icon: <AlertTriangle className="h-5 w-5 text-red-400" />,
                 bg: "bg-red-50 border-red-100",
-                text: "You start a diet on Monday. By Wednesday, you're back to ordering from outside — because there was no real plan.",
+                text: "You start a diet on Monday. By Wednesday, you're back to ordering from outside, because there was no real plan.",
               },
               {
                 icon: <AlertTriangle className="h-5 w-5 text-red-400" />,
@@ -563,7 +563,7 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <p className="text-xl font-bold text-gray-900 mb-2">
-              This confusion is exhausting — and it's hurting your health.
+              This confusion is exhausting, and it's hurting your health.
             </p>
             <p className="text-gray-500">
               The good news? It doesn't have to be this hard.
@@ -577,10 +577,10 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-              MealCoreAI Ends the Guesswork — for Good
+              MealCoreAI Ends the Guesswork, for Good
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Instead of generic advice, you get a personalised plan for your exact health condition —
+              Instead of generic advice, you get a personalised plan for your exact health condition,
               using Indian food your family already eats.
             </p>
           </div>
@@ -621,12 +621,12 @@ export default function HomePage() {
               </div>
               <ul className="space-y-4">
                 {[
-                  "7-day plan built for your condition — ready in 90 seconds",
+                  "7-day plan built for your condition, ready in 90 seconds",
                   "Know exactly what to cook every meal, every day",
-                  "Free to start — a fraction of the cost of a single dietitian visit",
+                  "Free to start, a fraction of the cost of a single dietitian visit",
                   "Stay consistent because the plan does the thinking for you",
                   "Track nutrition and see your health numbers improve",
-                  "Family-friendly meals everyone eats — adapted for your needs",
+                  "Family-friendly meals everyone eats, adapted for your needs",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-gray-800 font-medium">
                     <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
@@ -642,7 +642,7 @@ export default function HomePage() {
               href={`${APP_URL}/sign-up`}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-base transition-colors shadow-lg shadow-orange-200"
             >
-              Start for Free — See the Difference <ArrowRight className="h-4 w-4" />
+              Start for Free and See the Difference <ArrowRight className="h-4 w-4" />
             </a>
             <p className="text-xs text-gray-400 mt-3">No credit card · Takes 90 seconds</p>
           </div>
@@ -690,7 +690,7 @@ export default function HomePage() {
               Built Around Your Health Condition
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Not a generic diet. Every meal in your plan is chosen specifically for your body's needs — and the results are measurable.
+              Not a generic diet. Every meal in your plan is chosen specifically for your body's needs. The results are measurable.
             </p>
           </div>
 
@@ -727,7 +727,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-              Everything You Need to Eat Well — Every Single Day
+              Everything You Need to Eat Well, Every Single Day
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
               MealCoreAI is not just a meal planner. It's the daily structure that keeps your health on track when life gets busy.
@@ -890,7 +890,7 @@ export default function HomePage() {
 
           <p className="text-lg text-gray-400 mb-4">
             Stop wondering what to cook. Stop Googling conflicting diet advice.
-            Start eating food that actually works for your health — tonight.
+            Start eating food that actually works for your health, tonight.
           </p>
 
           <p className="text-sm text-gray-500 mb-10">
