@@ -80,23 +80,6 @@ const websiteLd = {
   },
 };
 
-const _returnPolicy = {
-  "@type": "MerchantReturnPolicy",
-  applicableCountry: "IN",
-  returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
-};
-
-const _digitalDelivery = {
-  "@type": "OfferShippingDetails",
-  shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "INR" },
-  shippingDestination: { "@type": "DefinedRegion", addressCountry: "IN" },
-  deliveryTime: {
-    "@type": "ShippingDeliveryTime",
-    handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
-    transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
-  },
-};
-
 const softwareAppLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -134,46 +117,10 @@ const softwareAppLd = {
     },
   ],
   offers: [
-    {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "INR",
-      name: "Free",
-      url: "https://mealcoreai.com/pricing",
-      availability: "https://schema.org/OnlineOnly",
-      hasMerchantReturnPolicy: _returnPolicy,
-      shippingDetails: _digitalDelivery,
-    },
-    {
-      "@type": "Offer",
-      price: "199",
-      priceCurrency: "INR",
-      name: "Starter",
-      url: "https://mealcoreai.com/pricing",
-      availability: "https://schema.org/OnlineOnly",
-      hasMerchantReturnPolicy: _returnPolicy,
-      shippingDetails: _digitalDelivery,
-    },
-    {
-      "@type": "Offer",
-      price: "499",
-      priceCurrency: "INR",
-      name: "Core",
-      url: "https://mealcoreai.com/pricing",
-      availability: "https://schema.org/OnlineOnly",
-      hasMerchantReturnPolicy: _returnPolicy,
-      shippingDetails: _digitalDelivery,
-    },
-    {
-      "@type": "Offer",
-      price: "999",
-      priceCurrency: "INR",
-      name: "Premium",
-      url: "https://mealcoreai.com/pricing",
-      availability: "https://schema.org/OnlineOnly",
-      hasMerchantReturnPolicy: _returnPolicy,
-      shippingDetails: _digitalDelivery,
-    },
+    { "@type": "Offer", price: "0", priceCurrency: "INR", name: "Free" },
+    { "@type": "Offer", price: "199", priceCurrency: "INR", name: "Starter" },
+    { "@type": "Offer", price: "499", priceCurrency: "INR", name: "Core" },
+    { "@type": "Offer", price: "999", priceCurrency: "INR", name: "Premium" },
   ],
 };
 
