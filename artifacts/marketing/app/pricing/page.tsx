@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CheckCircle2, Lock, ArrowRight, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Pricing — Free, Starter, Core & Premium Plans",
+  title: "Pricing: Free, Starter, Core & Premium Plans",
   description:
     "MealCoreAI is free to start. Starter at ₹199/mo, Core at ₹499/mo with unlimited AI chat and swaps, Premium at ₹999/mo for the whole family. 7-day free trial on paid plans.",
 };
@@ -25,7 +25,7 @@ const TIERS = [
     name: "Free",
     price: "₹0",
     period: "",
-    tagline: "Forever free — no credit card needed",
+    tagline: "Forever free, no credit card needed",
     upgradeReason: null,
     popular: false,
     dark: false,
@@ -38,7 +38,7 @@ const TIERS = [
       "3 meal swaps per day",
       "Push reminders with your dish name",
       "Basic nutrition info (calories, protein)",
-      "AI diet chat — 5 messages/day",
+      "AI diet chat: 5 messages/day",
     ],
     locked: [
       "Regional cuisine selection",
@@ -56,13 +56,13 @@ const TIERS = [
     upgradeReason: "Unlock your regional cuisine and get more out of AI chat",
     popular: false,
     dark: false,
-    ctaText: "Start Starter — 7 Days Free",
+    ctaText: "Start Starter: 7 Days Free",
     ctaHref: "https://mealcoreai.com/app/sign-up",
     features: [
       "Everything in Free",
       "Choose your regional cuisine (North, South, Bengali, Gujarati…)",
       "10 meal swaps per day",
-      "AI diet chat — 25 messages/day",
+      "AI diet chat: 25 messages/day",
       "Full nutrition breakdown (protein, fibre, calcium, iron)",
     ],
     locked: [
@@ -76,16 +76,16 @@ const TIERS = [
     price: "₹499",
     period: "/month",
     tagline: "The plan that actually gets results",
-    upgradeReason: "Unlimited swaps, unlimited AI chat, and full tracking — everything you need",
+    upgradeReason: "Unlimited swaps, unlimited AI chat, and full tracking: everything you need",
     popular: true,
     dark: true,
-    ctaText: "Start Core — 7 Days Free",
+    ctaText: "Start Core: 7 Days Free",
     ctaHref: "https://mealcoreai.com/app/sign-up",
     features: [
       "Everything in Starter",
       "All 8 health condition tracks",
-      "Unlimited meal swaps — swap as often as you like",
-      "Unlimited AI diet chat — ask anything, anytime",
+      "Unlimited meal swaps, swap as often as you like",
+      "Unlimited AI diet chat, ask anything, anytime",
       "Full calorie & macro tracking with progress charts",
       "2 family profiles, each personalised",
       "WhatsApp grocery list sharing",
@@ -103,11 +103,11 @@ const TIERS = [
     upgradeReason: "One plan for you, your partner, your parents, and your kids",
     popular: false,
     dark: false,
-    ctaText: "Start Premium — 7 Days Free",
+    ctaText: "Start Premium: 7 Days Free",
     ctaHref: "https://mealcoreai.com/app/sign-up",
     features: [
       "Everything in Core",
-      "4 family profiles — each with their own health condition & plan",
+      "4 family profiles, each with their own health condition & plan",
       "Meal history & week-over-week progress analytics",
       "Downloadable PDF grocery list",
       "Priority support (response within 4 hours)",
@@ -120,11 +120,11 @@ const TIERS = [
 const FAQS = [
   {
     q: "Is the Free plan really free forever?",
-    a: "Yes — always. No credit card required. You get a personalised 7-day meal plan every week, a grocery list, and push reminders. Forever free.",
+    a: "Yes, always. No credit card required. You get a personalised 7-day meal plan every week, a grocery list, and push reminders. Forever free.",
   },
   {
     q: "What happens after the 7-day trial on paid plans?",
-    a: "You'll be charged at your chosen plan rate (₹199, ₹499, or ₹999/month). You can cancel anytime before the trial ends — no charge.",
+    a: "You'll be charged at your chosen plan rate (₹199, ₹499, or ₹999/month). You can cancel anytime before the trial ends, no charge.",
   },
   {
     q: "Can I switch between plans?",
@@ -136,11 +136,11 @@ const FAQS = [
   },
   {
     q: "Do family profiles each get their own personalised plan?",
-    a: "Yes — each family member gets a fully personalised plan based on their own health condition, dietary preference, and regional cuisine. Not a shared plan.",
+    a: "Yes, each family member gets a fully personalised plan based on their own health condition, dietary preference, and regional cuisine. Not a shared plan.",
   },
   {
     q: "Do you offer student or annual discounts?",
-    a: "Annual plans are coming soon with significant savings. Student discounts — email hello@mealcoreai.com and we'll sort you out.",
+    a: "Annual plans are coming soon with significant savings. Student discounts: email hello@mealcoreai.com and we'll sort you out.",
   },
 ];
 
@@ -272,7 +272,7 @@ export default function PricingPage() {
             {[
               { icon: <ShieldCheck className="h-5 w-5 text-green-500" />, text: "Payments secured by Razorpay" },
               { icon: <CheckCircle2 className="h-5 w-5 text-green-500" />, text: "No credit card for Free plan" },
-              { icon: <CheckCircle2 className="h-5 w-5 text-green-500" />, text: "Cancel anytime — no questions" },
+              { icon: <CheckCircle2 className="h-5 w-5 text-green-500" />, text: "Cancel anytime, no questions" },
               { icon: <CheckCircle2 className="h-5 w-5 text-green-500" />, text: "7-day free trial on all paid plans" },
             ].map(({ icon, text }) => (
               <div key={text} className="flex items-center gap-2">
@@ -286,7 +286,7 @@ export default function PricingPage() {
         {/* CTA */}
         <section className="bg-gradient-to-r from-orange-500 to-orange-400 py-16 px-4 text-center text-white">
           <h2 className="text-2xl font-bold mb-3">
-            Your health plan is waiting — start in 90 seconds
+            Your health plan is waiting. Start in 90 seconds
           </h2>
           <p className="text-orange-100 mb-6 max-w-md mx-auto">
             Free to start. No credit card. No generic diet charts. Just Indian food that works for your health condition.

@@ -10,11 +10,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://mealcoreai.com"),
   title: {
-    default: "MealCoreAI — AI Meal Planning for PCOS, Diabetes, Thyroid, Pregnancy & Kids",
+    default: "MealCoreAI: AI Meal Planning for PCOS, Diabetes, Thyroid, Pregnancy & Kids",
     template: "%s | MealCoreAI",
   },
   description:
-    "Control PCOS, Diabetes & Thyroid with a personalised daily Indian diet plan — built around your body, routine, and food preferences. Free to start in 90 seconds.",
+    "Control PCOS, Diabetes & Thyroid with a personalised daily Indian diet plan built around your body, routine, and food preferences. Free to start in 90 seconds.",
   openGraph: {
     siteName: "MealCoreAI",
     type: "website",

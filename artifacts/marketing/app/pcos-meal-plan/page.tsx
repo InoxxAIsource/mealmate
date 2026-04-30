@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet",
   description:
-    "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Hormone-friendly meals from Indian cuisine. Free to start — your plan is ready in 90 seconds.",
+    "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Hormone-friendly meals from Indian cuisine. Free to start. Your plan is ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/pcos-meal-plan" },
   openGraph: {
     title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet",
@@ -105,7 +105,7 @@ export default function PCOSPage() {
         emoji="🌸"
         accentColour="rose"
         h1="PCOS Meal Plan: Hormone-Friendly Indian Food That Works"
-        intro="Polycystic Ovary Syndrome affects 1 in 5 Indian women, making nutrition one of the most powerful tools for managing symptoms. The right PCOS meal plan focuses on low glycaemic index foods that prevent insulin spikes — a core driver of hormonal imbalance in PCOS. Indian cuisine is naturally rich in PCOS-friendly ingredients: millets like ragi and bajra, anti-inflammatory spices like turmeric and cinnamon, and hormone-balancing herbs like methi. The key is replacing refined grains with whole alternatives, adding protein to every meal to stabilise blood sugar, and including healthy fats from walnuts and flaxseeds that support estrogen metabolism. MealCoreAI's PCOS plans are built around Indian food traditions while eliminating the common pitfalls — deep-fried snacks, excess sugar, and refined flour — that worsen PCOS symptoms over time."
+        intro="Polycystic Ovary Syndrome affects 1 in 5 Indian women, making nutrition one of the most powerful tools for managing symptoms. The right PCOS meal plan focuses on low glycaemic index foods that prevent insulin spikes, a core driver of hormonal imbalance in PCOS. Indian cuisine is naturally rich in PCOS-friendly ingredients: millets like ragi and bajra, anti-inflammatory spices like turmeric and cinnamon, and hormone-balancing herbs like methi. The key is replacing refined grains with whole alternatives, adding protein to every meal to stabilise blood sugar, and including healthy fats from walnuts and flaxseeds that support estrogen metabolism. MealCoreAI's PCOS plans are built around Indian food traditions while eliminating the common pitfalls: deep-fried snacks, excess sugar, and refined flour — that worsen PCOS symptoms over time."
         keyFoods={[
           { name: "Ragi (Finger Millet)", benefit: "Low-GI grain that stabilises blood sugar and is rich in calcium, reducing PCOS-linked bone density loss." },
           { name: "Bajra (Pearl Millet)", benefit: "High in magnesium which improves insulin sensitivity and naturally reduces elevated androgen levels." },

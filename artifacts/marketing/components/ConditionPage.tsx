@@ -220,7 +220,7 @@ export default function ConditionPage({
             Foods to Limit on a {condition} Diet
           </h2>
           <p className="text-gray-500 mb-10 max-w-2xl">
-            These foods don't need to be completely avoided — but MealCoreAI significantly reduces them in your plan.
+            These foods don't need to be completely avoided, but MealCoreAI significantly reduces them in your plan.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {foodsToLimit.map(({ name, reason }) => (
@@ -363,7 +363,7 @@ export default function ConditionPage({
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-3 text-lg">🌴 South Indian</h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                South Indian cooking is built around rice, lentils, and fermented foods — all of which can be adapted for {condition.toLowerCase()} management. Swap white rice for ragi mudde or foxtail millet pongal, keep your sambar and rasam (they&apos;re excellent), and lean on pesarattu and dosas for high-protein breakfasts.
+                South Indian cooking is built around rice, lentils, and fermented foods, all of which can be adapted for {condition.toLowerCase()} management. Swap white rice for ragi mudde or foxtail millet pongal, keep your sambar and rasam (they&apos;re excellent), and lean on pesarattu and dosas for high-protein breakfasts.
               </p>
               <a
                 href={`/meal-plans/${conditionSlug}-weekly-meal-plan-south-indian`}
@@ -375,7 +375,7 @@ export default function ConditionPage({
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-3 text-lg">🌾 North Indian</h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                The roti-dal-sabzi structure of North Indian cooking is one of the most naturally adaptable frameworks for {condition.toLowerCase()}. Switch wheat atta to bajra or jowar flour, choose mustard oil or olive oil over vanaspati, and keep portions of dal generous — it&apos;s your best protein and fibre source.
+                The roti-dal-sabzi structure of North Indian cooking is one of the most naturally adaptable frameworks for {condition.toLowerCase()}. Switch wheat atta to bajra or jowar flour, choose mustard oil or olive oil over vanaspati, and keep portions of dal generous. It&apos;s your best protein and fibre source.
               </p>
               <a
                 href={`/meal-plans/${conditionSlug}-weekly-meal-plan-north-indian`}
@@ -387,7 +387,7 @@ export default function ConditionPage({
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-3 text-lg">🎪 Gujarati</h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                Gujarati food traditions — dhokla, khichdi, thepla, handvo — are naturally portion-controlled and often dal-forward. For {condition.toLowerCase()}, the traditional Gujarati thali works well with small adjustments: less jaggery in sabzis, whole grain thepla instead of maida rotla, and moong dal khichdi as a staple dinner.
+                Gujarati food traditions (dhokla, khichdi, thepla, handvo) are naturally portion-controlled and often dal-forward. For {condition.toLowerCase()}, the traditional Gujarati thali works well with small adjustments: less jaggery in sabzis, whole grain thepla instead of maida rotla, and moong dal khichdi as a staple dinner.
               </p>
               <a
                 href={`/meal-plans/${conditionSlug}-weekly-meal-plan-gujarati`}
@@ -408,7 +408,7 @@ export default function ConditionPage({
             <div>
               <h3 className="font-bold text-gray-900 mb-2">When to See a Doctor</h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Diet is one of the most powerful tools for managing {condition.toLowerCase()}, but it works best alongside proper medical care. If you&apos;re newly diagnosed, experiencing severe symptoms, considering stopping medication, or your symptoms are worsening despite dietary changes — please consult your doctor or a specialist. MealCoreAI&apos;s meal plans are designed to complement medical treatment, not replace it. The nutrition guidance on this page is for educational purposes and does not constitute medical advice.
+                Diet is one of the most powerful tools for managing {condition.toLowerCase()}, but it works best alongside proper medical care. If you&apos;re newly diagnosed, experiencing severe symptoms, considering stopping medication, or your symptoms are worsening despite dietary changes, please consult your doctor or a specialist. MealCoreAI&apos;s meal plans are designed to complement medical treatment, not replace it. The nutrition guidance on this page is for educational purposes and does not constitute medical advice.
               </p>
             </div>
           </div>
@@ -419,7 +419,7 @@ export default function ConditionPage({
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
-            {condition} Diet — Frequently Asked Questions
+            {condition} Diet: Frequently Asked Questions
           </h2>
           <p className="text-gray-500 mb-10">Evidence-based answers to the most common questions about {condition} nutrition.</p>
           <div className="space-y-3">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How It Works — AI Indian Meal Planning",
+  title: "How It Works: AI Indian Meal Planning",
   description:
     "See how MealCoreAI builds your personalised Indian meal plan in 3 simple steps. AI-powered, condition-specific, and culturally authentic.",
 };
@@ -18,7 +18,7 @@ const STEPS = [
     num: "02",
     emoji: "🤖",
     title: "AI builds your weekly plan",
-    desc: "Our AI analyses your health profile and generates a complete 7-day meal plan with breakfast, lunch, snacks, and dinner — using real dish names from your regional cuisine, optimised for your condition.",
+    desc: "Our AI analyses your health profile and generates a complete 7-day meal plan with breakfast, lunch, snacks, and dinner, using real dish names from your regional cuisine, optimised for your condition.",
   },
   {
     num: "03",
@@ -36,7 +36,7 @@ const STEPS = [
     num: "05",
     emoji: "📲",
     title: "Get daily meal reminders",
-    desc: "Enable push notifications to receive personalised reminders — with the actual dish name from your plan — at breakfast, lunch, and dinner time.",
+    desc: "Enable push notifications to receive personalised reminders with the actual dish name from your plan, at breakfast, lunch, and dinner time.",
   },
   {
     num: "06",
@@ -107,7 +107,7 @@ export default function HowItWorksPage() {
       <section className="bg-gray-50 py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">
-            Everything included — free to start
+            Everything included, free to start
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {FEATURES.map((f) => (

@@ -4,12 +4,12 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
   description:
-    "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Evidence-based meals using millets, karela, and methi. Free to start — ready in 90 seconds.",
+    "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Evidence-based meals using millets, karela, and methi. Free to start. Ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/diabetes-meal-plan" },
   openGraph: {
     title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
     description:
-      "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start — ready in 90 seconds.",
+      "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start. Ready in 90 seconds.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
     images: [{ url: "/api/og?page=diabetes-meal-plan", width: 1200, height: 630 }],
   },
@@ -104,7 +104,7 @@ export default function DiabetesPage() {
         emoji="💙"
         accentColour="teal"
         h1="Diabetic Meal Plan: Low-GI Indian Food for Stable Blood Sugar"
-        intro="Managing diabetes with Indian food is not about restriction — it is about smart substitution. The right diabetic meal plan replaces high-GI white rice and maida with millets, legumes, and whole grains that release glucose slowly into the bloodstream. India's culinary heritage is full of diabetes-friendly ingredients: bitter gourd (karela), fenugreek (methi), cinnamon, amla, and moong dal have all shown measurable blood sugar benefits in clinical studies. The key principles are eating fibre at every meal, including protein alongside carbohydrates, choosing smaller and more frequent meals over large ones, and prioritising vegetables over starches. MealCoreAI's diabetes track generates personalised Indian meal plans that balance taste, tradition, and blood sugar control — giving you the specific dish names, portions, and timings that work for your body."
+        intro="Managing diabetes with Indian food is not about restriction. It is about smart substitution. The right diabetic meal plan replaces high-GI white rice and maida with millets, legumes, and whole grains that release glucose slowly into the bloodstream. India's culinary heritage is full of diabetes-friendly ingredients: bitter gourd (karela), fenugreek (methi), cinnamon, amla, and moong dal have all shown measurable blood sugar benefits in clinical studies. The key principles are eating fibre at every meal, including protein alongside carbohydrates, choosing smaller and more frequent meals over large ones, and prioritising vegetables over starches. MealCoreAI's diabetes track generates personalised Indian meal plans that balance taste, tradition, and blood sugar control, giving you the specific dish names, portions, and timings that work for your body."
         keyFoods={[
           { name: "Ragi (Finger Millet)", benefit: "GI of 54 — far lower than rice. High in fibre and calcium. Keeps blood sugar stable for hours after eating." },
           { name: "Jowar (Sorghum)", benefit: "Complex carbohydrate with high fibre content that slows glucose absorption and improves post-meal blood sugar." },

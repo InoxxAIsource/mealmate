@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women",
   description:
-    "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start — your plan is ready in 90 seconds, no credit card.",
+    "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start. Your plan is ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/thyroid-diet-plan" },
   openGraph: {
     title: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women",
@@ -104,7 +104,7 @@ export default function ThyroidPage() {
         emoji="🦋"
         accentColour="emerald"
         h1="Thyroid Diet Plan: Indian Foods That Support Thyroid Function"
-        intro="The thyroid gland depends on specific micronutrients — selenium, iodine, zinc, and iron — to produce hormones effectively. Many Indians with thyroid disorders unknowingly eat diets deficient in these critical nutrients. The good news is that Indian cuisine, eaten the right way, can provide all of them. Selenium from sunflower seeds and eggs, iodine from iodised salt and dairy, and zinc from dals and pumpkin seeds are all accessible and affordable in Indian kitchens. The most common dietary concern — avoiding goitrogens (foods that can interfere with thyroid function, like raw cauliflower or unfermented soy) — is often overstated. Cooking neutralises most goitrogenic compounds. MealCoreAI's thyroid track prioritises nutrient sufficiency over unnecessary restriction, creating Indian meal plans that nourish the thyroid rather than just avoiding foods."
+        intro="The thyroid gland depends on specific micronutrients: selenium, iodine, zinc, and iron — to produce hormones effectively. Many Indians with thyroid disorders unknowingly eat diets deficient in these critical nutrients. The good news is that Indian cuisine, eaten the right way, can provide all of them. Selenium from sunflower seeds and eggs, iodine from iodised salt and dairy, and zinc from dals and pumpkin seeds are all accessible and affordable in Indian kitchens. The most common dietary concern — avoiding goitrogens (foods that can interfere with thyroid function, like raw cauliflower or unfermented soy) — is often overstated. Cooking neutralises most goitrogenic compounds. MealCoreAI's thyroid track prioritises nutrient sufficiency over unnecessary restriction, creating Indian meal plans that nourish the thyroid rather than just avoiding foods."
         keyFoods={[
           { name: "Brazil Nuts", benefit: "Just 2 Brazil nuts provide the entire daily requirement of selenium, the most important thyroid-protective mineral." },
           { name: "Sunflower Seeds", benefit: "Excellent Indian-accessible source of selenium and vitamin E that protects thyroid cells from oxidative damage." },
@@ -176,17 +176,17 @@ export default function ThyroidPage() {
         ]}
         whyIngredients={[
           {
-            name: "Selenium — Brazil Nuts and Sunflower Seeds",
+            name: "Selenium: Brazil Nuts and Sunflower Seeds",
             claim: "Selenium is the single most important mineral for thyroid function — and most Indians don't get enough of it. The thyroid gland contains more selenium per gram than any other tissue in the body, and without it, the enzyme that converts inactive T4 into active T3 hormone simply cannot work properly. Two Brazil nuts a day is all you need. If Brazil nuts aren't accessible, a small handful of sunflower seeds daily provides a meaningful selenium dose. This is not a supplement you need — it's a food habit.",
             citation: "Source: Köhrle J, European Journal of Endocrinology, 2015.",
           },
           {
-            name: "Iodine — Iodised Salt and Dairy",
+            name: "Iodine: Iodised Salt and Dairy",
             claim: "India has one of the highest rates of iodine deficiency globally, and the thyroid literally cannot make hormones without it. Iodised salt is the simplest, cheapest, and most reliable way to ensure daily iodine intake — which is why the switch many health-conscious Indians make to pink salt, rock salt, or black salt is actually harmful for thyroid patients. These salts contain no iodine. One glass of milk provides 50-80mcg of iodine, roughly half your daily needs. Keep dairy consistent and never swap iodised salt.",
             citation: "Source: WHO Global Database on Iodine Deficiency, 2004.",
           },
           {
-            name: "Zinc — Dal and Pumpkin Seeds",
+            name: "Zinc: Dal and Pumpkin Seeds",
             claim: "Zinc deficiency is found in a significant proportion of hypothyroid patients, and it creates a self-reinforcing problem: low thyroid function reduces zinc absorption, and low zinc reduces thyroid function. Moong and masoor dal are accessible daily sources of dietary zinc. A tablespoon of pumpkin seeds added to curd, poha, or salad provides additional zinc in a convenient form. Unlike selenium and iodine, zinc can be obtained easily through a dal-forward Indian diet — the traditional way of eating is already doing some of the work.",
             citation: "Source: Nishiyama S et al., Journal of the American College of Nutrition, 1994.",
           },

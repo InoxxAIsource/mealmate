@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart",
   description:
-    "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start — ready in 90 seconds, no credit card.",
+    "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start. Ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/pregnancy-meal-plan" },
   openGraph: {
     title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart",
@@ -104,7 +104,7 @@ export default function PregnancyPage() {
         emoji="🤰"
         accentColour="orange"
         h1="Pregnancy Meal Plan: Trimester-wise Indian Nutrition Guide"
-        intro="Pregnancy is one of the most nutritionally demanding periods of a woman's life — and one where Indian food, prepared thoughtfully, provides almost everything mother and baby need. The three critical nutrients most Indian pregnant women fall short on are iron, folate, and calcium. Anaemia affects over 50% of pregnant Indian women and is strongly associated with low birth weight. Folate in the first trimester is essential for neural tube development. Calcium from dairy, ragi, and til supports fetal bone development throughout pregnancy. DHA from fish (or walnuts and flaxseeds for vegetarians) supports fetal brain development. MealCoreAI's pregnancy track creates trimester-aware meal plans that adjust your nutrition focus as your pregnancy progresses — prioritising folate in the first trimester, iron and protein in the second, and energy density and calcium in the third — using Indian food you already love and trust."
+        intro="Pregnancy is one of the most nutritionally demanding periods of a woman's life, and one where Indian food, prepared thoughtfully, provides almost everything mother and baby need. The three critical nutrients most Indian pregnant women fall short on are iron, folate, and calcium. Anaemia affects over 50% of pregnant Indian women and is strongly associated with low birth weight. Folate in the first trimester is essential for neural tube development. Calcium from dairy, ragi, and til supports fetal bone development throughout pregnancy. DHA from fish (or walnuts and flaxseeds for vegetarians) supports fetal brain development. MealCoreAI's pregnancy track creates trimester-aware meal plans that adjust your nutrition focus as your pregnancy progresses: prioritising folate in the first trimester, iron and protein in the second, and energy density and calcium in the third, using Indian food you already love and trust."
         keyFoods={[
           { name: "Palak (Spinach)", benefit: "One of India's best sources of folate, iron, and calcium. Eat daily in sabzis, soups, or parathas." },
           { name: "Ragi (Finger Millet)", benefit: "Contains more calcium than milk per gram. Essential for fetal bone development and managing pregnancy anaemia." },
@@ -176,17 +176,17 @@ export default function PregnancyPage() {
         ]}
         whyIngredients={[
           {
-            name: "Ragi (Finger Millet) — for Calcium",
+            name: "Ragi (Finger Millet): for Calcium",
             claim: "Ragi has more calcium per gram than milk. That's not marketing — it's nutritional fact. 100g of ragi contains around 344mg of calcium compared to 125mg in 100ml of milk. For Indian women who are lactose intolerant or find it hard to drink the volume of milk recommended during pregnancy, ragi is a genuinely practical solution. Ragi dosas, ragi roti, ragi porridge, ragi idli — the ways to eat it are almost endless. Starting a ragi habit in the second trimester is one of the most impactful dietary choices a pregnant Indian woman can make.",
             citation: "Source: Nutritive Value of Indian Foods, National Institute of Nutrition (NIN), ICMR, 2017.",
           },
           {
-            name: "Palak (Spinach) — for Folate and Iron",
+            name: "Palak (Spinach): for Folate and Iron",
             claim: "Folate from food matters more in the first 28 days of pregnancy than almost any other nutrient — often before a woman even knows she is pregnant. Spinach is India's most accessible, affordable folate source. A regular serving of palak sabzi provides around 60mcg of folate. Paired with tomatoes or amla (for vitamin C which boosts iron absorption), a daily palak habit addresses two of the biggest pregnancy nutrition gaps simultaneously: folate deficiency and iron deficiency anaemia.",
             citation: "Source: Czeizel AE, Dudás I, New England Journal of Medicine, 1992; NIN India, 2017.",
           },
           {
-            name: "Dates (Khajoor) — for Iron and Labour",
+            name: "Dates (Khajoor): for Iron and Labour",
             claim: "Dates are a traditional pregnancy food in Indian and Middle Eastern cultures, and there's now clinical research supporting the practice. A study found that women who consumed 6 dates daily in the last 4 weeks of pregnancy had significantly shorter first stage of labour and higher cervical dilation on admission. Beyond labour benefits, dates are one of the most iron-dense sweet foods available — two or three dates a day provide meaningful iron alongside natural sugars that won't spike blood sugar the way refined sweets do.",
             citation: "Source: Al-Kuran O et al., Journal of Obstetrics and Gynaecology, 2011.",
           },

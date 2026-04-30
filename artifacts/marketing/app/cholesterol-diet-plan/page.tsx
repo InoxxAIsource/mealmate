@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days",
   description:
-    "Heart-healthy Indian diet plan to lower LDL cholesterol with omega-3 rich meals and zero bland food. Free to start — your personalised plan is ready in 90 seconds, no credit card.",
+    "Heart-healthy Indian diet plan to lower LDL cholesterol with omega-3 rich meals and zero bland food. Free to start. Your personalised plan is ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/cholesterol-diet-plan" },
   openGraph: {
     title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days",
@@ -104,7 +104,7 @@ export default function CholesterolPage() {
         emoji="❤️"
         accentColour="purple"
         h1="Cholesterol Diet Plan: Heart-Healthy Indian Food That Tastes Good"
-        intro="High cholesterol is one of India's fastest-growing health concerns, yet most people believe managing it requires giving up all the delicious Indian food they love. This is a myth. The right approach to a heart-healthy Indian diet is not elimination but substitution — choosing cooking oils that support heart health over those that worsen it, including omega-3-rich foods like flaxseeds and walnuts daily, prioritising soluble fibre from oats and dal that actively lower LDL cholesterol, and reducing — not eliminating — saturated fat from ghee, coconut oil, and full-fat dairy. Indian cuisine offers extraordinary heart-protective foods: garlic, turmeric, methi, amla, and moong dal have all shown measurable cholesterol-reducing effects in clinical trials. MealCoreAI's cholesterol track creates meal plans that lower LDL naturally through food, without taking away the flavour and traditions that make Indian eating a joy."
+        intro="High cholesterol is one of India's fastest-growing health concerns, yet most people believe managing it requires giving up all the delicious Indian food they love. This is a myth. The right approach to a heart-healthy Indian diet is not elimination but substitution: choosing cooking oils that support heart health over those that worsen it, including omega-3-rich foods like flaxseeds and walnuts daily, prioritising soluble fibre from oats and dal that actively lower LDL cholesterol, and reducing, not eliminating, saturated fat from ghee, coconut oil, and full-fat dairy. Indian cuisine offers extraordinary heart-protective foods: garlic, turmeric, methi, amla, and moong dal have all shown measurable cholesterol-reducing effects in clinical trials. MealCoreAI's cholesterol track creates meal plans that lower LDL naturally through food, without taking away the flavour and traditions that make Indian eating a joy."
         keyFoods={[
           { name: "Oats", benefit: "Beta-glucan soluble fibre in oats binds to LDL cholesterol in the gut and removes it before absorption. Just 3g of beta-glucan daily (1-1.5 cups cooked oats) is clinically proven to reduce LDL by up to 10%." },
           { name: "Flaxseeds (Alsi)", benefit: "The richest plant source of ALA omega-3 fatty acids. Ground flaxseeds added to dal or roti reduce LDL and triglycerides." },

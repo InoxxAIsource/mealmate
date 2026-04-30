@@ -230,7 +230,7 @@ export default async function BlogPostPage({
           {/* Mid-article CTA */}
           <div className="my-10 bg-orange-50 border border-orange-200 rounded-3xl p-6 text-center">
             <p className="text-lg font-bold text-gray-900 mb-2">
-              Stop searching — start eating right.
+              Stop searching and start eating right.
             </p>
             <p className="text-sm text-gray-600 mb-4">
               MealCoreAI builds your personalised weekly meal plan based on your condition,
@@ -263,7 +263,7 @@ export default async function BlogPostPage({
                     Want a personalised {conditionLink.label.toLowerCase()} using Indian food?
                   </p>
                   <p className="text-sm text-gray-600 mb-3">
-                    MealCoreAI creates your daily plan in 90 seconds — free to start. Real Indian meals, personalised to your region, cook time, and preferences.
+                    MealCoreAI creates your daily plan in 90 seconds, free to start. Real Indian meals, personalised to your region, cook time, and preferences.
                   </p>
                   <Link
                     href={conditionLink.href}
@@ -339,7 +339,7 @@ export default async function BlogPostPage({
           <h2 className="text-2xl font-bold mb-3">Ready to eat right for your health?</h2>
           <p className="text-orange-100 mb-6 max-w-md mx-auto">
             Get a personalised weekly meal plan with real Indian recipes tailored to your
-            condition — free to start.
+            condition, free to start.
           </p>
           <a
             href="https://mealcoreai.com/app/sign-up"

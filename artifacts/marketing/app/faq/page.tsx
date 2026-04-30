@@ -6,7 +6,7 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers to all your questions about MealCoreAI — how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
+    "Answers to all your questions about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
 };
 
 const FAQS = [
@@ -16,7 +16,7 @@ const FAQS = [
     items: [
       {
         q: "What is MealCoreAI?",
-        a: "MealCoreAI is an AI-powered personalised meal planning app built specifically for Indian families managing health conditions. It generates a custom weekly meal plan with real Indian dish names, a grocery list, and daily meal reminders — tailored to your condition, regional cuisine, and food preferences.",
+        a: "MealCoreAI is an AI-powered personalised meal planning app built specifically for Indian families managing health conditions. It generates a custom weekly meal plan with real Indian dish names, a grocery list, and daily meal reminders, tailored to your condition, regional cuisine, and food preferences.",
       },
       {
         q: "Which health conditions does MealCoreAI support?",
@@ -28,11 +28,11 @@ const FAQS = [
       },
       {
         q: "Is MealCoreAI a replacement for my doctor or nutritionist?",
-        a: "No — MealCoreAI is a tool to help you implement your dietary goals. It is not a medical device and should not replace professional medical advice. Always consult your doctor for medication and treatment decisions.",
+        a: "No, MealCoreAI is a tool to help you implement your dietary goals. It is not a medical device and should not replace professional medical advice. Always consult your doctor for medication and treatment decisions.",
       },
       {
         q: "How is MealCoreAI different from generic meal planning apps?",
-        a: "Most meal planning apps provide generic 'healthy eating' plans. MealCoreAI generates condition-specific plans — the PCOS plan is fundamentally different from the diabetes plan in terms of glycaemic index targets, anti-inflammatory foods, and hormonal considerations. Every plan uses real dishes from your regional cuisine, not Westernised 'Indian food'.",
+        a: "Most meal planning apps provide generic 'healthy eating' plans. MealCoreAI generates condition-specific plans: the PCOS plan is fundamentally different from the diabetes plan in terms of glycaemic index targets, anti-inflammatory foods, and hormonal considerations. Every plan uses real dishes from your regional cuisine, not Westernised 'Indian food'.",
       },
     ],
   },
@@ -46,7 +46,7 @@ const FAQS = [
       },
       {
         q: "Can diet alone help manage PCOS without medication?",
-        a: "For many women with PCOS, particularly those with insulin-resistant PCOS, dietary changes alone can restore ovulation, regulate periods, and reduce androgen levels. Research shows 5–10% weight loss through diet improves ovulatory function in 55–60% of overweight PCOS patients. That said, some women require medication in addition to dietary changes — speak with your gynaecologist.",
+        a: "For many women with PCOS, particularly those with insulin-resistant PCOS, dietary changes alone can restore ovulation, regulate periods, and reduce androgen levels. Research shows 5–10% weight loss through diet improves ovulatory function in 55–60% of overweight PCOS patients. That said, some women require medication in addition to dietary changes. Speak with your gynaecologist.",
       },
       {
         q: "Are dairy products included in the PCOS plan?",
@@ -54,7 +54,7 @@ const FAQS = [
       },
       {
         q: "How quickly can I expect to see changes in my PCOS symptoms?",
-        a: "Most women report reduced bloating and more stable energy within 2–3 weeks of following a low-GI, anti-inflammatory diet. Period regularity improvements typically take 2–3 months as hormonal changes occur over menstrual cycles. Consistency is key — the plan works best when followed for at least 90 days.",
+        a: "Most women report reduced bloating and more stable energy within 2–3 weeks of following a low-GI, anti-inflammatory diet. Period regularity improvements typically take 2–3 months as hormonal changes occur over menstrual cycles. Consistency is key. The plan works best when followed for at least 90 days.",
       },
       {
         q: "Does the PCOS plan account for inositol and other supplements?",
@@ -76,15 +76,15 @@ const FAQS = [
       },
       {
         q: "Can I use MealCoreAI if I have gestational diabetes?",
-        a: "Yes — MealCoreAI has a specific gestational diabetes track that accounts for pregnancy nutrition needs alongside blood sugar management. The plan distributes carbohydrates across 3 meals and 2–3 snacks to prevent spikes while ensuring adequate folate, iron, and calcium for fetal development.",
+        a: "Yes, MealCoreAI has a specific gestational diabetes track that accounts for pregnancy nutrition needs alongside blood sugar management. The plan distributes carbohydrates across 3 meals and 2–3 snacks to prevent spikes while ensuring adequate folate, iron, and calcium for fetal development.",
       },
       {
         q: "Will the diabetes plan work if I'm on metformin?",
-        a: "Yes. The low-GI, high-fibre Indian diet recommended by MealCoreAI complements metformin and other diabetes medications by reducing post-meal glucose peaks. It may actually reduce the required medication dosage over time — monitor your blood sugar closely and discuss any changes with your doctor.",
+        a: "Yes. The low-GI, high-fibre Indian diet recommended by MealCoreAI complements metformin and other diabetes medications by reducing post-meal glucose peaks. It may actually reduce the required medication dosage over time. Monitor your blood sugar closely and discuss any changes with your doctor.",
       },
       {
         q: "Are there breakfast options that don't spike blood sugar?",
-        a: "Yes — the diabetes breakfast rotation includes ragi dosa, pesarattu (green moong crepe), besan cheela, oats upma, foxtail millet pongal, and other low-GI options that produce significantly lower glucose responses than traditional white rice or wheat preparations.",
+        a: "Yes, the diabetes breakfast rotation includes ragi dosa, pesarattu (green moong crepe), besan cheela, oats upma, foxtail millet pongal, and other low-GI options that produce significantly lower glucose responses than traditional white rice or wheat preparations.",
       },
     ],
   },
@@ -94,23 +94,23 @@ const FAQS = [
     items: [
       {
         q: "Should I avoid goitrogenic foods completely with hypothyroidism?",
-        a: "No — cooking deactivates most goitrogenic compounds by 30–90%. You can eat broccoli, cauliflower, and cabbage freely as long as they're cooked. Avoid consuming large quantities of raw goitrogenic foods daily (like raw kale juices). The MealCoreAI thyroid plan includes these vegetables in cooked form.",
+        a: "No, cooking deactivates most goitrogenic compounds by 30–90%. You can eat broccoli, cauliflower, and cabbage freely as long as they're cooked. Avoid consuming large quantities of raw goitrogenic foods daily (like raw kale juices). The MealCoreAI thyroid plan includes these vegetables in cooked form.",
       },
       {
         q: "How does MealCoreAI help with thyroid-related weight gain?",
-        a: "The thyroid plan addresses the root cause — it maximises selenium (for T4 to T3 conversion), provides adequate iodine through iodised salt and seafood, and structures meals with protein at every meal to boost the thermic effect of food and maintain metabolic rate despite hypothyroidism.",
+        a: "The thyroid plan addresses the root cause: it maximises selenium (for T4 to T3 conversion), provides adequate iodine through iodised salt and seafood, and structures meals with protein at every meal to boost the thermic effect of food and maintain metabolic rate despite hypothyroidism.",
       },
       {
         q: "Is the pregnancy plan safe for all trimesters?",
-        a: "Yes — MealCoreAI generates trimester-specific pregnancy plans. The first trimester emphasises folate-rich foods and nausea-friendly preparations. The second trimester focuses on iron and calcium. The third trimester emphasises DHA, protein, and preparing nutritionally for labour and breastfeeding.",
+        a: "Yes, MealCoreAI generates trimester-specific pregnancy plans. The first trimester emphasises folate-rich foods and nausea-friendly preparations. The second trimester focuses on iron and calcium. The third trimester emphasises DHA, protein, and preparing nutritionally for labour and breastfeeding.",
       },
       {
         q: "Does the pregnancy plan avoid unsafe foods automatically?",
-        a: "Yes — the pregnancy plan automatically excludes high-mercury fish, unpasteurised dairy, raw sprouts, excess vitamin A sources, and other pregnancy-unsafe foods. It also flags potential food safety considerations for each trimester.",
+        a: "Yes, the pregnancy plan automatically excludes high-mercury fish, unpasteurised dairy, raw sprouts, excess vitamin A sources, and other pregnancy-unsafe foods. It also flags potential food safety considerations for each trimester.",
       },
       {
         q: "Can I use the pregnancy plan if I have gestational diabetes?",
-        a: "Yes — select both 'Pregnancy' and 'Gestational Diabetes' in your health profile. MealCoreAI will generate a plan that addresses both conditions simultaneously — blood sugar management within the nutritional requirements of pregnancy.",
+        a: "Yes, select both 'Pregnancy' and 'Gestational Diabetes' in your health profile. MealCoreAI will generate a plan that addresses both conditions simultaneously: blood sugar management within the nutritional requirements of pregnancy.",
       },
     ],
   },
@@ -124,7 +124,7 @@ const FAQS = [
       },
       {
         q: "Does the kids plan address fussy eating?",
-        a: "Yes — the kids plan prioritises foods that are nutritionally dense but accepted by most children, uses familiar formats, and suggests hidden-nutrition approaches (like spinach puree in paratha dough). It also provides alternative options within the same nutritional category for foods a child refuses.",
+        a: "Yes, the kids plan prioritises foods that are nutritionally dense but accepted by most children, uses familiar formats, and suggests hidden-nutrition approaches (like spinach puree in paratha dough). It also provides alternative options within the same nutritional category for foods a child refuses.",
       },
       {
         q: "What foods does MealCoreAI recommend for reducing LDL cholesterol?",
@@ -132,7 +132,7 @@ const FAQS = [
       },
       {
         q: "Can I follow the cholesterol plan if I'm already on statins?",
-        a: "Yes — a heart-healthy diet complements statin therapy and may allow dose reduction over time. Specifically, a diet high in soluble fibre (from oats and legumes) has additive LDL-lowering effects beyond statins. Discuss any medication changes with your cardiologist.",
+        a: "Yes, a heart-healthy diet complements statin therapy and may allow dose reduction over time. Specifically, a diet high in soluble fibre (from oats and legumes) has additive LDL-lowering effects beyond statins. Discuss any medication changes with your cardiologist.",
       },
     ],
   },
@@ -158,7 +158,7 @@ const FAQS = [
       },
       {
         q: "Do you store my payment information?",
-        a: "No — payments are processed through Razorpay (PCI-DSS Level 1 certified). MealCoreAI never stores your credit or debit card details on our servers.",
+        a: "No, payments are processed through Razorpay (PCI-DSS Level 1 certified). MealCoreAI never stores your credit or debit card details on our servers.",
       },
     ],
   },
@@ -202,7 +202,7 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-gray-600 text-lg max-w-xl mx-auto">
-              Everything you need to know about MealCoreAI — from how it works to your privacy.
+              Everything you need to know about MealCoreAI, from how it works to your privacy.
             </p>
           </div>
         </section>

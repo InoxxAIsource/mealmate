@@ -4,13 +4,13 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = {
-  title: "About — AI Meal Planning for Indian Health",
+  title: "About: AI Meal Planning for Indian Health",
   description:
-    "MealCoreAI was built to make personalised, condition-specific nutrition accessible to every Indian family — not just those who can afford a nutritionist.",
+    "MealCoreAI was built to make personalised, condition-specific nutrition accessible to every Indian family, not just those who can afford a nutritionist.",
 };
 
 const VALUES = [
-  { emoji: "🇮🇳", title: "Indian-first", desc: "Built from the ground up for Indian food culture — not adapted from Western nutrition apps." },
+  { emoji: "🇮🇳", title: "Indian-first", desc: "Built from the ground up for Indian food culture, not adapted from Western nutrition apps." },
   { emoji: "🩺", title: "Condition-specific", desc: "Every plan is tailored to your health condition, not generic 'healthy eating' advice." },
   { emoji: "🧠", title: "Evidence-based", desc: "Our nutrition logic is grounded in peer-reviewed research and clinical nutrition guidelines." },
   { emoji: "🔒", title: "Privacy first", desc: "Your health data is yours. We never sell it or share it with third parties." },
@@ -56,11 +56,11 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed mb-4">
             MealCoreAI was founded in 2024 after our co-founder Arjun was diagnosed with
             insulin resistance and PCOS-adjacent symptoms. He visited a nutritionist who gave
-            him a printed meal plan — generic, expensive, and with no consideration for his
+            him a printed meal plan: generic, expensive, and with no consideration for his
             South Indian food background. He followed it for two weeks before giving up.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
-            The problem wasn&apos;t nutrition knowledge — it was personalisation. What works for
+            The problem wasn&apos;t nutrition knowledge. It was personalisation. What works for
             a Punjabi family doesn&apos;t work for a Tamil one. What a diabetic woman in
             her 60s needs is different from what a 28-year-old with PCOS needs. Generic
             advice fails because nutrition is deeply personal.
@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-r from-orange-500 to-orange-400 py-14 px-4 text-center text-white">
         <h2 className="text-2xl font-bold mb-3">Join us in making nutrition personal</h2>
         <p className="text-orange-100 mb-6">
-          Try MealCoreAI free — no credit card required.
+          Try MealCoreAI free, no credit card required.
         </p>
         <a
           href="https://mealcoreai.com/app/sign-up"
