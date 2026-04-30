@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://mealcoreai.com"),
   title: {
-    default: "MealCoreAI: AI Meal Planning for PCOS, Diabetes, Thyroid, Pregnancy & Kids",
+    default: "MealCoreAI: AI Indian Meal Plans for PCOS, Diabetes & Thyroid",
     template: "%s | MealCoreAI",
   },
   description:

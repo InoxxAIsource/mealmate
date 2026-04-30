@@ -456,7 +456,7 @@ export default function HomePage() {
           <div className="mt-16 max-w-2xl mx-auto" role="img" aria-label="MealCoreAI app showing a personalised PCOS meal plan with Indian meals">
             <div className="bg-white rounded-3xl shadow-2xl shadow-orange-100 border border-gray-100 overflow-hidden">
               <div className="bg-gradient-to-r from-orange-500 to-rose-500 px-6 py-4 flex items-center gap-3">
-                <img src="/logo.svg" alt="" className="h-7 w-7" aria-hidden="true" />
+                <img src="/logo.svg" alt="MealCoreAI" className="h-7 w-7" />
                 <div>
                   <div className="text-white font-bold text-sm">MealCoreAI</div>
                   <div className="text-orange-100 text-xs">Today's plan: PCOS · South Indian</div>
