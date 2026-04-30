@@ -6,7 +6,7 @@ const features = [
   {
     icon: ChefHat,
     title: "Aaj kya banau?",
-    desc: "Get a fresh week's menu every Sunday — no more daily decision fatigue.",
+    desc: "Get a fresh week's menu every Sunday. No more daily decision fatigue.",
   },
   {
     icon: CalendarDays,
@@ -21,7 +21,7 @@ const features = [
   {
     icon: Sparkles,
     title: "Smart, not generic",
-    desc: "Tailored to your region, diet, and family's health needs — not copy-paste meals.",
+    desc: "Tailored to your region, diet, and family's health needs. Not copy-paste meals.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function Landing() {
           </h1>
 
           <p className="text-muted-foreground text-base leading-relaxed max-w-[320px]">
-            MealCoreAI plans your entire week's Indian meals in seconds — breakfast, lunch, snack, dinner — for your family, your taste, your kitchen.
+            MealCoreAI plans your entire week's Indian meals in seconds: breakfast, lunch, snack, and dinner, for your family, your taste, your kitchen.
           </p>
 
           <Link href="/sign-up" className="block mt-7">
