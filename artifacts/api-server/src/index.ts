@@ -2,6 +2,7 @@ import app from "./app";
 import { logger } from "./lib/logger";
 import { startScheduler } from "./scheduler";
 import { pool } from "@workspace/db";
+import { newDishes } from "./seeds/new-dishes";
 
 async function runMigrations() {
   try {
@@ -19,6 +20,7 @@ async function runMigrations() {
       ALTER TABLE profiles ADD COLUMN IF NOT EXISTS plan_invalidated_at TIMESTAMP;
       ALTER TABLE dishes ADD COLUMN IF NOT EXISTS vrat_safe BOOLEAN NOT NULL DEFAULT false;
       ALTER TABLE dishes ADD COLUMN IF NOT EXISTS benefits_vrat TEXT;
+      ALTER TABLE dishes ADD COLUMN IF NOT EXISTS hindi_name TEXT;
     `);
 
     // Deduplicate active plans: for each profile with multiple active plans,
@@ -413,6 +415,39 @@ async function runMigrations() {
         ]
       );
     }
+
+    // Seed expanded dish database (300+ dishes) — idempotent, skips existing names
+    for (const d of newDishes) {
+      await pool.query(
+        `INSERT INTO dishes (
+          name, hindi_name, region, meal_type, diet_type,
+          cal, protein, carbs, fat, fibre, calcium, iron, sodium, sugar,
+          prep_time_min,
+          pcos_safe, diabetes_safe, thyroid_safe, pregnancy_safe,
+          kids_safe, gym_safe, cholesterol_safe, vrat_safe,
+          low_gi, high_calcium, high_fibre, deep_fried, pregnancy_exclude,
+          ingredients, photo_url, gym_categories,
+          benefits_pcos, benefits_diabetes, benefits_thyroid,
+          benefits_pregnancy, benefits_kids, benefits_gym, benefits_cholesterol
+        ) SELECT
+          $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,
+          $16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,
+          $29,'','[]'::jsonb,'','','','','','',''
+        WHERE NOT EXISTS (SELECT 1 FROM dishes WHERE name = $1)`,
+        [
+          d.name, d.hindiName,
+          JSON.stringify(d.region), JSON.stringify(d.mealType), d.dietType,
+          d.cal, d.protein, d.carbs, d.fat, d.fibre,
+          d.calcium, d.iron, d.sodium, d.sugar,
+          d.prepTimeMin,
+          d.pcosSafe, d.diabetesSafe, d.thyroidSafe, d.pregnancySafe,
+          d.kidsSafe, d.gymSafe, d.cholesterolSafe, d.vratSafe,
+          d.lowGi, d.highCalcium, d.highFibre, d.deepFried, d.pregnancyExclude,
+          JSON.stringify(d.ingredients),
+        ]
+      );
+    }
+    logger.info({ count: newDishes.length }, "Dish seed completed");
 
     logger.info("Startup migrations completed");
   } catch (err) {

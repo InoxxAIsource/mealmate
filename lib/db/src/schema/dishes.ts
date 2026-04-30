@@ -13,6 +13,7 @@ import { z } from "zod/v4";
 export const dishesTable = pgTable("dishes", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
+  hindiName: text("hindi_name"),
   photoUrl: text("photo_url").notNull(),
   region: jsonb("region").$type<string[]>().notNull(),
   dietType: text("diet_type").notNull(),
