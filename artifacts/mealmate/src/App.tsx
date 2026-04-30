@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { queryClient } from "@/lib/queryClient";
+import { LanguageProvider } from "@/hooks/use-language";
 
 import Landing from "./pages/landing";
 import OnboardingTrack from "./pages/onboarding/track";
@@ -244,13 +245,15 @@ function ClerkProviderWithRoutes() {
 
 function App() {
   return (
-    <WouterRouter base={basePath}>
-      <TooltipProvider>
-        <ClerkProviderWithRoutes />
-        <Toaster />
-        <SonnerToaster position="top-center" richColors />
-      </TooltipProvider>
-    </WouterRouter>
+    <LanguageProvider>
+      <WouterRouter base={basePath}>
+        <TooltipProvider>
+          <ClerkProviderWithRoutes />
+          <Toaster />
+          <SonnerToaster position="top-center" richColors />
+        </TooltipProvider>
+      </WouterRouter>
+    </LanguageProvider>
   );
 }
 

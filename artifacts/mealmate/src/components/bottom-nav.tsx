@@ -2,35 +2,40 @@ import { Link, useLocation } from "wouter";
 import { Home, Calendar, ShoppingCart, User, Sandwich, Dumbbell } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGetMyProfile } from "@workspace/api-client-react";
-
-const BASE_ITEMS = [
-  { name: "Home", href: "/dashboard", icon: Home },
-  { name: "Week", href: "/dashboard/week", icon: Calendar },
-  { name: "Grocery", href: "/dashboard/grocery", icon: ShoppingCart },
-  { name: "Profile", href: "/dashboard/profile", icon: User },
-];
-
-const KIDS_ITEMS = [
-  { name: "Home", href: "/dashboard", icon: Home },
-  { name: "Week", href: "/dashboard/week", icon: Calendar },
-  { name: "Lunch Box", href: "/dashboard/lunchbox", icon: Sandwich },
-  { name: "Grocery", href: "/dashboard/grocery", icon: ShoppingCart },
-  { name: "Profile", href: "/dashboard/profile", icon: User },
-];
-
-const FITNESS_ITEMS = [
-  { name: "Home", href: "/dashboard", icon: Home },
-  { name: "Week", href: "/dashboard/week", icon: Calendar },
-  { name: "Fitness", href: "/dashboard/fitness", icon: Dumbbell },
-  { name: "Grocery", href: "/dashboard/grocery", icon: ShoppingCart },
-  { name: "Profile", href: "/dashboard/profile", icon: User },
-];
+import { useLanguage } from "@/hooks/use-language";
+import { t } from "@/lib/i18n";
 
 export function BottomNav() {
   const [location] = useLocation();
   const { data: profile } = useGetMyProfile();
+  const { lang } = useLanguage();
+  const tx = t[lang];
 
   const track = profile?.primaryTrack;
+
+  const BASE_ITEMS = [
+    { name: tx.nav.home,    href: "/dashboard",          icon: Home },
+    { name: tx.nav.week,    href: "/dashboard/week",     icon: Calendar },
+    { name: tx.nav.grocery, href: "/dashboard/grocery",  icon: ShoppingCart },
+    { name: tx.nav.profile, href: "/dashboard/profile",  icon: User },
+  ];
+
+  const KIDS_ITEMS = [
+    { name: tx.nav.home,     href: "/dashboard",          icon: Home },
+    { name: tx.nav.week,     href: "/dashboard/week",     icon: Calendar },
+    { name: tx.nav.lunchBox, href: "/dashboard/lunchbox", icon: Sandwich },
+    { name: tx.nav.grocery,  href: "/dashboard/grocery",  icon: ShoppingCart },
+    { name: tx.nav.profile,  href: "/dashboard/profile",  icon: User },
+  ];
+
+  const FITNESS_ITEMS = [
+    { name: tx.nav.home,    href: "/dashboard",          icon: Home },
+    { name: tx.nav.week,    href: "/dashboard/week",     icon: Calendar },
+    { name: tx.nav.fitness, href: "/dashboard/fitness",  icon: Dumbbell },
+    { name: tx.nav.grocery, href: "/dashboard/grocery",  icon: ShoppingCart },
+    { name: tx.nav.profile, href: "/dashboard/profile",  icon: User },
+  ];
+
   const navItems = track === "kids" ? KIDS_ITEMS : track === "fitness" ? FITNESS_ITEMS : BASE_ITEMS;
 
   return (
@@ -49,7 +54,7 @@ export function BottomNav() {
                 "flex flex-col items-center justify-center flex-1 h-full space-y-1 transition-colors",
                 isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
               )}
-              data-testid={`nav-${item.name.toLowerCase().replace(" ", "-")}`}
+              data-testid={`nav-${item.href.split("/").pop()}`}
             >
               <Icon className="w-5 h-5" />
               <span className="text-[9px] font-medium leading-none">{item.name}</span>

@@ -14,18 +14,21 @@ import { DishImage } from "@/components/dish-image";
 import { NotificationPrompt } from "@/components/notification-prompt";
 import { StalePlanBanner } from "@/components/stale-plan-banner";
 import { WaterTracker } from "@/components/water-tracker";
+import { LanguageToggle } from "@/components/language-toggle";
 import { Link } from "wouter";
 import { Clock, Flame, ChevronRight, ArrowLeftRight, Loader2 } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
+import { t } from "@/lib/i18n";
 
 export default function DashboardHome() {
   const queryClient = useQueryClient();
   const { data: summary, isLoading: summaryLoading } = useGetDashboardSummary();
-  // Include error so we never show stale swap buttons when the plan has been deactivated
   const { data: planData, isLoading: planLoading, error: planError } = useGetActiveMealPlan();
-  // Treat a plan as absent if the query errored (e.g. 404 after profile change deactivated it)
   const plan = planError ? undefined : planData;
   const swapMeal = useSwapMeal();
   const [swapping, setSwapping] = useState<string | null>(null);
+  const { lang } = useLanguage();
+  const tx = t[lang];
 
   if (summaryLoading || planLoading || !summary) {
     return (
@@ -35,15 +38,13 @@ export default function DashboardHome() {
     );
   }
 
-  // Today's index: Mon=0, Tue=1, ..., Sun=6 — matches the plan's dayIndex scheme
   const todayDayIndex = (new Date().getDay() + 6) % 7;
-  // Find today's day in the plan; fall back to day 0 if plan doesn't cover today yet
   const today = plan?.days?.find((d) => d.dayIndex === todayDayIndex) ?? plan?.days?.[0];
   const meals = [
-    { type: "breakfast" as SwapMealBodyMealType, label: "Breakfast", dish: today?.breakfast ?? null },
-    { type: "lunch"     as SwapMealBodyMealType, label: "Lunch",     dish: today?.lunch     ?? null },
-    { type: "snack"     as SwapMealBodyMealType, label: "Snack",     dish: today?.snack     ?? null },
-    { type: "dinner"    as SwapMealBodyMealType, label: "Dinner",    dish: today?.dinner    ?? null },
+    { type: "breakfast" as SwapMealBodyMealType, label: tx.home.breakfast, dish: today?.breakfast ?? null },
+    { type: "lunch"     as SwapMealBodyMealType, label: tx.home.lunch,     dish: today?.lunch     ?? null },
+    { type: "snack"     as SwapMealBodyMealType, label: tx.home.snack,     dish: today?.snack     ?? null },
+    { type: "dinner"    as SwapMealBodyMealType, label: tx.home.dinner,    dish: today?.dinner    ?? null },
   ];
 
   const handleSwap = async (mealType: SwapMealBodyMealType, currentDishId: number) => {
@@ -58,12 +59,14 @@ export default function DashboardHome() {
     } catch (err: any) {
       const status = err?.status ?? err?.response?.status;
       if (status === 404) {
-        // Plan was deactivated (e.g. after a profile change) — clear the stale cache
         queryClient.removeQueries({ queryKey: getGetActiveMealPlanQueryKey() });
         await queryClient.invalidateQueries({ queryKey: getGetDashboardSummaryQueryKey() });
-        toast.error("Your plan was reset after a profile change. Go to the Week tab to generate a new one.");
+        toast.error(lang === "hi"
+          ? "प्रोफ़ाइल बदलने के बाद आपकी योजना रीसेट हो गई। नई योजना बनाने के लिए सप्ताह टैब पर जाएं।"
+          : "Your plan was reset after a profile change. Go to the Week tab to generate a new one."
+        );
       } else {
-        toast.error("Couldn't swap meal. Please try again.");
+        toast.error(lang === "hi" ? "भोजन नहीं बदल सका। कृपया दोबारा कोशिश करें।" : "Couldn't swap meal. Please try again.");
       }
     } finally {
       setSwapping(null);
@@ -74,17 +77,20 @@ export default function DashboardHome() {
     <div className="min-h-[100dvh] bg-background max-w-md mx-auto pb-20">
       <div className="p-6 space-y-6">
 
-        {/* Greeting */}
-        <div className="space-y-1">
-          <h1 className="text-2xl font-bold text-foreground">
-            Hi, {summary.profile?.name?.split(" ")[0] || "there"} 👋
-          </h1>
-          <p className="text-muted-foreground text-sm">
-            {new Date().toLocaleDateString("en-IN", { weekday: "long", month: "short", day: "numeric" })}
-          </p>
+        {/* Header: Greeting + Language Toggle */}
+        <div className="flex items-start justify-between">
+          <div className="space-y-1">
+            <h1 className="text-2xl font-bold text-foreground">
+              {tx.home.greeting(summary.profile?.name?.split(" ")[0] || (lang === "hi" ? "आप" : "there"))}
+            </h1>
+            <p className="text-muted-foreground text-sm">
+              {new Date().toLocaleDateString(lang === "hi" ? "hi-IN" : "en-IN", { weekday: "long", month: "short", day: "numeric" })}
+            </p>
+          </div>
+          <LanguageToggle />
         </div>
 
-        {/* Stale plan banner — shown when region/track/diet changed */}
+        {/* Stale plan banner */}
         {(plan as any)?.planIsStale && (
           <StalePlanBanner
             region={summary.profile?.region}
@@ -97,7 +103,7 @@ export default function DashboardHome() {
         <div className="bg-card border border-border shadow-sm rounded-2xl p-4 space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Daily Calories</p>
+              <p className="text-sm font-medium text-muted-foreground">{tx.home.dailyCalories}</p>
               <p className="text-2xl font-bold text-primary">
                 {Math.round(summary.totalCalories)}{" "}
                 <span className="text-sm font-normal text-muted-foreground">/ {summary.targetCalories} kcal</span>
@@ -128,8 +134,8 @@ export default function DashboardHome() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">🎒</span>
                 <div>
-                  <p className="text-white font-bold text-sm">Kids Lunch Box Ideas</p>
-                  <p className="text-yellow-100 text-xs">10+ tiffin recipes your child will love</p>
+                  <p className="text-white font-bold text-sm">{tx.home.kidsPromoTitle}</p>
+                  <p className="text-yellow-100 text-xs">{tx.home.kidsPromoSub}</p>
                 </div>
               </div>
               <ChevronRight className="w-5 h-5 text-white shrink-0" />
@@ -144,8 +150,8 @@ export default function DashboardHome() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">💪</span>
                 <div>
-                  <p className="text-white font-bold text-sm">Your Gym Nutrition Hub</p>
-                  <p className="text-blue-200 text-xs">Pre/Post workout · Lean · Keto · Gaining</p>
+                  <p className="text-white font-bold text-sm">{tx.home.fitnessPromoTitle}</p>
+                  <p className="text-blue-200 text-xs">{tx.home.fitnessPromoSub}</p>
                 </div>
               </div>
               <ChevronRight className="w-5 h-5 text-white shrink-0" />
@@ -156,9 +162,9 @@ export default function DashboardHome() {
         {/* Today's Plan */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-foreground">Today's Plan</h2>
+            <h2 className="text-xl font-bold text-foreground">{tx.home.todaysPlan}</h2>
             <Link href="/dashboard/week" className="text-xs text-primary font-semibold">
-              Full week →
+              {tx.home.fullWeek}
             </Link>
           </div>
 
@@ -171,7 +177,6 @@ export default function DashboardHome() {
                     swapping === meal.type ? "opacity-60" : "opacity-100"
                   }`}
                 >
-                  {/* Dish image — taps to recipe */}
                   <Link
                     href={`/dashboard/recipe/${meal.dish.id}`}
                     className="w-20 h-20 shrink-0 relative"
@@ -190,7 +195,6 @@ export default function DashboardHome() {
                     )}
                   </Link>
 
-                  {/* Dish info — taps to recipe */}
                   <Link
                     href={`/dashboard/recipe/${meal.dish.id}`}
                     className="flex-1 min-w-0 py-2"
@@ -203,7 +207,6 @@ export default function DashboardHome() {
                     </div>
                   </Link>
 
-                  {/* Swap button */}
                   <button
                     onClick={() => handleSwap(meal.type, meal.dish!.id)}
                     disabled={!!swapping}
@@ -215,7 +218,7 @@ export default function DashboardHome() {
                     ) : (
                       <ArrowLeftRight className="w-5 h-5" />
                     )}
-                    <span className="text-[9px] font-semibold">Swap</span>
+                    <span className="text-[9px] font-semibold">{tx.home.swap}</span>
                   </button>
                 </div>
               ) : null
@@ -225,9 +228,9 @@ export default function DashboardHome() {
           {meals.every((m) => !m.dish) && (
             <div className="text-center py-8 text-muted-foreground text-sm">
               <p className="text-4xl mb-3">🍽️</p>
-              <p>No plan yet — go to Week tab to generate your plan.</p>
+              <p>{tx.home.noPlan}</p>
               <Link href="/dashboard/week" className="mt-3 inline-block text-primary font-semibold text-sm">
-                Generate Plan →
+                {tx.home.generatePlan}
               </Link>
             </div>
           )}
