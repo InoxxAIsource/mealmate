@@ -4,10 +4,12 @@ import {
   profilesTable,
   mealPlansTable,
   dishesTable,
+  waterLogsTable,
 } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import { webpush } from "./routes/notifications";
 import { logger } from "./lib/logger";
+import { getTodayIST, getWaterGoal } from "./routes/water-log";
 
 interface PlanDay {
   dayIndex: number;
@@ -24,6 +26,9 @@ const MEAL_REMINDERS = [
   { hour: 7,  minute: 30, mealKey: "lunchId"     as const, label: "Lunch",      emoji: "🍱" },
   { hour: 14, minute: 0,  mealKey: "dinnerId"    as const, label: "Dinner",     emoji: "🌙" },
 ];
+
+// Water reminder at 2:00 PM IST = 08:30 UTC
+const WATER_REMINDER_UTC = { hour: 8, minute: 30 };
 
 let lastSentMinute = -1;
 
@@ -102,6 +107,55 @@ async function sendMealReminders(mealKey: keyof PlanDay, label: string, emoji: s
   }
 }
 
+async function sendWaterReminder() {
+  try {
+    const today = getTodayIST();
+    const subs = await db
+      .select({ sub: pushSubscriptionsTable, profile: profilesTable })
+      .from(pushSubscriptionsTable)
+      .innerJoin(profilesTable, eq(pushSubscriptionsTable.profileId, profilesTable.id));
+
+    if (subs.length === 0) return;
+
+    for (const { sub, profile } of subs) {
+      const goal = getWaterGoal(profile.primaryTrack);
+
+      const logs = await db
+        .select()
+        .from(waterLogsTable)
+        .where(and(eq(waterLogsTable.profileId, profile.id), eq(waterLogsTable.date, today)))
+        .limit(1);
+
+      const glasses = logs[0]?.glasses ?? 0;
+      if (glasses >= 4) continue;
+
+      const payload = JSON.stringify({
+        title: "💧 Don't forget to drink water!",
+        body: `You've had only ${glasses} glass${glasses === 1 ? "" : "es"} today — your goal is ${goal}. Drink up!`,
+        icon: "/logo.svg",
+        badge: "/logo.svg",
+        url: "/dashboard",
+        tag: "water-reminder",
+      });
+
+      try {
+        await webpush.sendNotification(
+          { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },
+          payload
+        );
+      } catch (err: any) {
+        if (err.statusCode === 410 || err.statusCode === 404) {
+          await db.delete(pushSubscriptionsTable).where(eq(pushSubscriptionsTable.id, sub.id));
+        }
+      }
+    }
+
+    logger.info({ count: subs.length }, "Water reminders sent");
+  } catch (err) {
+    logger.error({ err }, "Failed to send water reminders");
+  }
+}
+
 export function startScheduler() {
   logger.info("Meal reminder scheduler started");
 
@@ -120,6 +174,12 @@ export function startScheduler() {
         lastSentMinute = currentMinute;
         await sendMealReminders(reminder.mealKey, reminder.label, reminder.emoji);
       }
+    }
+
+    const waterMinute = WATER_REMINDER_UTC.hour * 60 + WATER_REMINDER_UTC.minute;
+    if (currentMinute === waterMinute && lastSentMinute !== currentMinute) {
+      lastSentMinute = currentMinute;
+      await sendWaterReminder();
     }
   }, 30_000); // check every 30 seconds
 }

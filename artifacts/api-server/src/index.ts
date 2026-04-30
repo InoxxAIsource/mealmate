@@ -21,6 +21,15 @@ async function runMigrations() {
       ALTER TABLE dishes ADD COLUMN IF NOT EXISTS vrat_safe BOOLEAN NOT NULL DEFAULT false;
       ALTER TABLE dishes ADD COLUMN IF NOT EXISTS benefits_vrat TEXT;
       ALTER TABLE dishes ADD COLUMN IF NOT EXISTS hindi_name TEXT;
+      CREATE TABLE IF NOT EXISTS water_logs (
+        id SERIAL PRIMARY KEY,
+        profile_id INTEGER NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+        date TEXT NOT NULL,
+        glasses INTEGER NOT NULL DEFAULT 0,
+        updated_at TIMESTAMP DEFAULT NOW() NOT NULL,
+        UNIQUE(profile_id, date)
+      );
+      CREATE INDEX IF NOT EXISTS water_logs_profile_id_idx ON water_logs(profile_id);
     `);
 
     // Deduplicate active plans: for each profile with multiple active plans,

@@ -13,6 +13,7 @@ import { BottomNav } from "@/components/bottom-nav";
 import { DishImage } from "@/components/dish-image";
 import { NotificationPrompt } from "@/components/notification-prompt";
 import { StalePlanBanner } from "@/components/stale-plan-banner";
+import { WaterTracker } from "@/components/water-tracker";
 import { Link } from "wouter";
 import { Clock, Flame, ChevronRight, ArrowLeftRight, Loader2 } from "lucide-react";
 
@@ -231,6 +232,10 @@ export default function DashboardHome() {
             </div>
           )}
         </div>
+
+        {/* Water Intake Tracker */}
+        <WaterTracker primaryTrack={summary.profile?.primaryTrack} />
+
       </div>
 
       <BottomNav />

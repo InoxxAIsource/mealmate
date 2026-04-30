@@ -6,6 +6,7 @@ import mealPlansRouter from "./meal-plans";
 import groceryRouter from "./grocery";
 import notificationsRouter from "./notifications";
 import chatRouter from "./chat";
+import waterLogRouter from "./water-log";
 
 const router: IRouter = Router();
 
@@ -16,5 +17,6 @@ router.use(mealPlansRouter);
 router.use(groceryRouter);
 router.use(notificationsRouter);
 router.use(chatRouter);
+router.use(waterLogRouter);
 
 export default router;
