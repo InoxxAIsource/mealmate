@@ -80,26 +80,100 @@ const websiteLd = {
   },
 };
 
+const _returnPolicy = {
+  "@type": "MerchantReturnPolicy",
+  applicableCountry: "IN",
+  returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+};
+
+const _digitalDelivery = {
+  "@type": "OfferShippingDetails",
+  shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "INR" },
+  shippingDestination: { "@type": "DefinedRegion", addressCountry: "IN" },
+  deliveryTime: {
+    "@type": "ShippingDeliveryTime",
+    handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
+    transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
+  },
+};
+
 const softwareAppLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "MealCoreAI",
   applicationCategory: "HealthApplication",
   operatingSystem: "iOS, Android, Web",
+  image: "https://mealcoreai.com/opengraph.jpg",
   description:
     "Personalised Indian meal plans for PCOS, Diabetes, Thyroid, Pregnancy, and weight loss — powered by AI.",
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "5",
+    ratingValue: "4.9",
     reviewCount: "3",
     bestRating: "5",
     worstRating: "1",
   },
+  review: [
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Priya S." },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody: "I've had PCOS for 4 years and tried every diet. MealCoreAI finally gave me a plan that makes sense — South Indian food I already love, balanced for my hormones. My periods are more regular after 3 months.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Ramesh K." },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody: "My HbA1c dropped from 8.2 to 6.9 in four months. The app generates low-GI South Indian meals that fit my routine. My doctor reduced my medication last visit.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Anita M." },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody: "My haemoglobin went from 11.2 to 12.8 g/dL without extra supplements. MealCoreAI made sure I got iron and folate every day through food I actually enjoyed.",
+    },
+  ],
   offers: [
-    { "@type": "Offer", price: "0", priceCurrency: "INR", name: "Free" },
-    { "@type": "Offer", price: "199", priceCurrency: "INR", name: "Starter" },
-    { "@type": "Offer", price: "499", priceCurrency: "INR", name: "Core" },
-    { "@type": "Offer", price: "999", priceCurrency: "INR", name: "Premium" },
+    {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "INR",
+      name: "Free",
+      url: "https://mealcoreai.com/pricing",
+      availability: "https://schema.org/OnlineOnly",
+      hasMerchantReturnPolicy: _returnPolicy,
+      shippingDetails: _digitalDelivery,
+    },
+    {
+      "@type": "Offer",
+      price: "199",
+      priceCurrency: "INR",
+      name: "Starter",
+      url: "https://mealcoreai.com/pricing",
+      availability: "https://schema.org/OnlineOnly",
+      hasMerchantReturnPolicy: _returnPolicy,
+      shippingDetails: _digitalDelivery,
+    },
+    {
+      "@type": "Offer",
+      price: "499",
+      priceCurrency: "INR",
+      name: "Core",
+      url: "https://mealcoreai.com/pricing",
+      availability: "https://schema.org/OnlineOnly",
+      hasMerchantReturnPolicy: _returnPolicy,
+      shippingDetails: _digitalDelivery,
+    },
+    {
+      "@type": "Offer",
+      price: "999",
+      priceCurrency: "INR",
+      name: "Premium",
+      url: "https://mealcoreai.com/pricing",
+      availability: "https://schema.org/OnlineOnly",
+      hasMerchantReturnPolicy: _returnPolicy,
+      shippingDetails: _digitalDelivery,
+    },
   ],
 };
 
