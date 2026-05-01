@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
     "Answers to all your questions about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
+  alternates: { canonical: "https://mealcoreai.com/faq" },
 };
 
 const FAQS = [

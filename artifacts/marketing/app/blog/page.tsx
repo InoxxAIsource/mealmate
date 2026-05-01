@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Health & Nutrition Blog for Indian Families",
   description:
     "Expert articles on PCOS, diabetes, thyroid, pregnancy nutrition, and kids' meals for Indian families. Evidence-based advice in Indian food context.",
+  alternates: { canonical: "https://mealcoreai.com/blog" },
   openGraph: {
     title: "Health & Nutrition Blog for Indian Families",
     images: [{ url: "https://mealcoreai.com/api/og?title=Nutrition+Blog&condition=general&accent=16a34a", width: 1200, height: 630 }],

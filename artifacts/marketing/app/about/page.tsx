@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "About: AI Meal Planning for Indian Health",
   description:
     "MealCoreAI was built to make personalised, condition-specific nutrition accessible to every Indian family, not just those who can afford a nutritionist.",
+  alternates: { canonical: "https://mealcoreai.com/about" },
 };
 
 const VALUES = [

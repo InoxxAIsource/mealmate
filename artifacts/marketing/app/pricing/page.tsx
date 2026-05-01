@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Pricing: Free, Starter, Core & Premium Plans",
   description:
     "MealCoreAI is free to start. Starter at ₹199/mo, Core at ₹499/mo with unlimited AI chat and swaps, Premium at ₹999/mo for the whole family. 7-day free trial on paid plans.",
+  alternates: { canonical: "https://mealcoreai.com/pricing" },
 };
 
 const priceSchema = {

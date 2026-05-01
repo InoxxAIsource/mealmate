@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "How It Works: AI Indian Meal Planning",
   description:
     "See how MealCoreAI builds your personalised Indian meal plan in 3 simple steps. AI-powered, condition-specific, and culturally authentic.",
+  alternates: { canonical: "https://mealcoreai.com/how-it-works" },
 };
 
 const STEPS = [

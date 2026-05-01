@@ -1,0 +1,73 @@
+URGENT: CRITICAL SEO BUG - Canonical Tag Misconfiguration
+Issue Title:
+Pages Being Excluded from Google Index Due to Incorrect Canonical Tags Pointing to Third-Party Domains
+Severity:
+🔴 CRITICAL - 95% of site pages (277/290) are not indexed
+Problem Description:
+Our site's pages contain malformed canonical tags that point to completely unrelated third-party domains instead of pointing to themselves. This is causing Google to treat our pages as duplicates and exclude them from the search index.
+Examples of the problem:
+
+https://mealcoreai.com/about → Google-selected canonical: https://www.marcustheatres.com/ ❌
+https://mealcoreai.com/meal-plans/pcos-7-day-meal-plan-gujarati → Google-selected canonical: https://www.vietinbank.vn/ca-nhan/ty-gia-khcn ❌
+
+Root Cause Analysis:
+Currently, pages are NOT specifying an explicit self-referential canonical tag in the <head> section. When no canonical is provided, Google auto-selects one (often incorrectly), leading to these bizarre cross-domain canonicals.
+
+Technical Requirements:
+1. Add Self-Referential Canonical Tags
+Add the following to the <head> section of EVERY page on the site:
+html<link rel="canonical" href="https://mealcoreai.com{CURRENT_PAGE_PATH}" />
+Implementation Details:
+
+Use the current page's HTTPS URL (not HTTP)
+Use absolute URLs, not relative paths
+Ensure consistency - always use https:// (not http://)
+Ensure no trailing slashes unless they're part of the page structure
+The canonical should be unique for each page
+
+Examples:
+html<!-- For https://mealcoreai.com/ -->
+<link rel="canonical" href="https://mealcoreai.com/" />
+
+<!-- For https://mealcoreai.com/about -->
+<link rel="canonical" href="https://mealcoreai.com/about" />
+
+<!-- For https://mealcoreai.com/blog/post-title -->
+<link rel="canonical" href="https://mealcoreai.com/blog/post-title" />
+
+<!-- For https://mealcoreai.com/meal-plans/pcos-7-day-meal-plan-gujarati -->
+<link rel="canonical" href="https://mealcoreai.com/meal-plans/pcos-7-day-meal-plan-gujarati" />
+2. Verify No Conflicting Meta Tags
+Ensure pages do NOT have:
+
+<meta name="robots" content="noindex" />
+Any other directives blocking indexing
+Conflicting canonical tags in HTTP headers
+
+3. Check for Dynamic/Template Issues
+If using a template system:
+
+Dynamic page generation: Ensure the canonical tag uses {current_url} or equivalent variable
+CMS/Framework: Many have automatic canonical tag plugins - verify they're enabled and configured correctly
+URL parameters: Ensure canonical tags don't include unnecessary query parameters (unless they're essential)
+
+4. Verify robots.txt
+Ensure robots.txt is not blocking these pages:
+User-agent: *
+Disallow: /private/
+# Other disallows...
+Allow: /  # Explicitly allow root
+5. HTTPS Enforcement
+Verify the site redirects HTTP to HTTPS:
+
+http://mealcoreai.com/ → https://mealcoreai.com/ ✅
+
+
+Testing Checklist:
+
+ Run a test page through the Google URL Inspector (https://search.google.com/search-console/inspect?resource_id=sc-domain%3Amealcoreai.com)
+ Verify canonical tag appears in the page's <head> when viewed in browser DevTools
+ Test with Google's Rich Results Tester: https://search.google.com/test/rich-results
+ Run Screaming Frog or similar crawler to verify all pages have correct canonicals
+ Check GSC reports after fixes are deployed
+
