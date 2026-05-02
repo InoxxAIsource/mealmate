@@ -162,7 +162,7 @@ const TRACKS = [
     name: "Weight Loss",
     outcome: "Lose 3–5 kg per month",
     benefit: "Calorie-controlled Indian meals with high satiety. You eat full portions of food you love, while consistently losing weight.",
-    href: "/meal-plans/weight-loss",
+    href: "/meal-plans/weight-loss-meal-plan-south-indian",
     color: "orange",
   },
   {

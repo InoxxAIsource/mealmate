@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women",
+  title: { absolute: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women" },
   description:
     "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start. Your plan is ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/thyroid-diet-plan" },
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
       "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start.",
     url: "https://mealcoreai.com/thyroid-diet-plan",
     images: [{ url: "/api/og?page=thyroid-diet-plan", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women",
+    description:
+      "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start.",
+    images: ["/api/og?page=thyroid-diet-plan"],
   },
 };
 
@@ -33,7 +40,7 @@ const medicalWebPageLd = {
     name: "Dr. Priya Sharma",
     jobTitle: "Nutritionist",
   },
-  dateModified: "2026-04-26",
+  dateModified: "2026-05-02",
   medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 

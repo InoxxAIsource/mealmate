@@ -436,7 +436,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ragi-benefits-diabetes",
     title: "Ragi and Diabetes: How This Grain Stabilises Blood Sugar",
-    metaTitle: "Ragi for Diabetes: Benefits, Recipes and Blood Sugar Control | MealCoreAI",
+    metaTitle: "Ragi for Diabetes: Benefits, Recipes & Blood Sugar | MealCoreAI",
     metaDescription: "Discover how ragi (finger millet) helps diabetics stabilise blood sugar. GI data, nutritional profile, and easy ragi recipes for Indian diabetics.",
     category: "diabetes",
     tags: ["diabetes", "ragi", "finger-millet", "blood-sugar"],
@@ -1327,7 +1327,7 @@ Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
   {
     slug: "vrat-diet-plan-india",
     title: "Hindu Vrat Diet Plan: What to Eat and Avoid on Fasting Days (2025 Guide)",
-    metaTitle: "Hindu Vrat Diet Plan India: Complete Fasting Food Guide 2025 | MealCoreAI",
+    metaTitle: "Hindu Vrat Diet Plan India: Complete Fasting Guide | MealCoreAI",
     metaDescription: "Complete guide to Hindu vrat diet, what to eat (sabudana, kuttu, makhana, sama rice) and strictly avoid during Navratri, Ekadashi, Monday, and other fasting days. Includes 7-day sample plan.",
     category: "nutrition",
     tags: ["vrat", "fasting", "navratri", "ekadashi", "sattvik", "indian-diet"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
+  title: { absolute: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart" },
   description:
     "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Evidence-based meals using millets, karela, and methi. Free to start. Ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/diabetes-meal-plan" },
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
       "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start. Ready in 90 seconds.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
     images: [{ url: "/api/og?page=diabetes-meal-plan", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
+    description:
+      "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start. Ready in 90 seconds.",
+    images: ["/api/og?page=diabetes-meal-plan"],
   },
 };
 
@@ -33,7 +40,7 @@ const medicalWebPageLd = {
     name: "Dr. Priya Sharma",
     jobTitle: "Nutritionist",
   },
-  dateModified: "2026-04-26",
+  dateModified: "2026-05-02",
   medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 

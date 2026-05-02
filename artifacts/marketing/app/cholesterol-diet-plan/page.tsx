@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days",
+  title: { absolute: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days" },
   description:
     "Heart-healthy Indian diet plan to lower LDL cholesterol with omega-3 rich meals and zero bland food. Free to start. Your personalised plan is ready in 90 seconds, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/cholesterol-diet-plan" },
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
       "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals, no bland food. Free to start.",
     url: "https://mealcoreai.com/cholesterol-diet-plan",
     images: [{ url: "/api/og?page=cholesterol-diet-plan", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days",
+    description:
+      "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals, no bland food. Free to start.",
+    images: ["/api/og?page=cholesterol-diet-plan"],
   },
 };
 
@@ -33,7 +40,7 @@ const medicalWebPageLd = {
     name: "Dr. Priya Sharma",
     jobTitle: "Nutritionist",
   },
-  dateModified: "2026-04-26",
+  dateModified: "2026-05-02",
   medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
 };
 
