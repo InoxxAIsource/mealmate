@@ -1,0 +1,188 @@
+Semrush Site Audit Report - mealcoreai.com
+Complete List of Errors & Fixes for Developer
+Based on the latest Semrush audit from May 2, 2026, here's the complete breakdown of all issues found on your site:
+
+🔴 ERRORS (Critical - 3 Issues)
+1. 342 Internal Links Are Broken
+Severity: Critical
+Affected Pages: 342 new issues
+Impact: Broken internal links hurt user experience and SEO crawlability
+Fix for Developer:
+
+Run a link checker tool to identify all broken internal links
+Update the href attributes to point to correct URLs
+Use a 301 redirect if the page has permanently moved
+Test all links after changes
+Consider using a CMS plugin like Broken Link Checker to automate detection
+
+
+2. 50 Pages Returned 4XX Status Code
+Severity: Critical
+Affected Pages: 50 pages (50 new issues)
+Impact: These pages return errors (404, 403, etc.), preventing indexing and user access
+Fix for Developer:
+
+Identify which HTTP status codes (404, 403, 410, etc.) are being returned
+For pages that should exist: fix the routing/server configuration
+For permanently deleted pages: set up 301 redirects to relevant pages
+For access-restricted pages: review permissions or remove from sitemap
+Update the sitemap.xml to exclude pages returning 4XX errors
+Monitor error logs in Google Search Console
+
+
+3. Robots.txt File Has Format Errors
+Severity: Critical
+Affected Items: 1 issue
+Impact: Malformed robots.txt can cause the entire file to be ignored by crawlers
+Fix for Developer:
+
+Validate robots.txt syntax using a robots.txt tester (Google Search Console or SEO tools)
+Ensure each line follows proper format: Disallow: /path-to-disallow
+Check for typos (e.g., "Disalow" instead of "Disallow")
+Verify User-agent declarations (should be "User-agent: *" for all bots)
+After fixes, re-submit to Google Search Console for immediate re-crawl
+
+
+⚠️ WARNINGS (5 Issues - Important)
+4. 80 Pages Have Low Text-HTML Ratio
+Affected Pages: 80
+Ideal Ratio: At least 25% text content vs HTML code
+Fix for Developer:
+
+Review affected pages and add more meaningful text content
+Remove unnecessary HTML bloat (inline styles, excessive divs)
+Reduce JavaScript/CSS that inflates the code
+Ensure paragraphs and headings have substantial content
+Minimum 300+ words recommended per page
+
+
+5. 8 Pages Have Too Much Text in Title Tags
+Affected Pages: 8
+Ideal Length: 50-60 characters (max 70)
+Fix for Developer:
+
+Reduce title tag length on these 8 pages
+Keep important keywords at the beginning
+Remove promotional fluff or redundant words
+Format: "Primary Keyword | Brand Name"
+Update in your page <title> HTML tags
+
+
+6. 6 Issues - Uncached JavaScript and CSS Files
+Affected Items: 6 resources
+Impact: Pages load slower due to repeated fetching of resources
+Fix for Developer:
+
+Add cache headers to JS and CSS files
+In .htaccess (Apache): Set Cache-Control headers with expiration
+In nginx: Configure proxy_cache_valid or add Cache-Control
+Use browser cache expiration: Cache-Control: public, max-age=31536000
+Consider using a CDN (CloudFlare, AWS CloudFront)
+Minify and bundle CSS/JS files to reduce file count
+
+
+7. 3 Pages Don't Have an H1 Heading
+Affected Pages: 3
+Impact: Missing H1 tag hurts SEO and accessibility
+Fix for Developer:
+
+Add exactly one <h1> tag per page
+H1 should contain the main topic/keyword
+Place it near the top of the page content
+Use semantic HTML: <h1>Your Main Heading</h1>
+Don't use H1 for logo or navigation
+
+
+8. 3 Pages Have Low Word Count
+Affected Pages: 3
+Minimum Recommended: 300 words per page
+Fix for Developer:
+
+Expand content on these 3 pages
+Add relevant, helpful information
+Improve paragraphs and sections
+Use subheadings (H2, H3) to structure content
+Avoid thin, shallow content that doesn't provide value
+
+
+📘 NOTICES (6 Issues - Informational)
+9. 204 Orphaned Pages Not in Sitemaps
+Affected Pages: 204
+Impact: Pages won't be efficiently discovered by search engines
+Fix for Developer:
+
+Add pages to sitemap.xml
+Use automated sitemap generator if managing many pages
+Submit updated sitemap.xml to Google Search Console
+Or remove orphaned pages if they're no longer needed
+
+
+10. 31 Pages Need More Than 3 Clicks to Be Reached
+Affected Pages: 31
+Best Practice: Pages should be reachable in 2-3 clicks from homepage
+Fix for Developer:
+
+Improve site navigation structure
+Add internal links from homepage or main pages
+Create breadcrumb navigation
+Flatten site hierarchy where possible
+Link to important pages from multiple places
+
+
+11. 12 Pages Require Content Optimization (AI Engines)
+Type: New AI Search check
+Affected Pages: 12
+Impact: Pages may not be properly optimized for AI chatbot indexing
+Fix for Developer:
+
+Ensure clear, well-structured content
+Use proper heading hierarchy
+Add schema markup for content type
+Optimize for E-E-A-T (Experience, Expertise, Authority, Trustworthiness)
+Make content scannable with bullet points and short paragraphs
+
+
+12. 6 Pages Have Only One Incoming Internal Link
+Affected Pages: 6
+Impact: Low internal link authority to these pages
+Fix for Developer:
+
+Add more internal links to these pages from relevant content
+Use descriptive anchor text
+Link from pages with higher authority/traffic
+Improve internal linking strategy overall
+Create topic clusters with interconnected links
+
+
+13. 4 URLs Have Permanent Redirects
+Affected Items: 4 URLs
+Impact: Extra redirect hops slow down page load
+Fix for Developer:
+
+Check if these redirects are necessary
+If pages have moved permanently, update all internal links to point directly to new location
+Remove redirect chains (A→B→C should be A→C directly)
+Consolidate any duplicate redirect rules
+Test redirect chains with a tool like Redirect Checker
+
+
+14. 1 Subdomain Doesn't Support HSTS
+Affected Item: 1 subdomain
+HSTS: HTTP Strict Transport Security header
+Fix for Developer:
+
+Add HSTS header to the subdomain
+In .htaccess: Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+In nginx: add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+Ensure the domain uses HTTPS
+Set max-age appropriately (31536000 seconds = 1 year)
+
+
+📊 Summary Stats
+
+Total Issues: 14 categories
+Critical Errors: 3
+Warnings: 5
+Notices/Informational: 6
+Pages Crawled: 170/200
+Overall Score: 170/200

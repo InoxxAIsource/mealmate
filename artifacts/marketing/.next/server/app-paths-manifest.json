@@ -1,5 +1,5 @@
 {
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/meal-plans/[slug]/page": "app/meal-plans/[slug]/page.js",
   "/page": "app/page.js"
 }

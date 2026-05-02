@@ -667,7 +667,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "thyroid-weight-gain-diet",
     title: "Thyroid and Weight Gain: Fix It With the Right Diet",
-    metaTitle: "Thyroid Weight Gain Diet: How to Lose Weight with Hypothyroidism | MealCoreAI",
+    metaTitle: "How to Lose Weight with Hypothyroidism: Indian Diet | MealCoreAI",
     metaDescription: "Struggling with thyroid-related weight gain? Learn exactly which foods help, which hurt, and how to structure your Indian diet for thyroid-friendly weight management.",
     category: "thyroid",
     tags: ["thyroid", "weight-gain", "hypothyroidism", "metabolism"],
@@ -1268,7 +1268,7 @@ Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
   {
     slug: "ai-meal-planning-personalised-nutrition",
     title: "How AI is Changing Personalised Nutrition Globally",
-    metaTitle: "AI Meal Planning: How AI is Transforming Personalised Nutrition | MealCoreAI",
+    metaTitle: "AI Meal Planning: Personalised Nutrition for Indians | MealCoreAI",
     metaDescription: "Discover how AI-powered meal planning is revolutionising personalised nutrition. From genetic-based meal plans to real-time glucose monitoring, the future of eating well.",
     category: "general",
     tags: ["ai", "personalised-nutrition", "technology", "meal-planning"],
@@ -1456,7 +1456,7 @@ A: Light exercise, walking, yoga, pranayama, is encouraged during vrat and align
   {
     slug: "type2-diabetes-reversal-indian-diet",
     title: "Can Type 2 Diabetes Be Reversed With an Indian Diet? Evidence-Based Guide (2025)",
-    metaTitle: "Type 2 Diabetes Reversal Indian Diet: Is It Possible? Complete Guide | MealCoreAI",
+    metaTitle: "Type 2 Diabetes Reversal Indian Diet: Is It Possible? | MealCoreAI",
     metaDescription: "Can type 2 diabetes be reversed with diet in India? A science-based answer with clinical evidence, Indian food examples, a 7-day reversal meal plan, and the role of low-GI Indian foods.",
     category: "diabetes",
     tags: ["diabetes", "reversal", "low-gi", "indian-diet", "blood-sugar", "hba1c"],
@@ -1558,7 +1558,7 @@ A: Yes, significantly. The Indian diabetes diet replaces staple refined carbohyd
   {
     slug: "pcos-fertility-diet-india",
     title: "Indian Diet to Improve Fertility With PCOS: A Science-Based Guide for Women Trying to Conceive",
-    metaTitle: "PCOS Fertility Diet India: Foods That Help You Conceive Naturally | MealCoreAI",
+    metaTitle: "PCOS Fertility Diet India: Foods That Help You Conceive | MealCoreAI",
     metaDescription: "Indian foods that improve fertility with PCOS, inositol-rich foods, anti-inflammatory meals, hormone-balancing spices, and a 7-day diet plan for women with PCOS trying to conceive naturally.",
     category: "pcos",
     tags: ["pcos", "fertility", "conceive", "hormone-balance", "inositol", "indian-diet"],
@@ -1669,7 +1669,7 @@ A: The strongest evidence supports myo-inositol (2–4g/day), d-chiro-inositol (
   {
     slug: "maharashtrian-diet-plan-health",
     title: "Maharashtrian Diet Plan for Weight Loss, Diabetes, and PCOS (Complete 2025 Guide)",
-    metaTitle: "Maharashtrian Diet Plan for Weight Loss & Diabetes: Healthy Marathi Food Guide | MealCoreAI",
+    metaTitle: "Maharashtrian Diet Plan for Weight Loss & Diabetes | MealCoreAI",
     metaDescription: "A complete Maharashtrian diet plan for weight loss, diabetes, and PCOS, featuring jowar bhakri, amti, misal, zunka, and other healthy traditional Marathi foods with a 7-day sample plan.",
     category: "nutrition",
     tags: ["maharashtrian", "marathi-diet", "jowar", "weight-loss", "regional-cuisine", "bhakri"],
@@ -1763,7 +1763,7 @@ A: Maharashtrian cuisine stands out for its reliance on jowar and bajra bhakri (
   {
     slug: "complete-guide-indian-diet-health-conditions",
     title: "Complete Guide to Indian Diet for Health Conditions: PCOS, Diabetes, Thyroid, Pregnancy, and More (2025)",
-    metaTitle: "Indian Diet for PCOS, Diabetes, Thyroid & Pregnancy: Complete Health Guide 2025 | MealCoreAI",
+    metaTitle: "Indian Diet for PCOS, Diabetes & Thyroid: Health Guide | MealCoreAI",
     metaDescription: "The authoritative guide to Indian dietary recommendations for major health conditions. PCOS, type 2 diabetes, hypothyroidism, pregnancy, high cholesterol, and vrat fasting. With evidence, comparisons, and free meal plans.",
     category: "nutrition",
     tags: ["pcos", "diabetes", "thyroid", "pregnancy", "cholesterol", "indian-diet", "health-conditions"],
@@ -1932,7 +1932,7 @@ A: Choose the track that matches your primary health concern. If you have multip
   {
     slug: "pcos-thyroid-combined-diet-india",
     title: "PCOS and Thyroid Together: What to Eat When You Have Both",
-    metaTitle: "PCOS and Thyroid Diet India: What to Eat When You Have Both | MealCoreAI",
+    metaTitle: "PCOS & Thyroid Combined Diet for Indian Women | MealCoreAI",
     metaDescription: "Up to 30% of women with PCOS also have thyroid dysfunction. Here is the combined diet approach for Indian women managing both conditions simultaneously.",
     category: "pcos",
     tags: ["PCOS", "thyroid", "hypothyroidism", "combined diet", "Indian women", "hormonal health"],
@@ -1994,7 +1994,7 @@ A: Choose the track that matches your primary health concern. If you have multip
   {
     slug: "low-gi-vs-high-gi-indian-foods-diabetes",
     title: "Low-GI vs High-GI Indian Foods: A Complete Comparison for Diabetics",
-    metaTitle: "Low-GI vs High-GI Indian Foods for Diabetes: Full List & Guide | MealCoreAI",
+    metaTitle: "Low-GI vs High-GI Indian Foods for Diabetes | MealCoreAI",
     metaDescription: "Complete comparison of low-GI and high-GI Indian foods for diabetes management. Includes GI values for common Indian grains, fruits, vegetables, and snacks with practical swaps.",
     category: "diabetes",
     tags: ["low-GI", "high-GI", "diabetes", "glycaemic index", "Indian foods", "blood sugar"],

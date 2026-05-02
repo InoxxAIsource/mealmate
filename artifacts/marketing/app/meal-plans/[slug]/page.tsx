@@ -102,6 +102,64 @@ export async function generateMetadata({
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+const CONDITION_MAIN_PAGES: Partial<Record<string, string>> = {
+  pcos: "/pcos-meal-plan",
+  diabetes: "/diabetes-meal-plan",
+  thyroid: "/thyroid-diet-plan",
+  cholesterol: "/cholesterol-diet-plan",
+  pregnancy: "/pregnancy-meal-plan",
+  kids: "/kids-meal-plan",
+};
+
+const SAFE_REGIONAL_SLUGS: Record<string, string[]> = {
+  pcos: [
+    "pcos-weekly-meal-plan-south-indian",
+    "pcos-weekly-meal-plan-north-indian",
+    "pcos-weekly-meal-plan-bengali",
+    "pcos-weekly-meal-plan-punjabi",
+    "pcos-weekly-meal-plan-gujarati",
+    "pcos-weekly-meal-plan-maharashtrian",
+  ],
+  diabetes: [
+    "diabetes-7-day-meal-plan-south-indian",
+    "diabetes-7-day-meal-plan-punjabi",
+    "diabetes-7-day-meal-plan-bengali",
+    "diabetes-weekly-meal-plan-north-indian",
+    "diabetes-weekly-meal-plan-south-indian",
+    "diabetes-weekly-meal-plan-gujarati",
+  ],
+  thyroid: [
+    "thyroid-weekly-meal-plan-south-indian",
+    "thyroid-weekly-meal-plan-north-indian",
+    "thyroid-weekly-meal-plan-gujarati",
+    "thyroid-diet-plan-south-indian",
+    "thyroid-diet-plan-north-indian",
+  ],
+  pregnancy: [
+    "pregnancy-weekly-meal-plan-south-indian",
+    "pregnancy-weekly-meal-plan-north-indian",
+    "pregnancy-weekly-meal-plan-gujarati",
+    "pregnancy-meal-plan-south-indian",
+    "pregnancy-meal-plan-north-indian",
+  ],
+  kids: [
+    "kids-weekly-meal-plan-south-indian",
+    "kids-weekly-meal-plan-north-indian",
+    "kids-weekly-meal-plan-gujarati",
+    "kids-meal-plan-south-indian",
+    "kids-meal-plan-north-indian",
+  ],
+  cholesterol: [
+    "cholesterol-weekly-meal-plan-south-indian",
+    "cholesterol-weekly-meal-plan-north-indian",
+    "cholesterol-weekly-meal-plan-gujarati",
+  ],
+  "weight-loss": [
+    "weight-loss-meal-plan-south-indian",
+    "weight-loss-meal-plan-north-indian",
+  ],
+};
+
 export default async function ProgrammaticPage({
   params,
 }: {
@@ -120,8 +178,12 @@ export default async function ProgrammaticPage({
   const pageTitle = `${regionLabel} ${conditionLabel} ${mealTypeLabel}`;
   const dishes = getDishes(condition.id, regionId);
 
-  const relatedConditions = conditions.filter((c) => c.id !== condition.id).slice(0, 3);
-  const relatedRegions = regions.filter((r) => r.id !== regionId).slice(0, 3);
+  const safeRegionalSlugs = (SAFE_REGIONAL_SLUGS[condition.id] ?? [])
+    .filter((s) => s !== slug)
+    .slice(0, 3);
+  const relatedConditionPages = conditions
+    .filter((c) => c.id !== condition.id && CONDITION_MAIN_PAGES[c.id])
+    .slice(0, 3);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -416,50 +478,48 @@ export default async function ProgrammaticPage({
             </div>
           </section>
 
-          {/* Related pages */}
+          {/* Related pages — only guaranteed-to-exist slugs */}
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-4">Related Meal Plans</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {relatedRegions.map((r) => {
-                const relSlug = buildSlug(condition.id, mealType.id, r.id);
+              {safeRegionalSlugs.map((relSlug) => {
+                const parsed = parseSlug(relSlug);
+                if (!parsed) return null;
                 return (
                   <Link
-                    key={r.id}
+                    key={relSlug}
                     href={`/meal-plans/${relSlug}`}
                     className="flex items-center gap-3 p-4 border border-gray-200 rounded-2xl hover:border-orange-300 hover:bg-orange-50 transition-colors group"
                   >
                     <span className="text-2xl">{condition.emoji}</span>
                     <div>
                       <div className="font-semibold text-sm text-gray-900 group-hover:text-orange-700">
-                        {r.label} {conditionLabel} {mealTypeLabel}
+                        {parsed.region?.label ?? "Indian"} {conditionLabel} {parsed.mealType.label}
                       </div>
                       <div className="text-xs text-gray-500">
-                        {r.label} recipes for {conditionLabel.toLowerCase()}
+                        {parsed.region?.label ?? "Indian"} recipes for {conditionLabel.toLowerCase()}
                       </div>
                     </div>
                   </Link>
                 );
               })}
-              {relatedConditions.map((c) => {
-                const relSlug = buildSlug(c.id, mealType.id, regionId);
-                return (
-                  <Link
-                    key={c.id}
-                    href={`/meal-plans/${relSlug}`}
-                    className="flex items-center gap-3 p-4 border border-gray-200 rounded-2xl hover:border-orange-300 hover:bg-orange-50 transition-colors group"
-                  >
-                    <span className="text-2xl">{c.emoji}</span>
-                    <div>
-                      <div className="font-semibold text-sm text-gray-900 group-hover:text-orange-700">
-                        {regionLabel} {c.label} {mealTypeLabel}
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        {regionLabel.toLowerCase()} recipes for {c.label.toLowerCase()}
-                      </div>
+              {relatedConditionPages.map((c) => (
+                <Link
+                  key={c.id}
+                  href={CONDITION_MAIN_PAGES[c.id]!}
+                  className="flex items-center gap-3 p-4 border border-gray-200 rounded-2xl hover:border-orange-300 hover:bg-orange-50 transition-colors group"
+                >
+                  <span className="text-2xl">{c.emoji}</span>
+                  <div>
+                    <div className="font-semibold text-sm text-gray-900 group-hover:text-orange-700">
+                      {c.label} Meal Plan for Indians
                     </div>
-                  </Link>
-                );
-              })}
+                    <div className="text-xs text-gray-500">
+                      {c.description.slice(0, 55)}…
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </section>
         </div>

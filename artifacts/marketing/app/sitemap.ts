@@ -15,12 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const conditionPages: MetadataRoute.Sitemap = [
-    { url: `${BASE}/pcos-meal-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/diabetes-meal-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/thyroid-diet-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/pregnancy-meal-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/kids-meal-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/cholesterol-diet-plan`, lastModified: new Date("2026-04-18"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/pcos-meal-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/diabetes-meal-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/thyroid-diet-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/pregnancy-meal-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/kids-meal-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/cholesterol-diet-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const prioritySlugs = [
