@@ -110,7 +110,7 @@ export default async function BlogPostPage({
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription,
     image: `${BASE}/api/og?title=${encodeURIComponent(post.title)}&condition=${post.category}`,
@@ -128,6 +128,8 @@ export default async function BlogPostPage({
       logo: { "@type": "ImageObject", url: `${BASE}/logo.svg` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/blog/${post.slug}` },
+    keywords: post.tags.join(", "),
+    articleSection: post.category.charAt(0).toUpperCase() + post.category.slice(1),
   };
 
   const breadcrumbSchema = {
@@ -146,6 +148,11 @@ export default async function BlogPostPage({
   const publishedDate = new Date(post.publishDate).toLocaleDateString("en-IN", {
     day: "numeric", month: "long", year: "numeric",
   });
+  const updatedDate = post.dateModified
+    ? new Date(post.dateModified).toLocaleDateString("en-IN", {
+        day: "numeric", month: "long", year: "numeric",
+      })
+    : null;
 
   return (
     <>
@@ -194,10 +201,18 @@ export default async function BlogPostPage({
 
           {/* Date + Share row */}
           <div className="flex items-center justify-between mb-6 pb-6 border-b border-gray-100">
-            <p className="text-xs text-gray-400">
-              Published{" "}
-              <time dateTime={post.publishDate}>{publishedDate}</time>
-            </p>
+            <div className="flex flex-col gap-0.5">
+              <p className="text-xs text-gray-400">
+                Published{" "}
+                <time dateTime={post.publishDate}>{publishedDate}</time>
+              </p>
+              {updatedDate && updatedDate !== publishedDate && (
+                <p className="text-xs text-green-600 font-medium">
+                  Updated{" "}
+                  <time dateTime={post.dateModified!}>{updatedDate}</time>
+                </p>
+              )}
+            </div>
             {/* Social Share */}
             <div className="flex items-center gap-2">
               <a
@@ -220,6 +235,23 @@ export default async function BlogPostPage({
               </a>
             </div>
           </div>
+
+          {/* Key Takeaways box */}
+          {post.keyTakeaways && post.keyTakeaways.length > 0 && (
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
+              <h2 className="text-sm font-bold text-green-800 uppercase tracking-wide mb-3 flex items-center gap-2">
+                <span>✅</span> Key Takeaways
+              </h2>
+              <ul className="space-y-2">
+                {post.keyTakeaways.map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-green-900 leading-relaxed">
+                    <span className="shrink-0 mt-0.5 text-green-500 font-bold">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Article content */}
           <div
@@ -297,6 +329,11 @@ export default async function BlogPostPage({
                 {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health conditions. With 8+ years of clinical experience, she leads MealCoreAI&apos;s evidence-based nutrition content, translating complex research into practical Indian meal guidance.
               </p>
             </div>
+          </div>
+
+          {/* Medical disclaimer */}
+          <div className="border border-amber-200 bg-amber-50 rounded-xl p-4 text-xs text-amber-800 leading-relaxed">
+            <strong>Medical Disclaimer:</strong> This article is for informational and educational purposes only. It does not constitute medical or nutritional advice. Always consult a qualified healthcare professional or registered dietitian before making significant changes to your diet, especially if you have a diagnosed health condition or are on medication.
           </div>
         </article>
 

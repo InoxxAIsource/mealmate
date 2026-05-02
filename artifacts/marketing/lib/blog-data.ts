@@ -12,6 +12,7 @@ export interface BlogPost {
   dateModified?: string;
   readTimeMin: number;
   featuredImage: string;
+  keyTakeaways?: string[];
   relatedSlugs: string[];
   internalLinks: { anchor: string; url: string }[];
 }
@@ -443,8 +444,16 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Ragi is one of India's most powerful foods for diabetes management. Here's the science behind its blood sugar benefits and how to include it daily.",
     author: "Nutritionist Anitha Reddy",
     publishDate: "2025-12-10",
+    dateModified: "2026-05-02",
     readTimeMin: 6,
     featuredImage: "/images/ragi-diabetes.jpg",
+    keyTakeaways: [
+      "Ragi has a glycaemic index of 54 vs white rice at 72 — every ragi meal means measurably lower post-meal blood sugar.",
+      "Ragi's soluble fibre slows glucose absorption independently of its low GI, giving diabetics a double blood-sugar benefit.",
+      "100g of ragi contains 3.6g of fibre and more calcium than milk — the most nutrient-dense grain swap in Indian cooking.",
+      "Switching just one rice-based meal per day to a ragi preparation has a meaningful impact on daily blood sugar exposure.",
+      "Ragi works as dosa, idli, upma, roti, and porridge — no compromise on Indian food variety required.",
+    ],
     relatedSlugs: ["diabetic-indian-breakfast-ideas", "low-gi-indian-foods-list", "south-indian-diet-weight-loss"],
     internalLinks: [
       { anchor: "diabetes meal plan", url: "/diabetes-meal-plan" },
@@ -616,8 +625,16 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Gestational diabetes requires careful nutritional management. This complete guide covers safe Indian foods, a 7-day meal plan, and blood sugar management strategies.",
     author: "Dr. Meena Patel, OB-GYN Nutritionist",
     publishDate: "2025-12-18",
+    dateModified: "2026-05-02",
     readTimeMin: 8,
     featuredImage: "/images/gestational-diabetes.jpg",
+    keyTakeaways: [
+      "GDM affects 10–14% of Indian pregnancies and must be managed through diet before insulin is considered.",
+      "Low-GI grains (ragi, jowar, bajra) replace white rice and maida at most meals to blunt post-meal glucose spikes during pregnancy.",
+      "Protein at every meal — dal, curd, eggs, or paneer — slows glucose absorption and prevents the sharp peaks that drive GDM complications.",
+      "Fruit is safe in GDM but must be eaten as a standalone snack, never immediately after a carbohydrate-heavy meal.",
+      "Meal timing every 2–3 hours is as critical as food choice — skipping meals causes counter-regulatory blood sugar swings that worsen GDM.",
+    ],
     relatedSlugs: ["pregnancy-nutrition-first-trimester", "diabetic-indian-breakfast-ideas", "low-gi-indian-foods-list"],
     internalLinks: [
       { anchor: "pregnancy meal plan", url: "/pregnancy-meal-plan" },
@@ -674,8 +691,16 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Thyroid-related weight gain is notoriously resistant to standard diets. This guide explains the metabolic reasons why and provides a diet strategy that actually works.",
     author: "Nutritionist Kavya Iyer",
     publishDate: "2025-12-20",
+    dateModified: "2026-05-02",
     readTimeMin: 7,
     featuredImage: "/images/thyroid-weight.jpg",
+    keyTakeaways: [
+      "Hypothyroid weight gain is driven by a 5–15% reduction in basal metabolic rate — not overeating.",
+      "Addressing selenium, iodine, and zinc deficiencies is the first dietary priority; these directly enable thyroid hormone conversion.",
+      "Anti-inflammatory eating measurably reduces thyroid antibody levels and can improve T4-to-active-T3 conversion over 3–6 months.",
+      "Millet-based meals (bajra, jowar) support calorie-controlled eating for thyroid patients without causing hunger or fatigue.",
+      "Avoiding cooked cruciferous vegetables is unnecessary — cooking destroys 95% of the goitrogenic compounds that concern thyroid patients.",
+    ],
     relatedSlugs: ["thyroid-foods-avoid-india", "low-gi-indian-foods-list", "south-indian-diet-weight-loss"],
     internalLinks: [
       { anchor: "thyroid diet guide", url: "/blog/thyroid-foods-avoid-india" },
@@ -1025,8 +1050,16 @@ export const blogPosts: BlogPost[] = [
     excerpt: "80% of PCOS cases involve insulin resistance. Understanding and addressing it through diet is the most effective long-term strategy for managing PCOS symptoms.",
     author: "Dr. Priya Sharma, Nutritionist",
     publishDate: "2026-01-02",
+    dateModified: "2026-05-02",
     readTimeMin: 7,
     featuredImage: "/images/pcos-insulin.jpg",
+    keyTakeaways: [
+      "80% of PCOS cases involve insulin resistance — treating it through diet is the most effective long-term strategy for symptom control.",
+      "Low-GI foods (ragi, jowar, bajra, moong dal) blunt insulin spikes that worsen the hormonal cascade driving PCOS.",
+      "Adding protein to every meal reduces post-meal insulin demand by 20–40%, directly lowering the hormonal load on the ovaries.",
+      "Inositol-rich foods (buckwheat, beans, citrus) measurably improve insulin receptor sensitivity over 3 months of consistent intake.",
+      "Removing refined carbohydrates (maida, white rice, sugar) shows measurable changes in androgen levels within 8–12 weeks.",
+    ],
     relatedSlugs: ["pcos-diet-plan-india", "millet-benefits-pcos", "pcos-breakfast-ideas-indian"],
     internalLinks: [
       { anchor: "PCOS diet plan", url: "/blog/pcos-diet-plan-india" },
@@ -1275,8 +1308,16 @@ Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
     excerpt: "Artificial intelligence is making truly personalised nutrition accessible to everyone. Here's how AI meal planning works, its benefits, and why it's especially powerful for Indian diets.",
     author: "MealCoreAI Editorial Team",
     publishDate: "2026-01-12",
+    dateModified: "2026-05-02",
     readTimeMin: 7,
     featuredImage: "/images/ai-nutrition.jpg",
+    keyTakeaways: [
+      "Generic diet charts give every person the same plan — AI personalises each meal to your specific condition, region, and food preferences.",
+      "AI meal planning processes glycaemic index, micronutrient targets, and cultural food preferences simultaneously — impossible for any static chart.",
+      "For Indian women, regional variation is essential: a Tamil diet plan and a Punjabi diet plan are completely different in practice.",
+      "AI plans adapt as your health markers and adherence patterns change — a printed chart is outdated from day two.",
+      "MealCoreAI generates a fully personalised weekly Indian meal plan in 90 seconds, free to start.",
+    ],
     relatedSlugs: ["meal-planning-beginners-india", "pcos-diet-plan-india", "low-gi-indian-foods-list"],
     internalLinks: [
       { anchor: "personalised meal planning", url: "https://mealcoreai.com/app/sign-up" },
@@ -1565,8 +1606,16 @@ A: Yes, significantly. The Indian diabetes diet replaces staple refined carbohyd
     excerpt: "Women with PCOS trying to conceive can significantly improve ovulation frequency and egg quality through targeted dietary changes. This guide covers the key nutrients, Indian food sources, and a practical 7-day plan.",
     author: "Dr. Priya Sharma, Nutritionist",
     publishDate: "2025-02-18",
+    dateModified: "2026-05-02",
     readTimeMin: 8,
     featuredImage: "/images/pcos-fertility.jpg",
+    keyTakeaways: [
+      "PCOS is the leading cause of anovulatory infertility in Indian women, affecting approximately 1 in 5 women of reproductive age.",
+      "Inositol-rich foods (buckwheat, beans, citrus) improve ovulation frequency in PCOS — multiple randomised controlled trials support this finding.",
+      "Reducing insulin resistance through low-GI eating is the most powerful dietary lever for restoring regular ovulation in PCOS.",
+      "Anti-inflammatory spices — turmeric, ginger, cinnamon — reduce ovarian inflammation that suppresses ovulation when used consistently.",
+      "A PCOS fertility diet shows measurable improvement in ovulation frequency within 3 months of consistent adherence.",
+    ],
     relatedSlugs: ["pcos-diet-plan-india", "pcos-insulin-resistance-diet", "pcos-breakfast-ideas-indian", "millet-benefits-pcos"],
     internalLinks: [
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
@@ -1676,8 +1725,16 @@ A: The strongest evidence supports myo-inositol (2–4g/day), d-chiro-inositol (
     excerpt: "Maharashtrian cuisine is one of India's most nutritionally complete, centred on jowar and bajra bhakri, fibre-rich legumes, and vegetable-forward preparations. This guide shows how to harness traditional Marathi food for specific health goals.",
     author: "Nutritionist Kavita Rao, RD",
     publishDate: "2025-03-05",
+    dateModified: "2026-05-02",
     readTimeMin: 7,
     featuredImage: "/images/maharashtrian-diet.jpg",
+    keyTakeaways: [
+      "Maharashtrian cuisine is built on jowar and bajra bhakri — both low-GI grains ideal for blood sugar control in diabetes and PCOS.",
+      "Traditional amti and usals provide daily legume protein that directly supports hormone balance and metabolic health.",
+      "Jowar bhakri has a glycaemic index of approximately 55 vs wheat roti at 70 — a meaningful everyday difference for blood sugar management.",
+      "Maharashtrian cooking uses minimal oil and emphasises dry sabzis and legume-based preparations over deep-fried items.",
+      "The traditional thali format naturally achieves balanced macros: grain + dal + vegetable + fermented dairy — no calorie counting required.",
+    ],
     relatedSlugs: ["south-indian-diet-weight-loss", "millet-benefits-pcos", "low-gi-indian-foods-list"],
     internalLinks: [
       { anchor: "personalised meal plan", url: "https://mealcoreai.com/app/sign-up" },
@@ -1770,8 +1827,16 @@ A: Maharashtrian cuisine stands out for its reliance on jowar and bajra bhakri (
     excerpt: "A single authoritative reference covering Indian dietary recommendations for PCOS, diabetes, thyroid, pregnancy, kids nutrition, cholesterol, and vrat fasting, with clinical evidence, comparison tables, and links to specific plans.",
     author: "MealCoreAI Nutrition Team",
     publishDate: "2025-04-01",
+    dateModified: "2026-05-02",
     readTimeMin: 12,
     featuredImage: "/images/complete-guide.jpg",
+    keyTakeaways: [
+      "Every major Indian health condition — PCOS, diabetes, thyroid, pregnancy, cholesterol, and child nutrition — has specific dietary requirements covered in this guide.",
+      "Low-GI eating (ragi, jowar, bajra instead of white rice) is the single dietary change that benefits all six conditions simultaneously.",
+      "Each condition has 2–3 priority nutrients: PCOS needs inositol and zinc; diabetes needs fibre and chromium; thyroid needs selenium and iodine.",
+      "Traditional Indian ingredients — karela, methi, amla, turmeric — are clinically evidence-backed for specific conditions, not just general wellness.",
+      "Personalised meal planning by condition, region, and food preference consistently outperforms generic diet charts for all conditions in this guide.",
+    ],
     relatedSlugs: ["pcos-diet-plan-india", "type2-diabetes-reversal-indian-diet", "thyroid-foods-avoid-india", "pregnancy-nutrition-first-trimester", "cholesterol-lowering-indian-foods"],
     internalLinks: [
       { anchor: "PCOS meal plan", url: "/pcos-meal-plan" },
@@ -1883,9 +1948,16 @@ A: Choose the track that matches your primary health concern. If you have multip
     excerpt: "Ragi and oats are both promoted for PCOS and diabetes management. But they have meaningfully different nutritional profiles. Here is a direct comparison to help you choose.",
     author: "Dr. Priya Sharma",
     publishDate: "2026-04-28",
-    dateModified: "2026-04-28",
+    dateModified: "2026-05-02",
     readTimeMin: 9,
     featuredImage: "/images/blog/ragi-vs-oats.jpg",
+    keyTakeaways: [
+      "Ragi (GI: 54) and oats (GI: 55) have nearly identical glycaemic indexes — the difference lies in their specific micronutrient profiles.",
+      "Ragi has 344mg of calcium per 100g vs oats at 54mg — a critical advantage for Indian women with PCOS who are frequently calcium-deficient.",
+      "Oats contain beta-glucan fibre with the strongest clinical evidence for LDL reduction — ragi does not provide this specific benefit.",
+      "For PCOS and diabetes: ragi's calcium and chromium content give it an edge for insulin sensitivity and hormonal support.",
+      "The optimal strategy is rotation: ragi as the primary grain for most meals, oats for breakfast two to three times per week.",
+    ],
     relatedSlugs: ["millet-benefits-pcos", "ragi-benefits-diabetes", "low-gi-indian-foods-list"],
     internalLinks: [
       { anchor: "PCOS meal plan for Indian women", url: "/pcos-meal-plan" },
@@ -2097,9 +2169,16 @@ A: Choose the track that matches your primary health concern. If you have multip
     excerpt: "Generic diet charts for PCOS and diabetes circulate on WhatsApp and doctor's clinic walls. They are better than nothing. But here is exactly what personalised AI meal planning does differently — and why it matters for Indian women.",
     author: "Dr. Priya Sharma",
     publishDate: "2026-05-01",
-    dateModified: "2026-05-01",
+    dateModified: "2026-05-02",
     readTimeMin: 8,
     featuredImage: "/images/blog/ai-vs-generic-diet.jpg",
+    keyTakeaways: [
+      "Generic diet charts give every person the same 1,200-calorie plan — AI meal planning adjusts to your condition, severity, region, and preferences.",
+      "A generic chart cannot account for regional Indian food differences: South Indian, North Indian, and Gujarati diets are culturally and nutritionally distinct.",
+      "AI cross-references GI, micronutrient targets, seasonal produce, cultural fasting days, and cooking constraints in a single plan.",
+      "Higher adherence with AI plans comes from a simple reason: the meals are foods users actually cook and already enjoy.",
+      "AI generates a new personalised plan every week — a printed diet chart is nutritionally stale after the first month.",
+    ],
     relatedSlugs: ["ai-meal-planning-personalised-nutrition", "meal-planning-beginners-india", "pcos-diet-plan-india"],
     internalLinks: [
       { anchor: "personalised PCOS meal plan", url: "/pcos-meal-plan" },

@@ -1,0 +1,52 @@
+You have 12 blog pages that failed Semrush's AI Search content optimization check.
+All pages are in /blog/ directory and are health/nutrition-related articles.
+
+QUICK FIX - Apply these changes to each of the 12 failing pages:
+
+1. ADD AUTHOR CREDENTIALS & BIO
+   - Add author name with qualifications (Registered Dietitian, Nutritionist, etc.)
+   - Include publication date and last updated date
+   - Add medical/nutrition disclaimer at top or bottom
+   - Example: "Written by [Name], Certified Nutritionist | Last Updated: May 2, 2026"
+
+2. IMPROVE CONTENT STRUCTURE
+   - Ensure proper heading hierarchy: H1 (title) → H2 (sections) → H3 (subsections)
+   - Add clear introduction in first 100-150 words that summarizes the entire article
+   - Break paragraphs into 2-3 sentences maximum
+   - Convert long paragraphs into bullet points
+
+3. ENHANCE READABILITY FOR AI
+   - Use short, direct sentences (15-20 words max)
+   - Avoid passive voice
+   - Define technical terms on first use
+   - Add TL;DR / Key Takeaways box with bullet points
+   - Remove redundant/repetitive content
+
+4. ADD STRUCTURED DATA MARKUP
+   - Implement Article schema or BlogPosting schema JSON-LD
+   - Include author, datePublished, dateModified, article body
+   - Example: Add to <head> of each page
+
+5. OPTIONAL ENHANCEMENTS (if time permits)
+   - Add FAQ section with Q&A about the topic
+   - Add medical/expert disclaimer
+   - Include relevant internal links to related guides
+   - Add summary/conclusion section
+
+THE 12 FAILING PAGES:
+1. /blog/ai-meal-planning-personalised-nutrition (2 errors)
+2. /blog/complete-guide-indian-diet-health-conditions (1 error)
+3. /blog/gestational-diabetes-meal-plan (2 errors)
+4. /blog/maharashtrian-diet-plan-health (1 error)
+5. /blog/mealcoreai-vs-generic-diet-chart (1 error)
+6. /blog/pcos-fertility-diet-india (1 error)
+7. /blog/pcos-insulin-resistance-diet (1 error)
+8. /blog/ragi-benefits-diabetes (1 error)
+9. /blog/ragi-vs-oats-pcos-diabetes (1 error)
+10. /blog/thyroid-weight-gain-diet (1 error)
+11. [Additional pages from page 2 of results]
+12. [Additional pages from page 2 of results]
+
+PRIORITY ORDER:
+- HIGH: Pages #1 & #3 (2 errors each) - fix first
+- MEDIUM: All others (1 error each)
