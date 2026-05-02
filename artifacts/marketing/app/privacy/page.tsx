@@ -66,7 +66,7 @@ export default function PrivacyPage() {
             <li>Object to or restrict certain processing of your data.</li>
             <li>Request a portable copy of your data.</li>
           </ul>
-          <p>To exercise any of these rights, please contact us at <strong>privacy@mealcoreai.com</strong>.</p>
+          <p>To exercise any of these rights, please contact us using the form on our <Link href="/about">About page</Link> or through the in-app support chat.</p>
 
           <h2>7. Data Retention</h2>
           <p>We retain your account and meal plan data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where retention is required by law.</p>
@@ -80,8 +80,8 @@ export default function PrivacyPage() {
           <h2>10. Contact Us</h2>
           <p>For privacy-related questions or to exercise your rights, contact us at:</p>
           <ul>
-            <li><strong>Email:</strong> privacy@mealcoreai.com</li>
-            <li><strong>Website:</strong> <Link href="/">mealcoreai.com</Link></li>
+            <li><strong>Contact form:</strong> <Link href="/about">mealcoreai.com/about</Link></li>
+            <li><strong>In-app chat:</strong> Available after signing in at <Link href="/app/sign-in">mealcoreai.com/app</Link></li>
           </ul>
         </div>
       </div>

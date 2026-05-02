@@ -89,8 +89,8 @@ export default function TermsPage() {
           <h2>12. Contact Us</h2>
           <p>For questions about these Terms, contact us at:</p>
           <ul>
-            <li><strong>Email:</strong> legal@mealcoreai.com</li>
-            <li><strong>Website:</strong> <Link href="/">mealcoreai.com</Link></li>
+            <li><strong>Contact form:</strong> <Link href="/about">mealcoreai.com/about</Link></li>
+            <li><strong>In-app support:</strong> Available after signing in at <Link href="/app/sign-in">mealcoreai.com/app</Link></li>
           </ul>
         </div>
       </div>

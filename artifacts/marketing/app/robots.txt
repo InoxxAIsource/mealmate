@@ -1,6 +1,3 @@
-# MealCoreAI — robots.txt
-# AI crawlers: explicitly allowed (index & cite our content)
-
 User-agent: Google-Extended
 Disallow: /api/
 Disallow: /app/
@@ -25,7 +22,6 @@ User-agent: Googlebot
 Disallow: /api/
 Disallow: /app/
 
-# All other crawlers
 User-agent: *
 Disallow: /api/
 Disallow: /app/

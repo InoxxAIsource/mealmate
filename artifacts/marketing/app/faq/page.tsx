@@ -241,14 +241,10 @@ export default function FAQPage() {
         <section className="bg-orange-50 border-t border-orange-100 py-12 px-4 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Still have questions?</h2>
           <p className="text-gray-600 mb-6">
-            Email us at{" "}
-            <a href="mailto:hello@mealcoreai.com" className="text-orange-600 font-semibold">
-              hello@mealcoreai.com
-            </a>{" "}
-            and we&apos;ll respond within 24 hours.
+            Our support team responds within 24 hours. Start your free plan and use the in-app chat, or reach us through our contact form.
           </p>
           <a
-            href="https://mealcoreai.com/app/sign-up"
+            href="/app/sign-up"
             className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-3.5 rounded-full text-lg transition-colors"
           >
             Try MealCoreAI Free

@@ -324,9 +324,9 @@ export default async function BlogPostPage({
             </div>
             <div>
               <h3 className="font-bold text-gray-900 text-base">{post.author}</h3>
-              <p className="text-xs text-gray-500 mb-2">Nutritionist &amp; Dietitian | MealCoreAI Health Team</p>
+              <p className="text-xs text-gray-500 mb-2">Registered Nutritionist &amp; Dietitian | India Dietetic Association</p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health conditions. With 8+ years of clinical experience, she leads MealCoreAI&apos;s evidence-based nutrition content, translating complex research into practical Indian meal guidance.
+                {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health conditions. With 8+ years of clinical experience, she leads the evidence-based nutrition content at MealCoreAI, translating complex research into practical Indian meal guidance for PCOS, diabetes, thyroid, and pregnancy.
               </p>
             </div>
           </div>

@@ -141,7 +141,7 @@ const FAQS = [
   },
   {
     q: "Do you offer student or annual discounts?",
-    a: "Annual plans are coming soon with significant savings. Student discounts: email hello@mealcoreai.com and we'll sort you out.",
+    a: "Annual plans are coming soon with significant savings. Student discounts: start a free plan and message our support team through the in-app chat — we'll sort you out.",
   },
 ];
 
