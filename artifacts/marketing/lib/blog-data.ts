@@ -1375,8 +1375,16 @@ Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
     excerpt: "A vrat (Hindu fast) diet replaces regular grains and non-vegetarian foods with sattvik, sattvic alternatives. Here is a complete guide with a 7-day plan, approved foods, and what to strictly avoid.",
     author: "Nutritionist Kavita Rao, RD",
     publishDate: "2025-04-10",
+    dateModified: "2026-05-02",
     readTimeMin: 7,
     featuredImage: "/images/vrat-diet.jpg",
+    keyTakeaways: [
+      "A vrat diet eliminates regular grains, pulses, onion, and garlic — replacing them with sabudana, kuttu, sama chawal, rajgira, and makhana.",
+      "Navratri, Ekadashi, Mahashivratri, and Monday fasts each have distinct permitted food lists — the rules vary by fast type and regional tradition.",
+      "The most common vrat diet mistake is over-relying on fried sabudana and potato, which spikes blood sugar — balanced preparations use curd, peanuts, and makhana.",
+      "Sabudana provides roughly 350 calories per serving with a moderate glycaemic response, suitable for most metabolic conditions when portioned correctly.",
+      "A structured vrat meal plan can meet your protein and micronutrient targets while fully respecting the dietary rules of your specific fast.",
+    ],
     relatedSlugs: ["pcos-diet-plan-india", "meal-planning-beginners-india", "millet-benefits-pcos"],
     internalLinks: [
       { anchor: "personalised vrat meal plan", url: "https://mealcoreai.com/app/sign-up" },
@@ -1504,8 +1512,16 @@ A: Light exercise, walking, yoga, pranayama, is encouraged during vrat and align
     excerpt: "Type 2 diabetes can be put into remission through dietary changes, and Indian cuisine offers powerful natural tools for blood sugar control. This guide explains the clinical evidence and a practical Indian diet reversal plan.",
     author: "Dr. Suresh Menon, Endocrinology Nutrition Specialist",
     publishDate: "2025-03-22",
+    dateModified: "2026-05-02",
     readTimeMin: 9,
     featuredImage: "/images/diabetes-reversal.jpg",
+    keyTakeaways: [
+      "46% of type 2 diabetes patients achieved remission in the DiRECT trial after one year of structured dietary intervention (The Lancet, 2018).",
+      "A low-GI Indian diet reduced HbA1c by 1.4 percentage points in 12 weeks in an AIIMS New Delhi study — equivalent to a standard oral diabetes medication.",
+      "Diabetes remission means HbA1c below 6.5% without medication for 3+ months; reverting to old eating patterns causes blood glucose to rise again.",
+      "Losing 10–15% of body weight by reducing visceral fat restores near-normal beta-cell function in most patients who have had diabetes for under 10 years.",
+      "Traditional Indian ingredients — karela, methi, amla, turmeric, and millets — are clinically validated for glycaemic control, making dietary reversal more achievable.",
+    ],
     relatedSlugs: ["diabetic-indian-breakfast-ideas", "low-gi-indian-foods-list", "ragi-benefits-diabetes", "gestational-diabetes-meal-plan"],
     internalLinks: [
       { anchor: "diabetes meal plan India", url: "/diabetes-meal-plan" },

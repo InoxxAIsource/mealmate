@@ -20,6 +20,21 @@ const nextConfig = {
         destination: "/meal-plans/weight-loss-meal-plan-north-indian",
         permanent: true,
       },
+      {
+        source: "/cholesterol-meal-plan",
+        destination: "/cholesterol-diet-plan",
+        permanent: true,
+      },
+      {
+        source: "/thyroid-meal-plan",
+        destination: "/thyroid-diet-plan",
+        permanent: true,
+      },
+      {
+        source: "/weight-loss-meal-plan",
+        destination: "/meal-plans/weight-loss-meal-plan-south-indian",
+        permanent: true,
+      },
     ];
   },
   async headers() {
