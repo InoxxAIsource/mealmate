@@ -233,6 +233,17 @@ export default function KidsPage() {
           { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
           { title: "Diabetes Meal Plan India", slug: "diabetes-meal-plan" },
         ]}
+        regionalPlans={{
+          heading: "Kids Meal Plans by Region",
+          links: [
+            { label: "South Indian Kids Meal Plan", href: "/meal-plans/kids-meal-plan-south-indian" },
+            { label: "North Indian Kids Meal Plan", href: "/meal-plans/kids-meal-plan-north-indian" },
+            { label: "South Indian Kids Weekly Plan", href: "/meal-plans/kids-weekly-meal-plan-south-indian" },
+            { label: "North Indian Kids Weekly Plan", href: "/meal-plans/kids-weekly-meal-plan-north-indian" },
+            { label: "Gujarati Kids Weekly Plan", href: "/meal-plans/kids-weekly-meal-plan-gujarati" },
+            { label: "North Indian Kids Lunch Ideas", href: "/meal-plans/kids-lunch-ideas-north-indian" },
+          ],
+        }}
         currentPath="/kids-meal-plan"
       />
     </>

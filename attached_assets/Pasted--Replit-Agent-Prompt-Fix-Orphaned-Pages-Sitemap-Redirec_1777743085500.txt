@@ -1,0 +1,145 @@
+# Replit Agent Prompt — Fix Orphaned Pages + Sitemap Redirects
+## Plain text — copy and paste this into Replit Agent
+
+---
+
+I have two SEO problems to fix. Do both completely before stopping.
+
+---
+
+## PROBLEM 1 — 265 regional meal plan pages are orphaned (no internal links pointing to them)
+
+My sitemap has 265 pages under /meal-plans/ but none of the main condition landing pages link to them. Google treats these as low-quality doorway pages because nothing on the site links to them. I need to add a "Meal plans by region" section to each condition landing page so Google can discover and index all these regional pages through internal links.
+
+Find the page files for these seven condition landing pages in my Next.js project:
+
+- /pcos-meal-plan
+- /diabetes-meal-plan
+- /thyroid-diet-plan
+- /pregnancy-meal-plan
+- /cholesterol-diet-plan
+- /kids-meal-plan
+- /weight-loss-meal-plan
+
+These are likely in the app/ directory as page.tsx files, for example app/pcos-meal-plan/page.tsx or similar. Find them.
+
+At the bottom of each condition landing page, before the closing footer, add a new section called "Meal plans by region". This section should contain a grid of links to the regional variants of that condition's meal plans. Use the links listed below for each condition. Style this section consistently with the rest of the page. The heading should say "PCOS Meal Plans by Region" (or whichever condition it is). Use a simple responsive grid of cards or links, each showing the cuisine name and linking to the correct URL.
+
+Here are the exact links to add to each condition page:
+
+### For /pcos-meal-plan — add links to all of these:
+
+Weekly meal plans by cuisine:
+- South Indian PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-south-indian
+- North Indian PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-north-indian
+- Gujarati PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-gujarati
+- Bengali PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-bengali
+- Punjabi PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-punjabi
+- Maharashtrian PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-maharashtrian
+- Kerala PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-kerala
+- Tamil PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-tamil
+- Rajasthani PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-rajasthani
+- Andhra PCOS Meal Plan → /meal-plans/pcos-weekly-meal-plan-andhra
+
+7-day meal plans:
+- 7-Day South Indian PCOS Plan → /meal-plans/pcos-7-day-meal-plan-south-indian
+- 7-Day North Indian PCOS Plan → /meal-plans/pcos-7-day-meal-plan-north-indian
+- 7-Day Gujarati PCOS Plan → /meal-plans/pcos-7-day-meal-plan-gujarati
+
+Meal type plans:
+- PCOS Breakfast Ideas South Indian → /meal-plans/pcos-breakfast-ideas-south-indian
+- PCOS Breakfast Ideas North Indian → /meal-plans/pcos-breakfast-ideas-north-indian
+- PCOS Lunch Ideas South Indian → /meal-plans/pcos-lunch-ideas-south-indian
+- PCOS Lunch Ideas North Indian → /meal-plans/pcos-lunch-ideas-north-indian
+- PCOS Dinner Ideas South Indian → /meal-plans/pcos-dinner-ideas-south-indian
+- PCOS Snack Ideas South Indian → /meal-plans/pcos-snack-ideas-south-indian
+
+### For /diabetes-meal-plan — add links to all of these:
+
+Weekly meal plans by cuisine:
+- South Indian Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-south-indian
+- North Indian Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-north-indian
+- Gujarati Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-gujarati
+- Bengali Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-bengali
+- Punjabi Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-punjabi
+- Maharashtrian Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-maharashtrian
+- Kerala Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-kerala
+- Tamil Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-tamil
+- Rajasthani Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-rajasthani
+- Andhra Diabetes Meal Plan → /meal-plans/diabetes-weekly-meal-plan-andhra
+
+7-day meal plans:
+- 7-Day South Indian Diabetes Plan → /meal-plans/diabetes-7-day-meal-plan-south-indian
+- 7-Day North Indian Diabetes Plan → /meal-plans/diabetes-7-day-meal-plan-north-indian
+- 7-Day Gujarati Diabetes Plan → /meal-plans/diabetes-7-day-meal-plan-gujarati
+- 7-Day Bengali Diabetes Plan → /meal-plans/diabetes-7-day-meal-plan-bengali
+- 7-Day Punjabi Diabetes Plan → /meal-plans/diabetes-7-day-meal-plan-punjabi
+
+Meal type plans:
+- Diabetic Breakfast Ideas South Indian → /meal-plans/diabetes-breakfast-ideas-south-indian
+- Diabetic Breakfast Ideas North Indian → /meal-plans/diabetes-breakfast-ideas-north-indian
+- Diabetic Breakfast Ideas Gujarati → /meal-plans/diabetes-breakfast-ideas-gujarati
+- Diabetic Lunch Ideas South Indian → /meal-plans/diabetes-lunch-ideas-south-indian
+- Diabetic Lunch Ideas North Indian → /meal-plans/diabetes-lunch-ideas-north-indian
+- Diabetic Dinner Ideas South Indian → /meal-plans/diabetes-dinner-ideas-south-indian
+
+### For /thyroid-diet-plan — add links to all of these:
+
+- South Indian Thyroid Diet Plan → /meal-plans/thyroid-diet-plan-south-indian
+- North Indian Thyroid Diet Plan → /meal-plans/thyroid-diet-plan-north-indian
+- South Indian Thyroid Weekly Meal Plan → /meal-plans/thyroid-weekly-meal-plan-south-indian
+- North Indian Thyroid Weekly Meal Plan → /meal-plans/thyroid-weekly-meal-plan-north-indian
+- Gujarati Thyroid Weekly Meal Plan → /meal-plans/thyroid-weekly-meal-plan-gujarati
+
+### For /pregnancy-meal-plan — add links to all of these:
+
+- South Indian Pregnancy Meal Plan → /meal-plans/pregnancy-meal-plan-south-indian
+- North Indian Pregnancy Meal Plan → /meal-plans/pregnancy-meal-plan-north-indian
+- South Indian Pregnancy Weekly Meal Plan → /meal-plans/pregnancy-weekly-meal-plan-south-indian
+- North Indian Pregnancy Weekly Meal Plan → /meal-plans/pregnancy-weekly-meal-plan-north-indian
+- Gujarati Pregnancy Weekly Meal Plan → /meal-plans/pregnancy-weekly-meal-plan-gujarati
+- North Indian 7-Day Pregnancy Plan → /meal-plans/pregnancy-7-day-meal-plan-north-indian
+
+### For /cholesterol-diet-plan — add links to all of these:
+
+- South Indian Cholesterol Meal Plan → /meal-plans/cholesterol-weekly-meal-plan-south-indian
+- North Indian Cholesterol Meal Plan → /meal-plans/cholesterol-weekly-meal-plan-north-indian
+- Gujarati Cholesterol Meal Plan → /meal-plans/cholesterol-weekly-meal-plan-gujarati
+
+### For /kids-meal-plan — add links to all of these:
+
+- South Indian Kids Meal Plan → /meal-plans/kids-meal-plan-south-indian
+- North Indian Kids Meal Plan → /meal-plans/kids-meal-plan-north-indian
+- South Indian Kids Weekly Meal Plan → /meal-plans/kids-weekly-meal-plan-south-indian
+- North Indian Kids Weekly Meal Plan → /meal-plans/kids-weekly-meal-plan-north-indian
+- Gujarati Kids Weekly Meal Plan → /meal-plans/kids-weekly-meal-plan-gujarati
+- North Indian Kids Lunch Ideas → /meal-plans/kids-lunch-ideas-north-indian
+
+### For /weight-loss-meal-plan — add links to all of these:
+
+- South Indian Weight Loss Meal Plan → /meal-plans/weight-loss-meal-plan-south-indian
+- North Indian Weight Loss Meal Plan → /meal-plans/weight-loss-meal-plan-north-indian
+
+---
+
+## PROBLEM 2 — Sitemap contains redirect URLs
+
+My sitemap.xml lists URLs that redirect (301) to different pages. This wastes link equity. I need to check the sitemap and remove or replace any URLs that do not resolve with a 200 status code directly — specifically these pages were flagged as having redirect issues:
+
+- /meal-plans/cholesterol-weekly-meal-plan-gujarati
+- /meal-plans/cholesterol-weekly-meal-plan-north-indian
+- /meal-plans/cholesterol-weekly-meal-plan-south-indian
+- /meal-plans/thyroid-diet-plan-south-indian
+- /meal-plans/thyroid-weekly-meal-plan-gujarati
+- /meal-plans/thyroid-weekly-meal-plan-north-indian
+- /meal-plans/thyroid-weekly-meal-plan-south-indian
+- /meal-plans/weight-loss-meal-plan-north-indian
+- /meal-plans/weight-loss-meal-plan-south-indian
+
+Find where the sitemap is generated in the Next.js project. It is likely at app/sitemap.ts or app/sitemap.xml/route.ts or a static public/sitemap.xml file. Check each of the 9 URLs above — if they redirect to a different URL, replace each entry in the sitemap with the final destination URL that resolves with a 200 response. If these pages now resolve correctly with 200 (the redirect may have been fixed already), leave them as they are and just confirm they are 200.
+
+---
+
+## After both fixes are done
+
+Build the project and confirm no errors. Confirm which condition pages now have the regional links section. Confirm the sitemap update. The internal links are the most important part — make sure all 7 condition landing pages have the links added.

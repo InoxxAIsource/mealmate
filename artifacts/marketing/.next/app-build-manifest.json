@@ -25,6 +25,31 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/meal-plans/[slug]/page.js"
+    ],
+    "/diabetes-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/diabetes-meal-plan/page.js"
+    ],
+    "/thyroid-diet-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/thyroid-diet-plan/page.js"
+    ],
+    "/pregnancy-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pregnancy-meal-plan/page.js"
+    ],
+    "/cholesterol-diet-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/cholesterol-diet-plan/page.js"
+    ],
+    "/kids-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/kids-meal-plan/page.js"
     ]
   }
 }

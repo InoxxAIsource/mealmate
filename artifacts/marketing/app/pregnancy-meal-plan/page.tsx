@@ -233,6 +233,17 @@ export default function PregnancyPage() {
           { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
           { title: "Diabetes Meal Plan India", slug: "diabetes-meal-plan" },
         ]}
+        regionalPlans={{
+          heading: "Pregnancy Meal Plans by Region",
+          links: [
+            { label: "South Indian Pregnancy Meal Plan", href: "/meal-plans/pregnancy-meal-plan-south-indian" },
+            { label: "North Indian Pregnancy Meal Plan", href: "/meal-plans/pregnancy-meal-plan-north-indian" },
+            { label: "South Indian Pregnancy Weekly Plan", href: "/meal-plans/pregnancy-weekly-meal-plan-south-indian" },
+            { label: "North Indian Pregnancy Weekly Plan", href: "/meal-plans/pregnancy-weekly-meal-plan-north-indian" },
+            { label: "Gujarati Pregnancy Weekly Plan", href: "/meal-plans/pregnancy-weekly-meal-plan-gujarati" },
+            { label: "North Indian 7-Day Pregnancy Plan", href: "/meal-plans/pregnancy-7-day-meal-plan-north-indian" },
+          ],
+        }}
         currentPath="/pregnancy-meal-plan"
       />
     </>

@@ -1,5 +1,9 @@
 {
-  "/meal-plans/[slug]/page": "app/meal-plans/[slug]/page.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/page": "app/page.js"
+  "/thyroid-diet-plan/page": "app/thyroid-diet-plan/page.js",
+  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js",
+  "/diabetes-meal-plan/page": "app/diabetes-meal-plan/page.js",
+  "/page": "app/page.js",
+  "/cholesterol-diet-plan/page": "app/cholesterol-diet-plan/page.js",
+  "/pregnancy-meal-plan/page": "app/pregnancy-meal-plan/page.js",
+  "/kids-meal-plan/page": "app/kids-meal-plan/page.js"
 }

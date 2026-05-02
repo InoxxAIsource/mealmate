@@ -233,6 +233,14 @@ export default function CholesterolPage() {
           { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
           { title: "Thyroid Diet Plan India", slug: "thyroid-diet-plan" },
         ]}
+        regionalPlans={{
+          heading: "Cholesterol Meal Plans by Region",
+          links: [
+            { label: "South Indian Cholesterol Meal Plan", href: "/meal-plans/cholesterol-weekly-meal-plan-south-indian" },
+            { label: "North Indian Cholesterol Meal Plan", href: "/meal-plans/cholesterol-weekly-meal-plan-north-indian" },
+            { label: "Gujarati Cholesterol Meal Plan", href: "/meal-plans/cholesterol-weekly-meal-plan-gujarati" },
+          ],
+        }}
         currentPath="/cholesterol-diet-plan"
       />
     </>

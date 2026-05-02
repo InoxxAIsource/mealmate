@@ -233,6 +233,32 @@ export default function DiabetesPage() {
           { title: "PCOS Meal Plan for Indian Women", slug: "pcos-meal-plan" },
           { title: "Thyroid Diet Plan India", slug: "thyroid-diet-plan" },
         ]}
+        regionalPlans={{
+          heading: "Diabetes Meal Plans by Region",
+          links: [
+            { label: "South Indian Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-south-indian" },
+            { label: "North Indian Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-north-indian" },
+            { label: "Gujarati Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-gujarati" },
+            { label: "Bengali Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-bengali" },
+            { label: "Punjabi Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-punjabi" },
+            { label: "Maharashtrian Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-maharashtrian" },
+            { label: "Kerala Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-kerala" },
+            { label: "Tamil Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-tamil" },
+            { label: "Rajasthani Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-rajasthani" },
+            { label: "Andhra Diabetes Meal Plan", href: "/meal-plans/diabetes-weekly-meal-plan-andhra" },
+            { label: "7-Day South Indian Diabetes Plan", href: "/meal-plans/diabetes-7-day-meal-plan-south-indian" },
+            { label: "7-Day North Indian Diabetes Plan", href: "/meal-plans/diabetes-7-day-meal-plan-north-indian" },
+            { label: "7-Day Gujarati Diabetes Plan", href: "/meal-plans/diabetes-7-day-meal-plan-gujarati" },
+            { label: "7-Day Bengali Diabetes Plan", href: "/meal-plans/diabetes-7-day-meal-plan-bengali" },
+            { label: "7-Day Punjabi Diabetes Plan", href: "/meal-plans/diabetes-7-day-meal-plan-punjabi" },
+            { label: "Diabetic Breakfast South Indian", href: "/meal-plans/diabetes-breakfast-ideas-south-indian" },
+            { label: "Diabetic Breakfast North Indian", href: "/meal-plans/diabetes-breakfast-ideas-north-indian" },
+            { label: "Diabetic Breakfast Gujarati", href: "/meal-plans/diabetes-breakfast-ideas-gujarati" },
+            { label: "Diabetic Lunch South Indian", href: "/meal-plans/diabetes-lunch-ideas-south-indian" },
+            { label: "Diabetic Lunch North Indian", href: "/meal-plans/diabetes-lunch-ideas-north-indian" },
+            { label: "Diabetic Dinner South Indian", href: "/meal-plans/diabetes-dinner-ideas-south-indian" },
+          ],
+        }}
         currentPath="/diabetes-meal-plan"
       />
     </>

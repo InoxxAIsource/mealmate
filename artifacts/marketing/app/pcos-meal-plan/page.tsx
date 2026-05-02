@@ -235,6 +235,30 @@ export default function PCOSPage() {
           { title: "Diabetes Meal Plan for Indians", slug: "diabetes-meal-plan" },
           { title: "Cholesterol Diet Plan", slug: "cholesterol-diet-plan" },
         ]}
+        regionalPlans={{
+          heading: "PCOS Meal Plans by Region",
+          links: [
+            { label: "South Indian PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-south-indian" },
+            { label: "North Indian PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-north-indian" },
+            { label: "Gujarati PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-gujarati" },
+            { label: "Bengali PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-bengali" },
+            { label: "Punjabi PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-punjabi" },
+            { label: "Maharashtrian PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-maharashtrian" },
+            { label: "Kerala PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-kerala" },
+            { label: "Tamil PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-tamil" },
+            { label: "Rajasthani PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-rajasthani" },
+            { label: "Andhra PCOS Meal Plan", href: "/meal-plans/pcos-weekly-meal-plan-andhra" },
+            { label: "7-Day South Indian PCOS Plan", href: "/meal-plans/pcos-7-day-meal-plan-south-indian" },
+            { label: "7-Day North Indian PCOS Plan", href: "/meal-plans/pcos-7-day-meal-plan-north-indian" },
+            { label: "7-Day Gujarati PCOS Plan", href: "/meal-plans/pcos-7-day-meal-plan-gujarati" },
+            { label: "PCOS Breakfast South Indian", href: "/meal-plans/pcos-breakfast-ideas-south-indian" },
+            { label: "PCOS Breakfast North Indian", href: "/meal-plans/pcos-breakfast-ideas-north-indian" },
+            { label: "PCOS Lunch South Indian", href: "/meal-plans/pcos-lunch-ideas-south-indian" },
+            { label: "PCOS Lunch North Indian", href: "/meal-plans/pcos-lunch-ideas-north-indian" },
+            { label: "PCOS Dinner South Indian", href: "/meal-plans/pcos-dinner-ideas-south-indian" },
+            { label: "PCOS Snack South Indian", href: "/meal-plans/pcos-snack-ideas-south-indian" },
+          ],
+        }}
         currentPath="/pcos-meal-plan"
       />
     </>

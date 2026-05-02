@@ -233,6 +233,16 @@ export default function ThyroidPage() {
           { title: "Cholesterol Diet Plan for Indians", slug: "cholesterol-diet-plan" },
           { title: "Diabetes Meal Plan India", slug: "diabetes-meal-plan" },
         ]}
+        regionalPlans={{
+          heading: "Thyroid Diet Plans by Region",
+          links: [
+            { label: "South Indian Thyroid Diet Plan", href: "/meal-plans/thyroid-diet-plan-south-indian" },
+            { label: "North Indian Thyroid Diet Plan", href: "/meal-plans/thyroid-diet-plan-north-indian" },
+            { label: "South Indian Thyroid Weekly Plan", href: "/meal-plans/thyroid-weekly-meal-plan-south-indian" },
+            { label: "North Indian Thyroid Weekly Plan", href: "/meal-plans/thyroid-weekly-meal-plan-north-indian" },
+            { label: "Gujarati Thyroid Weekly Plan", href: "/meal-plans/thyroid-weekly-meal-plan-gujarati" },
+          ],
+        }}
         currentPath="/thyroid-diet-plan"
       />
     </>

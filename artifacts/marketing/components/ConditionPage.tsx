@@ -39,6 +39,16 @@ export interface WhyIngredient {
   citationUrl?: string;
 }
 
+export interface RegionalPlanLink {
+  label: string;
+  href: string;
+}
+
+export interface RegionalPlansSection {
+  heading: string;
+  links: RegionalPlanLink[];
+}
+
 export interface ConditionPageProps {
   condition: string;
   emoji: string;
@@ -54,6 +64,7 @@ export interface ConditionPageProps {
   currentPath?: string;
   whyIngredients?: WhyIngredient[];
   directAnswer?: string;
+  regionalPlans?: RegionalPlansSection;
 }
 
 const accentMap: Record<string, { badge: string; btn: string; bar: string; border: string }> = {
@@ -111,6 +122,7 @@ export default function ConditionPage({
   currentPath,
   whyIngredients,
   directAnswer,
+  regionalPlans,
 }: ConditionPageProps) {
   const ac = accentMap[accentColour] ?? accentMap.orange;
   const conditionSlug = condition.toLowerCase().replace(/\s+/g, "-");
@@ -486,6 +498,32 @@ export default function ConditionPage({
                   </ul>
                 </div>
               )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Regional Meal Plans */}
+      {regionalPlans && (
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
+              {regionalPlans.heading}
+            </h2>
+            <p className="text-gray-500 mb-8">
+              AI-personalised meal plans for your region, built on traditional Indian recipes.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {regionalPlans.links.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white border border-gray-200 hover:border-orange-300 hover:shadow-sm text-sm font-medium text-gray-700 hover:text-orange-600 transition-all"
+                >
+                  <ArrowRight className="h-4 w-4 shrink-0 text-orange-400" />
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
         </section>
