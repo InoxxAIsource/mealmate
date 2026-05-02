@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "cQcgKXr11nJP0vwa7gPMc"
@@ -330,3 +329,9 @@ id = "Rt7gr_8TiR5hT8aS4ZG9w"
 uri = "file://artifacts/mealmate/public/dishes/mass-lassi.png"
 type = "image"
 title = "generated_image"
+
+[[outputs]]
+id = "ab8AeYbeH8hd2P6yRAd5J"
+uri = "file://.local/geo-audit-mealcoreai.pdf"
+type = "pdf"
+title = "GEO Audit Report — MealCoreAI"
