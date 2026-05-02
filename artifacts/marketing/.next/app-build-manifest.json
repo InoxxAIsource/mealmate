@@ -20,6 +20,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pcos-meal-plan/page.js"
+    ],
+    "/meal-plans/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/meal-plans/[slug]/page.js"
     ]
   }
 }

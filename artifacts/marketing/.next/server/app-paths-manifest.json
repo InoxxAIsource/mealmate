@@ -1,4 +1,5 @@
 {
-  "/page": "app/page.js",
-  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js"
+  "/meal-plans/[slug]/page": "app/meal-plans/[slug]/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/page": "app/page.js"
 }
