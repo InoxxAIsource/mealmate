@@ -121,7 +121,7 @@ export default async function BlogPostPage({
       url: `${BASE}/about`,
     },
     datePublished: post.publishDate,
-    dateModified: "2026-04-26",
+    dateModified: post.dateModified ?? post.publishDate,
     publisher: {
       "@type": "Organization",
       name: "MealCoreAI",

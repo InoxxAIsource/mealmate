@@ -9,6 +9,7 @@ export interface BlogPost {
   content: string;
   author: string;
   publishDate: string;
+  dateModified?: string;
   readTimeMin: number;
   featuredImage: string;
   relatedSlugs: string[];
@@ -1870,6 +1871,279 @@ A: Choose the track that matches your primary health concern. If you have multip
 
 <h2>Start Your Condition-Specific Indian Meal Plan</h2>
 <p>MealCoreAI generates personalised 7-day Indian meal plans for all the conditions covered in this guide, free to start. Select your health condition, regional cuisine, and food preferences, and receive a complete plan in under 2 minutes. <a href="https://mealcoreai.com/app/sign-up">Get your free plan today</a>.</p>
+    `.trim(),
+  },
+  {
+    slug: "ragi-vs-oats-pcos-diabetes",
+    title: "Ragi vs Oats for PCOS and Diabetes: Which Should You Eat?",
+    metaTitle: "Ragi vs Oats for PCOS and Diabetes: Which Is Better? | MealCoreAI",
+    metaDescription: "Ragi vs oats for PCOS and diabetes — a direct comparison of glycaemic index, fibre, minerals, and hormonal effects for Indian women. Which grain should you choose?",
+    category: "pcos",
+    tags: ["ragi", "oats", "PCOS", "diabetes", "low-GI", "millets", "Indian diet"],
+    excerpt: "Ragi and oats are both promoted for PCOS and diabetes management. But they have meaningfully different nutritional profiles. Here is a direct comparison to help you choose.",
+    author: "Dr. Priya Sharma",
+    publishDate: "2026-04-28",
+    dateModified: "2026-04-28",
+    readTimeMin: 9,
+    featuredImage: "/images/blog/ragi-vs-oats.jpg",
+    relatedSlugs: ["millet-benefits-pcos", "ragi-benefits-diabetes", "low-gi-indian-foods-list"],
+    internalLinks: [
+      { anchor: "PCOS meal plan for Indian women", url: "/pcos-meal-plan" },
+      { anchor: "diabetes meal plan India", url: "/diabetes-meal-plan" },
+    ],
+    content: `
+<p>Both ragi and oats are promoted as ideal grains for PCOS and diabetes. Both are low-GI. Both are high in fibre. Both are genuinely good for you. But they are not identical, and understanding the differences helps you make better choices for your specific situation — and include both strategically rather than picking one and ignoring the other.</p>
+
+<h2>Glycaemic Index Comparison</h2>
+<p>Ragi (finger millet) has a glycaemic index of approximately 54. Rolled oats have a GI of approximately 55. Steel-cut oats are lower at around 42. Instant oats jump to 83 — essentially the same as white bread. This is the most important practical distinction: the form of oats you eat matters enormously. The ragi you buy at any Indian grocery store is always whole grain with a consistent GI around 54. Oats vary significantly.</p>
+
+<table>
+<thead><tr><th>Grain</th><th>Glycaemic Index</th><th>Glycaemic Load (per 100g)</th></tr></thead>
+<tbody>
+<tr><td>Ragi (finger millet)</td><td>54</td><td>11</td></tr>
+<tr><td>Steel-cut oats</td><td>42</td><td>9</td></tr>
+<tr><td>Rolled oats</td><td>55</td><td>12</td></tr>
+<tr><td>Instant oats</td><td>83</td><td>20</td></tr>
+<tr><td>White rice (for comparison)</td><td>72</td><td>28</td></tr>
+</tbody>
+</table>
+
+<h2>Fibre Content</h2>
+<p>Ragi contains approximately 3.6g of fibre per 100g. Rolled oats contain approximately 10g of fibre per 100g — nearly three times as much. However, oats' fibre advantage is partially offset by how much of it is actually consumed. A typical Indian oats serving is 40-50g (about half a cup dry), providing 4-5g of fibre. A typical ragi dosa uses 30-40g of ragi flour, providing 1-1.5g of fibre. In practice, oats deliver more fibre per serving if you eat a full bowl of porridge. The comparison is less clear when ragi is eaten as roti (typically 2-3 rotis, using 60-80g of flour, providing 2-3g of fibre).</p>
+
+<h2>Mineral Profile: Where Ragi Wins Clearly</h2>
+<p>This is where ragi's advantage for PCOS and diabetes becomes most pronounced. Ragi contains 344mg of calcium per 100g. Oats contain 52mg. Ragi is one of the richest plant-based calcium sources in the world. For Indian women with PCOS — who have elevated rates of bone density loss due to hormonal disruption — this is a meaningful difference. Ragi also contains 137mg of magnesium per 100g. Oats contain 177mg. Both are good magnesium sources, and magnesium is critical for insulin signalling. The main PCOS mineral advantage for ragi is its calcium content combined with its magnesium.</p>
+
+<h2>Beta-Glucan: The Oats Advantage for Cholesterol</h2>
+<p>Oats contain beta-glucan, a soluble fibre that has strong clinical evidence for LDL cholesterol reduction (around 8-10% with 3g daily). Ragi does not contain beta-glucan in significant amounts. If you have PCOS combined with high cholesterol — a common combination because insulin resistance affects lipid metabolism — oats have a specific advantage that ragi does not replicate. For pure blood sugar management without a cholesterol concern, the two grains are broadly equivalent.</p>
+
+<h2>Hormonal Effects</h2>
+<p>For PCOS specifically, both grains help by reducing insulin resistance through their low-GI and fibre content. Neither grain has direct androgenic effects. Ragi's higher calcium content is relevant because calcium plays a role in sex hormone-binding globulin (SHBG) levels — higher SHBG reduces free testosterone, which benefits PCOS. This is indirect but real. Oats' stronger beta-glucan fibre content may help reduce the insulin spikes that drive androgen production. Both grains address PCOS through insulin-mediated pathways, but via slightly different mechanisms.</p>
+
+<h2>Practical Verdict for Indian Women</h2>
+<p><strong>For PCOS:</strong> Use ragi as your daily grain staple for its calcium and consistent low-GI. Add oats 3-4 times a week (as steel-cut or rolled — never instant) for beta-glucan and variety.</p>
+<p><strong>For diabetes:</strong> Either grain works well. Use steel-cut oats for breakfast when time permits. Use ragi for dosas, rotis, and porridge throughout the day. Avoid instant oats entirely.</p>
+<p><strong>For both combined:</strong> Include ragi in at least one meal per day. Eat a bowl of rolled or steel-cut oats upma or porridge 3-4 mornings per week. Rotate the two rather than choosing one permanently.</p>
+<p>The worst choice in either condition is white rice as your primary grain. Ragi or oats — in any combination — is a significant upgrade over the white rice and maida that dominate most Indian diets.</p>
+
+<p>Get a <a href="https://mealcoreai.com/pcos-meal-plan">personalised PCOS meal plan</a> that incorporates ragi and oats in the right quantities for your specific calorie needs, or explore the <a href="https://mealcoreai.com/diabetes-meal-plan">diabetes meal plan for Indians</a> with millet-forward meal structures.</p>
+    `.trim(),
+  },
+  {
+    slug: "pcos-thyroid-combined-diet-india",
+    title: "PCOS and Thyroid Together: What to Eat When You Have Both",
+    metaTitle: "PCOS and Thyroid Diet India: What to Eat When You Have Both | MealCoreAI",
+    metaDescription: "Up to 30% of women with PCOS also have thyroid dysfunction. Here is the combined diet approach for Indian women managing both conditions simultaneously.",
+    category: "pcos",
+    tags: ["PCOS", "thyroid", "hypothyroidism", "combined diet", "Indian women", "hormonal health"],
+    excerpt: "Up to 30% of Indian women with PCOS also have thyroid dysfunction. The dietary approaches overlap significantly — but there are specific conflicts to navigate and foods that address both conditions at once.",
+    author: "Dr. Priya Sharma",
+    publishDate: "2026-04-29",
+    dateModified: "2026-04-29",
+    readTimeMin: 11,
+    featuredImage: "/images/blog/pcos-thyroid-diet.jpg",
+    relatedSlugs: ["pcos-diet-plan-india", "thyroid-foods-avoid-india", "millet-benefits-pcos"],
+    internalLinks: [
+      { anchor: "PCOS meal plan for Indian women", url: "/pcos-meal-plan" },
+      { anchor: "thyroid diet plan India", url: "/thyroid-diet-plan" },
+    ],
+    content: `
+<p>Research suggests that 20-30% of women with PCOS also have thyroid dysfunction — most commonly Hashimoto's thyroiditis (an autoimmune hypothyroid condition). The two conditions share underlying mechanisms: both involve insulin resistance, both are worsened by chronic inflammation, and both disrupt the hypothalamic-pituitary axis that regulates hormones. This overlap means the dietary approaches have significant common ground — but also a few specific conflicts that are worth understanding clearly.</p>
+
+<h2>Where the Diets Are Identical</h2>
+<p>The following dietary principles apply equally to PCOS and thyroid dysfunction, and should form the foundation of any combined approach:</p>
+<ul>
+<li><strong>Low-GI whole grains:</strong> Ragi, jowar, bajra, and brown rice — for both insulin sensitivity (PCOS) and metabolic support (thyroid)</li>
+<li><strong>Anti-inflammatory spices:</strong> Turmeric, ginger, and black pepper — relevant for both the insulin resistance of PCOS and the autoimmune inflammation of Hashimoto's</li>
+<li><strong>High-protein legumes:</strong> Dal at every meal supports both conditions by providing slow-digesting protein that prevents insulin spikes</li>
+<li><strong>Elimination of refined carbohydrates:</strong> Maida, packaged snacks, white bread, and sugary beverages — harmful for both conditions through the insulin pathway</li>
+<li><strong>Regular meal timing:</strong> Skipping meals worsens both insulin resistance and thyroid hormone fluctuations</li>
+</ul>
+
+<h2>The Goitrogen Question (And Why It Is Mostly a Non-Issue)</h2>
+<p>The most common conflict Indian women with PCOS-thyroid overlap encounter is advice to avoid cruciferous vegetables (cabbage, cauliflower, broccoli, radish) because of their goitrogenic compounds. This advice creates unnecessary dietary restriction. Cooking destroys approximately 95% of goitrogenic activity in cruciferous vegetables. As long as you cook these vegetables — which standard Indian cooking always does — they pose no meaningful thyroid risk and can be eaten freely. The exception is women who eat very large quantities of raw cruciferous vegetables daily while also being iodine deficient. For the vast majority of Indian women eating normal sabzis and salads, this is not a concern.</p>
+
+<h2>The Soy Question for PCOS-Thyroid Women</h2>
+<p>Soy (soya chunks, tofu, soy milk) is a more legitimate dietary conflict. Soy phytoestrogens may benefit PCOS by modulating estrogen activity, but soy isoflavones can interfere with thyroid hormone synthesis and absorption of levothyroxine medication. If you have both conditions and take thyroid medication, the recommendation is: eat soy in moderation (2-3 servings per week), never eat soy within 4 hours of taking levothyroxine, and monitor your TSH when significantly changing soy intake. This does not mean eliminating soy — it means being mindful about timing and quantity.</p>
+
+<h2>Iodised Salt: Non-Negotiable for the Thyroid</h2>
+<p>Many women with PCOS switch to pink Himalayan salt or rock salt for aesthetic or health reasons. For women who also have thyroid dysfunction, this switch is harmful. Pink salt, rock salt, and black salt contain no iodine. Iodine is essential for thyroid hormone production. Using iodised salt consistently is one of the simplest and most important dietary decisions for thyroid health. This does not conflict with PCOS management at all — iodised salt is appropriate for both conditions.</p>
+
+<h2>The Combined Nutrient Priority List</h2>
+<p>Women with both PCOS and thyroid dysfunction should prioritise these six nutrients above all others:</p>
+<ol>
+<li><strong>Magnesium</strong> (bajra, dark chocolate, pumpkin seeds) — insulin signalling for PCOS</li>
+<li><strong>Selenium</strong> (Brazil nuts, sunflower seeds, eggs) — thyroid T4-to-T3 conversion</li>
+<li><strong>Iodine</strong> (iodised salt, dairy) — thyroid hormone production</li>
+<li><strong>Zinc</strong> (moong dal, pumpkin seeds, sesame) — both thyroid and hormonal health</li>
+<li><strong>Vitamin D</strong> (sunlight, fortified dairy, eggs) — deficient in the majority of Indian women with both conditions</li>
+<li><strong>Iron</strong> (ragi, palak, rajma) — hypothyroidism impairs iron absorption and both conditions increase anaemia risk</li>
+</ol>
+
+<h2>A Sample Day of Eating for PCOS-Thyroid</h2>
+<p><strong>Morning (before medication):</strong> Take levothyroxine with plain water on empty stomach. Wait 30-60 minutes before eating.</p>
+<p><strong>Breakfast:</strong> Egg bhurji (2 eggs) + ragi roti (2) + 1 glass milk. This covers selenium, iodine, calcium, and magnesium in one meal.</p>
+<p><strong>Mid-morning:</strong> 2 Brazil nuts + 1 small guava. Brazil nuts provide selenium; guava provides vitamin C to support iron absorption later.</p>
+<p><strong>Lunch:</strong> Moong dal + bajra roti + palak sabzi + curd. Covers magnesium, zinc, iron, and folate.</p>
+<p><strong>Snack:</strong> Pumpkin seeds + methi water (soaked overnight). Pumpkin seeds provide zinc; methi water helps insulin sensitivity.</p>
+<p><strong>Dinner:</strong> Ragi khichdi + stir-fried vegetables + curd. Light, low-GI, and mineral-rich.</p>
+
+<p>Managing both conditions with Indian food is achievable. Explore the <a href="https://mealcoreai.com/pcos-meal-plan">PCOS meal plan</a> and <a href="https://mealcoreai.com/thyroid-diet-plan">thyroid diet plan</a> to understand each condition's approach, or get a <a href="https://mealcoreai.com/app/sign-up">personalised plan</a> that accounts for both simultaneously.</p>
+    `.trim(),
+  },
+  {
+    slug: "low-gi-vs-high-gi-indian-foods-diabetes",
+    title: "Low-GI vs High-GI Indian Foods: A Complete Comparison for Diabetics",
+    metaTitle: "Low-GI vs High-GI Indian Foods for Diabetes: Full List & Guide | MealCoreAI",
+    metaDescription: "Complete comparison of low-GI and high-GI Indian foods for diabetes management. Includes GI values for common Indian grains, fruits, vegetables, and snacks with practical swaps.",
+    category: "diabetes",
+    tags: ["low-GI", "high-GI", "diabetes", "glycaemic index", "Indian foods", "blood sugar"],
+    excerpt: "A practical side-by-side comparison of low-GI and high-GI Indian foods with GI values, glycaemic load, and specific swaps that keep blood sugar stable without abandoning Indian cuisine.",
+    author: "Dr. Priya Sharma",
+    publishDate: "2026-04-30",
+    dateModified: "2026-04-30",
+    readTimeMin: 12,
+    featuredImage: "/images/blog/low-gi-vs-high-gi.jpg",
+    relatedSlugs: ["low-gi-indian-foods-list", "diabetic-indian-breakfast-ideas", "ragi-benefits-diabetes"],
+    internalLinks: [
+      { anchor: "diabetes meal plan for Indians", url: "/diabetes-meal-plan" },
+      { anchor: "low-GI Indian foods list", url: "/blog/low-gi-indian-foods-list" },
+    ],
+    content: `
+<p>Glycaemic index (GI) measures how quickly a carbohydrate food raises blood glucose compared to pure glucose (GI 100). For diabetics, consistently choosing lower-GI foods reduces post-meal glucose spikes, lowers HbA1c over time, and reduces the demand on insulin. Here is a comprehensive comparison of common Indian foods across GI categories — with specific actionable swaps.</p>
+
+<h2>Understanding GI Categories</h2>
+<ul>
+<li><strong>Low GI: 55 or below</strong> — causes slow, gradual glucose rise. Best for diabetics.</li>
+<li><strong>Medium GI: 56-69</strong> — moderate glucose rise. Acceptable in controlled portions.</li>
+<li><strong>High GI: 70+</strong> — causes rapid glucose spike. Minimise or pair with protein and fibre.</li>
+</ul>
+<p>Glycaemic Load (GL) is more useful than GI alone because it accounts for portion size. A high-GI food eaten in very small quantities may have a low GL. However, for practical daily eating, GI is a reliable guide when portions are normal.</p>
+
+<h2>Grains and Flours: Low-GI vs High-GI</h2>
+<table>
+<thead><tr><th>Food</th><th>GI</th><th>Category</th><th>Swap For</th></tr></thead>
+<tbody>
+<tr><td>Ragi (finger millet)</td><td>54</td><td>Low</td><td>—</td></tr>
+<tr><td>Jowar (sorghum)</td><td>55</td><td>Low</td><td>—</td></tr>
+<tr><td>Bajra (pearl millet)</td><td>55</td><td>Low</td><td>—</td></tr>
+<tr><td>Foxtail millet</td><td>50</td><td>Low</td><td>—</td></tr>
+<tr><td>Whole wheat atta</td><td>60</td><td>Medium</td><td>Replace 50% with jowar/bajra flour</td></tr>
+<tr><td>Brown rice</td><td>50</td><td>Low</td><td>—</td></tr>
+<tr><td>White rice</td><td>72</td><td>High</td><td>→ Brown rice or foxtail millet</td></tr>
+<tr><td>Maida (refined flour)</td><td>85</td><td>High</td><td>→ Jowar or ragi flour</td></tr>
+<tr><td>White bread</td><td>75</td><td>High</td><td>→ Multigrain or ragi bread</td></tr>
+<tr><td>Cornflakes</td><td>81</td><td>High</td><td>→ Steel-cut oats or ragi porridge</td></tr>
+</tbody>
+</table>
+
+<h2>Vegetables: Most Are Low-GI</h2>
+<p>The vast majority of Indian vegetables are low-GI and can be eaten freely. The exceptions are starchy vegetables that are high-GI when consumed in large portions:</p>
+<table>
+<thead><tr><th>Vegetable</th><th>GI</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Karela (bitter gourd)</td><td>~14</td><td>Specifically anti-diabetic — eat freely</td></tr>
+<tr><td>Palak, methi, moringa</td><td>&lt;20</td><td>Eat freely at every meal</td></tr>
+<tr><td>Tomato, onion, capsicum</td><td>15-30</td><td>Eat freely</td></tr>
+<tr><td>Sweet potato</td><td>63</td><td>Medium — limit to half cup per meal</td></tr>
+<tr><td>Potato (boiled)</td><td>78</td><td>High — replace with sweet potato</td></tr>
+<tr><td>Potato (fried)</td><td>95</td><td>Very high — avoid</td></tr>
+<tr><td>Corn (bhutta)</td><td>60</td><td>Medium — one cob is acceptable</td></tr>
+</tbody>
+</table>
+
+<h2>Fruits: Where Diabetics Must Be Selective</h2>
+<table>
+<thead><tr><th>Fruit</th><th>GI</th><th>Recommendation</th></tr></thead>
+<tbody>
+<tr><td>Amla</td><td>~25</td><td>Excellent — anti-diabetic properties</td></tr>
+<tr><td>Jamun</td><td>~25</td><td>Excellent — jamboline reduces blood glucose</td></tr>
+<tr><td>Guava</td><td>~28</td><td>Excellent — high fibre, low GI</td></tr>
+<tr><td>Apple, pear</td><td>35-40</td><td>Good — eat one medium fruit</td></tr>
+<tr><td>Orange</td><td>43</td><td>Good — eat whole, not as juice</td></tr>
+<tr><td>Papaya</td><td>60</td><td>Medium — limit to one cup</td></tr>
+<tr><td>Mango</td><td>56</td><td>Medium — maximum half mango</td></tr>
+<tr><td>Banana (ripe)</td><td>62</td><td>Medium — half a banana maximum</td></tr>
+<tr><td>Grapes</td><td>59</td><td>Medium — limit to 10-12 grapes</td></tr>
+<tr><td>Chikoo (sapota)</td><td>72</td><td>High — avoid or very limited</td></tr>
+</tbody>
+</table>
+
+<h2>Snacks: The Most Problematic Category</h2>
+<p>Indian snacking is where blood sugar management most often fails. Traditional Indian snacks (samosa, chakli, murukku, biscuits) are almost all high-GI. Replace them with:</p>
+<ul>
+<li>Roasted chana (GI ~28) — the single best Indian diabetic snack</li>
+<li>Makhana (fox nuts, GI ~30) — excellent alternative to fried snacks</li>
+<li>Peanuts (GI ~14) — handful is ideal</li>
+<li>Curd with pumpkin seeds or flaxseeds</li>
+<li>Cucumber, carrot sticks with peanut or hummus dip</li>
+</ul>
+
+<h2>The Most Important Practical Rule</h2>
+<p>GI is not the only factor. <strong>Meal composition matters more than individual food GI.</strong> Eating high-GI white rice alongside dal, sabzi, and curd reduces the meal's overall glycaemic response significantly compared to eating rice alone. This is why simply adding protein and fibre to every meal is often more practical than obsessively tracking individual food GI values.</p>
+
+<p>The diabetic rule of thirds: one-third of your plate should be non-starchy vegetables, one-third protein (dal, paneer, eggs, or curd), and one-third complex carbohydrate. This structure works for any Indian meal regardless of regional cuisine.</p>
+
+<p>Explore the complete <a href="https://mealcoreai.com/diabetes-meal-plan">diabetes meal plan for Indians</a> or get a <a href="https://mealcoreai.com/app/sign-up">personalised plan</a> that automatically applies low-GI principles to your regional Indian cuisine preferences.</p>
+    `.trim(),
+  },
+  {
+    slug: "mealcoreai-vs-generic-diet-chart",
+    title: "AI Meal Plan vs Generic Diet Chart: Why One-Size-Fits-All Fails Indian Women",
+    metaTitle: "AI Meal Plan vs Generic Diet Chart for Indian Women | MealCoreAI",
+    metaDescription: "Generic diet charts give the same plan to everyone. AI meal planning personalises every meal by condition, region, season, and preference. Here is what the difference looks like in practice.",
+    category: "general",
+    tags: ["AI meal plan", "personalised nutrition", "diet chart", "Indian women", "PCOS", "diabetes"],
+    excerpt: "Generic diet charts for PCOS and diabetes circulate on WhatsApp and doctor's clinic walls. They are better than nothing. But here is exactly what personalised AI meal planning does differently — and why it matters for Indian women.",
+    author: "Dr. Priya Sharma",
+    publishDate: "2026-05-01",
+    dateModified: "2026-05-01",
+    readTimeMin: 8,
+    featuredImage: "/images/blog/ai-vs-generic-diet.jpg",
+    relatedSlugs: ["ai-meal-planning-personalised-nutrition", "meal-planning-beginners-india", "pcos-diet-plan-india"],
+    internalLinks: [
+      { anchor: "personalised PCOS meal plan", url: "/pcos-meal-plan" },
+      { anchor: "AI-personalised Indian meal planning", url: "/blog/ai-meal-planning-personalised-nutrition" },
+    ],
+    content: `
+<p>Generic diet charts for PCOS, diabetes, and thyroid management have been circulating in India for decades — printed on clinic walls, shared in WhatsApp groups, downloaded from health websites. They are better than no guidance at all. But they have systematic limitations that personalised planning directly addresses. Here is a clear comparison of what each approach provides.</p>
+
+<h2>What a Generic Diet Chart Looks Like</h2>
+<p>A typical generic PCOS or diabetes diet chart gives instructions such as:</p>
+<ul>
+<li>Breakfast: 2 rotis + vegetable + 1 cup curd</li>
+<li>Lunch: 2 rotis + dal + sabzi + salad</li>
+<li>Snack: handful of nuts or fruit</li>
+<li>Dinner: khichdi or 2 rotis + dal + sabzi</li>
+</ul>
+<p>This is reasonable advice. It is nutritionally sound in a general sense. The problem is that it ignores virtually everything that makes nutrition personal: your region, your preferences, your kitchen time, your budget, your specific intolerances, and whether you are a South Indian woman who has never eaten a wheat roti or a North Indian woman who has never cooked with ragi.</p>
+
+<h2>The Five Things Generic Charts Cannot Do</h2>
+
+<h3>1. Account for Regional Food Traditions</h3>
+<p>A Tamilian woman's normal diet (idli, dosa, rice, sambar) and a Punjabi woman's normal diet (roti, dal makhani, paneer) have completely different macronutrient profiles, cooking methods, and available ingredients. A generic chart that says "eat ragi roti for breakfast" is useless to someone who has never cooked with ragi and has no idea where to buy it. Personalised plans work within your existing regional food framework, making realistic modifications rather than demanding wholesale dietary reinvention.</p>
+
+<h3>2. Adjust for Season and Ingredient Availability</h3>
+<p>Indian markets are seasonal. Mustard greens are a winter ingredient. Tender coconut is more accessible in coastal states. Generic charts ignore this entirely. A plan that works in January in Delhi will be impractical in July in Chennai. Seasonal meal planning produces better adherence because it recommends what is actually available and affordable in your market right now.</p>
+
+<h3>3. Match Your Calorie Needs</h3>
+<p>A 52kg, 160cm woman who walks 20 minutes daily has fundamentally different calorie requirements from a 78kg woman who is sedentary. Generic charts cannot account for this. A plan that causes the first woman to maintain weight may cause the second to gain. Personalisation based on weight, height, activity level, and health goals is the foundation of effective dietary guidance.</p>
+
+<h3>4. Accommodate Real Preferences and Dislikes</h3>
+<p>If you genuinely cannot tolerate bitter gourd (karela), a generic PCOS chart that recommends it three times a week will simply not be followed. Effective meal planning works around dislikes rather than demanding you overcome them. There are always alternative ingredients that achieve the same nutritional outcome — the question is which alternatives are acceptable to you specifically.</p>
+
+<h3>5. Adapt Over Time</h3>
+<p>A static chart does not change as your symptoms improve, your weight changes, your season changes, or your life circumstances change. Personalised AI planning recalculates recommendations as your parameters change, providing a plan that is always appropriate to your current situation rather than your situation when you first received the chart six months ago.</p>
+
+<h2>What the Evidence Says About Personalised Nutrition</h2>
+<p>Research on personalised nutrition consistently shows better outcomes than generic guidelines. A landmark study from the Weizmann Institute found that identical foods caused dramatically different glycaemic responses in different individuals — demonstrating that population-level dietary guidelines cannot optimise individual outcomes. For conditions like PCOS and diabetes where metabolic responses are highly individual, personalisation is not a luxury — it is a requirement for optimal management.</p>
+
+<h2>The Practical Difference in Daily Eating</h2>
+<p><strong>Generic chart:</strong> "Eat 2 rotis at lunch."</p>
+<p><strong>Personalised plan:</strong> "Eat 2 bajra rotis at lunch with moong dal and palak sabzi, using mustard oil — adjusted for your North Indian preference, 1600 calorie target, and PCOS insulin resistance profile. This week's plan includes 15% more magnesium because your previous week's intake was below target."</p>
+<p>The generic chart is a population average. The personalised plan is designed for you.</p>
+
+<p>MealCoreAI generates personalised 7-day Indian meal plans based on your health condition, region, food preferences, cook time, and calorie goals. Free to start. <a href="https://mealcoreai.com/app/sign-up">Get your personalised plan in 90 seconds</a> — or explore condition-specific approaches for <a href="https://mealcoreai.com/pcos-meal-plan">PCOS</a>, <a href="https://mealcoreai.com/diabetes-meal-plan">diabetes</a>, <a href="https://mealcoreai.com/thyroid-diet-plan">thyroid</a>, and other conditions.</p>
     `.trim(),
   },
 ];

@@ -174,21 +174,25 @@ export default function CholesterolPage() {
             dinner: "Chicken / tofu curry (light) + steamed vegetables + bajra khichdi",
           },
         ]}
+        directAnswer="A cholesterol-lowering Indian diet replaces saturated fats (vanaspati, excess full-fat dairy) with soluble fibre from oats and dal, omega-3 fats from flaxseeds and walnuts, and specific foods with proven LDL-lowering effects — amla, garlic, and methi. Dietary changes alone can reduce LDL by 15–20% in 60–90 days when followed consistently."
         whyIngredients={[
           {
             name: "Oats and Beta-Glucan",
             claim: "Oats have one of the most well-established diet-cholesterol links in nutrition science. The soluble fibre in oats — called beta-glucan — forms a thick gel in your gut that physically traps LDL cholesterol and escorts it out before it can be absorbed. You need about 3g of beta-glucan a day to get the effect, which is roughly 1 to 1.5 cups of cooked oats. That's it. One bowl of oats upma for breakfast every day, consistently, for 8-12 weeks shows a measurable LDL reduction of 8-10%.",
             citation: "Source: FDA Heart Health Claim, Docket 95P-0197; Brown L et al., American Journal of Clinical Nutrition, 1999.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/10466168/",
           },
           {
             name: "Garlic (Lehsun)",
             claim: "Two raw garlic cloves a day. That's the dosage from multiple clinical trials that shows a 9-12% reduction in total cholesterol. Garlic contains allicin, which inhibits the enzyme HMG-CoA reductase — the same enzyme targeted by statin medications, just to a much lesser degree. Raw garlic works better than cooked; heat destroys allicin. Swallow two small cloves whole with water in the morning, or finely mince and add to your sabzi right before serving. It's not glamorous, but the evidence is solid.",
             citation: "Source: Warshafsky S et al., Annals of Internal Medicine, 1993.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/8297871/",
           },
           {
             name: "Amla (Indian Gooseberry)",
             claim: "A study published in the European Journal of Clinical Nutrition compared 500mg of amla powder twice daily against simvastatin (a common cholesterol medication) in patients with high cholesterol. The amla group showed comparable reductions in LDL and significant increases in HDL over 42 days. Amla is not a supplement in Indian cooking — it's a regular ingredient. Amla pickle with meals, amla juice in the morning, dried amla as a snack. Getting consistent daily amla is more valuable than taking it in a pill.",
             citation: "Source: Jacob A et al., European Journal of Clinical Nutrition, 1988.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/3356494/",
           },
         ]}
         faqs={[

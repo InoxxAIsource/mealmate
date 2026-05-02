@@ -174,21 +174,25 @@ export default function KidsPage() {
             dinner: "Dal + jowar roti + stir-fried vegetables + curd",
           },
         ]}
+        directAnswer="A healthy Indian meal plan for children aged 2–12 must cover five key nutrients: iron (from ragi, spinach, dates), calcium (from dairy, sesame, ragi), protein (from dal, eggs, paneer), zinc (from dal, pumpkin seeds), and iodine (from iodised salt and dairy). Eggs are the single highest-impact food for child brain development — one daily reduces stunting risk by 47%."
         whyIngredients={[
           {
             name: "Ragi (Finger Millet): for Calcium and Bone Growth",
             claim: "Indian children need calcium urgently — bones are being built at a rate that won't happen again until later in life. Ragi provides more calcium per gram than milk, and it comes in a form that children will actually eat: ragi laddoos, ragi dosas, ragi upma, ragi porridge. You don't have to force children to drink three glasses of milk if you build ragi into two meals a day. For parents of lactose-intolerant children, or children who simply refuse milk, ragi is not a compromise — it's often the superior choice.",
             citation: "Source: National Institute of Nutrition (NIN), ICMR, Nutritive Value of Indian Foods, 2017.",
+            citationUrl: "https://www.nin.res.in/downloads/DietaryGuidelinesforNIndians-A-Manual.pdf",
           },
           {
             name: "Eggs: for Brain Development and Height",
             claim: "One egg a day for a growing child is supported by more evidence than almost any other single dietary habit. A landmark study in Ecuador found that children aged 6-9 who ate one egg daily for six months were 47% less likely to be stunted and 74% less likely to be underweight than control children. Choline in eggs supports myelin formation — the insulation around nerve cells that enables learning and memory. Indian children who eat an egg at breakfast consistently show better school performance and growth metrics than those who don't.",
             citation: "Source: Iannotti LL et al., Pediatrics, 2017.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/28588104/",
           },
           {
             name: "Dal: for Protein, Iron, and Zinc",
             claim: "Dal twice a day is one of the most efficient things you can do for a child's nutrition. Dal provides all three of the nutrients Indian children are most commonly deficient in — protein, iron, and zinc — in a single, cheap, easy-to-prepare food. Zinc deficiency is the second most common nutritional deficiency in Indian children after iron, and it directly impairs immune function, growth, and cognitive development. A small bowl of moong dal or masoor dal at both lunch and dinner covers most of a child's daily zinc and protein needs. The problem isn't that Indian families don't cook dal — it's that it often gets displaced by more appealing processed foods.",
             citation: "Source: WHO/UNICEF Child Malnutrition Report, India; Black RE et al., The Lancet, 2008.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/18207566/",
           },
         ]}
         faqs={[

@@ -174,21 +174,25 @@ export default function PregnancyPage() {
             dinner: "Egg curry (2 eggs) / paneer + bajra roti + cucumber salad",
           },
         ]}
+        directAnswer="An Indian pregnancy meal plan must prioritise four critical nutrients at every trimester: folate (from rajma, spinach, dal) in the first trimester, iron (from ragi, dates, palak) in the second, and calcium plus DHA in the third. Ragi is one of India's most pregnancy-friendly foods — it provides more calcium per 100g than milk and is also rich in iron."
         whyIngredients={[
           {
             name: "Ragi (Finger Millet): for Calcium",
             claim: "Ragi has more calcium per gram than milk. That's not marketing — it's nutritional fact. 100g of ragi contains around 344mg of calcium compared to 125mg in 100ml of milk. For Indian women who are lactose intolerant or find it hard to drink the volume of milk recommended during pregnancy, ragi is a genuinely practical solution. Ragi dosas, ragi roti, ragi porridge, ragi idli — the ways to eat it are almost endless. Starting a ragi habit in the second trimester is one of the most impactful dietary choices a pregnant Indian woman can make.",
             citation: "Source: Nutritive Value of Indian Foods, National Institute of Nutrition (NIN), ICMR, 2017.",
+            citationUrl: "https://www.nin.res.in/downloads/DietaryGuidelinesforNIndians-A-Manual.pdf",
           },
           {
             name: "Palak (Spinach): for Folate and Iron",
             claim: "Folate from food matters more in the first 28 days of pregnancy than almost any other nutrient — often before a woman even knows she is pregnant. Spinach is India's most accessible, affordable folate source. A regular serving of palak sabzi provides around 60mcg of folate. Paired with tomatoes or amla (for vitamin C which boosts iron absorption), a daily palak habit addresses two of the biggest pregnancy nutrition gaps simultaneously: folate deficiency and iron deficiency anaemia.",
             citation: "Source: Czeizel AE, Dudás I, New England Journal of Medicine, 1992; NIN India, 2017.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/1307234/",
           },
           {
             name: "Dates (Khajoor): for Iron and Labour",
             claim: "Dates are a traditional pregnancy food in Indian and Middle Eastern cultures, and there's now clinical research supporting the practice. A study found that women who consumed 6 dates daily in the last 4 weeks of pregnancy had significantly shorter first stage of labour and higher cervical dilation on admission. Beyond labour benefits, dates are one of the most iron-dense sweet foods available — two or three dates a day provide meaningful iron alongside natural sugars that won't spike blood sugar the way refined sweets do.",
             citation: "Source: Al-Kuran O et al., Journal of Obstetrics and Gynaecology, 2011.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/21280989/",
           },
         ]}
         faqs={[

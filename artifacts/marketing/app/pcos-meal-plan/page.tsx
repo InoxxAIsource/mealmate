@@ -175,21 +175,25 @@ export default function PCOSPage() {
             dinner: "Paneer bhurji + multigrain roti + cucumber salad",
           },
         ]}
+        directAnswer="A PCOS meal plan for Indian women should prioritise low-GI millets (ragi, bajra, jowar), anti-inflammatory spices (turmeric, cinnamon, methi), and high-protein legumes (moong dal, chana). These foods reduce insulin resistance — the root driver of most PCOS symptoms — while keeping meals within familiar Indian cuisine."
         whyIngredients={[
           {
             name: "Cinnamon (Dalchini)",
             claim: "Half a teaspoon of cinnamon a day is one of the easiest PCOS interventions your kitchen can offer. A study in the Journal of Nutritional Science found it improved insulin sensitivity by 19% over 8 weeks — a meaningful number when insulin resistance is the root driver of your symptoms. Put it in your chai, your ragi porridge, or your dal — it genuinely doesn't matter how you include it, just include it.",
             citation: "Source: Wang JG et al., Journal of Nutritional Science, 2019.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/31435697/",
           },
           {
             name: "Flaxseeds (Alsi)",
             claim: "Your body is processing estrogen constantly, and in PCOS it often produces too much. Flaxseeds contain lignans — plant compounds that bind to estrogen receptors and gently reduce excess circulating estrogen. Two tablespoons of ground flaxseeds daily (add them to your roti dough, curd, or smoothie) is enough to see a measurable effect on testosterone and LH levels over 3 months. Ground is key — whole flaxseeds pass through undigested.",
             citation: "Source: Nowak DA et al., European Journal of Nutrition, 2007.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/17309381/",
           },
           {
             name: "Bajra (Pearl Millet)",
             claim: "About 80% of women with PCOS are deficient in magnesium. That's significant because magnesium is a co-factor in insulin signalling — your cells literally can't respond to insulin properly without it. Bajra is one of the best Indian sources of dietary magnesium, with nearly 130mg per 100g cooked. Replacing one wheat roti with bajra roti daily isn't a dramatic lifestyle change, but it adds up over months of consistent eating.",
             citation: "Source: Yildizhan R et al., Gynecological Endocrinology, 2012.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/22450520/",
           },
         ]}
         faqs={[

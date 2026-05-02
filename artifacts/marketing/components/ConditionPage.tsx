@@ -1,8 +1,5 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, CheckCircle2, XCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, XCircle } from "lucide-react";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 const APP_URL = "https://mealcoreai.com/app";
@@ -39,6 +36,7 @@ export interface WhyIngredient {
   name: string;
   claim: string;
   citation: string;
+  citationUrl?: string;
 }
 
 export interface ConditionPageProps {
@@ -55,6 +53,7 @@ export interface ConditionPageProps {
   relatedPlans: RelatedLink[];
   currentPath?: string;
   whyIngredients?: WhyIngredient[];
+  directAnswer?: string;
 }
 
 const accentMap: Record<string, { badge: string; btn: string; bar: string; border: string }> = {
@@ -96,28 +95,6 @@ const accentMap: Record<string, { badge: string; btn: string; bar: string; borde
   },
 };
 
-function FAQItem({ q, a, accent }: { q: string; a: string; accent: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border border-gray-200 rounded-2xl overflow-hidden">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-        aria-expanded={open}
-      >
-        <span className="font-semibold text-gray-900 text-sm sm:text-base">{q}</span>
-        <ChevronDown
-          className={`h-5 w-5 text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      {open && (
-        <div className="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
-          {a}
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function ConditionPage({
   condition,
@@ -133,6 +110,7 @@ export default function ConditionPage({
   relatedPlans,
   currentPath,
   whyIngredients,
+  directAnswer,
 }: ConditionPageProps) {
   const ac = accentMap[accentColour] ?? accentMap.orange;
   const conditionSlug = condition.toLowerCase().replace(/\s+/g, "-");
@@ -174,6 +152,12 @@ export default function ConditionPage({
               </div>
             </div>
 
+            {directAnswer && (
+              <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-2xl p-5 mb-6">
+                <p className="text-xs font-bold text-blue-700 uppercase tracking-wide mb-1">Quick Answer</p>
+                <p className="text-sm text-gray-800 leading-relaxed">{directAnswer}</p>
+              </div>
+            )}
             <p className="text-lg text-gray-600 leading-relaxed mb-8">{intro}</p>
             <a
               href={`${APP_URL}/sign-up`}
@@ -329,11 +313,17 @@ export default function ConditionPage({
 
           {whyIngredients && whyIngredients.length > 0 ? (
             <div className="space-y-10">
-              {whyIngredients.map(({ name, claim, citation }) => (
+              {whyIngredients.map(({ name, claim, citation, citationUrl }) => (
                 <div key={name} className="max-w-3xl">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{name}</h3>
                   <p className="text-gray-700 leading-relaxed mb-2">{claim}</p>
-                  <p className="text-sm text-gray-400 italic">{citation}</p>
+                  {citationUrl ? (
+                    <a href={citationUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 italic hover:text-orange-500 transition-colors">
+                      {citation}
+                    </a>
+                  ) : (
+                    <p className="text-sm text-gray-400 italic">{citation}</p>
+                  )}
                 </div>
               ))}
             </div>
@@ -424,7 +414,15 @@ export default function ConditionPage({
           <p className="text-gray-500 mb-10">Evidence-based answers to the most common questions about {condition} nutrition.</p>
           <div className="space-y-3">
             {faqs.map(({ q, a }) => (
-              <FAQItem key={q} q={q} a={a} accent={accentColour} />
+              <details key={q} className="border border-gray-200 rounded-2xl overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer hover:bg-gray-50 transition-colors list-none">
+                  <span className="font-semibold text-gray-900 text-sm sm:text-base">{q}</span>
+                  <span className="text-gray-400 shrink-0 text-xl leading-none select-none" aria-hidden="true">+</span>
+                </summary>
+                <div className="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                  {a}
+                </div>
+              </details>
             ))}
           </div>
         </div>

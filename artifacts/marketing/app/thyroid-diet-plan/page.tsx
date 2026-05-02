@@ -174,21 +174,25 @@ export default function ThyroidPage() {
             dinner: "Paneer curry + bajra roti + steamed vegetables",
           },
         ]}
+        directAnswer="A thyroid diet plan for Indians should focus on ensuring adequate selenium, iodine, and zinc — the three minerals the thyroid needs most. Eggs, iodised salt, dairy, sunflower seeds, and moong dal are the most accessible Indian sources. Avoiding raw cruciferous vegetables is largely unnecessary since cooking destroys 95% of goitrogenic compounds."
         whyIngredients={[
           {
             name: "Selenium: Brazil Nuts and Sunflower Seeds",
             claim: "Selenium is the single most important mineral for thyroid function — and most Indians don't get enough of it. The thyroid gland contains more selenium per gram than any other tissue in the body, and without it, the enzyme that converts inactive T4 into active T3 hormone simply cannot work properly. Two Brazil nuts a day is all you need. If Brazil nuts aren't accessible, a small handful of sunflower seeds daily provides a meaningful selenium dose. This is not a supplement you need — it's a food habit.",
             citation: "Source: Köhrle J, European Journal of Endocrinology, 2015.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/26500248/",
           },
           {
             name: "Iodine: Iodised Salt and Dairy",
             claim: "India has one of the highest rates of iodine deficiency globally, and the thyroid literally cannot make hormones without it. Iodised salt is the simplest, cheapest, and most reliable way to ensure daily iodine intake — which is why the switch many health-conscious Indians make to pink salt, rock salt, or black salt is actually harmful for thyroid patients. These salts contain no iodine. One glass of milk provides 50-80mcg of iodine, roughly half your daily needs. Keep dairy consistent and never swap iodised salt.",
             citation: "Source: WHO Global Database on Iodine Deficiency, 2004.",
+            citationUrl: "https://www.who.int/publications/i/item/9241591048",
           },
           {
             name: "Zinc: Dal and Pumpkin Seeds",
             claim: "Zinc deficiency is found in a significant proportion of hypothyroid patients, and it creates a self-reinforcing problem: low thyroid function reduces zinc absorption, and low zinc reduces thyroid function. Moong and masoor dal are accessible daily sources of dietary zinc. A tablespoon of pumpkin seeds added to curd, poha, or salad provides additional zinc in a convenient form. Unlike selenium and iodine, zinc can be obtained easily through a dal-forward Indian diet — the traditional way of eating is already doing some of the work.",
             citation: "Source: Nishiyama S et al., Journal of the American College of Nutrition, 1994.",
+            citationUrl: "https://pubmed.ncbi.nlm.nih.gov/7932603/",
           },
         ]}
         faqs={[
