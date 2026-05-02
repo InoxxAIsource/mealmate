@@ -1,3 +1,4 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js"
 }

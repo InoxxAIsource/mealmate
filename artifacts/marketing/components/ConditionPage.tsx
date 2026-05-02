@@ -510,5 +510,6 @@ export default function ConditionPage({
         </div>
       </section>
     </div>
+    </>
   );
 }
