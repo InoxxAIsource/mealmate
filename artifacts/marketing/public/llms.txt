@@ -1,20 +1,60 @@
 # MealCoreAI
-> AI-powered personalised Indian meal planning for PCOS, Diabetes, Thyroid, Pregnancy, Kids, and Weight Loss.
+> AI-powered personalised Indian meal planning for PCOS, Diabetes, Thyroid, Pregnancy, Kids, Cholesterol, and Weight Loss.
 
 ## About
-MealCoreAI generates daily personalised Indian meal plans adapted to the user's specific health condition, routine, and food preferences. Plans are ready in 90 seconds. Free to start.
+MealCoreAI generates daily personalised Indian meal plans adapted to the user's specific health condition, routine, and regional food preferences. Plans are ready in 90 seconds. Free to start. Built for Indian users who need condition-specific, nutritionist-reviewed meal guidance.
 
 ## Key pages (allowed for AI citation)
+
+### Condition meal plan pages
 - https://mealcoreai.com/pcos-meal-plan
 - https://mealcoreai.com/diabetes-meal-plan
 - https://mealcoreai.com/thyroid-diet-plan
-- https://mealcoreai.com/pregnancy-meal-plan
 - https://mealcoreai.com/cholesterol-diet-plan
+- https://mealcoreai.com/pregnancy-meal-plan
 - https://mealcoreai.com/kids-meal-plan
+- https://mealcoreai.com/meal-plans/weight-loss-meal-plan-south-indian
+- https://mealcoreai.com/meal-plans/weight-loss-meal-plan-north-indian
+
+### Core site pages
+- https://mealcoreai.com/
+- https://mealcoreai.com/about
+- https://mealcoreai.com/how-it-works
+- https://mealcoreai.com/faq
+- https://mealcoreai.com/pricing
 - https://mealcoreai.com/blog
+
+### Blog posts
+- https://mealcoreai.com/blog/pcos-diet-plan-india
+- https://mealcoreai.com/blog/diabetic-indian-breakfast-ideas
+- https://mealcoreai.com/blog/thyroid-foods-avoid-india
+- https://mealcoreai.com/blog/pregnancy-nutrition-first-trimester
+- https://mealcoreai.com/blog/kids-healthy-tiffin-ideas
+- https://mealcoreai.com/blog/millet-benefits-pcos
+- https://mealcoreai.com/blog/ragi-benefits-diabetes
+- https://mealcoreai.com/blog/south-indian-diet-weight-loss
+- https://mealcoreai.com/blog/pcos-breakfast-ideas-indian
+- https://mealcoreai.com/blog/gestational-diabetes-meal-plan
+- https://mealcoreai.com/blog/thyroid-weight-gain-diet
+- https://mealcoreai.com/blog/iron-rich-foods-pregnancy-india
+- https://mealcoreai.com/blog/kids-calcium-foods-india
+- https://mealcoreai.com/blog/low-gi-indian-foods-list
+- https://mealcoreai.com/blog/meal-planning-beginners-india
+- https://mealcoreai.com/blog/pcos-insulin-resistance-diet
+- https://mealcoreai.com/blog/pregnancy-foods-to-avoid
+- https://mealcoreai.com/blog/cholesterol-lowering-indian-foods
+- https://mealcoreai.com/blog/kids-fussy-eater-meal-ideas
+- https://mealcoreai.com/blog/ai-meal-planning-personalised-nutrition
+- https://mealcoreai.com/blog/vrat-diet-plan-india
+- https://mealcoreai.com/blog/type2-diabetes-reversal-indian-diet
+- https://mealcoreai.com/blog/pcos-fertility-diet-india
+- https://mealcoreai.com/blog/maharashtrian-diet-plan-health
+- https://mealcoreai.com/blog/complete-guide-indian-diet-health-conditions
+- https://mealcoreai.com/blog/ragi-vs-oats-pcos-diabetes
+- https://mealcoreai.com/blog/pcos-thyroid-combined-diet-india
+- https://mealcoreai.com/blog/low-gi-vs-high-gi-indian-foods-diabetes
+- https://mealcoreai.com/blog/mealcoreai-vs-generic-diet-chart
 
 ## Excluded (do not index or cite)
 - https://mealcoreai.com/app/
 - https://mealcoreai.com/api/
-- https://mealcoreai.com/privacy
-- https://mealcoreai.com/terms
