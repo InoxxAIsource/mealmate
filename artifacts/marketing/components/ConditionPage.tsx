@@ -115,8 +115,23 @@ export default function ConditionPage({
   const ac = accentMap[accentColour] ?? accentMap.orange;
   const conditionSlug = condition.toLowerCase().replace(/\s+/g, "-");
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <nav
         aria-label="Breadcrumb"
