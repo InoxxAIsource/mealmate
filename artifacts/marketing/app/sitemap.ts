@@ -11,7 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/pricing`, lastModified: new Date("2026-04-15"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/blog`, lastModified: new Date("2026-04-22"), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/faq`, lastModified: new Date("2026-04-10"), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/about`, lastModified: new Date("2026-04-10"), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/about`, lastModified: new Date("2026-05-03"), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/meal-plans`, lastModified: new Date("2026-05-03"), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const conditionPages: MetadataRoute.Sitemap = [
