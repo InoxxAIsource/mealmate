@@ -1,0 +1,59 @@
+Make two changes to the /about page. Both changes are to the same file.
+
+Change 1 — Add Person schema for Dr. Priya Sharma
+Find the /about page. It is most likely at app/about/page.tsx. Look at the existing JSON-LD schema output — it currently outputs only a BreadcrumbList schema.
+Add a Person JSON-LD schema block to the page's <head> output, alongside the existing BreadcrumbList. Use this exact content:
+json{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dr. Priya Sharma",
+  "jobTitle": "Nutritionist",
+  "description": "Registered nutritionist with the India Dietetic Association. Reviews and validates all MealCoreAI meal plans for clinical accuracy across PCOS, Diabetes, Thyroid, Pregnancy, Kids, Cholesterol, and Weight Loss.",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "India Dietetic Association",
+    "url": "https://www.indiadietetic.org"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "MealCoreAI",
+    "url": "https://mealcoreai.com"
+  },
+  "knowsAbout": [
+    "PCOS nutrition",
+    "Diabetic diet",
+    "Thyroid diet",
+    "Pregnancy nutrition",
+    "Indian regional cuisine",
+    "Low-GI Indian foods",
+    "Sports nutrition"
+  ]
+}
+After this change, the /about page should output two schemas: BreadcrumbList and Person.
+
+Change 2 — Expand the About page content
+The /about page currently has approximately 500 words of content. Find the about page content (in the .tsx file or in a separate MDX/content file it imports from) and expand it to approximately 900 words by adding the following sections. Add them after the existing team bio content, before any closing CTA section.
+Add these three sections:
+
+Dr. Priya Sharma — Clinical Credentials
+Dr. Priya Sharma holds a postgraduate qualification in Food Science and Nutrition and has been a registered member of the India Dietetic Association (IDA) for over nine years. She has worked in clinical nutrition settings across hospital outpatient departments in Mumbai and Pune, with a focus on metabolic disorders: insulin resistance, PCOS, Type 2 diabetes, and hypothyroid.
+At MealCoreAI, Dr. Sharma reviews all condition-specific meal plan templates before they are made available to users. Her review process covers three checks: clinical accuracy of nutritional targets for each health condition, glycaemic appropriateness of the grains and dals included, and cultural and practical relevance for Indian regional cuisines. Plans are re-reviewed whenever the underlying condition guidelines are updated.
+Her specific interest is in the gap between Western nutritional research and Indian dietary reality. Most peer-reviewed studies on low-GI eating or PCOS nutrition are conducted on non-Indian populations eating non-Indian foods. Her work at MealCoreAI involves translating the evidence into Indian-food-specific interventions — using ragi, jowar, bajra, methi, karela, and moong dal rather than quinoa, avocado, and cauliflower rice.
+
+Why Indian Users Need Condition-Specific Meal Planning
+Generic diet advice fails Indian users for three consistent reasons.
+First, most nutritional research is conducted on Western populations eating Western diets. Low-GI food lists routinely cite multigrain bread and sweet potatoes while omitting ragi (GI 54), jowar (GI 52), and bajra — staple Indian grains with comparable or superior glycaemic profiles.
+Second, Indian eating patterns are structurally different from Western ones. The meal is not a protein + vegetable + grain in separate portions. It is a combination — dal and rice eaten together, sabzi and roti eaten together — where the glycaemic response depends entirely on the ratio, sequencing, and preparation method. Advice that ignores this combination effect produces incorrect dietary guidance.
+Third, regional variation matters enormously. A PCOS meal plan for a Tamil Nadu user that recommends jowar roti is not useful — jowar is not a common grain in South Indian cooking. A plan that substitutes pesarattu and ragi dosa is both clinically equivalent and actually usable. MealCoreAI generates plans that match the user's regional cuisine, not a generic Indian diet.
+
+How MealCoreAI Is Built
+MealCoreAI generates 7-day meal plans using a condition-specific nutrition framework developed in collaboration with Dr. Priya Sharma. Each framework defines the target macronutrient ranges, glycaemic load targets, and key foods for that condition — then maps them to breakfast, lunch, snack, and dinner options across seven regional Indian cuisines.
+When a user selects their condition and regional cuisine, the AI selects from the clinically validated options for that combination, generates a full 7-day plan, and automatically creates a grocery list from the plan. The entire process takes under 90 seconds.
+Plans can be regenerated daily. Users on paid plans can adjust for food preferences and dietary restrictions (vegetarian, Jain, no onion/garlic, egg-free, and others). The grocery list updates automatically when the plan is regenerated.
+All condition frameworks are reviewed by Dr. Sharma before release. The PCOS framework, for example, prioritises low-GI grains, high-protein breakfasts, and methi consumption — because these three interventions have the strongest evidence base for reducing fasting insulin in PCOS, which is the root mechanism driving irregular periods and androgen elevation.
+
+After adding the content, confirm:
+
+The /about page now has two JSON-LD schema blocks: BreadcrumbList and Person
+The page content is approximately 900 words
+Build succeeds with no errors
