@@ -1,0 +1,23 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://mealcoreai.com/",
+      "service-doc": [
+        { "href": "https://mealcoreai.com/llms.txt", "type": "text/plain" },
+        { "href": "https://mealcoreai.com/how-it-works" }
+      ],
+      "describedby": [
+        { "href": "https://mealcoreai.com/llms.txt", "type": "text/plain" }
+      ]
+    },
+    {
+      "anchor": "https://mealcoreai.com/api/",
+      "service-doc": [
+        { "href": "https://mealcoreai.com/how-it-works" }
+      ],
+      "status": [
+        { "href": "https://mealcoreai.com/api/healthz" }
+      ]
+    }
+  ]
+}

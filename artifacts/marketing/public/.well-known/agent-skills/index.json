@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "llms-txt",
+      "type": "llms-txt",
+      "description": "Machine-readable site summary covering MealCoreAI's 7 health conditions, 40+ blog posts, key pages, and Indian nutrition facts for AI citation and retrieval",
+      "url": "https://mealcoreai.com/llms.txt",
+      "sha256": "f73c3e1061c15f04cb3c43408b36ad465abb174e725de99f14b2417e11e46772"
+    },
+    {
+      "name": "api-catalog",
+      "type": "api-catalog",
+      "description": "RFC 9727 API catalog linking MealCoreAI's public services and documentation",
+      "url": "https://mealcoreai.com/.well-known/api-catalog",
+      "sha256": "0eca8beabd1cc173871becca9d069ae4576d348b813ed3947ce920655812f2e8"
+    },
+    {
+      "name": "mcp-server-card",
+      "type": "mcp-server-card",
+      "description": "MCP server card advertising MealCoreAI's AI meal planning tools for agent integration",
+      "url": "https://mealcoreai.com/.well-known/mcp/server-card.json",
+      "sha256": "2c55e1a1ebc6bae4bea8c2bf29a4622d662b188b582bad8fe660bdad841764a6"
+    }
+  ]
+}

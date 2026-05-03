@@ -1,0 +1,56 @@
+{
+  "serverInfo": {
+    "name": "MealCoreAI",
+    "version": "1.0.0",
+    "description": "AI-powered personalised Indian meal planning for PCOS, Diabetes, Thyroid, Pregnancy, Kids, Cholesterol, and Weight Loss. Generates a 7-day Indian meal plan in 90 seconds using real Indian dishes."
+  },
+  "transport": {
+    "type": "http",
+    "endpoint": "https://mealcoreai.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "generate_meal_plan",
+      "description": "Generate a personalised 7-day Indian meal plan for a specific health condition and regional cuisine",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "enum": ["pcos", "diabetes", "thyroid", "pregnancy", "kids", "cholesterol", "weight-loss"],
+            "description": "Health condition to plan meals for"
+          },
+          "cuisine": {
+            "type": "string",
+            "enum": ["south-indian", "north-indian", "gujarati", "bengali", "maharashtrian", "punjabi", "rajasthani"],
+            "description": "Regional Indian cuisine preference"
+          }
+        },
+        "required": ["condition"]
+      }
+    },
+    {
+      "name": "get_blog_posts",
+      "description": "Retrieve MealCoreAI blog posts on Indian nutrition for health conditions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "enum": ["pcos", "diabetes", "thyroid", "pregnancy", "kids", "cholesterol", "general"],
+            "description": "Filter posts by health condition"
+          }
+        }
+      }
+    }
+  ],
+  "contact": {
+    "url": "https://mealcoreai.com/about"
+  },
+  "homepage": "https://mealcoreai.com"
+}

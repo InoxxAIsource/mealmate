@@ -35,6 +35,39 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value: [
+              '</.well-known/api-catalog>; rel="api-catalog"',
+              '</llms.txt>; rel="service-doc"',
+              '</.well-known/mcp/server-card.json>; rel="mcp-server-card"',
+              '</.well-known/agent-skills/index.json>; rel="agent-skills"',
+            ].join(", "),
+          },
+        ],
+      },
+      {
+        source: "/.well-known/api-catalog",
+        headers: [
+          { key: "Content-Type", value: "application/linkset+json" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
+        source: "/.well-known/mcp/server-card.json",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
+        source: "/.well-known/agent-skills/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           { key: "X-Frame-Options", value: "SAMEORIGIN" },

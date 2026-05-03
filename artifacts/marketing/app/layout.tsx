@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
+import WebMCP from "@/components/WebMCP";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
         <Analytics />
+        <WebMCP />
         <Navbar />
         <main>{children}</main>
         <Footer />
