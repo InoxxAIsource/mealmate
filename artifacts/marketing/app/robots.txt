@@ -1,35 +1,94 @@
-User-agent: Google-Extended
+# mealcoreai.com — robots.txt
+# AI Crawl Signal: search=yes, ai-input=yes, ai-train=no
+
+# ──────────────────────────────────────────────
+# Standard search engines — full access
+# ──────────────────────────────────────────────
+User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /app/
+Disallow: /_next/
 
-User-agent: GPTBot
-Allow: /
-Disallow: /api/
-Disallow: /app/
+# ──────────────────────────────────────────────
+# AI SEARCH & RAG — ALLOWED (search=yes, ai-input=yes)
+# These bots retrieve content for real-time answers
+# ──────────────────────────────────────────────
 
-User-agent: ClaudeBot
-Allow: /
-Disallow: /api/
-Disallow: /app/
-
-User-agent: ChatGPT-User
-Allow: /
-Disallow: /api/
-Disallow: /app/
-
+# Perplexity — real-time AI search
 User-agent: PerplexityBot
 Allow: /
-Disallow: /api/
-Disallow: /app/
 
-User-agent: Googlebot
+# ChatGPT search / browsing plugin (OpenAI)
+User-agent: ChatGPT-User
 Allow: /
-Disallow: /api/
-Disallow: /app/
 
-User-agent: *
-Disallow: /api/
-Disallow: /app/
+# OpenAI search bot
+User-agent: OAI-SearchBot
+Allow: /
 
+# Claude.ai search (Anthropic)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Google AI Overviews / Gemini features
+User-agent: Google-Extended
+Allow: /
+
+# Apple AI features
+User-agent: Applebot-Extended
+Allow: /
+
+# You.com AI search
+User-agent: YouBot
+Allow: /
+
+# Meta AI search
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# ──────────────────────────────────────────────
+# AI TRAINING CRAWLERS — BLOCKED (ai-train=no)
+# These bots harvest content for model training datasets
+# ──────────────────────────────────────────────
+
+# OpenAI training crawler
+User-agent: GPTBot
+Disallow: /
+
+# Common Crawl (used widely for LLM training datasets)
+User-agent: CCBot
+Disallow: /
+
+# Anthropic training crawler
+User-agent: anthropic-ai
+Disallow: /
+
+# Diffbot (training data platform)
+User-agent: Diffbot
+Disallow: /
+
+# ByteDance / TikTok training crawler
+User-agent: Bytespider
+Disallow: /
+
+# Omgili / Webz.io training data
+User-agent: Omgilibot
+User-agent: omgili
+Disallow: /
+
+# DataForSEO (training data scraping)
+User-agent: DataForSeoBot
+Disallow: /
+
+# Cohere training
+User-agent: cohere-ai
+Disallow: /
+
+# ──────────────────────────────────────────────
+# Sitemaps
+# ──────────────────────────────────────────────
 Sitemap: https://mealcoreai.com/sitemap.xml
