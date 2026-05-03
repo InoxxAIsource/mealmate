@@ -44,12 +44,20 @@ export const metadata: Metadata = {
   title: "Health & Nutrition Blog for Indian Families",
   description:
     "Expert articles on PCOS, diabetes, thyroid, pregnancy nutrition, and kids' meals for Indian families. Evidence-based advice in Indian food context.",
-  alternates: { canonical: "https://mealcoreai.com/blog" },
   openGraph: {
     title: "Health & Nutrition Blog for Indian Families",
     url: "https://mealcoreai.com/blog",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "https://mealcoreai.com/api/og?title=Nutrition+Blog&condition=general&accent=16a34a", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/blog",
+    languages: {
+      "en-IN": "https://mealcoreai.com/blog",
+      "x-default": "https://mealcoreai.com/blog",
+    },
   },
 };
 

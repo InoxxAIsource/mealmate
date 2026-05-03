@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet" },
   description:
     "Personalised PCOS meal plan using low-GI Indian food to reduce insulin resistance and balance hormones. Evidence-based Indian meals. Free 7-day plan.",
-  alternates: { canonical: "https://mealcoreai.com/pcos-meal-plan" },
   openGraph: {
     title: "PCOS Meal Plan for Indian Women: 7-Day Hormone-Balancing Diet",
     description:
       "Personalised PCOS meal plan using low-GI Indian food to balance hormones and reduce insulin resistance. Free to start.",
     url: "https://mealcoreai.com/pcos-meal-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=pcos-meal-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/pcos-meal-plan",
+    languages: { "en-IN": "https://mealcoreai.com/pcos-meal-plan", "x-default": "https://mealcoreai.com/pcos-meal-plan" },
   },
   twitter: {
     card: "summary_large_image",

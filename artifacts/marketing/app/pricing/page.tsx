@@ -5,14 +5,22 @@ export const metadata: Metadata = {
   title: "Pricing: Free, Starter, Core & Premium Plans",
   description:
     "MealCoreAI is free to start. Starter ₹199/mo, Core ₹499/mo with unlimited AI chat and swaps, Premium ₹999/mo for the whole family. 7-day free trial included.",
-  alternates: { canonical: "https://mealcoreai.com/pricing" },
   openGraph: {
     title: "MealCoreAI Pricing: Free, Starter, Core & Premium Plans",
     description:
       "MealCoreAI is free to start. Starter ₹199/mo, Core ₹499/mo with unlimited AI chat, Premium ₹999/mo for the whole family. 7-day free trial included.",
     url: "https://mealcoreai.com/pricing",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "https://mealcoreai.com/api/og?page=pricing", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/pricing",
+    languages: {
+      "en-IN": "https://mealcoreai.com/pricing",
+      "x-default": "https://mealcoreai.com/pricing",
+    },
   },
   twitter: {
     card: "summary_large_image",
@@ -20,6 +28,15 @@ export const metadata: Metadata = {
     description: "MealCoreAI is free to start. Starter ₹199/mo, Core ₹499/mo, Premium ₹999/mo. 7-day free trial included.",
     images: ["https://mealcoreai.com/api/og?page=pricing"],
   },
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mealcoreai.com" },
+    { "@type": "ListItem", position: 2, name: "Pricing", item: "https://mealcoreai.com/pricing" },
+  ],
 };
 
 const priceSchema = {
@@ -162,6 +179,10 @@ const FAQS = [
 export default function PricingPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }}

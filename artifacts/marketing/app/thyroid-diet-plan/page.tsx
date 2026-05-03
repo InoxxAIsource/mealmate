@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women" },
   description:
     "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism. Ready in 90 seconds. Free to start, no credit card.",
-  alternates: { canonical: "https://mealcoreai.com/thyroid-diet-plan" },
   openGraph: {
     title: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women",
     description:
       "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start.",
     url: "https://mealcoreai.com/thyroid-diet-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=thyroid-diet-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/thyroid-diet-plan",
+    languages: { "en-IN": "https://mealcoreai.com/thyroid-diet-plan", "x-default": "https://mealcoreai.com/thyroid-diet-plan" },
   },
   twitter: {
     card: "summary_large_image",

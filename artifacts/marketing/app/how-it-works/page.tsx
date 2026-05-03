@@ -5,14 +5,22 @@ export const metadata: Metadata = {
   title: "How It Works: AI Indian Meal Planning",
   description:
     "See how MealCoreAI builds your personalised Indian meal plan in 3 simple steps. AI-powered, condition-specific, and culturally authentic.",
-  alternates: { canonical: "https://mealcoreai.com/how-it-works" },
   openGraph: {
     title: "How MealCoreAI Works: Personalised Indian Meal Plans in Minutes",
     description:
       "Tell us your health condition, get a 7-day Indian meal plan with grocery list and daily reminders. Free to start, ready in under 3 minutes.",
     url: "https://mealcoreai.com/how-it-works",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "https://mealcoreai.com/api/og?page=how-it-works", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/how-it-works",
+    languages: {
+      "en-IN": "https://mealcoreai.com/how-it-works",
+      "x-default": "https://mealcoreai.com/how-it-works",
+    },
   },
   twitter: {
     card: "summary_large_image",
@@ -66,6 +74,15 @@ const howToLd = {
       name: "New plan every week",
       text: "MealCoreAI generates a fresh plan every week for variety while maintaining nutritional consistency for your condition.",
     },
+  ],
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mealcoreai.com" },
+    { "@type": "ListItem", position: 2, name: "How It Works", item: "https://mealcoreai.com/how-it-works" },
   ],
 };
 
@@ -233,6 +250,7 @@ export default function HowItWorksPage() {
           </Link>
         </div>
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }} />
     </main>

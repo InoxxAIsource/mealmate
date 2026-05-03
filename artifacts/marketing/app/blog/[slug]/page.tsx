@@ -76,12 +76,13 @@ export async function generateMetadata({
   return {
     title: { absolute: post.metaTitle },
     description: post.metaDescription,
-    alternates: { canonical },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
       url: canonical,
       type: "article",
+      siteName: "MealCoreAI",
+      locale: "en_IN",
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
@@ -89,6 +90,10 @@ export async function generateMetadata({
       title: post.metaTitle,
       description: post.metaDescription,
       images: [ogImage],
+    },
+    alternates: {
+      canonical,
+      languages: { "en-IN": canonical, "x-default": canonical },
     },
   };
 }

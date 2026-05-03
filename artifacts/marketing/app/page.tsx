@@ -41,14 +41,22 @@ import {
 export const metadata: Metadata = {
   description:
     "Control PCOS, Diabetes & Thyroid with a daily AI diet plan that adapts to your body. Personalised Indian meals, no generic diet charts. Free to start.",
-  alternates: { canonical: "https://mealcoreai.com" },
   openGraph: {
     title: "MealCoreAI: Control PCOS, Diabetes & Thyroid With Your Diet",
     description:
       "Unlike one-time diet charts, MealCoreAI gives you a daily Indian meal plan that adapts to your condition, routine, and what you actually eat. Free to start.",
     url: "https://mealcoreai.com",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=home", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com",
+    languages: {
+      "en-IN": "https://mealcoreai.com",
+      "x-default": "https://mealcoreai.com",
+    },
   },
 };
 

@@ -7,7 +7,20 @@ export const metadata: Metadata = {
   title: "About: AI Meal Planning for Indian Health",
   description:
     "MealCoreAI was built to make personalised, condition-specific nutrition accessible to every Indian family, not just those who can afford a nutritionist.",
-  alternates: { canonical: "https://mealcoreai.com/about" },
+  openGraph: {
+    title: "About MealCoreAI: AI Meal Planning for Indian Health",
+    description:
+      "MealCoreAI was built to make personalised, condition-specific nutrition accessible to every Indian family, not just those who can afford a nutritionist.",
+    url: "https://mealcoreai.com/about",
+    type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
+    images: [{ url: "https://mealcoreai.com/api/og?page=about", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/about",
+    languages: { "en-IN": "https://mealcoreai.com/about", "x-default": "https://mealcoreai.com/about" },
+  },
 };
 
 const VALUES = [

@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days" },
   description:
     "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals using traditional ingredients. Personalised in 90 seconds. Free to start.",
-  alternates: { canonical: "https://mealcoreai.com/cholesterol-diet-plan" },
   openGraph: {
     title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days",
     description:
       "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals, no bland food. Free to start.",
     url: "https://mealcoreai.com/cholesterol-diet-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=cholesterol-diet-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/cholesterol-diet-plan",
+    languages: { "en-IN": "https://mealcoreai.com/cholesterol-diet-plan", "x-default": "https://mealcoreai.com/cholesterol-diet-plan" },
   },
   twitter: {
     card: "summary_large_image",

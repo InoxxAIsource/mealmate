@@ -7,14 +7,22 @@ export const metadata: Metadata = {
   title: "Frequently Asked Questions About MealCoreAI",
   description:
     "Answers to all your questions about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
-  alternates: { canonical: "https://mealcoreai.com/faq" },
   openGraph: {
     title: "Frequently Asked Questions About MealCoreAI",
     description:
       "Answers to all your questions about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy nutrition, pricing, and privacy.",
     url: "https://mealcoreai.com/faq",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "https://mealcoreai.com/api/og?page=faq", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/faq",
+    languages: {
+      "en-IN": "https://mealcoreai.com/faq",
+      "x-default": "https://mealcoreai.com/faq",
+    },
   },
   twitter: {
     card: "summary_large_image",

@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart" },
   description:
     "Personalised Indian diabetic meal plan with low-GI millets, karela, and methi for stable blood sugar. Evidence-based and free to start. Ready in 90 seconds.",
-  alternates: { canonical: "https://mealcoreai.com/diabetes-meal-plan" },
   openGraph: {
     title: "Diabetes Meal Plan India: 7-Day Indian Diabetic Diet Chart",
     description:
       "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start. Ready in 90 seconds.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=diabetes-meal-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/diabetes-meal-plan",
+    languages: { "en-IN": "https://mealcoreai.com/diabetes-meal-plan", "x-default": "https://mealcoreai.com/diabetes-meal-plan" },
   },
   twitter: {
     card: "summary_large_image",

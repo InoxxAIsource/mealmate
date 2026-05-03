@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "geo.region": "IN",
+    "geo.country": "IN",
+    "geo.placename": "India",
+  },
 };
 
 export default function RootLayout({
@@ -37,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en-IN" className={inter.variable}>
       <body className="font-sans">
         <Analytics />
         <WebMCP />

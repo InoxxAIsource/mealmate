@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "Kids Meal Plan India: Healthy Tiffin & Nutrition Plan for Children" },
   description:
     "Healthy Indian meal plan for kids aged 2–12. Nutrient-dense tiffin, lunch, and dinner ideas personalised by age, region, and preference. Free to start.",
-  alternates: { canonical: "https://mealcoreai.com/kids-meal-plan" },
   openGraph: {
     title: "Kids Meal Plan India: Healthy Tiffin & Nutrition Plan for Children",
     description:
       "Healthy Indian meal plan for kids aged 2-12. Nutrient-dense tiffin, dinner, and snack ideas. Free to start.",
     url: "https://mealcoreai.com/kids-meal-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=kids-meal-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/kids-meal-plan",
+    languages: { "en-IN": "https://mealcoreai.com/kids-meal-plan", "x-default": "https://mealcoreai.com/kids-meal-plan" },
   },
   twitter: {
     card: "summary_large_image",

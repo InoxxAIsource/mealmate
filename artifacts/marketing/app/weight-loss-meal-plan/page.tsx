@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "Weight Loss Meal Plan for Indians: 7-Day Fat Loss Indian Diet" },
   description:
     "Personalised Indian weight loss meal plan using low-calorie, high-fibre Indian food. Lose weight without giving up roti, dal, and rice. Free 7-day plan.",
-  alternates: { canonical: "https://mealcoreai.com/weight-loss-meal-plan" },
   openGraph: {
     title: "Weight Loss Meal Plan for Indians: 7-Day Fat Loss Diet with Indian Food",
     description:
       "Personalised Indian weight loss meal plan using low-calorie, high-fibre Indian food. Lose weight without giving up roti, dal, and rice. Free 7-day plan.",
     url: "https://mealcoreai.com/weight-loss-meal-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=weight-loss-meal-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/weight-loss-meal-plan",
+    languages: { "en-IN": "https://mealcoreai.com/weight-loss-meal-plan", "x-default": "https://mealcoreai.com/weight-loss-meal-plan" },
   },
   twitter: {
     card: "summary_large_image",

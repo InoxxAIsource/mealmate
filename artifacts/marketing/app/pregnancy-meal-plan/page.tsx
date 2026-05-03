@@ -5,14 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart" },
   description:
     "Personalised Indian pregnancy meal plan with trimester-specific iron, folate, calcium, and DHA-rich meals. Free to start. Ready in 90 seconds.",
-  alternates: { canonical: "https://mealcoreai.com/pregnancy-meal-plan" },
   openGraph: {
     title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart",
     description:
       "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start.",
     url: "https://mealcoreai.com/pregnancy-meal-plan",
     type: "website",
+    siteName: "MealCoreAI",
+    locale: "en_IN",
     images: [{ url: "/api/og?page=pregnancy-meal-plan", width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: "https://mealcoreai.com/pregnancy-meal-plan",
+    languages: { "en-IN": "https://mealcoreai.com/pregnancy-meal-plan", "x-default": "https://mealcoreai.com/pregnancy-meal-plan" },
   },
   twitter: {
     card: "summary_large_image",
