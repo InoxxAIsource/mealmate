@@ -488,6 +488,22 @@ export const blogPosts: BlogPost[] = [
 <h2>Important: How to Avoid Common Ragi Mistakes</h2>
 <p>Even ragi can cause blood sugar spikes if consumed incorrectly. Avoid: Ragi preparations with significant sugar or jaggery addition (like ragi ladoos, some commercial ragi drinks). Buying over-processed commercial ragi flour that has lost its bran. Eating very large portions, ragi is healthy but calories still count. Always pair ragi with dal, curd, or vegetables for protein and fat to further reduce the glycaemic response.</p>
 
+<h2>Frequently Asked Questions About Ragi for Diabetes</h2>
+<h3>How much ragi should a diabetic eat per day?</h3>
+<p>30–40g of ragi flour per serving (one or two rotis, or a medium bowl of porridge) is appropriate for most diabetics. This provides 7–10g fibre and a manageable carbohydrate load. You can include ragi in 1–2 meals per day without concern. As with any grain, pair it with dal, curd, or vegetables to further flatten the blood sugar response.</p>
+
+<h3>Is ragi better than oats for diabetes?</h3>
+<p>Both are beneficial, but ragi has specific advantages for Indian diabetics. Ragi contains polyphenols that actively inhibit carbohydrate-digesting enzymes (a mechanism oats lack), has significantly more calcium (344mg vs 54mg per 100g), and integrates naturally into traditional Indian cooking. Oats are versatile but require more adaptation. Ragi also has meaningful advantages for bone density — important because many Indian diabetics have co-existing osteoporosis risk.</p>
+
+<h3>Can I eat ragi at night for diabetes?</h3>
+<p>Yes. Ragi is an excellent dinner grain for diabetics. Its sustained energy release prevents overnight blood sugar dips, and the high fibre content supports healthy fasting glucose levels by morning. Ragi mudde or a small ragi roti with dal is an ideal diabetic dinner combination.</p>
+
+<h3>Does ragi increase blood sugar?</h3>
+<p>Ragi does raise blood sugar — it is a carbohydrate grain. However, the rise is significantly slower and lower than equivalent portions of white rice, maida, or even whole wheat chapati. The key is pairing ragi with protein and vegetables, and keeping portions appropriate (1–2 rotis, or one medium mudde per meal). Ragi preparations with added jaggery or sugar will spike blood sugar regardless of the ragi's own properties.</p>
+
+<h3>Which is better for diabetes: ragi dosa or ragi roti?</h3>
+<p>Both are good choices. Ragi dosa (especially fermented batter) has a slightly lower GI because fermentation reduces the glycaemic response by 20–30% and adds probiotics. Ragi roti is quicker to prepare and has a higher fibre density. If you have time, fermented ragi dosa is marginally superior for blood sugar management. Ragi roti paired with dal is an excellent everyday option.</p>
+
 <h2>Your Personalised Ragi Meal Plan</h2>
 <p>MealCoreAI builds a custom <a href="/diabetes-meal-plan">diabetes meal plan</a> that incorporates ragi and other diabetes-friendly millets based on your specific regional preferences and taste profile. <a href="https://mealcoreai.com/app/sign-up">Start your free plan today</a>.</p>
     `.trim(),
@@ -677,15 +693,31 @@ export const blogPosts: BlogPost[] = [
 <h2>Exercise in GDM</h2>
 <p>A 15–30 minute walk after each meal reduces post-meal blood sugar by 30–40 mg/dL on average. This is one of the most powerful interventions for GDM, safe, free, and proven. Get clearance from your obstetrician and start walking.</p>
 
+<h2>Frequently Asked Questions About Gestational Diabetes Diet</h2>
+<h3>Can I eat fruit during gestational diabetes?</h3>
+<p>Yes, but with care. Eat fruit as a standalone snack — never immediately after a carbohydrate-heavy meal. Limit to one medium piece per serving. Best choices: guava, jamun, pear, apple, and berries. Avoid fruit juice entirely (even fresh), as it spikes blood sugar without the fibre of whole fruit.</p>
+
+<h3>Is rice completely off-limits for GDM?</h3>
+<p>No. A maximum of half a cup of cooked rice per meal is acceptable when paired with protein (dal, curd, egg) and vegetables. Brown rice or parboiled rice have a lower glycaemic response than polished white rice. Millets like bajra, jowar, and foxtail millet are better substitutes for most meals.</p>
+
+<h3>How many meals should I eat each day with gestational diabetes?</h3>
+<p>Aim for 3 main meals and 2–3 snacks spaced every 2–3 hours. Skipping meals causes counter-regulatory hormone swings that worsen blood sugar control. The bedtime snack is especially important to prevent overnight fasting hypoglycaemia and the high fasting glucose reading that often follows.</p>
+
+<h3>What is the best breakfast for gestational diabetes?</h3>
+<p>Breakfast should have 15–30g complex carbohydrates paired with protein. Best Indian options: moong dal chilla with curd, besan cheela with mint chutney, ragi porridge with nuts and buttermilk, or 2 oats idlis with sambar. Avoid plain upma, white bread poha, or sweetened porridge at breakfast — blood sugar sensitivity is highest in the morning.</p>
+
+<h3>Does gestational diabetes go away after delivery?</h3>
+<p>GDM typically resolves within 6–12 weeks after delivery. However, 50% of women with GDM develop type 2 diabetes within 10 years. Breastfeeding for at least 3 months significantly reduces this long-term risk. Post-delivery, retest with an oral glucose tolerance test at 6–12 weeks to confirm resolution.</p>
+
 <h2>Get Your Personalised GDM Meal Plan</h2>
 <p>MealCoreAI builds a trimester-specific gestational diabetes <a href="/pregnancy-meal-plan">pregnancy meal plan</a> that keeps blood sugar within target while ensuring complete nutrition for your baby. <a href="https://mealcoreai.com/app/sign-up">Start free today</a>.</p>
     `.trim(),
   },
   {
     slug: "thyroid-weight-gain-diet",
-    title: "Thyroid and Weight Gain: Fix It With the Right Diet",
+    title: "How to Lose Weight with Hypothyroidism: Indian Diet Guide",
     metaTitle: "How to Lose Weight with Hypothyroidism: Indian Diet | MealCoreAI",
-    metaDescription: "Struggling with thyroid-related weight gain? Learn exactly which foods help, which hurt, and how to structure your Indian diet for thyroid-friendly weight management.",
+    metaDescription: "Thyroid-related weight gain? Learn which Indian foods boost T4-to-T3 conversion and how to structure your diet for thyroid-friendly weight loss.",
     category: "thyroid",
     tags: ["thyroid", "weight-gain", "hypothyroidism", "metabolism"],
     excerpt: "Thyroid-related weight gain is notoriously resistant to standard diets. This guide explains the metabolic reasons why and provides a diet strategy that actually works.",
@@ -1044,7 +1076,7 @@ export const blogPosts: BlogPost[] = [
     slug: "pcos-insulin-resistance-diet",
     title: "Insulin Resistance and PCOS: The Diet That Actually Works",
     metaTitle: "PCOS Insulin Resistance Diet: What to Eat and Avoid | MealCoreAI",
-    metaDescription: "Insulin resistance is at the core of most PCOS cases. This guide explains the science and the specific Indian diet changes that improve insulin sensitivity for PCOS.",
+    metaDescription: "Insulin resistance drives 80% of PCOS cases. Learn the Indian diet changes that improve insulin sensitivity, reduce androgens, and restore ovulation.",
     category: "pcos",
     tags: ["pcos", "insulin-resistance", "low-gi", "hormones"],
     excerpt: "80% of PCOS cases involve insulin resistance. Understanding and addressing it through diet is the most effective long-term strategy for managing PCOS symptoms.",
@@ -1087,12 +1119,24 @@ export const blogPosts: BlogPost[] = [
 
 <h2>The PCOS Insulin Resistance Meal Plan</h2>
 <p>Build meals around this framework: 25–30% protein + 40–45% complex carbs (millets, legumes) + 25–30% healthy fats + abundant non-starchy vegetables. Each meal should produce a gentle blood sugar curve rather than a spike.</p>
-<p><strong>Sample Day:</strong><br>
-Breakfast (7am), 2 besan cheelas + sprouted moong + 1 tablespoon flaxseed powder + buttermilk.<br>
-Mid-morning snack (10am), 1 small apple + 10 almonds.<br>
-Lunch (1pm). Foxtail millet rice + chana dal + palak sabzi + cucumber raita.<br>
-Afternoon snack (4pm), 1 cup curd + pumpkin seeds.<br>
-Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
+<p><strong>Day 1:</strong><br>
+Breakfast (7am): 2 besan cheelas + sprouted moong + 1 tablespoon flaxseed powder + buttermilk.<br>
+Mid-morning snack (10am): 1 small apple + 10 almonds.<br>
+Lunch (1pm): Foxtail millet rice + chana dal + palak sabzi + cucumber raita.<br>
+Afternoon snack (4pm): 1 cup curd + pumpkin seeds.<br>
+Dinner (7:30pm): 1 bajra roti + moong dal + sautéed bhindi.</p>
+<p><strong>Day 2:</strong><br>
+Breakfast (7am): Ragi porridge with walnuts, 1 tablespoon chia seeds, unsweetened.<br>
+Mid-morning snack (10am): 1 pear + 1 tablespoon peanut butter.<br>
+Lunch (1pm): Rajma (half cup) + 1 jowar roti + kakdi raita + tomato-onion salad.<br>
+Afternoon snack (4pm): Roasted makhana (30g) + green tea.<br>
+Dinner (7:30pm): Methi dal + 1 bajra roti + lauki sabzi + curd.</p>
+<p><strong>Day 3:</strong><br>
+Breakfast (7am): 2 moong dal chillas with grated carrot + buttermilk (no sugar).<br>
+Mid-morning snack (10am): Handful of walnuts + 1 guava.<br>
+Lunch (1pm): Foxtail millet pulao + palak dal + beetroot raita.<br>
+Afternoon snack (4pm): 1 boiled egg + cucumber slices + 5 almonds.<br>
+Dinner (7:30pm): Vegetable soup + 1 ragi roti + chana dal + sautéed capsicum.</p>
 
 <h2>Supplements That Complement the Diet</h2>
 <p>Several supplements have clinical evidence in insulin-resistant PCOS. Always discuss with your doctor before starting: Myo-inositol (4g daily), strongest evidence. Berberine (500mg 3x daily), comparable to metformin in some studies. Magnesium glycinate (400mg daily), especially if dietary intake is low. Omega-3 (2g EPA+DHA daily), reduces inflammation and androgen levels.</p>
@@ -1300,9 +1344,9 @@ Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
   },
   {
     slug: "ai-meal-planning-personalised-nutrition",
-    title: "How AI is Changing Personalised Nutrition Globally",
+    title: "AI Meal Planning for Indians: How Personalised Nutrition Works",
     metaTitle: "AI Meal Planning: Personalised Nutrition for Indians | MealCoreAI",
-    metaDescription: "Discover how AI-powered meal planning is revolutionising personalised nutrition. From genetic-based meal plans to real-time glucose monitoring, the future of eating well.",
+    metaDescription: "AI-powered meal planning personalises every meal for your health condition, region, and food preference. See how MealCoreAI works for Indian diets.",
     category: "general",
     tags: ["ai", "personalised-nutrition", "technology", "meal-planning"],
     excerpt: "Artificial intelligence is making truly personalised nutrition accessible to everyone. Here's how AI meal planning works, its benefits, and why it's especially powerful for Indian diets.",
@@ -1369,7 +1413,7 @@ Dinner (7:30pm), 1 bajra roti + moong dal + sautéed bhindi.</p>
     slug: "vrat-diet-plan-india",
     title: "Hindu Vrat Diet Plan: What to Eat and Avoid on Fasting Days (2025 Guide)",
     metaTitle: "Hindu Vrat Diet Plan India: Complete Fasting Guide | MealCoreAI",
-    metaDescription: "Complete guide to Hindu vrat diet, what to eat (sabudana, kuttu, makhana, sama rice) and strictly avoid during Navratri, Ekadashi, Monday, and other fasting days. Includes 7-day sample plan.",
+    metaDescription: "Complete Hindu vrat diet guide: approved foods (sabudana, kuttu, makhana, sama chawal), what to strictly avoid, and a 7-day Navratri meal plan.",
     category: "nutrition",
     tags: ["vrat", "fasting", "navratri", "ekadashi", "sattvik", "indian-diet"],
     excerpt: "A vrat (Hindu fast) diet replaces regular grains and non-vegetarian foods with sattvik, sattvic alternatives. Here is a complete guide with a 7-day plan, approved foods, and what to strictly avoid.",
@@ -1506,7 +1550,7 @@ A: Light exercise, walking, yoga, pranayama, is encouraged during vrat and align
     slug: "type2-diabetes-reversal-indian-diet",
     title: "Can Type 2 Diabetes Be Reversed With an Indian Diet? Evidence-Based Guide (2025)",
     metaTitle: "Type 2 Diabetes Reversal Indian Diet: Is It Possible? | MealCoreAI",
-    metaDescription: "Can type 2 diabetes be reversed with diet in India? A science-based answer with clinical evidence, Indian food examples, a 7-day reversal meal plan, and the role of low-GI Indian foods.",
+    metaDescription: "Can type 2 diabetes be reversed with an Indian diet? Evidence from the DiRECT trial, 7-day low-GI reversal meal plan, and best Indian foods for remission.",
     category: "diabetes",
     tags: ["diabetes", "reversal", "low-gi", "indian-diet", "blood-sugar", "hba1c"],
     excerpt: "Type 2 diabetes can be put into remission through dietary changes, and Indian cuisine offers powerful natural tools for blood sugar control. This guide explains the clinical evidence and a practical Indian diet reversal plan.",
@@ -1616,7 +1660,7 @@ A: Yes, significantly. The Indian diabetes diet replaces staple refined carbohyd
     slug: "pcos-fertility-diet-india",
     title: "Indian Diet to Improve Fertility With PCOS: A Science-Based Guide for Women Trying to Conceive",
     metaTitle: "PCOS Fertility Diet India: Foods That Help You Conceive | MealCoreAI",
-    metaDescription: "Indian foods that improve fertility with PCOS, inositol-rich foods, anti-inflammatory meals, hormone-balancing spices, and a 7-day diet plan for women with PCOS trying to conceive naturally.",
+    metaDescription: "Indian foods to improve PCOS fertility: inositol-rich foods, omega-3s, and hormone-balancing spices with clinical evidence. 7-day diet plan included.",
     category: "pcos",
     tags: ["pcos", "fertility", "conceive", "hormone-balance", "inositol", "indian-diet"],
     excerpt: "Women with PCOS trying to conceive can significantly improve ovulation frequency and egg quality through targeted dietary changes. This guide covers the key nutrients, Indian food sources, and a practical 7-day plan.",
@@ -1735,7 +1779,7 @@ A: The strongest evidence supports myo-inositol (2–4g/day), d-chiro-inositol (
     slug: "maharashtrian-diet-plan-health",
     title: "Maharashtrian Diet Plan for Weight Loss, Diabetes, and PCOS (Complete 2025 Guide)",
     metaTitle: "Maharashtrian Diet Plan for Weight Loss & Diabetes | MealCoreAI",
-    metaDescription: "A complete Maharashtrian diet plan for weight loss, diabetes, and PCOS, featuring jowar bhakri, amti, misal, zunka, and other healthy traditional Marathi foods with a 7-day sample plan.",
+    metaDescription: "Maharashtrian diet plan for weight loss, diabetes, and PCOS — jowar bhakri, amti, misal, and zunka with a full 7-day sample plan and clinical evidence.",
     category: "nutrition",
     tags: ["maharashtrian", "marathi-diet", "jowar", "weight-loss", "regional-cuisine", "bhakri"],
     excerpt: "Maharashtrian cuisine is one of India's most nutritionally complete, centred on jowar and bajra bhakri, fibre-rich legumes, and vegetable-forward preparations. This guide shows how to harness traditional Marathi food for specific health goals.",
@@ -1837,7 +1881,7 @@ A: Maharashtrian cuisine stands out for its reliance on jowar and bajra bhakri (
     slug: "complete-guide-indian-diet-health-conditions",
     title: "Complete Guide to Indian Diet for Health Conditions: PCOS, Diabetes, Thyroid, Pregnancy, and More (2025)",
     metaTitle: "Indian Diet for PCOS, Diabetes & Thyroid: Health Guide | MealCoreAI",
-    metaDescription: "The authoritative guide to Indian dietary recommendations for major health conditions. PCOS, type 2 diabetes, hypothyroidism, pregnancy, high cholesterol, and vrat fasting. With evidence, comparisons, and free meal plans.",
+    metaDescription: "Complete Indian diet guide for PCOS, diabetes, thyroid, pregnancy, cholesterol, and Hindu fasting — with clinical evidence and free personalised meal plans.",
     category: "nutrition",
     tags: ["pcos", "diabetes", "thyroid", "pregnancy", "cholesterol", "indian-diet", "health-conditions"],
     excerpt: "A single authoritative reference covering Indian dietary recommendations for PCOS, diabetes, thyroid, pregnancy, kids nutrition, cholesterol, and vrat fasting, with clinical evidence, comparison tables, and links to specific plans.",
@@ -1958,7 +2002,7 @@ A: Choose the track that matches your primary health concern. If you have multip
     slug: "ragi-vs-oats-pcos-diabetes",
     title: "Ragi vs Oats for PCOS and Diabetes: Which Should You Eat?",
     metaTitle: "Ragi vs Oats for PCOS and Diabetes: Which Is Better? | MealCoreAI",
-    metaDescription: "Ragi vs oats for PCOS and diabetes — a direct comparison of glycaemic index, fibre, minerals, and hormonal effects for Indian women. Which grain should you choose?",
+    metaDescription: "Ragi vs oats for PCOS and diabetes: GI, fibre, minerals, and hormonal effects compared. Which grain works better for Indian women?",
     category: "pcos",
     tags: ["ragi", "oats", "PCOS", "diabetes", "low-GI", "millets", "Indian diet"],
     excerpt: "Ragi and oats are both promoted for PCOS and diabetes management. But they have meaningfully different nutritional profiles. Here is a direct comparison to help you choose.",
@@ -2179,7 +2223,7 @@ A: Choose the track that matches your primary health concern. If you have multip
     slug: "mealcoreai-vs-generic-diet-chart",
     title: "AI Meal Plan vs Generic Diet Chart: Why One-Size-Fits-All Fails Indian Women",
     metaTitle: "AI Meal Plan vs Generic Diet Chart for Indian Women | MealCoreAI",
-    metaDescription: "Generic diet charts give the same plan to everyone. AI meal planning personalises every meal by condition, region, season, and preference. Here is what the difference looks like in practice.",
+    metaDescription: "Generic diet charts give everyone the same plan. AI meal planning personalises by condition, region, and preference. See the real difference in practice.",
     category: "general",
     tags: ["AI meal plan", "personalised nutrition", "diet chart", "Indian women", "PCOS", "diabetes"],
     excerpt: "Generic diet charts for PCOS and diabetes circulate on WhatsApp and doctor's clinic walls. They are better than nothing. But here is exactly what personalised AI meal planning does differently — and why it matters for Indian women.",
@@ -2201,6 +2245,7 @@ A: Choose the track that matches your primary health concern. If you have multip
       { anchor: "AI-personalised Indian meal planning", url: "/blog/ai-meal-planning-personalised-nutrition" },
     ],
     content: `
+<h2>Why Generic Diet Charts Fall Short for Indian Women</h2>
 <p>Generic diet charts for PCOS, diabetes, and thyroid management have been circulating in India for decades — printed on clinic walls, shared in WhatsApp groups, downloaded from health websites. They are better than no guidance at all. But they have systematic limitations that personalised planning directly addresses. Here is a clear comparison of what each approach provides.</p>
 
 <h2>What a Generic Diet Chart Looks Like</h2>
