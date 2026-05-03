@@ -1,0 +1,24 @@
+{
+  "issuer": "https://curious-horse-49.clerk.accounts.dev",
+  "authorization_endpoint": "https://curious-horse-49.clerk.accounts.dev/oauth/authorize",
+  "token_endpoint": "https://curious-horse-49.clerk.accounts.dev/oauth/token",
+  "revocation_endpoint": "https://curious-horse-49.clerk.accounts.dev/oauth/token/revoke",
+  "introspection_endpoint": "https://curious-horse-49.clerk.accounts.dev/oauth/token_info",
+  "jwks_uri": "https://curious-horse-49.clerk.accounts.dev/.well-known/jwks.json",
+  "scopes_supported": [
+    "openid",
+    "email",
+    "profile",
+    "public_metadata",
+    "offline_access"
+  ],
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code", "refresh_token"],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_basic",
+    "client_secret_post",
+    "none"
+  ],
+  "code_challenge_methods_supported": ["S256"],
+  "service_documentation": "https://mealcoreai.com/how-it-works"
+}

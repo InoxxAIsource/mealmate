@@ -21,6 +21,27 @@
       "description": "MCP server card advertising MealCoreAI's AI meal planning tools for agent integration",
       "url": "https://mealcoreai.com/.well-known/mcp/server-card.json",
       "sha256": "2c55e1a1ebc6bae4bea8c2bf29a4622d662b188b582bad8fe660bdad841764a6"
+    },
+    {
+      "name": "openid-configuration",
+      "type": "oidc-discovery",
+      "description": "OpenID Connect discovery metadata for MealCoreAI — Clerk-powered issuer, authorization, token, and JWKS endpoints",
+      "url": "https://mealcoreai.com/.well-known/openid-configuration",
+      "sha256": "2a5c69db10a34e667919584288b4d38746068c8773d834baefec14285e8eaf3d"
+    },
+    {
+      "name": "oauth-authorization-server",
+      "type": "oauth-as-metadata",
+      "description": "OAuth 2.0 Authorization Server metadata (RFC 8414) for the MealCoreAI API",
+      "url": "https://mealcoreai.com/.well-known/oauth-authorization-server",
+      "sha256": "bd2f70121505d72f99900782cf617e8f28dfc1159d922d1c950e00079ef97d8a"
+    },
+    {
+      "name": "oauth-protected-resource",
+      "type": "oauth-protected-resource",
+      "description": "OAuth Protected Resource Metadata (RFC 9728) — describes how agents authenticate with the MealCoreAI API",
+      "url": "https://mealcoreai.com/.well-known/oauth-protected-resource",
+      "sha256": "e471cf393692aaa70595183a3b46474c8c2df59040bf2a065193920b214bb89b"
     }
   ]
 }

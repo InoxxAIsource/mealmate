@@ -1,0 +1,18 @@
+{
+  "resource": "https://mealcoreai.com/api/",
+  "authorization_servers": [
+    "https://curious-horse-49.clerk.accounts.dev"
+  ],
+  "jwks_uri": "https://curious-horse-49.clerk.accounts.dev/.well-known/jwks.json",
+  "scopes_supported": [
+    "openid",
+    "email",
+    "profile",
+    "public_metadata",
+    "offline_access"
+  ],
+  "bearer_methods_supported": ["header"],
+  "resource_signing_alg_values_supported": ["RS256"],
+  "resource_documentation": "https://mealcoreai.com/how-it-works",
+  "resource_policy_uri": "https://mealcoreai.com/privacy"
+}

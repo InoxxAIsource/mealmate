@@ -44,6 +44,8 @@ const nextConfig = {
               '</llms.txt>; rel="service-doc"',
               '</.well-known/mcp/server-card.json>; rel="mcp-server-card"',
               '</.well-known/agent-skills/index.json>; rel="agent-skills"',
+              '</.well-known/openid-configuration>; rel="openid-configuration"',
+              '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',
             ].join(", "),
           },
         ],
@@ -52,6 +54,27 @@ const nextConfig = {
         source: "/.well-known/api-catalog",
         headers: [
           { key: "Content-Type", value: "application/linkset+json" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
+        source: "/.well-known/openid-configuration",
+        headers: [
+          { key: "Content-Type", value: "application/json" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
+        source: "/.well-known/oauth-authorization-server",
+        headers: [
+          { key: "Content-Type", value: "application/json" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
+        source: "/.well-known/oauth-protected-resource",
+        headers: [
+          { key: "Content-Type", value: "application/json" },
           { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
