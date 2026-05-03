@@ -1,3 +1,7 @@
+Find the file llms.txt in the project. It is most likely at /public/llms.txt. Open it and completely replace its contents with the following text. Copy it exactly — every line, every blank line, every dash and colon.
+
+---
+
 # MealCoreAI
 > AI-powered personalised Indian meal planning for PCOS, Diabetes, Thyroid, Pregnancy, Kids, Cholesterol, and Weight Loss. Generates a 7-day Indian meal plan in 90 seconds based on the user's health condition, regional cuisine, and food preferences. Free to start. No Western food substitutes.
 
@@ -126,3 +130,7 @@ MealCoreAI is an Indian health nutrition app that creates personalised daily mea
 
 ## Last updated
 2026-05-03
+
+---
+
+After saving, confirm the file path and that the build has no errors.
