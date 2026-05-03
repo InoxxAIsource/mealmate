@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://mealcoreai.com/blog" },
   openGraph: {
     title: "Health & Nutrition Blog for Indian Families",
+    url: "https://mealcoreai.com/blog",
+    type: "website",
     images: [{ url: "https://mealcoreai.com/api/og?title=Nutrition+Blog&condition=general&accent=16a34a", width: 1200, height: 630 }],
   },
 };

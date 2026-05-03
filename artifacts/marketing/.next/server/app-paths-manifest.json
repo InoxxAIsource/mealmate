@@ -1,3 +1,15 @@
 {
-  "/robots.txt/route": "app/robots.txt/route.js"
+  "/blog/page": "app/blog/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/diabetes-meal-plan/page": "app/diabetes-meal-plan/page.js",
+  "/page": "app/page.js",
+  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js",
+  "/cholesterol-diet-plan/page": "app/cholesterol-diet-plan/page.js",
+  "/thyroid-diet-plan/page": "app/thyroid-diet-plan/page.js",
+  "/weight-loss-meal-plan/page": "app/weight-loss-meal-plan/page.js",
+  "/pregnancy-meal-plan/page": "app/pregnancy-meal-plan/page.js",
+  "/how-it-works/page": "app/how-it-works/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/kids-meal-plan/page": "app/kids-meal-plan/page.js",
+  "/pricing/page": "app/pricing/page.js"
 }

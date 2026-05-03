@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ConditionPage from "@/components/ConditionPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Weight Loss Meal Plan for Indians: 7-Day Fat Loss Diet with Indian Food" },
+  title: { absolute: "Weight Loss Meal Plan for Indians: 7-Day Fat Loss Indian Diet" },
   description:
     "Personalised Indian weight loss meal plan using low-calorie, high-fibre Indian food. Lose weight without giving up roti, dal, and rice. Free 7-day plan.",
   alternates: { canonical: "https://mealcoreai.com/weight-loss-meal-plan" },
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Personalised Indian weight loss meal plan using low-calorie, high-fibre Indian food. Lose weight without giving up roti, dal, and rice. Free 7-day plan.",
     url: "https://mealcoreai.com/weight-loss-meal-plan",
+    type: "website",
     images: [{ url: "/api/og?page=weight-loss-meal-plan", width: 1200, height: 630 }],
   },
   twitter: {

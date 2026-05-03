@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Personalised diabetic meal plan with low-GI Indian food for stable blood sugar. Free to start. Ready in 90 seconds.",
     url: "https://mealcoreai.com/diabetes-meal-plan",
+    type: "website",
     images: [{ url: "/api/og?page=diabetes-meal-plan", width: 1200, height: 630 }],
   },
   twitter: {

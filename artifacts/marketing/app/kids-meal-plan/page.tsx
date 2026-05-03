@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Healthy Indian meal plan for kids aged 2-12. Nutrient-dense tiffin, dinner, and snack ideas. Free to start.",
     url: "https://mealcoreai.com/kids-meal-plan",
+    type: "website",
     images: [{ url: "/api/og?page=kids-meal-plan", width: 1200, height: 630 }],
   },
   twitter: {

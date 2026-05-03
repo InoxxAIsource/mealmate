@@ -4,10 +4,24 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions",
+  title: "Frequently Asked Questions About MealCoreAI",
   description:
     "Answers to all your questions about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
   alternates: { canonical: "https://mealcoreai.com/faq" },
+  openGraph: {
+    title: "Frequently Asked Questions About MealCoreAI",
+    description:
+      "Answers to all your questions about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy nutrition, pricing, and privacy.",
+    url: "https://mealcoreai.com/faq",
+    type: "website",
+    images: [{ url: "https://mealcoreai.com/api/og?page=faq", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frequently Asked Questions About MealCoreAI",
+    description: "Answers about MealCoreAI: how it works, PCOS, diabetes, thyroid, pregnancy, kids nutrition, pricing, and privacy.",
+    images: ["https://mealcoreai.com/api/og?page=faq"],
+  },
 };
 
 const FAQS = [

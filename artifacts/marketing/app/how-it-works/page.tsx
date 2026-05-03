@@ -6,6 +6,83 @@ export const metadata: Metadata = {
   description:
     "See how MealCoreAI builds your personalised Indian meal plan in 3 simple steps. AI-powered, condition-specific, and culturally authentic.",
   alternates: { canonical: "https://mealcoreai.com/how-it-works" },
+  openGraph: {
+    title: "How MealCoreAI Works: Personalised Indian Meal Plans in Minutes",
+    description:
+      "Tell us your health condition, get a 7-day Indian meal plan with grocery list and daily reminders. Free to start, ready in under 3 minutes.",
+    url: "https://mealcoreai.com/how-it-works",
+    type: "website",
+    images: [{ url: "https://mealcoreai.com/api/og?page=how-it-works", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How MealCoreAI Works: Personalised Indian Meal Plans in Minutes",
+    description: "Tell us your health condition, get a 7-day Indian meal plan with grocery list and reminders. Free to start.",
+    images: ["https://mealcoreai.com/api/og?page=how-it-works"],
+  },
+};
+
+const howToLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Create a Personalised Indian Meal Plan with MealCoreAI",
+  description:
+    "Create a personalised Indian meal plan for PCOS, Diabetes, Thyroid, or other health conditions in 6 simple steps.",
+  totalTime: "PT3M",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Tell us about your health",
+      text: "Select your health condition, regional cuisine, dietary type, cooking time, and food dislikes. Takes about 2 minutes.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "AI builds your weekly plan",
+      text: "Our AI generates a complete 7-day meal plan with breakfast, lunch, snacks, and dinner using real dish names from your regional cuisine.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Get your grocery list",
+      text: "MealCoreAI automatically generates a consolidated grocery list for the week with exact quantities.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Swap meals you don't like",
+      text: "Tap to swap any dish for a condition-appropriate alternative. Your preferences improve the AI over time.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Get daily meal reminders",
+      text: "Enable push notifications to receive personalised reminders with the actual dish name at breakfast, lunch, and dinner time.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 6,
+      name: "New plan every week",
+      text: "MealCoreAI generates a fresh plan every week for variety while maintaining nutritional consistency for your condition.",
+    },
+  ],
+};
+
+const webPageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "How MealCoreAI Works",
+  url: "https://mealcoreai.com/how-it-works",
+  description:
+    "See how MealCoreAI builds your personalised Indian meal plan in 6 simple steps.",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://mealcoreai.com" },
+      { "@type": "ListItem", position: 2, name: "How It Works", item: "https://mealcoreai.com/how-it-works" },
+    ],
+  },
 };
 
 const STEPS = [
@@ -156,6 +233,8 @@ export default function HowItWorksPage() {
           </Link>
         </div>
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }} />
     </main>
   );
 }

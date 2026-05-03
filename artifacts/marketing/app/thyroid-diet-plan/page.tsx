@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start.",
     url: "https://mealcoreai.com/thyroid-diet-plan",
+    type: "website",
     images: [{ url: "/api/og?page=thyroid-diet-plan", width: 1200, height: 630 }],
   },
   twitter: {

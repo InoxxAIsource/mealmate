@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     description:
       "Unlike one-time diet charts, MealCoreAI gives you a daily Indian meal plan that adapts to your condition, routine, and what you actually eat. Free to start.",
     url: "https://mealcoreai.com",
+    type: "website",
     images: [{ url: "/api/og?page=home", width: 1200, height: 630 }],
   },
 };

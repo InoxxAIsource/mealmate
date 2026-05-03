@@ -4,8 +4,22 @@ import { CheckCircle2, Lock, ArrowRight, ShieldCheck } from "lucide-react";
 export const metadata: Metadata = {
   title: "Pricing: Free, Starter, Core & Premium Plans",
   description:
-    "MealCoreAI is free to start. Starter at ₹199/mo, Core at ₹499/mo with unlimited AI chat and swaps, Premium at ₹999/mo for the whole family. 7-day free trial on paid plans.",
+    "MealCoreAI is free to start. Starter ₹199/mo, Core ₹499/mo with unlimited AI chat and swaps, Premium ₹999/mo for the whole family. 7-day free trial included.",
   alternates: { canonical: "https://mealcoreai.com/pricing" },
+  openGraph: {
+    title: "MealCoreAI Pricing: Free, Starter, Core & Premium Plans",
+    description:
+      "MealCoreAI is free to start. Starter ₹199/mo, Core ₹499/mo with unlimited AI chat, Premium ₹999/mo for the whole family. 7-day free trial included.",
+    url: "https://mealcoreai.com/pricing",
+    type: "website",
+    images: [{ url: "https://mealcoreai.com/api/og?page=pricing", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MealCoreAI Pricing: Free, Starter, Core & Premium Plans",
+    description: "MealCoreAI is free to start. Starter ₹199/mo, Core ₹499/mo, Premium ₹999/mo. 7-day free trial included.",
+    images: ["https://mealcoreai.com/api/og?page=pricing"],
+  },
 };
 
 const priceSchema = {

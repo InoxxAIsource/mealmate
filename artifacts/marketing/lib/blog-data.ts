@@ -1214,7 +1214,7 @@ Dinner (7:30pm): Vegetable soup + 1 ragi roti + chana dal + sautéed capsicum.</
     slug: "cholesterol-lowering-indian-foods",
     title: "20 Indian Foods That Naturally Lower Cholesterol",
     metaTitle: "20 Indian Foods That Lower Cholesterol Naturally | MealCoreAI",
-    metaDescription: "Discover 20 powerful Indian foods that naturally lower LDL cholesterol and improve heart health. Science-backed food choices from Indian cuisine for cholesterol management.",
+    metaDescription: "Discover 20 powerful Indian foods that naturally lower LDL cholesterol and improve heart health. Science-backed choices from Indian cuisine.",
     category: "cholesterol",
     tags: ["cholesterol", "heart-health", "low-cholesterol", "indian-diet"],
     excerpt: "Nature's most powerful cholesterol-lowering foods are hiding in Indian kitchens. Here are 20 everyday Indian foods proven to reduce LDL and improve heart health.",

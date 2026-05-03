@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals, no bland food. Free to start.",
     url: "https://mealcoreai.com/cholesterol-diet-plan",
+    type: "website",
     images: [{ url: "/api/og?page=cholesterol-diet-plan", width: 1200, height: 630 }],
   },
   twitter: {
