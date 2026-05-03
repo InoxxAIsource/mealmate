@@ -2,6 +2,44 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-data";
 
+const collectionPageLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Health & Nutrition Blog for Indian Families",
+  description:
+    "Expert articles on PCOS, diabetes, thyroid, pregnancy nutrition, and kids' meals for Indian families. Evidence-based advice in Indian food context.",
+  url: "https://mealcoreai.com/blog",
+  publisher: {
+    "@type": "Organization",
+    name: "MealCoreAI",
+    url: "https://mealcoreai.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://mealcoreai.com/logo.png",
+    },
+  },
+  hasPart: blogPosts.slice(0, 10).map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    url: `https://mealcoreai.com/blog/${post.slug}`,
+    datePublished: post.publishDate,
+    author: {
+      "@type": "Person",
+      name: post.author.split(",")[0],
+    },
+    description: post.excerpt,
+  })),
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mealcoreai.com" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://mealcoreai.com/blog" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Health & Nutrition Blog for Indian Families",
   description:
@@ -56,6 +94,8 @@ export default function BlogPage({
 
   return (
     <main className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-orange-50 to-white py-16 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
