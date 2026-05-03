@@ -43,3 +43,4 @@ channel = "stable-25_05"
 
 [userenv.shared]
 VAPID_PUBLIC_KEY = "BJWm8K3_EzPAGBd8a_d3-bQld38m-uV2mqyrHrEK29gIVrsZF-aucybT_2omU_WCrdauJ8Gu3biu0w2MOH6FZ7s"
+CF_API_TOKEN = "cfat_VzdQRHSoh0CzPDV5fa4JYwGCsaRDSaFm1QuLBY9Yb1f99194"
