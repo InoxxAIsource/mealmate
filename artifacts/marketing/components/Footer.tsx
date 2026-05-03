@@ -17,6 +17,7 @@ export default function Footer() {
       { label: "Pregnancy Meal Plan", href: "/pregnancy-meal-plan" },
       { label: "Kids Meal Plan", href: "/kids-meal-plan" },
       { label: "Cholesterol Diet Plan", href: "/cholesterol-diet-plan" },
+      { label: "Weight Loss Meal Plan", href: "/weight-loss-meal-plan" },
     ],
     Company: [
       { label: "About", href: "/about" },

@@ -113,6 +113,28 @@ export default async function BlogPostPage({
 
   const conditionLink = CONDITION_LANDING[post.category];
 
+  // Extract FAQ Q&A pairs from the HTML content FAQ section
+  function extractFaqs(html: string): { question: string; answer: string }[] {
+    const stripTags = (s: string) => s.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").trim();
+    const faqStart = html.search(/<h2[^>]*>Frequently Asked Questions/i);
+    if (faqStart === -1) return [];
+    const nextH2 = html.indexOf("<h2", faqStart + 10);
+    const faqBlock = nextH2 !== -1 ? html.slice(faqStart, nextH2) : html.slice(faqStart);
+    const h3Matches = [...faqBlock.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi)];
+    return h3Matches.slice(0, 5).map((m) => ({ question: stripTags(m[1]), answer: stripTags(m[2]) }));
+  }
+
+  const faqs = extractFaqs(post.content);
+  const faqSchema = faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  } : null;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -163,6 +185,9 @@ export default async function BlogPostPage({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
 
       <main className="min-h-screen bg-white">
         <article className="max-w-3xl mx-auto px-4 py-12">

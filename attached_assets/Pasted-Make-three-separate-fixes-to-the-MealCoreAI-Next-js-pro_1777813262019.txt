@@ -1,0 +1,50 @@
+Make three separate fixes to the MealCoreAI Next.js project. Each fix is independent. Do them in order. Build and confirm no errors after all three are done.
+
+Fix 1 — Add FAQPage schema to blog post template
+Find the blog post template file. It is most likely at app/blog/[slug]/page.tsx or a similar path. Open it and look at the existing JSON-LD schema output. It currently outputs BlogPosting and BreadcrumbList schemas.
+Each blog post already has FAQ data — 5 questions and answers — stored in the post's data (likely in the MDX front matter, a content object, or a faqs array in the post data file). Find where that FAQ data lives.
+Add a FAQPage JSON-LD schema block to the page's <head> output, alongside the existing schemas. The FAQPage block must follow this exact structure:
+json{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Question text here",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer text here"
+      }
+    }
+  ]
+}
+Map the FAQ data from each post into this structure. There should be 5 Question objects in mainEntity for each post.
+Only add the FAQPage schema if the post actually has FAQ data. If a post has no faqs field, skip the FAQPage schema for that post.
+After this change, every blog post with FAQ data should output three schemas: BlogPosting, BreadcrumbList, and FAQPage.
+
+Fix 2 — Add Weight Loss to footer navigation
+Find the footer component file. It is most likely in components/Footer.tsx, components/layout/Footer.tsx, or similar. It may also be in app/layout.tsx.
+Look for the "Condition Plans" section in the footer. It currently lists these 6 items:
+
+PCOS Meal Plan → /pcos-meal-plan
+Diabetes Meal Plan → /diabetes-meal-plan
+Thyroid Diet Plan → /thyroid-diet-plan
+Pregnancy Meal Plan → /pregnancy-meal-plan
+Kids Meal Plan → /kids-meal-plan
+Cholesterol Diet Plan → /cholesterol-diet-plan
+
+Add a 7th item after Cholesterol Diet Plan:
+Weight Loss Meal Plan → /weight-loss-meal-plan
+Match the exact same link format, class names, and styling as the existing 6 items.
+
+Fix 3 — Fix homepage language and geo targeting
+Find the root layout file: app/layout.tsx. Find the <html> tag and change lang="en" to lang="en-IN".
+Then find the homepage metadata. This is either in app/page.tsx (if it exports a metadata object or generateMetadata function) or in app/layout.tsx. Look at how the /about page handles its metadata — it should have geo tags and hreflang already. Apply the same pattern to the homepage.
+Add these meta tags to the homepage <head>:
+html<meta name="geo.region" content="IN" />
+<meta name="geo.country" content="IN" />
+<meta name="geo.placename" content="India" />
+<link rel="alternate" hreflang="en-IN" href="https://mealcoreai.com/" />
+<link rel="alternate" hreflang="x-default" href="https://mealcoreai.com/" />
+Also update the og:locale Open Graph tag on the homepage to en_IN (if it exists and is currently set to en_US or en).
+In Next.js App Router, meta tags are set via the metadata export or generateMetadata. Use the same approach that the /about page uses — look at that page's metadata object to see the exact format.
