@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/pregnancy-meal-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/kids-meal-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/cholesterol-diet-plan`, lastModified: new Date("2026-05-02"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/weight-loss-meal-plan`, lastModified: new Date("2026-05-03"), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const prioritySlugs = [

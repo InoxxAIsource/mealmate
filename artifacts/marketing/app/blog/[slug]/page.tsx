@@ -188,10 +188,21 @@ export default async function BlogPostPage({
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="text-sm font-bold text-gray-900">{post.author}</h3>
-              <p className="text-xs text-gray-500 mt-0.5">Nutritionist &amp; Dietitian | MealCoreAI Health Team</p>
-              <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health, with clinical experience across PCOS, diabetes, thyroid, and pregnancy nutrition.
-              </p>
+              {post.author.includes("Team") ? (
+                <>
+                  <p className="text-xs text-gray-500 mt-0.5">Evidence-Based Nutrition Content</p>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                    Reviewed by registered nutritionists and dietitians with clinical experience across Indian health conditions including PCOS, diabetes, thyroid, and pregnancy.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-xs text-gray-500 mt-0.5">Certified Nutritionist &amp; Dietitian</p>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                    Specialising in Indian dietary interventions for hormonal and metabolic health, with clinical experience across PCOS, diabetes, thyroid, and pregnancy nutrition.
+                  </p>
+                </>
+              )}
               <p className="text-xs text-green-600 font-medium mt-1">
                 ✓ Reviewed on{" "}
                 <time dateTime={post.publishDate}>{publishedDate}</time>
@@ -324,10 +335,21 @@ export default async function BlogPostPage({
             </div>
             <div>
               <h3 className="font-bold text-gray-900 text-base">{post.author}</h3>
-              <p className="text-xs text-gray-500 mb-2">Registered Nutritionist &amp; Dietitian | India Dietetic Association</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {post.author} is a certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health conditions. With 8+ years of clinical experience, she leads the evidence-based nutrition content at MealCoreAI, translating complex research into practical Indian meal guidance for PCOS, diabetes, thyroid, and pregnancy.
-              </p>
+              {post.author.includes("Team") ? (
+                <>
+                  <p className="text-xs text-gray-500 mb-2">Evidence-Based Nutrition | MealCoreAI</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    This article is produced and reviewed by the MealCoreAI nutrition team — registered nutritionists and dietitians with clinical experience in Indian dietary interventions for PCOS, diabetes, thyroid, pregnancy, and cholesterol health conditions.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-xs text-gray-500 mb-2">Registered Nutritionist &amp; Dietitian | India Dietetic Association</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    A certified nutritionist specialising in Indian dietary interventions for hormonal and metabolic health conditions, with 8+ years of clinical experience translating complex nutrition research into practical Indian meal guidance for PCOS, diabetes, thyroid, and pregnancy.
+                  </p>
+                </>
+              )}
             </div>
           </div>
 

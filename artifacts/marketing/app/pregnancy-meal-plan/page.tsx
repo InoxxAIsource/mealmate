@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: { absolute: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart" },
   description:
-    "Personalised Indian pregnancy meal plan with trimester-specific nutrition. Iron, folate, calcium, and DHA-rich meals. Free to start. Ready in 90 seconds, no credit card.",
+    "Personalised Indian pregnancy meal plan with trimester-specific iron, folate, calcium, and DHA-rich meals. Free to start. Ready in 90 seconds.",
   alternates: { canonical: "https://mealcoreai.com/pregnancy-meal-plan" },
   openGraph: {
     title: "Pregnancy Meal Plan India: Trimester-wise Indian Diet Chart",
@@ -187,7 +187,7 @@ export default function PregnancyPage() {
             name: "Ragi (Finger Millet): for Calcium",
             claim: "Ragi has more calcium per gram than milk. That's not marketing — it's nutritional fact. 100g of ragi contains around 344mg of calcium compared to 125mg in 100ml of milk. For Indian women who are lactose intolerant or find it hard to drink the volume of milk recommended during pregnancy, ragi is a genuinely practical solution. Ragi dosas, ragi roti, ragi porridge, ragi idli — the ways to eat it are almost endless. Starting a ragi habit in the second trimester is one of the most impactful dietary choices a pregnant Indian woman can make.",
             citation: "Source: Nutritive Value of Indian Foods, National Institute of Nutrition (NIN), ICMR, 2017.",
-            citationUrl: "https://www.nin.res.in/downloads/DietaryGuidelinesforNIndians-A-Manual.pdf",
+            citationUrl: "https://www.nin.res.in",
           },
           {
             name: "Palak (Spinach): for Folate and Iron",

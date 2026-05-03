@@ -1,4 +1,5 @@
 {
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js",
+  "/weight-loss-meal-plan/page": "app/weight-loss-meal-plan/page.js"
 }

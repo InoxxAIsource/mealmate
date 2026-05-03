@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: { absolute: "Kids Meal Plan India: Healthy Tiffin & Nutrition Plan for Children" },
   description:
-    "Healthy Indian meal plan for kids aged 2-12 with nutrient-dense tiffin, lunch, and dinner ideas. AI-personalised by age, region, and preference. Free to start. Ready in 90 seconds.",
+    "Healthy Indian meal plan for kids aged 2–12. Nutrient-dense tiffin, lunch, and dinner ideas personalised by age, region, and preference. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/kids-meal-plan" },
   openGraph: {
     title: "Kids Meal Plan India: Healthy Tiffin & Nutrition Plan for Children",
@@ -187,7 +187,7 @@ export default function KidsPage() {
             name: "Ragi (Finger Millet): for Calcium and Bone Growth",
             claim: "Indian children need calcium urgently — bones are being built at a rate that won't happen again until later in life. Ragi provides more calcium per gram than milk, and it comes in a form that children will actually eat: ragi laddoos, ragi dosas, ragi upma, ragi porridge. You don't have to force children to drink three glasses of milk if you build ragi into two meals a day. For parents of lactose-intolerant children, or children who simply refuse milk, ragi is not a compromise — it's often the superior choice.",
             citation: "Source: National Institute of Nutrition (NIN), ICMR, Nutritive Value of Indian Foods, 2017.",
-            citationUrl: "https://www.nin.res.in/downloads/DietaryGuidelinesforNIndians-A-Manual.pdf",
+            citationUrl: "https://www.nin.res.in",
           },
           {
             name: "Eggs: for Brain Development and Height",

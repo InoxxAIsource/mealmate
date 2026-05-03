@@ -30,11 +30,6 @@ const nextConfig = {
         destination: "/thyroid-diet-plan",
         permanent: true,
       },
-      {
-        source: "/weight-loss-meal-plan",
-        destination: "/meal-plans/weight-loss-meal-plan-south-indian",
-        permanent: true,
-      },
     ];
   },
   async headers() {

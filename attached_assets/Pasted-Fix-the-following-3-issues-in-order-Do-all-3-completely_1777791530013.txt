@@ -1,0 +1,95 @@
+Fix the following 3 issues in order. Do all 3 completely before stopping. Build the project and confirm no errors after all 3 are done.
+
+FIX 1 — Replace broken NIN PDF link on 2 pages
+Find the files for /kids-meal-plan and /pregnancy-meal-plan in the Next.js project. These are likely at app/kids-meal-plan/page.tsx and app/pregnancy-meal-plan/page.tsx or similar paths.
+Both pages contain a link to this URL which is returning a 404 error:
+https://www.nin.res.in/downloads/DietaryGuidelinesforNIndians-A-Manual.pdf
+Find every occurrence of that URL in both files and replace it with:
+https://www.nin.res.in
+Do the same replacement in any shared component, data file, or constants file that might also contain that URL. Search the entire project for that string and replace all occurrences.
+
+FIX 2 — Remove duplicate FAQPage schema on all condition pages
+Every condition landing page currently outputs TWO identical FAQPage schema blocks in the HTML. This is a structured data error — Google may suppress rich results when it detects duplicate schemas of the same type on one page.
+The 6 affected pages are:
+
+/pcos-meal-plan
+/diabetes-meal-plan
+/thyroid-diet-plan
+/pregnancy-meal-plan
+/cholesterol-diet-plan
+/kids-meal-plan
+
+Find where the FAQPage schema is being generated. It is likely in one of these places:
+
+A shared component used by all condition pages such as a ConditionPage or MedicalPageLayout component
+The individual page.tsx files for each condition
+A separate schema or SEO component
+
+The issue is that the FAQPage schema JSON-LD block is being rendered twice — once from a parent/layout component and once from the page itself, or twice from the same component. Find the duplication and remove one of the two FAQPage schema blocks so each page only has exactly one FAQPage schema.
+After the fix, each condition page should have exactly 3 schema blocks in this order:
+
+MedicalWebPage
+FAQPage (one only)
+BreadcrumbList
+
+Do not remove any questions from the FAQPage. Do not change the MedicalWebPage or BreadcrumbList schemas. Only remove the duplicate FAQPage block.
+
+FIX 3 — Create /weight-loss-meal-plan as a proper condition landing page
+Currently /weight-loss-meal-plan returns a 308 permanent redirect to /meal-plans/weight-loss-meal-plan-south-indian. This means there is no dedicated weight loss condition landing page. All 6 other conditions (PCOS, Diabetes, Thyroid, Pregnancy, Cholesterol, Kids) have their own full landing pages but Weight Loss does not.
+Look at the structure of an existing condition page such as app/pcos-meal-plan/page.tsx or app/diabetes-meal-plan/page.tsx. Use exactly the same layout, component structure, and schema pattern to create a new page at app/weight-loss-meal-plan/page.tsx.
+The new /weight-loss-meal-plan page should contain:
+Page title: Weight Loss Meal Plan for Indians: 7-Day Fat Loss Diet with Indian Food
+Meta description: Personalised Indian weight loss meal plan using low-calorie, high-fibre Indian food. Lose weight without giving up roti, dal, and rice. Free 7-day plan.
+H1: Indian Weight Loss Meal Plan: Lose Weight Without Giving Up Indian Food
+Quick Answer paragraph (place this near the top of the page, before other sections):
+A weight loss meal plan for Indians works by reducing total calorie intake while keeping meals satisfying using high-fibre foods like dal, sabzi, and whole grains. The key is portion control — not eliminating roti or rice entirely. Replacing maida with jowar or bajra roti, eating dal before rice, and having dinner before 8 PM are the three changes that make the biggest difference.
+Condition description: Weight loss through Indian food focuses on calorie deficit without cultural food sacrifice. Traditional Indian ingredients — ragi, jowar, bajra, moong dal, leafy greens, and curd — are naturally weight-loss-friendly. The problem is portion size and meal timing, not the cuisine itself.
+Key foods to include section:
+
+Ragi and jowar rotis instead of maida — fewer calories, more fibre, keeps you full longer
+Moong dal — high protein, low calorie, reduces appetite between meals
+Sabzi-first eating — eat vegetables and dal before your grain to reduce total grain consumption naturally
+Curd and chaas — probiotic, filling, and low calorie
+Methi seeds soaked overnight — reduces appetite and stabilises blood sugar
+Green tea or jeera water instead of sugary chai — saves 100-150 calories per cup
+
+Key mistakes section:
+
+Skipping meals — causes muscle loss and slows metabolism
+Drinking fruit juice — removes fibre, spikes blood sugar, and adds empty calories
+Eating dinner after 9 PM — insulin sensitivity is lowest at night, more calories stored as fat
+Replacing all carbs — unsustainable and culturally impractical; portion control is more effective
+
+MedicalWebPage schema:
+
+name: Weight Loss Meal Plan for Indians
+description: Personalised Indian weight loss meal plan using low-calorie, high-fibre Indian food to achieve sustainable fat loss without eliminating traditional dishes.
+about: @type MedicalCondition, name Obesity and Weight Management
+author: Dr. Priya Sharma, Nutritionist
+dateModified: 2026-05-03
+
+FAQPage schema with these 5 questions:
+Q1: Can I lose weight eating Indian food?
+A1: Yes. Traditional Indian food — dal, sabzi, roti, curd — is naturally weight-loss-friendly when portions are managed correctly. The issue is not the cuisine but the quantity of grains, the timing of meals, and the addition of refined foods like maida and packaged snacks. A structured Indian weight loss meal plan maintains cultural food while creating a calorie deficit.
+Q2: How many rotis should I eat per day to lose weight?
+A2: For most Indian adults targeting weight loss, 2-3 small jowar or bajra rotis per meal is appropriate. The more important change is the ratio — make dal and sabzi the largest portion of your plate and reduce the grain portion. Eating dal and vegetables first before your roti naturally reduces how much grain you consume.
+Q3: Should I give up rice to lose weight?
+A3: Not necessarily. Rice can be included in an Indian weight loss plan if portion size is controlled and it is eaten with protein and fibre. Eating a small portion of rice after dal and sabzi — rather than rice as the main component — keeps blood sugar stable and total calorie intake lower. Brown rice or hand-pound rice provides more fibre.
+Q4: What is the best Indian breakfast for weight loss?
+A4: High-protein, low-GI breakfasts work best for Indian weight loss. Besan cheela with mint chutney, moong dal chilla with curd, ragi dosa with sambar, or two boiled eggs with one jowar roti are all effective options. Eating breakfast within 30-45 minutes of waking prevents cortisol spikes that drive fat storage.
+Q5: How long does it take to lose weight on an Indian diet?
+A5: With a consistent Indian weight loss meal plan — calorie deficit of 300-500 calories per day — most people lose 0.5-1 kg per week. Results are visible in 3-4 weeks. The advantage of using Indian food is sustainability — you are eating food you already know and enjoy, which makes long-term consistency far more achievable than Western diet plans.
+BreadcrumbList schema:
+
+Home → https://mealcoreai.com/
+Weight Loss Meal Plan → https://mealcoreai.com/weight-loss-meal-plan
+
+Regional meal plans section (add at the bottom before the CTA, matching the style used on other condition pages):
+Heading: Weight Loss Meal Plans by Region
+Links:
+
+South Indian Weight Loss Meal Plan → /meal-plans/weight-loss-meal-plan-south-indian
+North Indian Weight Loss Meal Plan → /meal-plans/weight-loss-meal-plan-north-indian
+
+CTA section: same as other condition pages — "Get Your Personalised Weight Loss Meal Plan" button linking to the app sign-up.
+After creating the page, remove the redirect that currently sends /weight-loss-meal-plan to /meal-plans/weight-loss-meal-plan-south-indian. The redirect is likely in next.config.js or next.config.ts in the redirects array. Find it and delete that redirect rule.

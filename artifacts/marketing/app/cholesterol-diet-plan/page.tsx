@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: { absolute: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days" },
   description:
-    "Heart-healthy Indian diet plan to lower LDL cholesterol with omega-3 rich meals and zero bland food. Free to start. Your personalised plan is ready in 90 seconds, no credit card.",
+    "Heart-healthy Indian diet plan to lower LDL cholesterol. Omega-3 rich meals using traditional ingredients. Personalised in 90 seconds. Free to start.",
   alternates: { canonical: "https://mealcoreai.com/cholesterol-diet-plan" },
   openGraph: {
     title: "Cholesterol Diet Plan for Indians: Lower LDL in 60 Days",

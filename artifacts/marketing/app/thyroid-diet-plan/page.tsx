@@ -4,7 +4,7 @@ import ConditionPage from "@/components/ConditionPage";
 export const metadata: Metadata = {
   title: { absolute: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women" },
   description:
-    "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism support. Free to start. Your plan is ready in 90 seconds, no credit card.",
+    "Personalised thyroid diet plan with selenium, iodine, and zinc-rich Indian meals for hypothyroidism. Ready in 90 seconds. Free to start, no credit card.",
   alternates: { canonical: "https://mealcoreai.com/thyroid-diet-plan" },
   openGraph: {
     title: "Thyroid Diet Plan India: Hypothyroid Meal Plan for Indian Women",
