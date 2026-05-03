@@ -18,6 +18,19 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/meal-plans/pcos-weekly-meal-plan-south-indian", anchor: "South Indian PCOS weekly meal plan with millet-based recipes" },
     { url: "/meal-plans/pcos-breakfast-ideas-north-indian", anchor: "North Indian PCOS breakfast ideas to balance hormones" },
     { url: "/meal-plans/pcos-7-day-meal-plan-gujarati", anchor: "Gujarati 7-day PCOS meal plan with low-GI dishes" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-south-indian", anchor: "South Indian 7-day PCOS meal plan with ragi and millets" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-north-indian", anchor: "North Indian 7-day PCOS meal plan with bajra and jowar" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-andhra", anchor: "Andhra PCOS weekly meal plan with low-GI South Indian dishes" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-tamil", anchor: "Tamil PCOS weekly meal plan with millet-based recipes" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-kerala", anchor: "Kerala PCOS weekly meal plan with coconut and curry leaf dishes" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-maharashtrian", anchor: "Maharashtrian PCOS weekly meal plan with traditional recipes" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-gujarati", anchor: "Gujarati PCOS weekly meal plan with low-GI thali" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-rajasthani", anchor: "Rajasthani PCOS weekly meal plan with millet-based dishes" },
+    { url: "/meal-plans/pcos-lunch-ideas-south-indian", anchor: "South Indian PCOS lunch ideas with sambar and millet rice" },
+    { url: "/meal-plans/pcos-lunch-ideas-north-indian", anchor: "North Indian PCOS lunch ideas with dal and roti" },
+    { url: "/meal-plans/pcos-dinner-ideas-south-indian", anchor: "South Indian PCOS dinner ideas for hormone balance" },
+    { url: "/meal-plans/pcos-snack-ideas-south-indian", anchor: "South Indian PCOS snack ideas with high-protein options" },
+    { url: "/meal-plans/pcos-breakfast-ideas-south-indian", anchor: "South Indian PCOS breakfast ideas with dosa and idli" },
     { url: "/blog/pcos-diet-plan-india", anchor: "Complete PCOS diet guide for Indian women" },
     { url: "/blog/millet-benefits-pcos", anchor: "Why millets like ragi and bajra help with PCOS" },
     { url: "/blog/pcos-fertility-diet-india", anchor: "PCOS fertility diet to improve chances of conception" },
@@ -31,6 +44,21 @@ export const linkGraph: Record<string, InternalLink[]> = {
   "/diabetes-meal-plan": [
     { url: "/meal-plans/diabetes-weekly-meal-plan-south-indian", anchor: "South Indian diabetic weekly meal plan with low-GI staples" },
     { url: "/meal-plans/diabetes-breakfast-ideas-north-indian", anchor: "North Indian diabetic breakfast ideas to control blood sugar" },
+    { url: "/meal-plans/diabetes-7-day-meal-plan-gujarati", anchor: "Gujarati 7-day diabetic meal plan with low-GI dishes" },
+    { url: "/meal-plans/diabetes-7-day-meal-plan-north-indian", anchor: "North Indian 7-day diabetic meal plan with millets" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-andhra", anchor: "Andhra diabetic weekly meal plan with low-GI South Indian dishes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-bengali", anchor: "Bengali diabetic weekly meal plan with fish and vegetables" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-gujarati", anchor: "Gujarati diabetic weekly meal plan with balanced thali" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-kerala", anchor: "Kerala diabetic weekly meal plan with coconut-based dishes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-maharashtrian", anchor: "Maharashtrian diabetic weekly meal plan with traditional recipes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-punjabi", anchor: "Punjabi diabetic weekly meal plan with low-GI dal and sabzi" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-rajasthani", anchor: "Rajasthani diabetic weekly meal plan with millet-based dishes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-tamil", anchor: "Tamil diabetic weekly meal plan with ragi and millets" },
+    { url: "/meal-plans/diabetes-breakfast-ideas-south-indian", anchor: "South Indian diabetic breakfast ideas with dosa and idli" },
+    { url: "/meal-plans/diabetes-breakfast-ideas-gujarati", anchor: "Gujarati diabetic breakfast ideas with dhokla and thepla" },
+    { url: "/meal-plans/diabetes-lunch-ideas-south-indian", anchor: "South Indian diabetic lunch ideas with sambar and millet rice" },
+    { url: "/meal-plans/diabetes-lunch-ideas-north-indian", anchor: "North Indian diabetic lunch ideas with dal and roti" },
+    { url: "/meal-plans/diabetes-dinner-ideas-south-indian", anchor: "South Indian diabetic dinner ideas for blood sugar control" },
     { url: "/blog/diabetic-indian-breakfast-ideas", anchor: "25 diabetic-friendly Indian breakfast ideas" },
     { url: "/blog/ragi-benefits-diabetes", anchor: "How ragi helps control blood sugar naturally" },
     { url: "/blog/low-gi-indian-foods-list", anchor: "Complete low-GI Indian foods list for diabetics" },
@@ -42,6 +70,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
 
   "/thyroid-diet-plan": [
     { url: "/meal-plans/thyroid-weekly-meal-plan-north-indian", anchor: "North Indian thyroid-friendly weekly meal plan" },
+    { url: "/meal-plans/thyroid-diet-plan-north-indian", anchor: "North Indian thyroid diet plan with selenium-rich meals" },
     { url: "/blog/thyroid-foods-avoid-india", anchor: "Foods to avoid with thyroid — Indian diet guide" },
     { url: "/blog/thyroid-weight-gain-diet", anchor: "Managing thyroid weight gain with an Indian diet" },
     { url: "/blog/pcos-thyroid-combined-diet-india", anchor: "Diet plan when you have both thyroid and PCOS" },
@@ -51,6 +80,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
 
   "/pregnancy-meal-plan": [
     { url: "/meal-plans/pregnancy-7-day-meal-plan-north-indian", anchor: "North Indian pregnancy 7-day meal plan trimester-wise" },
+    { url: "/meal-plans/pregnancy-meal-plan-north-indian", anchor: "North Indian pregnancy meal plan with iron and folate-rich foods" },
     { url: "/blog/pregnancy-nutrition-first-trimester", anchor: "First trimester nutrition guide for Indian mothers" },
     { url: "/blog/iron-rich-foods-pregnancy-india", anchor: "30 iron-rich Indian foods for pregnancy anaemia" },
     { url: "/blog/pregnancy-foods-to-avoid", anchor: "Foods to avoid during pregnancy — complete Indian guide" },
@@ -59,6 +89,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
 
   "/kids-meal-plan": [
     { url: "/meal-plans/kids-lunch-ideas-north-indian", anchor: "North Indian kids lunch ideas for healthy school tiffins" },
+    { url: "/meal-plans/kids-meal-plan-north-indian", anchor: "North Indian kids meal plan with nutrient-dense recipes" },
     { url: "/blog/kids-healthy-tiffin-ideas", anchor: "30 healthy tiffin box ideas for Indian kids" },
     { url: "/blog/kids-calcium-foods-india", anchor: "Calcium-rich Indian foods for growing kids" },
     { url: "/blog/kids-fussy-eater-meal-ideas", anchor: "Meal ideas for fussy eaters — Indian parents guide" },
@@ -71,6 +102,14 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/complete-guide-indian-diet-health-conditions", anchor: "Complete guide to Indian diet for PCOS, diabetes and more" },
     { url: "/diabetes-meal-plan", anchor: "Diabetic meal plans for heart-health management" },
     { url: "/thyroid-diet-plan", anchor: "Thyroid diet plan for metabolic health" },
+  ],
+
+  "/weight-loss-meal-plan": [
+    { url: "/meal-plans/weight-loss-meal-plan-south-indian", anchor: "South Indian weight loss meal plan with low-calorie recipes" },
+    { url: "/meal-plans/weight-loss-meal-plan-north-indian", anchor: "North Indian weight loss meal plan with jowar and bajra" },
+    { url: "/blog/south-indian-diet-weight-loss", anchor: "South Indian diet for sustainable weight loss" },
+    { url: "/diabetes-meal-plan", anchor: "Diabetic meal plans for weight and blood sugar management" },
+    { url: "/cholesterol-diet-plan", anchor: "Cholesterol diet plan for heart-healthy weight loss" },
   ],
 
   "/blog": [
@@ -122,6 +161,10 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pcos-insulin-resistance-diet", anchor: "Beating insulin resistance with Indian food" },
     { url: "/blog/pcos-fertility-diet-india", anchor: "PCOS fertility diet for women trying to conceive" },
     { url: "/meal-plans/pcos-weekly-meal-plan-south-indian", anchor: "South Indian PCOS weekly meal plan" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-andhra", anchor: "Andhra PCOS weekly meal plan with traditional recipes" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-tamil", anchor: "Tamil PCOS weekly meal plan with millet-based dishes" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-gujarati", anchor: "Gujarati 7-day PCOS meal plan" },
+    { url: "/meal-plans/pcos-breakfast-ideas-south-indian", anchor: "South Indian PCOS breakfast ideas" },
   ],
 
   "/blog/millet-benefits-pcos": [
@@ -130,6 +173,9 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pcos-breakfast-ideas-indian", anchor: "Millet-based Indian breakfasts for PCOS" },
     { url: "/blog/ragi-vs-oats-pcos-diabetes", anchor: "Ragi vs oats for PCOS: which grain works better?" },
     { url: "/meal-plans/pcos-breakfast-ideas-north-indian", anchor: "North Indian PCOS breakfast ideas" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-south-indian", anchor: "South Indian 7-day PCOS meal plan with ragi and millets" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-kerala", anchor: "Kerala PCOS weekly meal plan with ragi-based dishes" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-tamil", anchor: "Tamil PCOS weekly meal plan with millet recipes" },
   ],
 
   "/blog/pcos-breakfast-ideas-indian": [
@@ -137,6 +183,9 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pcos-diet-plan-india", anchor: "Complete PCOS diet guide" },
     { url: "/blog/millet-benefits-pcos", anchor: "Why millets are ideal for PCOS" },
     { url: "/meal-plans/pcos-weekly-meal-plan-south-indian", anchor: "PCOS weekly meal plan South Indian style" },
+    { url: "/meal-plans/pcos-breakfast-ideas-south-indian", anchor: "South Indian PCOS breakfast ideas with dosa and idli" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-north-indian", anchor: "North Indian 7-day PCOS meal plan" },
+    { url: "/meal-plans/pcos-lunch-ideas-south-indian", anchor: "South Indian PCOS lunch ideas to balance hormones" },
   ],
 
   "/blog/pcos-insulin-resistance-diet": [
@@ -145,6 +194,9 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pcos-fertility-diet-india", anchor: "PCOS fertility diet for women trying to conceive" },
     { url: "/diabetes-meal-plan", anchor: "Diabetic meal plans for insulin management" },
     { url: "/blog/low-gi-indian-foods-list", anchor: "Complete low-GI Indian foods list" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-gujarati", anchor: "Gujarati PCOS weekly meal plan with low-GI thali" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-maharashtrian", anchor: "Maharashtrian PCOS weekly meal plan for insulin resistance" },
+    { url: "/meal-plans/pcos-snack-ideas-south-indian", anchor: "South Indian PCOS snack ideas for stable blood sugar" },
   ],
 
   "/blog/diabetic-indian-breakfast-ideas": [
@@ -153,6 +205,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/low-gi-indian-foods-list", anchor: "Low-GI Indian foods for diabetics" },
     { url: "/blog/type2-diabetes-reversal-indian-diet", anchor: "Can type 2 diabetes be reversed with Indian food?" },
     { url: "/meal-plans/diabetes-breakfast-ideas-north-indian", anchor: "North Indian diabetic breakfast ideas" },
+    { url: "/meal-plans/diabetes-breakfast-ideas-south-indian", anchor: "South Indian diabetic breakfast ideas with dosa and idli" },
+    { url: "/meal-plans/diabetes-breakfast-ideas-gujarati", anchor: "Gujarati diabetic breakfast ideas with dhokla and thepla" },
   ],
 
   "/blog/ragi-benefits-diabetes": [
@@ -162,6 +216,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/ragi-vs-oats-pcos-diabetes", anchor: "Ragi vs oats — which is better for PCOS and diabetes?" },
     { url: "/blog/type2-diabetes-reversal-indian-diet", anchor: "Can Indian diet reverse type 2 diabetes?" },
     { url: "/meal-plans/diabetes-weekly-meal-plan-south-indian", anchor: "South Indian diabetic weekly meal plan" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-andhra", anchor: "Andhra diabetic weekly meal plan with ragi-based dishes" },
+    { url: "/meal-plans/diabetes-7-day-meal-plan-north-indian", anchor: "North Indian 7-day diabetic meal plan with millets" },
   ],
 
   "/blog/low-gi-indian-foods-list": [
@@ -170,6 +226,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/ragi-benefits-diabetes", anchor: "Why ragi is the best low-GI grain for diabetes" },
     { url: "/blog/diabetic-indian-breakfast-ideas", anchor: "Diabetic breakfast ideas using low-GI foods" },
     { url: "/blog/low-gi-vs-high-gi-indian-foods-diabetes", anchor: "Low-GI vs high-GI Indian foods: complete comparison for diabetics" },
+    { url: "/meal-plans/diabetes-7-day-meal-plan-gujarati", anchor: "Gujarati 7-day diabetic meal plan with low-GI dishes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-kerala", anchor: "Kerala diabetic weekly meal plan with low-GI staples" },
   ],
 
   "/blog/gestational-diabetes-meal-plan": [
@@ -177,6 +235,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/pregnancy-meal-plan", anchor: "Pregnancy nutrition plans trimester-wise" },
     { url: "/blog/pregnancy-nutrition-first-trimester", anchor: "First trimester nutrition guide" },
     { url: "/blog/low-gi-indian-foods-list", anchor: "Low-GI Indian foods safe in pregnancy" },
+    { url: "/meal-plans/diabetes-dinner-ideas-south-indian", anchor: "South Indian diabetic dinner ideas safe in pregnancy" },
+    { url: "/meal-plans/diabetes-lunch-ideas-south-indian", anchor: "South Indian diabetic lunch ideas for gestational diabetes" },
   ],
 
   "/blog/thyroid-foods-avoid-india": [
@@ -184,6 +244,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/thyroid-weight-gain-diet", anchor: "Managing thyroid weight gain with Indian food" },
     { url: "/blog/pcos-thyroid-combined-diet-india", anchor: "Managing PCOS and thyroid simultaneously with Indian diet" },
     { url: "/pcos-meal-plan", anchor: "PCOS meal plans for hormonal balance" },
+    { url: "/meal-plans/thyroid-diet-plan-north-indian", anchor: "North Indian thyroid diet plan with selenium-rich meals" },
   ],
 
   "/blog/thyroid-weight-gain-diet": [
@@ -191,6 +252,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/thyroid-foods-avoid-india", anchor: "Foods to avoid with thyroid in India" },
     { url: "/cholesterol-diet-plan", anchor: "Cholesterol-friendly meal plan for metabolic health" },
     { url: "/meal-plans/thyroid-weekly-meal-plan-north-indian", anchor: "North Indian thyroid weekly meal plan" },
+    { url: "/meal-plans/thyroid-diet-plan-north-indian", anchor: "North Indian thyroid diet plan for hypothyroidism" },
   ],
 
   "/blog/pregnancy-nutrition-first-trimester": [
@@ -198,6 +260,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/iron-rich-foods-pregnancy-india", anchor: "Iron-rich Indian foods for pregnancy anaemia" },
     { url: "/blog/pregnancy-foods-to-avoid", anchor: "Foods to avoid during pregnancy" },
     { url: "/meal-plans/pregnancy-7-day-meal-plan-north-indian", anchor: "North Indian pregnancy 7-day meal plan" },
+    { url: "/meal-plans/pregnancy-meal-plan-north-indian", anchor: "North Indian pregnancy meal plan with trimester-wise nutrition" },
   ],
 
   "/blog/iron-rich-foods-pregnancy-india": [
@@ -205,6 +268,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pregnancy-nutrition-first-trimester", anchor: "First trimester nutrition guide" },
     { url: "/blog/pregnancy-foods-to-avoid", anchor: "Foods to avoid during pregnancy" },
     { url: "/kids-meal-plan", anchor: "Kids nutrition plans for healthy growth" },
+    { url: "/meal-plans/pregnancy-meal-plan-north-indian", anchor: "North Indian pregnancy meal plan rich in iron and folate" },
   ],
 
   "/blog/pregnancy-foods-to-avoid": [
@@ -212,6 +276,7 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pregnancy-nutrition-first-trimester", anchor: "First trimester nutrition guide" },
     { url: "/blog/iron-rich-foods-pregnancy-india", anchor: "30 iron-rich foods safe in pregnancy" },
     { url: "/kids-meal-plan", anchor: "Kids meal plans for post-pregnancy nutrition" },
+    { url: "/meal-plans/pregnancy-meal-plan-north-indian", anchor: "North Indian pregnancy meal plan avoiding harmful foods" },
   ],
 
   "/blog/kids-healthy-tiffin-ideas": [
@@ -219,18 +284,22 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/kids-calcium-foods-india", anchor: "Calcium-rich Indian foods for growing kids" },
     { url: "/blog/kids-fussy-eater-meal-ideas", anchor: "Meal ideas for fussy eaters" },
     { url: "/pregnancy-meal-plan", anchor: "Pregnancy nutrition plans for new mothers" },
+    { url: "/meal-plans/kids-lunch-ideas-north-indian", anchor: "North Indian kids lunch ideas for school tiffin" },
+    { url: "/meal-plans/kids-meal-plan-north-indian", anchor: "North Indian kids meal plan for healthy growth" },
   ],
 
   "/blog/kids-calcium-foods-india": [
     { url: "/kids-meal-plan", anchor: "Personalised kids meal plan with calcium-rich dishes" },
     { url: "/blog/kids-healthy-tiffin-ideas", anchor: "Healthy tiffin ideas with calcium-rich foods" },
     { url: "/blog/kids-fussy-eater-meal-ideas", anchor: "Calcium-rich meals even fussy eaters love" },
+    { url: "/meal-plans/kids-meal-plan-north-indian", anchor: "North Indian kids meal plan with ragi and dairy-rich meals" },
   ],
 
   "/blog/kids-fussy-eater-meal-ideas": [
     { url: "/kids-meal-plan", anchor: "Personalised meal plan for fussy-eater kids" },
     { url: "/blog/kids-healthy-tiffin-ideas", anchor: "30 healthy tiffin ideas for Indian kids" },
     { url: "/blog/kids-calcium-foods-india", anchor: "Calcium-rich foods disguised as tasty meals" },
+    { url: "/meal-plans/kids-lunch-ideas-north-indian", anchor: "North Indian kids lunch ideas fussy eaters will enjoy" },
   ],
 
   "/blog/cholesterol-lowering-indian-foods": [
@@ -246,6 +315,13 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/low-gi-indian-foods-list", anchor: "Low-GI Indian foods for sustainable weight loss" },
     { url: "/blog/maharashtrian-diet-plan-health", anchor: "Maharashtrian diet plan for weight loss and health" },
     { url: "/how-it-works", anchor: "How MealCoreAI personalises your weight-loss plan" },
+    { url: "/meal-plans/weight-loss-meal-plan-north-indian", anchor: "North Indian weight loss meal plan with low-calorie recipes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-kerala", anchor: "Kerala diabetic weekly meal plan with light South Indian dishes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-tamil", anchor: "Tamil diabetic weekly meal plan with millet and ragi" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-south-indian", anchor: "South Indian 7-day PCOS meal plan for weight loss" },
+    { url: "/meal-plans/diabetes-dinner-ideas-south-indian", anchor: "South Indian diabetic dinner ideas for weight management" },
+    { url: "/meal-plans/diabetes-breakfast-ideas-south-indian", anchor: "South Indian diabetic breakfast ideas for weight loss" },
+    { url: "/meal-plans/pcos-lunch-ideas-south-indian", anchor: "South Indian PCOS lunch ideas for weight management" },
   ],
 
   "/blog/meal-planning-beginners-india": [
@@ -256,6 +332,10 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/maharashtrian-diet-plan-health", anchor: "Maharashtrian diet plan for weight loss and diabetes" },
     { url: "/blog/vrat-diet-plan-india", anchor: "What to eat and avoid on Hindu fasting days" },
     { url: "/blog", anchor: "All Indian nutrition and meal planning articles" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-rajasthani", anchor: "Rajasthani PCOS weekly meal plan for beginners" },
+    { url: "/meal-plans/pcos-lunch-ideas-north-indian", anchor: "North Indian PCOS lunch ideas for easy meal planning" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-rajasthani", anchor: "Rajasthani diabetic weekly meal plan" },
+    { url: "/meal-plans/diabetes-lunch-ideas-north-indian", anchor: "North Indian diabetic lunch ideas for daily planning" },
   ],
 
   "/blog/ai-meal-planning-personalised-nutrition": [
@@ -273,6 +353,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/diabetes-meal-plan", anchor: "Diabetic meal plan for fasting days and regular meals" },
     { url: "/blog/pcos-diet-plan-india", anchor: "Complete PCOS diet guide for Indian women" },
     { url: "/blog/meal-planning-beginners-india", anchor: "How to plan healthy Indian meals for the whole week" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-bengali", anchor: "Bengali diabetic weekly meal plan with low-GI ingredients" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-rajasthani", anchor: "Rajasthani diabetic weekly meal plan with traditional foods" },
   ],
 
   "/blog/type2-diabetes-reversal-indian-diet": [
@@ -281,6 +363,10 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/low-gi-indian-foods-list", anchor: "Low-GI Indian foods list for blood sugar control" },
     { url: "/blog/ragi-benefits-diabetes", anchor: "How ragi helps with type 2 diabetes management" },
     { url: "/blog/low-gi-vs-high-gi-indian-foods-diabetes", anchor: "Low-GI vs high-GI Indian foods comparison" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-bengali", anchor: "Bengali diabetic weekly meal plan for diabetes reversal" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-punjabi", anchor: "Punjabi diabetic weekly meal plan for blood sugar control" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-maharashtrian", anchor: "Maharashtrian diabetic weekly meal plan" },
+    { url: "/meal-plans/diabetes-lunch-ideas-north-indian", anchor: "North Indian diabetic lunch ideas for type 2 diabetes" },
   ],
 
   "/blog/pcos-fertility-diet-india": [
@@ -288,6 +374,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/pcos-diet-plan-india", anchor: "Complete PCOS diet guide for Indian women" },
     { url: "/blog/pcos-insulin-resistance-diet", anchor: "Beating insulin resistance to improve fertility in PCOS" },
     { url: "/blog/millet-benefits-pcos", anchor: "Why millets support hormonal balance and fertility in PCOS" },
+    { url: "/meal-plans/pcos-dinner-ideas-south-indian", anchor: "South Indian PCOS dinner ideas for hormone balance" },
+    { url: "/meal-plans/pcos-snack-ideas-south-indian", anchor: "South Indian PCOS snack ideas for fertility support" },
   ],
 
   "/blog/maharashtrian-diet-plan-health": [
@@ -295,6 +383,13 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/pcos-meal-plan", anchor: "PCOS meal plans adapted for Maharashtrian cooking" },
     { url: "/blog/south-indian-diet-weight-loss", anchor: "South Indian diet for weight loss and health" },
     { url: "/blog/meal-planning-beginners-india", anchor: "How to plan healthy Indian meals step by step" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-maharashtrian", anchor: "Maharashtrian PCOS weekly meal plan" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-maharashtrian", anchor: "Maharashtrian diabetic weekly meal plan" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-gujarati", anchor: "Gujarati 7-day PCOS meal plan with western India staples" },
+    { url: "/meal-plans/diabetes-7-day-meal-plan-gujarati", anchor: "Gujarati 7-day diabetic meal plan" },
+    { url: "/meal-plans/diabetes-breakfast-ideas-gujarati", anchor: "Gujarati diabetic breakfast ideas with dhokla and thepla" },
+    { url: "/meal-plans/weight-loss-meal-plan-north-indian", anchor: "North Indian weight loss meal plan for busy families" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-gujarati", anchor: "Gujarati PCOS weekly meal plan with low-GI thali" },
   ],
 
   "/blog/complete-guide-indian-diet-health-conditions": [
@@ -304,6 +399,9 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/cholesterol-diet-plan", anchor: "Personalised cholesterol diet plan with Indian food" },
     { url: "/pregnancy-meal-plan", anchor: "Personalised pregnancy meal plan with Indian food" },
     { url: "/kids-meal-plan", anchor: "Personalised kids meal plan with Indian food" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-andhra", anchor: "Andhra PCOS weekly meal plan for South Indian women" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-andhra", anchor: "Andhra diabetic weekly meal plan with South Indian staples" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-tamil", anchor: "Tamil diabetic weekly meal plan with ragi and millets" },
   ],
 
   "/blog/ragi-vs-oats-pcos-diabetes": [
@@ -312,6 +410,9 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/ragi-benefits-diabetes", anchor: "Full guide to ragi for diabetes management" },
     { url: "/blog/millet-benefits-pcos", anchor: "Why millets are better than oats for PCOS management" },
     { url: "/blog/low-gi-indian-foods-list", anchor: "Complete low-GI Indian foods list" },
+    { url: "/meal-plans/pcos-7-day-meal-plan-north-indian", anchor: "North Indian 7-day PCOS meal plan with ragi and bajra" },
+    { url: "/meal-plans/pcos-lunch-ideas-north-indian", anchor: "North Indian PCOS lunch ideas with millet-based dishes" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-punjabi", anchor: "Punjabi diabetic weekly meal plan with ragi roti" },
   ],
 
   "/blog/pcos-thyroid-combined-diet-india": [
@@ -319,6 +420,9 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/thyroid-diet-plan", anchor: "Personalised thyroid diet plan for Indian women" },
     { url: "/blog/pcos-diet-plan-india", anchor: "Complete PCOS diet guide for Indian women" },
     { url: "/blog/thyroid-foods-avoid-india", anchor: "Foods to avoid when you have both PCOS and thyroid issues" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-kerala", anchor: "Kerala PCOS weekly meal plan for thyroid and PCOS" },
+    { url: "/meal-plans/pcos-weekly-meal-plan-rajasthani", anchor: "Rajasthani PCOS weekly meal plan for hormonal balance" },
+    { url: "/meal-plans/pcos-dinner-ideas-south-indian", anchor: "South Indian PCOS dinner ideas for combined thyroid-PCOS management" },
   ],
 
   "/blog/low-gi-vs-high-gi-indian-foods-diabetes": [
@@ -327,6 +431,8 @@ export const linkGraph: Record<string, InternalLink[]> = {
     { url: "/blog/low-gi-indian-foods-list", anchor: "Complete low-GI Indian foods list for diabetics" },
     { url: "/blog/ragi-benefits-diabetes", anchor: "Why ragi is the best low-GI grain for diabetes" },
     { url: "/blog/diabetic-indian-breakfast-ideas", anchor: "Low-GI diabetic breakfast ideas for Indians" },
+    { url: "/meal-plans/diabetes-weekly-meal-plan-gujarati", anchor: "Gujarati diabetic weekly meal plan with low-GI thali" },
+    { url: "/meal-plans/diabetes-lunch-ideas-south-indian", anchor: "South Indian diabetic lunch ideas with low-GI staples" },
   ],
 
   "/blog/mealcoreai-vs-generic-diet-chart": [
