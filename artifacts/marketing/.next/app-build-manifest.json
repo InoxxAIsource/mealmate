@@ -31,10 +31,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/privacy/page.js"
     ],
-    "/_not-found/page": [
+    "/blog/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/blog/[slug]/page.js"
+    ],
+    "/pregnancy-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pregnancy-meal-plan/page.js"
+    ],
+    "/pcos-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pcos-meal-plan/page.js"
+    ],
+    "/thyroid-diet-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/thyroid-diet-plan/page.js"
+    ],
+    "/kids-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/kids-meal-plan/page.js"
+    ],
+    "/diabetes-meal-plan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/diabetes-meal-plan/page.js"
     ]
   }
 }

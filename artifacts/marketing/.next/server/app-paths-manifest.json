@@ -1,8 +1,9 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/meal-plans/[slug]/page": "app/meal-plans/[slug]/page.js",
-  "/terms/page": "app/terms/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/weight-loss-meal-plan/page": "app/weight-loss-meal-plan/page.js",
-  "/page": "app/page.js"
+  "/pcos-meal-plan/page": "app/pcos-meal-plan/page.js",
+  "/page": "app/page.js",
+  "/pregnancy-meal-plan/page": "app/pregnancy-meal-plan/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/thyroid-diet-plan/page": "app/thyroid-diet-plan/page.js",
+  "/kids-meal-plan/page": "app/kids-meal-plan/page.js",
+  "/diabetes-meal-plan/page": "app/diabetes-meal-plan/page.js"
 }
