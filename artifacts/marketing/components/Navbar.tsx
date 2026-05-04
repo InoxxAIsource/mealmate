@@ -20,6 +20,7 @@ export default function Navbar() {
     { label: "Features", href: "/#features" },
     { label: "Health Tracks", href: "/#tracks" },
     { label: "How It Works", href: "/how-it-works" },
+    { label: "AI Chat", href: "/ai-nutritionist", highlight: true },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "/faq" },
     { label: "Pricing", href: "/pricing" },
@@ -48,8 +49,15 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors"
+                className={
+                  l.highlight
+                    ? "text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors flex items-center gap-1"
+                    : "text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors"
+                }
               >
+                {l.highlight && (
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                )}
                 {l.label}
               </Link>
             ))}
@@ -87,7 +95,11 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-2 px-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+              className={
+                l.highlight
+                  ? "block py-2 px-3 rounded-lg text-sm font-semibold text-orange-500 bg-orange-50"
+                  : "block py-2 px-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+              }
             >
               {l.label}
             </Link>
