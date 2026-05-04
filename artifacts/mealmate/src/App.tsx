@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { ClerkProvider, SignIn, SignUp, Show, useClerk } from "@clerk/react";
+import { ClerkProvider, SignIn, SignUp, Show, useClerk, useAuth } from "@clerk/react";
 import { AIChat } from "@/components/ai-chat";
 import { Switch, Route, useLocation, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClientProvider, useQueryClient } from "@tanstack/react-query";
@@ -86,7 +86,7 @@ function SignInPage() {
         <h1 className="text-2xl font-bold text-foreground">Sign in to MealCoreAI</h1>
         <p className="text-sm text-muted-foreground mt-1">Your AI-powered Indian meal planner</p>
       </div>
-      <SignIn routing="path" path={`${basePath}/sign-in`} signUpUrl={`${basePath}/sign-up`} afterSignInUrl={`${basePath}/dashboard`} />
+      <SignIn routing="path" path={`${basePath}/sign-in`} signUpUrl={`${basePath}/sign-up`} />
     </div>
   );
 }
@@ -98,7 +98,7 @@ function SignUpPage() {
         <h1 className="text-2xl font-bold text-foreground">Create your MealCoreAI account</h1>
         <p className="text-sm text-muted-foreground mt-1">Personalised Indian meal plans for your family</p>
       </div>
-      <SignUp routing="path" path={`${basePath}/sign-up`} signInUrl={`${basePath}/sign-in`} afterSignUpUrl={`${basePath}/onboarding/track`} />
+      <SignUp routing="path" path={`${basePath}/sign-up`} signInUrl={`${basePath}/sign-in`} />
     </div>
   );
 }
@@ -198,28 +198,36 @@ function DashboardWrapper({ component: Component, showAI = false }: any) {
   );
 }
 
-function MarketingRedirect() {
+function HomeRedirect() {
+  const { isLoaded, isSignedIn } = useAuth();
+
   useEffect(() => {
-    window.location.replace("/");
-  }, []);
+    if (isLoaded && !isSignedIn) {
+      window.location.replace("/");
+    }
+  }, [isLoaded, isSignedIn]);
+
+  if (!isLoaded) {
+    return (
+      <div className="min-h-[100dvh] flex items-center justify-center bg-background">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+      </div>
+    );
+  }
+
+  if (isSignedIn) {
+    return (
+      <>
+        <h1 className="sr-only">MealCoreAI – AI-Powered Indian Meal Planner for the Whole Family</h1>
+        <Redirect to="/dashboard" />
+      </>
+    );
+  }
+
   return (
     <div className="min-h-[100dvh] flex items-center justify-center bg-background">
       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
     </div>
-  );
-}
-
-function HomeRedirect() {
-  return (
-    <>
-      <h1 className="sr-only">MealCoreAI – AI-Powered Indian Meal Planner for the Whole Family</h1>
-      <Show when="signed-in">
-        <Redirect to="/dashboard" />
-      </Show>
-      <Show when="signed-out">
-        <MarketingRedirect />
-      </Show>
-    </>
   );
 }
 
