@@ -81,7 +81,11 @@ const clerkAppearance = {
 
 function SignInPage() {
   return (
-    <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4">
+    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 gap-5">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold text-foreground">Sign in to MealCoreAI</h1>
+        <p className="text-sm text-muted-foreground mt-1">Your AI-powered Indian meal planner</p>
+      </div>
       <SignIn routing="path" path={`${basePath}/sign-in`} signUpUrl={`${basePath}/sign-up`} />
     </div>
   );
@@ -89,7 +93,11 @@ function SignInPage() {
 
 function SignUpPage() {
   return (
-    <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4">
+    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 gap-5">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold text-foreground">Create your MealCoreAI account</h1>
+        <p className="text-sm text-muted-foreground mt-1">Personalised Indian meal plans for your family</p>
+      </div>
       <SignUp routing="path" path={`${basePath}/sign-up`} signInUrl={`${basePath}/sign-in`} />
     </div>
   );
@@ -193,6 +201,7 @@ function DashboardWrapper({ component: Component, showAI = false }: any) {
 function HomeRedirect() {
   return (
     <>
+      <h1 className="sr-only">MealCoreAI – AI-Powered Indian Meal Planner for the Whole Family</h1>
       <Show when="signed-in">
         <Redirect to="/dashboard" />
       </Show>
