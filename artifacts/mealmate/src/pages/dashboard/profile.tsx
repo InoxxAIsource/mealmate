@@ -255,7 +255,7 @@ export default function DashboardProfile() {
           <Button
             variant="outline"
             className="w-full h-12 justify-start font-medium text-destructive hover:text-destructive hover:bg-destructive/5"
-            onClick={() => signOut()}
+            onClick={() => signOut({ redirectUrl: "/" })}
           >
             <LogOut className="w-4 h-4 mr-3" />
             Sign Out

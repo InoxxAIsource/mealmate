@@ -61,6 +61,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/diabetes-meal-plan/page.js"
     ],
+    "/how-it-works/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/how-it-works/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

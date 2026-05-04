@@ -86,7 +86,7 @@ function SignInPage() {
         <h1 className="text-2xl font-bold text-foreground">Sign in to MealCoreAI</h1>
         <p className="text-sm text-muted-foreground mt-1">Your AI-powered Indian meal planner</p>
       </div>
-      <SignIn routing="path" path={`${basePath}/sign-in`} signUpUrl={`${basePath}/sign-up`} />
+      <SignIn routing="path" path={`${basePath}/sign-in`} signUpUrl={`${basePath}/sign-up`} afterSignInUrl={`${basePath}/dashboard`} />
     </div>
   );
 }
@@ -98,7 +98,7 @@ function SignUpPage() {
         <h1 className="text-2xl font-bold text-foreground">Create your MealCoreAI account</h1>
         <p className="text-sm text-muted-foreground mt-1">Personalised Indian meal plans for your family</p>
       </div>
-      <SignUp routing="path" path={`${basePath}/sign-up`} signInUrl={`${basePath}/sign-in`} />
+      <SignUp routing="path" path={`${basePath}/sign-up`} signInUrl={`${basePath}/sign-in`} afterSignUpUrl={`${basePath}/onboarding/track`} />
     </div>
   );
 }
@@ -220,6 +220,7 @@ function ClerkProviderWithRoutes() {
       publishableKey={clerkPubKey}
       proxyUrl={clerkProxyUrl}
       appearance={clerkAppearance}
+      afterSignOutUrl="/"
       routerPush={(to) => setLocation(stripBase(to))}
       routerReplace={(to) => setLocation(stripBase(to), { replace: true })}
     >
