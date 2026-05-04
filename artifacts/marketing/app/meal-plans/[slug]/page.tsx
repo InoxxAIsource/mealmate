@@ -47,6 +47,16 @@ const PRIORITY_SLUGS = [
   "pregnancy-weekly-meal-plan-north-indian",
   "pregnancy-weekly-meal-plan-gujarati",
   "pregnancy-7-day-meal-plan-north-indian",
+  // GSC 404 fix — 2026-05-03
+  "pregnancy-breakfast-ideas-north-indian",
+  "pregnancy-7-day-meal-plan-gujarati",
+  "thyroid-breakfast-ideas-north-indian",
+  "thyroid-weekly-meal-plan-east-indian",
+  "thyroid-weekly-meal-plan-west-indian",
+  "thyroid-7-day-meal-plan-gujarati",
+  "thyroid-meal-plan-north-indian",
+  "weight-loss-meal-plan-east-indian",
+  "weight-loss-meal-plan-west-indian",
 ];
 
 export async function generateStaticParams() {

@@ -1,5 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/sitemap.xml/[[...__metadata_id__]]/route": "app/sitemap.xml/[[...__metadata_id__]]/route.js",
+  "/meal-plans/[slug]/page": "app/meal-plans/[slug]/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/weight-loss-meal-plan/page": "app/weight-loss-meal-plan/page.js",
   "/page": "app/page.js"
 }
