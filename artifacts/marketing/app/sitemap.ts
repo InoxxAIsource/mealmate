@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/about`, lastModified: new Date("2026-05-03"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/meal-plans`, lastModified: new Date("2026-05-03"), changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/ai-nutritionist`, lastModified: new Date("2026-05-04"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/gym-meal-plan`, lastModified: new Date("2026-05-04"), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const conditionPages: MetadataRoute.Sitemap = [

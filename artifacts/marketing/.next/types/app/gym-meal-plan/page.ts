@@ -1,8 +1,8 @@
-// File: /home/runner/workspace/artifacts/marketing/app/ai-nutritionist/page.tsx
-import * as entry from '../../../../app/ai-nutritionist/page.js'
+// File: /home/runner/workspace/artifacts/marketing/app/gym-meal-plan/page.tsx
+import * as entry from '../../../../app/gym-meal-plan/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/ai-nutritionist/page.js')
+type TEntry = typeof import('../../../../app/gym-meal-plan/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
